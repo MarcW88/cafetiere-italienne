@@ -320,7 +320,7 @@ function renderCard(p) {
       '</div>'
     : '<div class="card-price"><span style="color:var(--text-light);font-size:0.8rem;">Prix sur Amazon</span></div>';
   return '<div class="card-product">' +
-    '<div class="card-img"><img src="' + (p.image||'') + '" alt="' + p.titre.replace(/"/g,'&quot;') + '" loading="lazy" onerror="this.parentElement.style.background='#f0f0f0';this.style.display='none'"></div>' +
+    '<div class="card-img"><img src="' + (p.image||'') + '" alt="' + p.titre.replace(/"/g,'&quot;') + '" loading="lazy"></div>' +
     '<div class="card-body">' +
     '<h3 class="card-title">' + p.titre + '</h3>' +
     ratingHtml +
