@@ -1,0 +1,30 @@
+{
+  "slug":"cafetiere-italienne-induction",
+  "url":"/comparatifs/cafetiere-italienne-induction/",
+  "intent":{"query":"cafetière italienne induction","decision":"Choisir une moka réellement détectable par une plaque induction, dans une taille adaptée."},
+  "product_universe":[
+    {"id":"bialetti-venus","name":"Bialetti Venus","status":"ELIGIBLE","source":"https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"},
+    {"id":"bialetti-moka-induction","name":"Bialetti Moka Induction","status":"ELIGIBLE","source":"https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"},
+    {"id":"bialetti-brikka-induction","name":"Bialetti Brikka Induction","status":"CONDITIONALLY_ELIGIBLE","source":"https://www.bialetti.co.nz/collections/all-stovetops-excludes-d-g/products/bialetti-brikka-induction"},
+    {"id":"alessi-9090","name":"Alessi 9090","status":"ELIGIBLE","source":"https://alessi.com/fr/products/9090-espresso-coffee-maker"},
+    {"id":"alessi-vite","name":"Alessi Vite","status":"ELIGIBLE","source":"https://alessi.com/fr/products/vite-espresso-coffee-maker"}
+  ],
+  "criteria":[
+    {"id":"detection","label":"Compatibilité et diamètre de détection"},
+    {"id":"taille","label":"Taille disponible"},
+    {"id":"materiaux","label":"Construction du fond et du corps"},
+    {"id":"specialisation","label":"Fonction ou usage spécifique"}
+  ],
+  "ranking":[
+    {"rank":1,"product_id":"bialetti-venus","context":"choix par défaut en 4/6 tasses"},
+    {"rank":2,"product_id":"bialetti-moka-induction","context":"si l'esthétique classique compte"},
+    {"rank":3,"product_id":"bialetti-brikka-induction","context":"si l'on veut la logique Brikka"},
+    {"rank":4,"product_id":"alessi-9090","context":"premium"},
+    {"rank":5,"product_id":"alessi-vite","context":"design contemporain 2026"}
+  ],
+  "recommendation_logic":"La compatibilité de la taille exacte prime. Venus 2 tasses est exclue de l'induction malgré le nom de gamme ; les petits diamètres nécessitent une vérification de la plaque.",
+  "methodology_note":"Specs officielles prioritaires, sans supposer qu'un matériau ou une marque suffit à garantir la détection induction.",
+  "affiliate_commission_used_in_ranking":false,
+  "research_date":"2026-09-13",
+  "status":"READY_FOR_PUBLISH_REVIEW"
+}
