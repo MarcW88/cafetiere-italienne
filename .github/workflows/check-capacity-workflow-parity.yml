@@ -1,0 +1,76 @@
+name: Check capacity workflow parity
+
+on:
+  push:
+    branches:
+      - main
+      - capacity-cluster-audit-guide-exact
+    paths:
+      - 'capacity-workflow.config.yaml'
+      - '.agents/skills/**'
+      - '.github/workflows/check-capacity-workflow-parity.yml'
+  pull_request:
+    paths:
+      - 'capacity-workflow.config.yaml'
+      - '.agents/skills/**'
+      - '.github/workflows/check-capacity-workflow-parity.yml'
+  workflow_dispatch:
+
+jobs:
+  verify-capacity-methodology:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Cafetiere repo
+        uses: actions/checkout@v4
+
+      - name: Checkout pinned Bloc Notes reference
+        run: |
+          git clone --quiet https://github.com/MarcW88/bloc-notes-numerique.git /tmp/bloc-notes
+          git -C /tmp/bloc-notes checkout --quiet 534e9fd7e0fc2f7bd83da5b053987ac327c4e9fe
+
+      - name: Verify 80/20 contract markers
+        run: |
+          grep -F 'target_existing_skill_share: ">=80%"' capacity-workflow.config.yaml
+          grep -F 'custom_share_target: "<=20%"' capacity-workflow.config.yaml
+          grep -F 'custom_must_not_replace_existing_skill: true' capacity-workflow.config.yaml
+
+      - name: Verify exact reused skill directories
+        run: |
+          skills=(
+            affiliate-value
+            anti-ai-slop
+            content-and-copy
+            content-brief-authoring
+            editorial-qa
+            evidence-based-reviews
+            fact-check
+            general-writing
+            humanizer
+            internal-linking-audit
+            seo-best-practices
+            seo-content-audit
+            seo-keyword
+            seo-onpage
+            seo-technical
+          )
+          for skill in "${skills[@]}"; do
+            echo "Checking $skill"
+            diff -qr ".agents/skills/$skill" "/tmp/bloc-notes/.agents/skills/$skill"
+          done
+
+      - name: Verify capacity-specific custom scope only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          text = Path('capacity-workflow.config.yaml').read_text(encoding='utf-8')
+          forbidden = [
+              'custom_allowed_for:\n    - seo_methodology',
+              'custom_allowed_for:\n    - fact_check_methodology',
+              'custom_allowed_for:\n    - writing_methodology',
+              'custom_allowed_for:\n    - affiliate_methodology',
+          ]
+          for marker in forbidden:
+              if marker in text:
+                  raise SystemExit(f'Forbidden custom methodology marker: {marker}')
+          print('PASS: custom layer is restricted to orchestration/capacity-specific concerns')
+          PY
