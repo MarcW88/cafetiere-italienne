@@ -1,0 +1,62 @@
+name: Temporary model build
+
+on:
+  push:
+    branches:
+      - model-pages
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Wire model pages and validate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          build=Path('scripts/build.mjs')
+          text=build.read_text(encoding='utf-8')
+          import_line="import { modelPages } from './model-content.mjs';"
+          if import_line not in text:
+              anchor="import { brandPages, brandHub } from './brand-content.mjs';\n"
+              if anchor not in text: raise SystemExit('model import anchor missing')
+              text=text.replace(anchor,anchor+import_line+'\n',1)
+          old="const custom=cat==='guides'?(guidePages[slug]||guideHowToPages[slug]||guideFirstUsePages[slug]||guideBrewBasicsPages[slug]||guideMaterialsCarePages[slug]||guideTroubleshootingPages[slug]):cat==='comparatifs'?comparisonPages[slug]:cat==='marques'?brandPages[slug]:null;"
+          new="const custom=cat==='guides'?(guidePages[slug]||guideHowToPages[slug]||guideFirstUsePages[slug]||guideBrewBasicsPages[slug]||guideMaterialsCarePages[slug]||guideTroubleshootingPages[slug]):cat==='comparatifs'?comparisonPages[slug]:cat==='marques'?brandPages[slug]:cat==='modeles'?modelPages[slug]:null;"
+          if old in text: text=text.replace(old,new,1)
+          elif new not in text: raise SystemExit('model custom anchor missing')
+          marker="}else if(cat==='marques'){fs.writeFileSync(path.join(dir,'index.html'),shell(brandHub.title,brandHub.body,brandHub.description,{robots:'noindex,follow',canonical:brandHub.canonical}));}else{fs.writeFileSync(path.join(dir,'index.html'),shell(labels[cat],"
+          replacement="}else if(cat==='marques'){fs.writeFileSync(path.join(dir,'index.html'),shell(brandHub.title,brandHub.body,brandHub.description,{robots:'noindex,follow',canonical:brandHub.canonical}));}else if(cat==='modeles'){fs.writeFileSync(path.join(dir,'index.html'),shell('Modèles de cafetières italiennes',`<section class=\"page-hero\"><div class=\"container\"><div class=\"breadcrumbs\"><a href=\"/\">Accueil</a> · Modèles</div><span class=\"eyebrow\">Fiches produit</span><h1>Modèles de cafetières italiennes</h1><p>Quatre fiches documentées pour comprendre construction, plaque, taille et limites avant de comparer.</p></div></section><section class=\"section\"><div class=\"container directory\">${links}</div></section>`,'Fiches détaillées des principaux modèles Bialetti et Alessi : caractéristiques, compatibilités et limites.',{robots:'noindex,follow',canonical:'/modeles/'}));}else{fs.writeFileSync(path.join(dir,'index.html'),shell(labels[cat],"
+          if marker in text: text=text.replace(marker,replacement,1)
+          elif "canonical:'/modeles/'" not in text: raise SystemExit('model hub anchor missing')
+          build.write_text(text,encoding='utf-8')
+          css=Path('assets/styles.css')
+          c=css.read_text(encoding='utf-8')
+          if '/* Model editorial content */' not in c:
+              c += "\n\n/* Model editorial content */\n.model-layout{align-items:start}\n"
+              css.write_text(c,encoding='utf-8')
+          PY
+
+          npm run build
+          npm run check
+          python3 validate_models.py
+          for slug in bialetti-moka-express bialetti-venus bialetti-moka-induction alessi-9090; do
+            page="modeles/$slug/index.html"
+            grep -q '<meta name="robots" content="noindex,follow">' "$page"
+            grep -q '<article class="content-main">' "$page"
+            grep -q 'id="sources"' "$page"
+          done
+          grep -q '<meta name="robots" content="noindex,follow">' modeles/index.html
+          git add scripts/build.mjs assets/styles.css modeles
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "content: build model hub and product pages"
+          git push origin HEAD:model-pages
