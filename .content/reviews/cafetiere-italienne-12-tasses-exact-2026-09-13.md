@@ -3,7 +3,7 @@
 Date: 2026-09-13
 Route: `/capacites/cafetiere-italienne-12-tasses/`
 Workflow: `.agents/skills/capacity-decision-workflow/SKILL.md`
-Status: **MACHINE_RECHECK_PENDING**
+Status: **PASS — READY_FOR_HUMAN_VALIDATION**
 
 ## Workflow order evidence
 
@@ -68,7 +68,7 @@ PASS.
 
 ## SEO on-page
 
-PASS editorially.
+PASS.
 
 - title/H1 target `cafetière italienne 12 tasses` + ml intent;
 - answer-first opening includes the claim boundary;
@@ -78,18 +78,23 @@ PASS editorially.
 
 ## SEO technical
 
-Pending machine build recheck.
+PASS.
 
-Expected:
-- canonical `/capacites/cafetiere-italienne-12-tasses/`;
+GitHub Actions run `34778689620` completed successfully:
+- `npm run build`: PASS;
+- `npm run check`: PASS;
+- `python3 validate_capacities.py`: PASS;
+- exact 12-tasses output assertions: PASS;
+- canonical preserved;
 - `noindex,follow` preserved;
-- valid generated HTML;
-- no broken internal links;
-- other reviewed capacity HTML unchanged.
+- no fake hands-on / ranking / scoring markers;
+- Humanizer long-dash typography check: PASS;
+- 2/4/6/10 reviewed HTML byte-identical to `main`;
+- reviewed 12-tasses HTML persisted.
 
 ## SEO best-practices
 
-PASS editorially.
+PASS.
 
 No keyword stuffing, doorway behavior, unsupported structured-data claims or deceptive review language introduced.
 
@@ -105,7 +110,7 @@ PASS.
 
 ## Editorial QA
 
-PASS editorially.
+PASS.
 
 The page keeps a distinct large-capacity role and does not cannibalize product comparisons.
 
@@ -113,4 +118,4 @@ The page keeps a distinct large-capacity role and does not cannibalize product c
 
 `KEEP_NOINDEX`
 
-No automatic indexation or monetization activation. Final status becomes `PASS — READY_FOR_HUMAN_VALIDATION` only after machine validation.
+No automatic indexation or monetization activation. Human validation remains required before any indexation instruction.
