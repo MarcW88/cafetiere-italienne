@@ -6,6 +6,10 @@ const root = path.resolve(import.meta.dirname, '..');
 const escapeAttr = (value) => value.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 
 for (const [slug, reviewed] of Object.entries(capacitySizePagesReviewed)) {
+  // The 2-cup page is now owned by its page-specific exact-workflow override.
+  // Do not let the legacy batch-reviewed source rewrite it before that pass.
+  if (slug === 'cafetiere-italienne-2-tasses') continue;
+
   const page = path.join(root, 'capacites', slug, 'index.html');
   if (!fs.existsSync(page)) throw new Error(`Missing generated capacity page: ${slug}`);
 
