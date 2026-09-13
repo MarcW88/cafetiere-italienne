@@ -3,7 +3,7 @@
 Date: 2026-09-13
 Route: `/capacites/cafetiere-italienne-6-tasses/`
 Workflow: `.agents/skills/capacity-decision-workflow/SKILL.md`
-Status: **MACHINE_RECHECK_PENDING**
+Status: **PASS — READY_FOR_HUMAN_VALIDATION**
 
 ## Workflow order evidence
 
@@ -16,7 +16,7 @@ Status: **MACHINE_RECHECK_PENDING**
 
 ## Post-draft fact-check
 
-PASS editorially.
+PASS.
 
 Claims retained are supported by current manufacturer sources:
 - Venus 6: ~235 ml approximate brewed volume, base ~10.5 cm, induction caveat;
@@ -42,29 +42,31 @@ Contextual links answer distinct next questions:
 
 ## Humanizer
 
-PASS editorially.
+PASS.
 
 - no fake first-person testing;
 - no promotional superlatives;
 - no vague expert attribution;
 - technical distinctions are preserved;
-- product examples support the decision instead of replacing it.
+- product examples support the decision instead of replacing it;
+- the final rendered 6-tasses HTML contains no em dash or en dash;
+- the typography sanitizer is a generic rendering helper and does not own editorial methodology.
 
 ## General-writing
 
-PASS editorially.
+PASS.
 
 The draft leads with the capacity decision, explains the metric problem only where it changes interpretation, and ends when product-level choice begins.
 
 ## Anti-AI-slop
 
-PASS editorially.
+PASS.
 
-The page does not repeat the 4-tasses architecture mechanically. Its central reasoning is the split between the ~235–250 ml brewed-volume zone and the ~280–300 ml zone, plus the difference between brewed volume and capacity. The product table appears late as evidence.
+The page does not repeat the 4-tasses architecture mechanically. Its central reasoning is the split between the ~235 to 250 ml brewed-volume zone and the ~280 to 300 ml zone, plus the difference between brewed volume and capacity. The product table appears late as evidence.
 
 ## SEO on-page
 
-PASS editorially.
+PASS.
 
 - title: `Cafetière italienne 6 tasses : combien de ml ?`;
 - H1 answers the target query directly;
@@ -74,18 +76,22 @@ PASS editorially.
 
 ## SEO technical
 
-Pending machine build recheck.
+PASS.
 
-Expected:
-- canonical `/capacites/cafetiere-italienne-6-tasses/`;
+GitHub Actions run `34778067207` completed successfully:
+- `npm run build`: PASS;
+- `npm run check`: PASS;
+- `python3 validate_capacities.py`: PASS;
+- 6-tasses output assertions: PASS;
+- Humanizer typography assertions (`—`, `–`, malformed comma spacing): PASS;
+- canonical preserved;
 - `noindex,follow` preserved;
-- generated HTML valid;
-- no broken internal links;
-- previously approved 2/4/10/12 pages unaffected.
+- generated reviewed HTML persisted;
+- approved 2/4/10/12 HTML verified byte-identical to `main` during the run.
 
 ## GEO / AEO
 
-PASS editorially.
+PASS.
 
 - answer-first range with explicit uncertainty;
 - exact model entities and units;
@@ -95,7 +101,7 @@ PASS editorially.
 
 ## Editorial QA
 
-PASS editorially.
+PASS.
 
 The page has a distinct role, remains useful without affiliate links, does not rank products, and routes product choice to Comparatifs.
 
@@ -103,4 +109,4 @@ The page has a distinct role, remains useful without affiliate links, does not r
 
 `KEEP_NOINDEX`
 
-No automatic indexation or monetization change. Final status becomes `PASS — READY_FOR_HUMAN_VALIDATION` only after machine build/check/validator success.
+No automatic indexation or monetization change. Human validation and a separate explicit indexation instruction remain required.
