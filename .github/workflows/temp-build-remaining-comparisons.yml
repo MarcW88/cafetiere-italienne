@@ -1,0 +1,76 @@
+name: TEMP build remaining exact comparisons
+
+on:
+  push:
+    branches: [rewrite-remaining-comparisons-exact]
+    paths:
+      - ".github/workflows/temp-build-remaining-comparisons.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rewrite-remaining-comparisons-exact
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Apply exact Bloc Notes comparison engine
+        run: |
+          python apply_comparison_content.py
+          python generate_comparison_metadata.py
+          python apply_comparison_indexation.py
+      - name: Validate product and comparison layers
+        run: |
+          python apply_product_cards.py comparisons
+          python validate_product_cards.py comparisons
+          python validate_comparisons.py
+      - name: Check site integrity
+        run: npm run check
+      - name: Verify five bespoke rewrite markers
+        run: |
+          grep -q "La décision en moins d'une minute" comparatifs/meilleure-cafetiere-italienne/index.html
+          grep -q "Ce que l'inox ne prouve pas" comparatifs/cafetiere-italienne-inox/index.html
+          grep -q "Ariete 1358A : la plateforme" comparatifs/cafetiere-italienne-electrique/index.html
+          grep -q "Six langages de design" comparatifs/cafetiere-italienne-design/index.html
+          grep -q "Les petits formats comparés par volume réel" comparatifs/petite-cafetiere-italienne/index.html
+          grep -q "noindex,follow" comparatifs/meilleure-cafetiere-italienne/index.html
+          grep -q "noindex,follow" comparatifs/cafetiere-italienne-inox/index.html
+          grep -q "noindex,follow" comparatifs/cafetiere-italienne-electrique/index.html
+          grep -q "noindex,follow" comparatifs/cafetiere-italienne-design/index.html
+          grep -q "noindex,follow" comparatifs/petite-cafetiere-italienne/index.html
+      - name: Ensure only five intended comparison HTML pages changed
+        run: |
+          git diff --name-only | tee /tmp/changed.txt
+          bad=$(grep '^comparatifs/' /tmp/changed.txt | grep -v -E '^comparatifs/(meilleure-cafetiere-italienne|cafetiere-italienne-inox|cafetiere-italienne-electrique|cafetiere-italienne-design|petite-cafetiere-italienne)/index.html$' || true)
+          if [ -n "$bad" ]; then
+            echo "Unexpected comparison page changes:"
+            echo "$bad"
+            exit 1
+          fi
+          if grep -q '^comparatifs/cafetiere-italienne-induction/index.html$' /tmp/changed.txt; then
+            echo "Induction benchmark unexpectedly changed"
+            exit 1
+          fi
+      - name: Commit generated comparison HTML
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            comparatifs/meilleure-cafetiere-italienne/index.html \
+            comparatifs/cafetiere-italienne-inox/index.html \
+            comparatifs/cafetiere-italienne-electrique/index.html \
+            comparatifs/cafetiere-italienne-design/index.html \
+            comparatifs/petite-cafetiere-italienne/index.html
+          git commit -m "content: generate remaining exact-workflow comparisons"
+          git push origin HEAD:rewrite-remaining-comparisons-exact
