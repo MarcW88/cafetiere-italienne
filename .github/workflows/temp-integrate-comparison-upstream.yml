@@ -22,7 +22,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p .upstream/bloc-notes-comparison
-          for f in comparison-workflow.config.yaml comparison_pages.py comparison_bespoke_priority_20260909.py comparison_publication.py validate_product_cards.py; do
+          for f in comparison-workflow.config.yaml comparison_pages.py comparison_bespoke_priority_20260909.py comparison_publication.py validate_product_cards.py validate_comparisons.py; do
             cp "$f" ".upstream/bloc-notes-comparison/$f"
           done
           cp .github/workflows/regenerate-comparisons.yml .upstream/bloc-notes-comparison/regenerate-comparisons.yml
@@ -164,10 +164,11 @@ jobs:
           cat > .content/products/inline-affiliate.json <<'JSON'
           {"schema_version": 1, "pages": {}}
           JSON
-      - name: Adapt only the site scope constants in product validator
+      - name: Adapt only site-specific validator constants
         run: |
           python - <<'PY'
           from pathlib import Path
+
           p = Path('validate_product_cards.py')
           s = p.read_text(encoding='utf-8')
           start = s.index('EXPECTED_SCOPE = {')
@@ -175,6 +176,11 @@ jobs:
           replacement = '''EXPECTED_SCOPE = {\n    "comparisons": set(),\n    "usages": set(),\n    "guides": set(),\n}\n'''
           s = s[:start] + replacement + s[end:]
           s = s.replace('if total_pages != 19:\n        fail(f"approved product-module scope must remain 19 pages, got {total_pages}")', 'if total_pages != 0:\n        fail(f"approved product-module scope must remain 0 pages before per-page human approval, got {total_pages}")')
+          p.write_text(s, encoding='utf-8')
+
+          p = Path('validate_comparisons.py')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace(r'https://bloc-notes-numeriques\.fr/comparatifs/', r'https://cafetiere-italienne\.be/comparatifs/')
           p.write_text(s, encoding='utf-8')
           PY
       - name: Remove previous custom comparison implementation from active build
@@ -208,7 +214,6 @@ jobs:
           - `comparison_bespoke_remaining_20260909.py`
           - `comparison_products.py`
           - `generate_comparison_metadata.py`
-          - `validate_comparisons.py`
           - product-card / inline-affiliate rendering scripts
           - product-card / inline-affiliate assets
           - `regenerate-comparisons.yml`, `apply-product-modules.yml`, `maintain-inline-affiliate-links.yml`
@@ -222,7 +227,8 @@ jobs:
           - `comparison_bespoke_priority_20260909.py`: transition adapter preserving current bodies until each page is rewritten
           - `comparison_publication.py`: empty indexation manifest
           - product registry/placements: source schema, no approved commerce module before page-by-page review
-          - `validate_product_cards.py`: expected site scope only
+          - `validate_product_cards.py`: expected site scope only; upstream original preserved
+          - `validate_comparisons.py`: canonical host only; upstream original preserved
           - `comparison-workflow.cafetiere-extension.yaml`: GEO/AEO extension and site publication state
 
           No comparison content is approved by this port. A fresh `CLUSTER_AUDIT` using the exact upstream workflow is required before any page rewrite.
