@@ -1,0 +1,99 @@
+version: 1
+site: cafetiere-italienne.be
+route_root: /capacites/
+methodology_reference:
+  repository: MarcW88/bloc-notes-numerique
+  commit: 534e9fd7e0fc2f7bd83da5b053987ac327c4e9fe
+  base_workflow: guide
+
+reuse_policy:
+  target_existing_skill_share: ">=80%"
+  custom_share_target: "<=20%"
+  custom_allowed_for:
+    - orchestration
+    - capacity_route_mapping
+    - cup_to_ml_and_adjacent_size_reasoning
+    - category_boundaries_and_handoffs
+    - geo_aeo_extension
+    - publication_state
+  custom_must_not_replace_existing_skill: true
+
+exact_bloc_notes_skill_dirs:
+  - affiliate-value
+  - anti-ai-slop
+  - content-and-copy
+  - content-brief-authoring
+  - editorial-qa
+  - evidence-based-reviews
+  - fact-check
+  - general-writing
+  - humanizer
+  - internal-linking-audit
+  - seo-best-practices
+  - seo-content-audit
+  - seo-keyword
+  - seo-onpage
+  - seo-technical
+
+upstream_provenance:
+  - "seo-content-audit / seo-keyword / content-brief-authoring / content-and-copy / evidence-based-reviews: Rampstack-origin skills already vendored in bloc-notes-numerique"
+  - "general-writing: msimchowitz/writing-skills"
+  - "humanizer: external GitHub skill already vendored in bloc-notes-numerique"
+  - "anti-ai-slop: external GitHub skill already vendored in bloc-notes-numerique"
+  - "SEO technical/on-page/best-practices: shared external GitHub SEO skills already vendored in bloc-notes-numerique"
+  - "affiliate-value / internal-linking-audit / editorial-qa / fact-check: shared site/recovery skills used by bloc-notes-numerique"
+
+analysis_chain:
+  - seo_content_audit
+  - seo_keyword
+  - fact_check
+  - evidence_based_reviews_when_experiential_claims
+  - affiliate_value_when_purchase_influencing
+  - internal_linking_audit
+  - anti_ai_slop
+  - seo_onpage_and_technical
+  - editorial_qa
+  - capacity_specific_cluster_checks
+
+production_chain:
+  - consume_cluster_audit
+  - seo_keyword_and_intent_confirmation
+  - fact_check_and_evidence_ledger
+  - affiliate_value_when_relevant
+  - content_brief_authoring
+  - content_and_copy
+  - post_draft_fact_check
+  - internal_linking_audit
+  - humanizer
+  - general_writing
+  - anti_ai_slop
+  - seo_onpage
+  - seo_technical
+  - seo_best_practices
+  - geo_aeo_extension
+  - editorial_qa
+  - capacity_publish_review
+  - human_validation
+
+boundaries:
+  capacity: "Expliquer et aider à choisir une capacité/volume sans classer des produits."
+  comparison: "Comparer, évaluer ou recommander des produits précis."
+  guide: "Expliquer une technologie, un critère ou une procédure."
+  usage: "Traiter un job complet, ses circonstances et ses frictions."
+
+rules:
+  preserve_noindex_until_human_approval: true
+  product_ranking_allowed: false
+  require_ml_before_people_equivalence: true
+  prohibit_fixed_capacity_page_templates: true
+  require_cluster_structure_review: true
+  require_handoff_to_comparison_when_product_choice_is_primary: true
+  require_fact_check_for_model_specific_capacity_or_compatibility: true
+  require_affiliate_value_gate_when_purchase_influencing: true
+  require_anti_ai_slop_gate: true
+  require_seo_gate: true
+  require_internal_linking_gate: true
+  require_editorial_qa_gate: true
+  require_geo_aeo_gate: true
+  allow_automatic_indexation: false
+  allow_automatic_merge: false
