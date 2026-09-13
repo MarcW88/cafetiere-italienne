@@ -1,0 +1,66 @@
+name: Temporary brand build
+
+on:
+  push:
+    branches:
+      - brand-pages
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Wire brand pages and validate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          build=Path('scripts/build.mjs')
+          text=build.read_text(encoding='utf-8')
+          import_line="import { brandPages, brandHub } from './brand-content.mjs';"
+          if import_line not in text:
+              anchor="import { comparisonPages } from './comparison-content.mjs';\n"
+              if anchor not in text: raise SystemExit('brand import anchor missing')
+              text=text.replace(anchor,anchor+import_line+'\n',1)
+          old="const custom=cat==='guides'?(guidePages[slug]||guideHowToPages[slug]||guideFirstUsePages[slug]||guideBrewBasicsPages[slug]||guideMaterialsCarePages[slug]||guideTroubleshootingPages[slug]):cat==='comparatifs'?comparisonPages[slug]:null;"
+          new="const custom=cat==='guides'?(guidePages[slug]||guideHowToPages[slug]||guideFirstUsePages[slug]||guideBrewBasicsPages[slug]||guideMaterialsCarePages[slug]||guideTroubleshootingPages[slug]):cat==='comparatifs'?comparisonPages[slug]:cat==='marques'?brandPages[slug]:null;"
+          if old in text: text=text.replace(old,new,1)
+          elif new not in text: raise SystemExit('brand custom anchor missing')
+          hub_old="if(cat==='comparatifs'){fs.writeFileSync(path.join(dir,'index.html'),shell('Comparatifs de cafetières italiennes'"
+          if hub_old in text and "brandHub.title" not in text:
+              marker="}else{fs.writeFileSync(path.join(dir,'index.html'),shell(labels[cat],"
+              replacement="}else if(cat==='marques'){fs.writeFileSync(path.join(dir,'index.html'),shell(brandHub.title,brandHub.body,brandHub.description,{robots:'noindex,follow',canonical:brandHub.canonical}));}else{fs.writeFileSync(path.join(dir,'index.html'),shell(labels[cat],"
+              if marker not in text: raise SystemExit('brand hub anchor missing')
+              text=text.replace(marker,replacement,1)
+          build.write_text(text,encoding='utf-8')
+
+          css=Path('assets/styles.css')
+          c=css.read_text(encoding='utf-8')
+          if '/* Brand editorial content */' not in c:
+              c += "\n\n/* Brand editorial content */\n.brand-layout{align-items:start}.brand-directory{display:grid;grid-template-columns:1fr 1fr;gap:22px}.brand-choice{display:block;padding:34px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius)}.brand-choice h2{margin:10px 0 14px}.brand-choice p{color:var(--muted);margin-bottom:24px}@media(max-width:760px){.brand-directory{grid-template-columns:1fr}}\n"
+              css.write_text(c,encoding='utf-8')
+          PY
+
+          npm run build
+          npm run check
+          python3 validate_brands.py
+          for slug in bialetti alessi; do
+            page="marques/$slug/index.html"
+            grep -q '<meta name="robots" content="noindex,follow">' "$page"
+            grep -q '<article class="content-main">' "$page"
+            grep -q 'id="sources"' "$page"
+          done
+          grep -q '<meta name="robots" content="noindex,follow">' marques/index.html
+
+          git add scripts/build.mjs assets/styles.css marques
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "content: build brand hub and brand pages"
+          git push origin HEAD:brand-pages
