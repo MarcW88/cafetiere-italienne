@@ -1,8 +1,8 @@
 ---
 name: guide-analysis-workflow
-description: Workflow unique d'analyse des pages /guides/ de bloc-notes-numeriques.fr. Audite une URL ou le cluster, contrôle intention, rôle pédagogique, frontières avec usages/comparatifs/marques, preuves, fraîcheur, valeur affiliée, industrialisation éditoriale et SEO, puis décide KEEP, LIGHT_UPDATE, DEEP_REWRITE, MERGE ou NOINDEX. En mode PUBLISH_REVIEW, sert de gate final avant validation humaine.
+description: Workflow unique d'analyse des pages /guides/ de cafetiere-italienne.be. Audite une URL ou le cluster, contrôle intention, rôle pédagogique, frontières avec usages/comparatifs/marques, preuves, fraîcheur, valeur affiliée, industrialisation éditoriale et SEO, puis décide KEEP, LIGHT_UPDATE, DEEP_REWRITE, MERGE ou NOINDEX. En mode PUBLISH_REVIEW, sert de gate final avant validation humaine.
 metadata:
-  adapted_for: bloc-notes-numeriques.fr
+  adapted_for: cafetiere-italienne.be
   orchestration_target: ">=80% existing GitHub skills"
   custom_scope: "orchestration + guide integrity + category boundaries + cluster similarity"
 ---

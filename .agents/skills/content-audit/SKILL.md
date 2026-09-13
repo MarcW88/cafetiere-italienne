@@ -1,13 +1,13 @@
 ---
 name: content-audit
-description: Auditer une page éditoriale existante avant réécriture et décider KEEP, UPDATE, MERGE, REDIRECT ou REMOVE à partir de l'intention, de la valeur originale, des performances disponibles et des chevauchements. Adapté du skill content-audit de MarcW88/italiaanse-percolator.
+description: Auditer une page éditoriale existante avant réécriture et décider KEEP, UPDATE, MERGE, REDIRECT ou REMOVE à partir de l'intention, de la valeur originale, des performances disponibles et des chevauchements. Adapté du skill content-audit de MarcW88/cafetiere-italienne.
 license: MIT
 metadata:
-  upstream: https://github.com/MarcW88/italiaanse-percolator/tree/main/.agents/skills/content-audit
-  adapted_for: bloc-notes-numeriques.fr
+  upstream: https://github.com/MarcW88/cafetiere-italienne/tree/main/.agents/skills/content-audit
+  adapted_for: cafetiere-italienne.be
 ---
 
-# Content Audit — adaptation bloc-notes-numeriques.fr
+# Content Audit — adaptation cafetiere-italienne.be
 
 Utiliser ce skill avant toute réécriture d'une page existante. Il audite et décide ; il ne rédige pas la nouvelle page.
 

@@ -1,6 +1,6 @@
 # Instructions du dépôt
 
-Ce dépôt contient le site éditorial et d’affiliation bloc-notes-numeriques.fr.
+Ce dépôt contient le site éditorial et d’affiliation cafetiere-italienne.be.
 
 ## Design
 
@@ -60,7 +60,7 @@ Pour toute création ou réécriture sous `/usages/` :
 4. Respecter la frontière éditoriale : `/usages/` explique le besoin et les critères ; `/comparatifs/` classe les produits ; `/guides/` explique une technologie, un critère ou une procédure ; `/marques/` documente un écosystème ou un produit.
 5. Ne pas faire de scoring ou de ranking produit dans une page usage. Si un classement devient nécessaire, passer la main à `comparison-content-workflow`.
 6. Distinguer `OBSERVED`, `SUPPORTED`, `INFERRED`, `HYPOTHESIS` et `UNKNOWN`. Ne jamais présenter une motivation supposée comme un comportement utilisateur observé.
-7. Considérer les alternatives hors E Ink et les situations où le bloc-notes numérique n’est pas le bon outil.
+7. Considérer les alternatives à la cafetière italienne et les situations où la cafetière italienne n’est pas le bon choix.
 8. Conserver `noindex,follow` jusqu’à validation humaine explicite.
 9. Après rédaction, exécuter la chaîne de QA définie dans `usage-content-workflow`, y compris le contrôle anti-cannibalisation avec les comparatifs et guides proches.
 

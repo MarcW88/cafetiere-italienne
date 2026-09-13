@@ -1,8 +1,8 @@
 ---
 name: guide-content-workflow
-description: Workflow unique de production et correction des guides SEO/GEO sous /guides/ de bloc-notes-numeriques.fr. Utiliser après guide-analysis-workflow lorsqu'une page existante nécessite LIGHT_UPDATE ou DEEP_REWRITE, ou pour créer un nouveau guide. Orchestre majoritairement des skills GitHub existants pour intention, recherche, preuves, brief, rédaction et QA.
+description: Workflow unique de production et correction des guides SEO/GEO sous /guides/ de cafetiere-italienne.be. Utiliser après guide-analysis-workflow lorsqu'une page existante nécessite LIGHT_UPDATE ou DEEP_REWRITE, ou pour créer un nouveau guide. Orchestre majoritairement des skills GitHub existants pour intention, recherche, preuves, brief, rédaction et QA.
 metadata:
-  adapted_for: bloc-notes-numeriques.fr
+  adapted_for: cafetiere-italienne.be
   orchestration_target: ">=80% existing GitHub skills"
   custom_scope: "guide routing + category boundaries + source-of-truth integration"
 ---

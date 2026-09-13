@@ -1,9 +1,9 @@
 ---
 name: editorial-image-planner
-description: Décide si une page de bloc-notes-numeriques.fr a réellement besoin d'une image éditoriale générée, puis crée une requête compatible avec l'automatisation BFL. À utiliser après la rédaction et avant la publication.
+description: Décide si une page de cafetiere-italienne.be a réellement besoin d'une image éditoriale générée, puis crée une requête compatible avec l'automatisation BFL. À utiliser après la rédaction et avant la publication.
 license: MIT
 metadata:
-  adapted_for: bloc-notes-numeriques.fr
+  adapted_for: cafetiere-italienne.be
   generator: Black Forest Labs FLUX API
   default_model: FLUX.2 Pro Preview
 ---
@@ -54,11 +54,11 @@ Dans ces cas, conserver éventuellement la requête avec `status: BLOCKED` afin 
 
 Privilégier les scènes génériques, plausibles et éditoriales :
 
-- prise de notes pendant une réunion ;
-- étudiant utilisant un appareil E Ink générique dans un contexte de cours ;
-- lecture et annotation de documents sans interface ou marque identifiable ;
-- bureau, bibliothèque, déplacement, travail nomade ;
-- geste d'écriture ou contexte d'organisation documentaire.
+- préparation d’un café avec une cafetière italienne ;
+- personne utilisant une cafetière italienne générique dans une cuisine ;
+- préparation et service du café sans marque identifiable ;
+- cuisine, table de petit-déjeuner, déplacement ou camping ;
+- geste de dosage, de mouture ou de service du café.
 
 Le rendu doit être photoréaliste et sobre : lumière naturelle, matériaux plausibles, imperfections réalistes, photographie éditoriale. Éviter les compositions publicitaires, les appareils futuristes, les logos inventés et le texte généré dans l'image.
 

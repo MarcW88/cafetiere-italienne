@@ -1,8 +1,8 @@
 ---
 name: usage-content-workflow
-description: Workflow unique de production et correction des pages SEO/GEO sous /usages/ de bloc-notes-numeriques.fr. Utiliser après usage-analysis-workflow lorsqu'une page nécessite LIGHT_UPDATE ou DEEP_REWRITE, ou pour produire une nouvelle page centrée sur un job-to-be-done. Ne pas utiliser pour classer des produits, expliquer principalement une technologie ou rédiger une page de marque.
+description: Workflow unique de production et correction des pages SEO/GEO sous /usages/ de cafetiere-italienne.be. Utiliser après usage-analysis-workflow lorsqu'une page nécessite LIGHT_UPDATE ou DEEP_REWRITE, ou pour produire une nouvelle page centrée sur un job-to-be-done. Ne pas utiliser pour classer des produits, expliquer principalement une technologie ou rédiger une page de marque.
 metadata:
-  adapted_for: bloc-notes-numeriques.fr
+  adapted_for: cafetiere-italienne.be
   orchestration_target: ">=80% existing skills"
 ---
 
@@ -157,13 +157,13 @@ Conserver dans le record usage, pour les claims importants :
 
 Classes usage : `OBSERVED`, `SUPPORTED`, `INFERRED`, `HYPOTHESIS`, `UNKNOWN`.
 
-Pour les capacités produit ou logiciel susceptibles d'évoluer, privilégier des sources primaires et dater la vérification.
+Pour les caractéristiques produit, compatibilités ou prix susceptibles d’évoluer, privilégier des sources primaires et dater la vérification.
 
 ## Étape 6 — familles et alternatives de solutions
 
 Déterminer les familles de solutions **après** le JTBD et les critères.
 
-Une famille peut être, lorsque le sujet le justifie : appareil minimaliste, plateforme ouverte, grand écran PDF, couleur, liseuse avec stylet, tablette LCD, papier ou workflow hybride.
+Une famille peut être, lorsque le sujet le justifie : cafetière aluminium, cafetière inox, modèle induction, modèle électrique, petite capacité, grande capacité, machine expresso ou autre méthode d’extraction.
 
 Ne jamais imposer les mêmes familles à toutes les pages.
 
@@ -223,7 +223,7 @@ Règles :
 - expliquer les compromis plutôt que promettre une solution idéale ;
 - distinguer faits, déductions et hypothèses ;
 - rendre les contre-indications aussi honnêtes que les bénéfices ;
-- ne jamais inventer test, expérience personnelle, autonomie mesurée, prix ou avis utilisateur ;
+- ne jamais inventer test, expérience personnelle, température mesurée, temps d’extraction, prix ou avis utilisateur ;
 - ne pas transformer la page en comparatif produit ;
 - conserver l'état robots de brouillon défini par la politique du site ;
 - intégrer le contenu dans la vraie source de vérité (`usage_content.py` ou module explicitement relié à la génération), pas seulement dans le HTML généré.
@@ -263,7 +263,7 @@ Le contrôle final doit notamment confirmer :
 
 ## Vers `guide-content-workflow`
 
-Utiliser lorsqu'une sous-question mérite une explication autonome : fonctionnement E Ink, OCR, export, synchronisation, taille d'écran, prix, latence, annotation PDF procédurale, etc.
+Utiliser lorsqu'une sous-question mérite une explication autonome : fonctionnement d’une cafetière italienne, compatibilité induction, matériau, mouture, dosage, capacité, entretien, fuite ou remplacement du joint, etc.
 
 ## Vers `comparison-content-workflow`
 
@@ -308,7 +308,7 @@ Arrêter ou renvoyer vers l'analyse si :
 - la page repose surtout sur une catégorie démographique ;
 - des motivations hypothétiques sont traitées comme des faits ;
 - les critères viennent des produits plutôt que des frictions ;
-- aucune alternative hors E Ink n'est considérée alors qu'elle est plausible ;
+- aucune alternative à la cafetière italienne n’est considérée alors qu’elle est plausible ;
 - un ranking produit apparaît ;
 - les contre-indications disparaissent sans justification ;
 - la page devient substantiellement identique à un guide ou comparatif proche ;

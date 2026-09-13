@@ -1,8 +1,8 @@
 ---
 name: deal-content-workflow
-description: Workflow unique de création, correction et réécriture des pages /bons-plans/ de bloc-notes-numeriques.fr. Orchestre principalement des skills GitHub existants pour l'intention, la preuve de prix, la factualité, la valeur affiliée, le brief, la rédaction, l'on-page et l'édition. Il consomme les handoffs du deal-analysis-workflow et renvoie la page vers PUBLISH_REVIEW.
+description: Workflow unique de création, correction et réécriture des pages /bons-plans/ de cafetiere-italienne.be. Orchestre principalement des skills GitHub existants pour l'intention, la preuve de prix, la factualité, la valeur affiliée, le brief, la rédaction, l'on-page et l'édition. Il consomme les handoffs du deal-analysis-workflow et renvoie la page vers PUBLISH_REVIEW.
 metadata:
-  adapted_for: bloc-notes-numeriques.fr
+  adapted_for: cafetiere-italienne.be
   orchestration_target: ">=80% existing GitHub skills"
   custom_scope: "orchestration + deal evidence + freshness"
 ---

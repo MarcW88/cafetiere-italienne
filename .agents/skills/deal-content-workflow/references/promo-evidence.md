@@ -57,7 +57,7 @@ Puis calculer la remise. Si la base n'est pas fiable, ne pas afficher de pourcen
 
 - reprendre un prix barré sans comprendre sa base ;
 - comparer deux bundles différents ;
-- oublier le stylet, l'étui ou un abonnement nécessaire ;
+- oublier le joint, l’adaptateur induction ou un accessoire nécessaire ;
 - comparer un ancien modèle bradé avec le prix d'un nouveau modèle ;
 - dire « meilleur prix » sur la base d'un seul marchand ;
 - utiliser un article de deal ancien comme preuve d'une offre actuelle ;

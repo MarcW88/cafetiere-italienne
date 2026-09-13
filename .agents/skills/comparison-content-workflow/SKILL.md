@@ -1,8 +1,8 @@
 ---
 name: comparison-content-workflow
-description: Workflow unique de création et de réécriture des pages /comparatifs/ de bloc-notes-numeriques.fr. Orchestre principalement des skills GitHub externes pour l'intention, l'audit, la preuve, le brief, la rédaction, l'on-page et l'édition. La logique custom est limitée à la décision comparative et au contrôle du cluster.
+description: Workflow unique de création et de réécriture des pages /comparatifs/ de cafetiere-italienne.be. Orchestre principalement des skills GitHub externes pour l'intention, l'audit, la preuve, le brief, la rédaction, l'on-page et l'édition. La logique custom est limitée à la décision comparative et au contrôle du cluster.
 metadata:
-  adapted_for: bloc-notes-numeriques.fr
+  adapted_for: cafetiere-italienne.be
   orchestration_target: ">=80% existing GitHub skills"
   custom_scope: "orchestration + comparison decision logic"
 ---
@@ -229,7 +229,7 @@ Vérifier notamment :
 - « avantages / limites / pour qui » cloné ;
 - conclusion qui répète le classement ;
 - structure identique à un autre comparatif ;
-- généralités applicables à n'importe quelle tablette E Ink.
+- généralités applicables à n’importe quelle cafetière italienne.
 
 ## 5.5 `seo-onpage` — Rampstack
 

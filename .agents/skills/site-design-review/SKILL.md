@@ -1,6 +1,6 @@
 ---
 name: site-design-review
-description: Auditer le design et l’implémentation frontend de bloc-notes-numeriques.fr afin de détecter les interfaces génériques ou manifestement générées par IA, les défauts UX, les problèmes de confiance éditoriale, d’accessibilité et de cohérence. Utiliser pour les audits de pages, composants, captures, previews et pull requests frontend. Ne pas utiliser pour les contenus SEO seuls ou le backend sans interface.
+description: Auditer le design et l’implémentation frontend de cafetiere-italienne.be afin de détecter les interfaces génériques ou manifestement générées par IA, les défauts UX, les problèmes de confiance éditoriale, d’accessibilité et de cohérence. Utiliser pour les audits de pages, composants, captures, previews et pull requests frontend. Ne pas utiliser pour les contenus SEO seuls ou le backend sans interface.
 ---
 
 # Audit design du site

@@ -1,8 +1,8 @@
 ---
 name: comparison-analysis-workflow
-description: Workflow unique d'analyse des pages /comparatifs/ de bloc-notes-numeriques.fr. Orchestre principalement des skills GitHub externes pour l'intention, l'audit, les preuves, l'on-page et la qualité éditoriale, puis ajoute seulement les contrôles spécifiques à une comparaison. Décisions: KEEP, LIGHT_UPDATE, DEEP_REWRITE, MERGE ou NOINDEX. En PUBLISH_REVIEW, sert de gate final avant validation humaine.
+description: Workflow unique d'analyse des pages /comparatifs/ de cafetiere-italienne.be. Orchestre principalement des skills GitHub externes pour l'intention, l'audit, les preuves, l'on-page et la qualité éditoriale, puis ajoute seulement les contrôles spécifiques à une comparaison. Décisions: KEEP, LIGHT_UPDATE, DEEP_REWRITE, MERGE ou NOINDEX. En PUBLISH_REVIEW, sert de gate final avant validation humaine.
 metadata:
-  adapted_for: bloc-notes-numeriques.fr
+  adapted_for: cafetiere-italienne.be
   orchestration_target: ">=80% existing GitHub skills"
   custom_scope: "orchestration + comparison sanity + cluster similarity"
 ---
@@ -189,7 +189,7 @@ Chercher notamment :
 - mêmes produits et mêmes arguments sous plusieurs intentions ;
 - même verdict simplement repondéré ;
 - transitions ou conclusions recyclées ;
-- différence éditoriale trop faible entre `meilleur`, `étudiant`, `professionnel`, `tablette E Ink`, etc.
+- différence éditoriale trop faible entre `meilleure`, `induction`, `inox`, `électrique`, etc.
 
 Les composants visuels partagés sont normaux. Le problème apparaît lorsque **la pensée éditoriale** est clonée.
 

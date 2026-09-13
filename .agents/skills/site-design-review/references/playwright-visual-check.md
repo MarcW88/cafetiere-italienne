@@ -39,7 +39,7 @@ Pour limiter le contrôle à une ou plusieurs pages :
 
 ```bash
 node .agents/skills/site-design-review/scripts/run-visual-review.mjs \
-  --route /guides/choisir-bloc-notes-numerique/ \
+  --route /guides/comment-choisir-cafetiere-italienne/ \
   --route /bons-plans/black-friday/
 ```
 

@@ -1,8 +1,8 @@
 ---
 name: brand-analysis-workflow
-description: Workflow unique d'analyse des pages /marques/ de bloc-notes-numeriques.fr. Audite une page ou le cluster, compare les architectures, contrôle intention, valeur affiliée, preuves, factualité, AI-slop et SEO, puis décide KEEP, LIGHT_UPDATE, DEEP_REWRITE, MERGE ou NOINDEX. En mode PUBLISH_REVIEW, remplace l'ancien brand-editorial-publish-gate.
+description: Workflow unique d'analyse des pages /marques/ de cafetiere-italienne.be. Audite une page ou le cluster, compare les architectures, contrôle intention, valeur affiliée, preuves, factualité, AI-slop et SEO, puis décide KEEP, LIGHT_UPDATE, DEEP_REWRITE, MERGE ou NOINDEX. En mode PUBLISH_REVIEW, remplace l'ancien brand-editorial-publish-gate.
 metadata:
-  adapted_for: bloc-notes-numeriques.fr
+  adapted_for: cafetiere-italienne.be
   orchestration_target: ">=80% existing skills"
 ---
 
@@ -12,7 +12,7 @@ metadata:
 
 C'est le **seul workflow d'analyse** à utiliser pour les URLs sous `/marques/`.
 
-Il ne réécrit pas la page par défaut. Il orchestre des skills spécialisés déjà présents dans le dépôt et ajoute uniquement les contrôles qui sont propres au cluster marques de bloc-notes-numeriques.fr.
+Il ne réécrit pas la page par défaut. Il orchestre des skills spécialisés déjà présents dans le dépôt et ajoute uniquement les contrôles qui sont propres au cluster marques de cafetiere-italienne.be.
 
 Les autres workflows du site restent autonomes : comparatifs, guides, usages, bons plans et pages de confiance ne passent pas par ce workflow.
 

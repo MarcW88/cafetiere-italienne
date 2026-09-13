@@ -5,7 +5,7 @@ license: MIT
 metadata:
   upstream: https://github.com/wondelai/skills/tree/main/jobs-to-be-done
   upstream_author: Wondel.ai sp. z o.o.
-  adapted_for: bloc-notes-numeriques.fr
+  adapted_for: cafetiere-italienne.be
 ---
 
 # Jobs to Be Done — adaptation éditoriale
@@ -20,17 +20,17 @@ Utiliser la structure :
 
 > Quand [circonstances], je veux [progrès], afin de [résultat recherché].
 
-Le job principal doit pouvoir être formulé sans mentionner « bloc-notes numérique », « tablette E Ink », une marque ou un modèle. Si la solution apparaît dans le job, le cadrage est trop produit-centric.
+Le job principal doit pouvoir être formulé sans mentionner « cafetière italienne », un matériau, une marque ou un modèle. Si la solution apparaît dans le job, le cadrage est trop produit-centric.
 
 ## 2. Décrire les circonstances plutôt que les seules caractéristiques du public
 
-Une catégorie comme « étudiant », « professionnel » ou « dessinateur » n'est pas encore un job.
+Une catégorie comme « amateur de café », « utilisateur quotidien » ou « campeur » n’est pas encore un job.
 
 Décrire :
 - le moment ou contexte déclencheur ;
-- le type de documents ou informations manipulés ;
+- le type de café, la quantité ou le matériel manipulé ;
 - la fréquence et la durée de l'activité ;
-- l'environnement physique ou logiciel ;
+- l’environnement physique et la source de chaleur disponible ;
 - ce qui rend la situation actuelle difficile ;
 - le résultat concret attendu.
 
@@ -39,13 +39,13 @@ Une même personne peut avoir plusieurs jobs selon la situation.
 ## 3. Examiner les trois dimensions du job
 
 ### Fonctionnelle
-Ce que l'utilisateur doit réellement accomplir : écrire, annoter, retrouver, transférer, lire, dessiner, classer, partager, etc.
+Ce que l’utilisateur doit réellement accomplir : doser, moudre, chauffer, extraire, servir, nettoyer, transporter, etc.
 
 ### Émotionnelle
-Ce que l'utilisateur cherche à ressentir ou éviter : rester concentré, réduire la charge mentale, avoir confiance dans la sauvegarde, éviter la frustration d'un workflow lent, etc.
+Ce que l’utilisateur cherche à ressentir ou éviter : obtenir un résultat fiable, garder un rituel simple, éviter un café amer ou brûlé, limiter la frustration d’une préparation imprévisible, etc.
 
 ### Sociale
-Ce que l'usage change dans l'interaction avec d'autres personnes : partager un document propre, travailler sans écran lumineux en réunion, présenter des notes lisibles, collaborer, etc.
+Ce que l’usage change dans l’interaction avec d’autres personnes : préparer plusieurs cafés, servir des invités, partager un rituel ou s’adapter aux préférences du foyer, etc.
 
 **Règle de preuve :** ne pas inventer de motivation émotionnelle ou sociale. Sans donnée utilisateur ou source crédible, la marquer comme `HYPOTHESIS` et ne pas la présenter comme un fait établi dans le contenu final.
 
@@ -58,29 +58,29 @@ Pour chaque usage, distinguer :
 - **Anxiety** : les risques perçus lors du changement ;
 - **Habit** : ce qui rend la solution actuelle facile à conserver.
 
-Le contenu doit traiter les freins autant que les bénéfices. Une page usage crédible explique donc aussi pourquoi quelqu'un pourrait rester avec du papier, un ordinateur, une tablette classique ou son système actuel.
+Le contenu doit traiter les freins autant que les bénéfices. Une page usage crédible explique donc aussi pourquoi quelqu’un pourrait rester avec une machine expresso, une cafetière filtre, une machine à capsules, une French press ou sa méthode actuelle.
 
 ## 5. Identifier la concurrence réelle
 
 Lister tout ce qui peut être « engagé » pour faire le même job :
 
-- cahier papier ;
-- ordinateur portable ;
-- tablette LCD ;
-- liseuse ;
-- smartphone ;
-- impression papier ;
-- combinaison de plusieurs outils ;
+- machine expresso ;
+- cafetière filtre ;
+- machine à capsules ;
+- French press ;
+- AeroPress ;
+- café soluble ;
+- combinaison de plusieurs méthodes ;
 - ne rien changer.
 
-Ne pas limiter la comparaison aux appareils E Ink.
+Ne pas limiter la comparaison aux cafetières italiennes.
 
 ## 6. Séparer Big Hire et Little Hire
 
 - **Big Hire** : la décision d'acheter ou d'adopter une solution.
 - **Little Hire** : la décision répétée de l'utiliser dans la situation réelle.
 
-Une caractéristique peut aider à vendre l'appareil sans améliorer l'usage quotidien. Pour une page `/usages/`, privilégier les critères qui changent le Little Hire : friction d'import, vitesse pour retrouver une note, lisibilité réelle du PDF, simplicité d'export, poids porté tous les jours, etc.
+Une caractéristique peut aider à vendre le produit sans améliorer l’usage quotidien. Pour une page `/usages/`, privilégier les critères qui changent le Little Hire : simplicité du dosage, régularité de l’extraction, compatibilité avec la plaque, capacité adaptée, nettoyage, encombrement ou transport, etc.
 
 ## 7. Transformer le job en critères de décision
 
