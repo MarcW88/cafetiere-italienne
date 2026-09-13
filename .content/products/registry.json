@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "updated_at": "2026-09-13",
   "policy": {
     "purpose": "Shared identity and evidence registry for products considered by comparison pages.",
@@ -32,6 +32,24 @@
       "evidence_status": "PARTIAL",
       "primary_sources": ["https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"]
     },
+    "bialetti-venus-4": {
+      "name": "Bialetti Venus — 4 tasses",
+      "brand": "Bialetti",
+      "family": "Venus",
+      "identity_scope": "variant",
+      "evidence_status": "VERIFIED",
+      "facts": {"induction": true, "brew_volume_ml": 170, "base_width_cm": 9.5, "material": "acier inoxydable 18/10"},
+      "primary_sources": ["https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"]
+    },
+    "bialetti-venus-6": {
+      "name": "Bialetti Venus — 6 tasses",
+      "brand": "Bialetti",
+      "family": "Venus",
+      "identity_scope": "variant",
+      "evidence_status": "VERIFIED",
+      "facts": {"induction": true, "brew_volume_ml": 235, "base_width_cm": 10.5, "material": "acier inoxydable 18/10"},
+      "primary_sources": ["https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"]
+    },
     "bialetti-moka-induction": {
       "name": "Bialetti Moka Induction",
       "brand": "Bialetti",
@@ -40,13 +58,49 @@
       "evidence_status": "PARTIAL",
       "primary_sources": ["https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"]
     },
+    "bialetti-moka-induction-2": {
+      "name": "Bialetti Moka Induction — 2 tasses",
+      "brand": "Bialetti",
+      "family": "Moka Induction",
+      "identity_scope": "variant",
+      "evidence_status": "VERIFIED",
+      "facts": {"induction": true, "brew_volume_ml": 100, "base_width_cm": 9.5, "material": "base bi-couche inox/aluminium, partie haute aluminium"},
+      "primary_sources": ["https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"]
+    },
+    "bialetti-moka-induction-4": {
+      "name": "Bialetti Moka Induction — 4 tasses",
+      "brand": "Bialetti",
+      "family": "Moka Induction",
+      "identity_scope": "variant",
+      "evidence_status": "VERIFIED",
+      "facts": {"induction": true, "brew_volume_ml": 150, "base_width_cm": 10.0, "material": "base bi-couche inox/aluminium, partie haute aluminium"},
+      "primary_sources": ["https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"]
+    },
+    "bialetti-moka-induction-6": {
+      "name": "Bialetti Moka Induction — 6 tasses",
+      "brand": "Bialetti",
+      "family": "Moka Induction",
+      "identity_scope": "variant",
+      "evidence_status": "VERIFIED",
+      "facts": {"induction": true, "brew_volume_ml": 280, "base_width_cm": 11.5, "material": "base bi-couche inox/aluminium, partie haute aluminium"},
+      "primary_sources": ["https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"]
+    },
     "bialetti-brikka-induction": {
       "name": "Bialetti Brikka Induction",
       "brand": "Bialetti",
       "family": "Brikka",
       "identity_scope": "model",
       "evidence_status": "PARTIAL",
-      "primary_sources": ["https://www.bialetti.co.nz/collections/all-stovetops-excludes-d-g/products/bialetti-brikka-induction"]
+      "primary_sources": ["https://www.bialetti.co.nz/products/bialetti-brikka-induction"]
+    },
+    "bialetti-brikka-induction-4": {
+      "name": "Bialetti Brikka Induction — 4 tasses",
+      "brand": "Bialetti",
+      "family": "Brikka",
+      "identity_scope": "variant",
+      "evidence_status": "VERIFIED",
+      "facts": {"induction": true, "brew_volume_ml": 160, "base_width_cm": 11.5, "material": "inox et aluminium", "special_feature": "soupape Brikka"},
+      "primary_sources": ["https://www.bialetti.co.nz/products/bialetti-brikka-induction"]
     },
     "bialetti-mini-express-induction": {
       "name": "Bialetti Mini Express Induction 2 cup",
@@ -65,12 +119,13 @@
       "primary_sources": ["https://alessi.com/fr/products/9090-espresso-coffee-maker"]
     },
     "alessi-9090-1": {
-      "name": "Alessi 9090 — 1 cup",
+      "name": "Alessi 9090 — 1 tasse",
       "brand": "Alessi",
       "family": "9090",
       "identity_scope": "variant",
-      "evidence_status": "RESEARCH_REQUIRED",
-      "primary_sources": ["https://alessi.com/products/9090-espresso-coffee-maker"]
+      "evidence_status": "VERIFIED",
+      "facts": {"induction": true, "capacity_ml": 70, "diameter_cm": 9.5, "minimum_hob_detection_mm": 90, "material": "acier inoxydable 18/10, fond acier magnétique"},
+      "primary_sources": ["https://alessi.com/fr/products/9090-espresso-coffee-maker"]
     },
     "alessi-vite": {
       "name": "Alessi Vite",
@@ -78,6 +133,15 @@
       "family": "Vite",
       "identity_scope": "range",
       "evidence_status": "PARTIAL",
+      "primary_sources": ["https://alessi.com/fr/products/vite-espresso-coffee-maker"]
+    },
+    "alessi-vite-3": {
+      "name": "Alessi Vite — 3 tasses",
+      "brand": "Alessi",
+      "family": "Vite",
+      "identity_scope": "variant",
+      "evidence_status": "VERIFIED",
+      "facts": {"induction": true, "capacity_ml": 150, "width_cm": 10.0, "material": "fonte d'aluminium, fond acier magnétique", "production_start": 2026},
       "primary_sources": ["https://alessi.com/fr/products/vite-espresso-coffee-maker"]
     },
     "alessi-menhir": {
@@ -111,6 +175,60 @@
       "identity_scope": "range",
       "evidence_status": "PARTIAL",
       "primary_sources": ["https://alessi.com/fr/products/la-cupola-espresso-coffee-maker"]
+    },
+    "bra-magna-4": {
+      "name": "BRA Magna — 4 tasses",
+      "brand": "BRA",
+      "family": "Magna",
+      "identity_scope": "variant",
+      "evidence_status": "VERIFIED",
+      "facts": {"induction": true, "induction_base_cm": 9.0, "pot_diameter_cm": 11.0, "material": "acier inoxydable 18/10", "dishwasher": true},
+      "primary_sources": ["https://braisogona.com/producto/cafetera-magna"]
+    },
+    "bra-magna-6": {
+      "name": "BRA Magna — 6 tasses",
+      "brand": "BRA",
+      "family": "Magna",
+      "identity_scope": "variant",
+      "evidence_status": "VERIFIED",
+      "facts": {"induction": true, "induction_base_cm": 9.3, "pot_diameter_cm": 12.5, "material": "acier inoxydable 18/10", "dishwasher": true},
+      "primary_sources": ["https://braisogona.com/producto/cafetera-magna"]
+    },
+    "bra-magna-10": {
+      "name": "BRA Magna — 10 tasses",
+      "brand": "BRA",
+      "family": "Magna",
+      "identity_scope": "variant",
+      "evidence_status": "VERIFIED",
+      "facts": {"induction": true, "induction_base_cm": 11.0, "pot_diameter_cm": 15.0, "material": "acier inoxydable 18/10", "dishwasher": true},
+      "primary_sources": ["https://braisogona.com/producto/cafetera-magna"]
+    },
+    "groenenberg-induction-4": {
+      "name": "Grønenberg Espressokocher induction — 4 tasses",
+      "brand": "Grønenberg",
+      "family": "Espressokocher Edelstahl Induktion",
+      "identity_scope": "variant",
+      "evidence_status": "VERIFIED",
+      "facts": {"induction": true, "capacity_ml": 200, "minimum_hob_field_cm": 9.5, "material": "acier inoxydable 304/430", "dishwasher": true, "reducer_included": true},
+      "primary_sources": ["https://groenenberg-coffee.de/products/espressokocher-induktion-4-tassen"]
+    },
+    "groenenberg-induction-6": {
+      "name": "Grønenberg Espressokocher induction — 6 tasses",
+      "brand": "Grønenberg",
+      "family": "Espressokocher Edelstahl Induktion",
+      "identity_scope": "variant",
+      "evidence_status": "VERIFIED",
+      "facts": {"induction": true, "capacity_ml": 300, "minimum_hob_field_cm": 10.5, "material": "acier inoxydable 304/430", "dishwasher": true, "reducer_included": true},
+      "primary_sources": ["https://groenenberg-coffee.de/products/espressokocher-induktion-4-tassen"]
+    },
+    "milu-induction-6": {
+      "name": "Milu Espresso Maker induction — 6 tasses",
+      "brand": "Milu",
+      "family": "Espresso Maker induction",
+      "identity_scope": "variant",
+      "evidence_status": "PARTIAL",
+      "facts": {"induction": true, "capacity_ml": 300, "material": "aluminium alimentaire et acier inoxydable 430", "reducer_included": true, "base_diameter_verified": false},
+      "primary_sources": ["https://milu-store.de/en/products/milu-espressokocher-induktion-geeignet-3-6-9-tassen-aluminium-mokkakanne-edelstahl-espressokanne-espresso-maker-set-inkl-loffel-burste-schwarz-6-tassen-300ml"]
     },
     "ariete-1368": {
       "name": "Ariete Moka Aroma 1368",
