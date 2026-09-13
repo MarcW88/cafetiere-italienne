@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "node scripts/build.mjs && node scripts/apply-capacity-hub-reviewed.mjs && node scripts/apply-capacity-10-tasses-reviewed.mjs",
+    "build": "node scripts/build.mjs && node scripts/apply-capacity-hub-reviewed.mjs && node scripts/apply-capacity-10-tasses-reviewed.mjs && node scripts/apply-capacity-size-pages-reviewed.mjs",
     "check": "node scripts/check.mjs"
   }
 }
