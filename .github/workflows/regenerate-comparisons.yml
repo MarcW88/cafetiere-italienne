@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - "scripts/comparison-content.mjs"
+      - "scripts/comparison-content-*.mjs"
+      - "package.json"
       - ".content/comparisons/**"
       - ".content/products/registry.json"
       - ".content/reviews/*.comparison-review.md"
@@ -34,6 +36,8 @@ on:
     branches: [main]
     paths:
       - "scripts/comparison-content.mjs"
+      - "scripts/comparison-content-*.mjs"
+      - "package.json"
       - ".content/comparisons/**"
       - ".content/products/registry.json"
       - ".content/reviews/*.comparison-review.md"
