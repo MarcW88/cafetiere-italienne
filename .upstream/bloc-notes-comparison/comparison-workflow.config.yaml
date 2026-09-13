@@ -1,6 +1,6 @@
 project:
-  name: "cafetiere-italienne.be"
-  domain: "https://cafetiere-italienne.be"
+  name: "bloc-notes-numeriques.fr"
+  domain: "https://bloc-notes-numeriques.fr"
   language: "fr"
 
 content:
@@ -17,7 +17,7 @@ content:
   mode: "auto"
 
 quality:
-  quality_reference: "/guides/comment-choisir-cafetiere-italienne/"
+  quality_reference: "/guides/prix-bloc-notes-numerique/"
   draft_robots: "noindex,follow"
   published_robots: "index,follow"
   prohibit_word_count_quotas: true

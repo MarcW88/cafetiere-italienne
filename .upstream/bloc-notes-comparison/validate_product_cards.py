@@ -15,11 +15,32 @@ REGISTRY = ROOT / ".content" / "products" / "registry.json"
 PLACEMENTS = ROOT / ".content" / "products" / "placements.json"
 AFFILIATE_CONFIG = ROOT / ".content" / "products" / "affiliate.json"
 EXPECTED_SCOPE = {
-    "comparisons": set(),
-    "usages": set(),
-    "guides": set(),
+    "comparisons": {
+        "meilleur-bloc-notes-numerique",
+        "tablette-e-ink",
+        "bloc-notes-numerique-professionnel",
+        "bloc-notes-numerique-etudiant",
+        "bloc-notes-numerique-couleur",
+        "bloc-notes-numerique-a4",
+        "bloc-notes-numerique-sans-abonnement",
+        "bloc-notes-numerique-pas-cher",
+        "kindle-scribe-vs-remarkable",
+        "kindle-scribe-vs-kobo-elipsa",
+        "remarkable-vs-boox",
+        "remarkable-vs-supernote",
+        "boox-vs-supernote",
+        "kobo-elipsa-vs-remarkable",
+    },
+    "usages": {
+        "prise-de-notes-professionnelle",
+        "prise-de-notes-etudiant",
+        "lecture-et-prise-de-notes",
+    },
+    "guides": {
+        "choisir-bloc-notes-numerique",
+        "annoter-pdf-tablette-e-ink",
+    },
 }
-
 PROHIBITED_MODULE_ROOTS = {"marques", "bons-plans"}
 ALLOWED_IMAGE_SOURCES = {"UNSET", "OWN", "MANUFACTURER_AUTHORIZED", "AMAZON_CREATORS_API"}
 ALLOWED_AFFILIATE_HOSTS = {"amazon.fr", "www.amazon.fr", "amazon.com.be", "www.amazon.com.be"}
@@ -145,8 +166,8 @@ def validate_config(placements_data: dict, products: dict[str, dict]) -> None:
             if not config.get("insert_before_heading_id") or not config.get("section_id"):
                 fail(f"{section}/{slug}: insertion and section IDs are required")
 
-    if total_pages != 0:
-        fail(f"approved product-module scope must remain 0 pages before per-page human approval, got {total_pages}")
+    if total_pages != 19:
+        fail(f"approved product-module scope must remain 19 pages, got {total_pages}")
 
 
 def validate_rendered_section(

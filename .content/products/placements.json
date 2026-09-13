@@ -1,0 +1,14 @@
+{
+  "schema_version": 3,
+  "policy": {
+    "max_modules_per_page": 1,
+    "max_products_per_module": 3,
+    "purpose": "decision_support_only",
+    "excluded_sections": ["brands", "deals", "hubs", "informational_guides"]
+  },
+  "sections": {
+    "comparisons": {"base_path": "comparatifs", "pages": {}},
+    "usages": {"base_path": "usages", "pages": {}},
+    "guides": {"base_path": "guides", "pages": {}}
+  }
+}
