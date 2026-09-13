@@ -110,6 +110,8 @@ Then route specific product choice to `/comparatifs/`.
 
 ## Decision Matrix
 
+Decision Matrix: NOT_REQUIRED
+
 **NOT_REQUIRED.**
 
 Reason: the Hard Choice Model classifies this as a low-impact, easily comparable decision governed by one primary size dimension plus hard constraints. A weighted matrix would add false sophistication and risk mixing product preferences into a capacity decision.
