@@ -1,7 +1,12 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href='/'><title>Comment choisir une cafetière italienne ? | Cafetière Italienne</title><meta name="description" content="Plaque, contenance réelle, aluminium ou inox, entretien et pièces : les critères à vérifier pour choisir une cafetière italienne sans se tromper."><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://cafetiere-italienne.be/guides/comment-choisir-cafetiere-italienne/"><link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="assets/styles.css"></head><body><div class="top-note">Guide indépendant · Comparatifs transparents · Liens affiliés signalés</div><header class="site-header"><div class="container header-row"><a class="brand" href=""><img src="/assets/logo.svg" alt=""><span>Cafetière Italienne</span></a><nav class="nav"><a href="comparatifs/">Comparatifs</a><a href="marques/bialetti/">Bialetti</a><a href="capacites/">Par taille</a><a href="guides/">Guides</a><a href="guides/nettoyer-cafetiere-italienne/">Entretien</a></nav><button class="search-btn" aria-label="Rechercher">⌕</button><button class="menu-btn" aria-label="Menu">☰</button></div></header><div class="quick-nav"><div class="quick-row"><a href="comparatifs/cafetiere-italienne-induction/">Induction</a><a href="capacites/cafetiere-italienne-2-tasses/">2 tasses</a><a href="capacites/cafetiere-italienne-4-tasses/">4 tasses</a><a href="capacites/cafetiere-italienne-6-tasses/">6 tasses</a><a href="comparatifs/cafetiere-italienne-inox/">Inox</a></div></div><main>
+export const guidePages = {
+  'comment-choisir-cafetiere-italienne': {
+    title: 'Comment choisir une cafetière italienne ?',
+    description: 'Plaque, contenance réelle, aluminium ou inox, entretien et pièces : les critères à vérifier pour choisir une cafetière italienne sans se tromper.',
+    canonical: '/guides/comment-choisir-cafetiere-italienne/',
+    body: `
 <section class="page-hero guide-hero">
   <div class="container">
-    <div class="breadcrumbs"><a href="">Accueil</a> · <a href="guides/">Guides</a> · Comment choisir une cafetière italienne ?</div>
+    <div class="breadcrumbs"><a href="/">Accueil</a> · <a href="/guides/">Guides</a> · Comment choisir une cafetière italienne ?</div>
     <span class="eyebrow">Guide de choix</span>
     <h1>Comment choisir une cafetière italienne ?</h1>
     <p>La bonne moka n’est pas d’abord une question de marque. Commencez par éliminer les modèles incompatibles avec votre plaque, puis choisissez le volume que vous buvez réellement. Le matériau, l’entretien, les pièces détachées et le design viennent ensuite.</p>
@@ -30,7 +35,7 @@
       <p>Ne déduisez pas la compatibilité du seul mot « inox ». Cherchez une mention explicite du fabricant pour <em>la variante exacte</em> que vous envisagez. La taille compte aussi : certaines plaques ne détectent pas les petits fonds, même lorsqu’ils sont magnétiques.</p>
       <p>Alessi, par exemple, annonce sa 9090 en acier inoxydable avec fond magnétique compatible induction, tout en demandant, pour la version 1 tasse présentée sur sa fiche, de vérifier que la plaque peut s’activer avec un diamètre d’au moins 90 mm. Cette précision illustre bien pourquoi « compatible induction » ne suffit pas toujours à garantir que toutes les tailles fonctionneront sur toutes les plaques.</p>
       <div class="guide-callout"><strong>À vérifier sur la fiche produit :</strong> compatibilité induction, diamètre du fond et éventuelle restriction liée à la taille. Si vous possédez déjà une moka aluminium, un adaptateur peut être une solution distincte plutôt qu’un nouvel achat.</div>
-      <p><a class="text-link" href="guides/cafetiere-italienne-induction-compatibilite/">Comprendre en détail la compatibilité induction →</a></p>
+      <p><a class="text-link" href="/guides/cafetiere-italienne-induction-compatibilite/">Comprendre en détail la compatibilité induction →</a></p>
 
       <h3>Gaz, électrique ou vitrocéramique</h3>
       <p>Le choix est généralement plus large, mais la même règle reste utile : fiez-vous à la compatibilité annoncée par le fabricant plutôt qu’à une supposition basée sur la forme ou le matériau. La Moka Express classique de Bialetti, par exemple, est annoncée pour le gaz, l’électrique et la vitrocéramique ; pour l’induction, Bialetti renvoie à l’usage d’une plaque adaptatrice.</p>
@@ -44,7 +49,7 @@
       <p>Mesurez ou estimez le volume que vous servez habituellement. Si vous préparez deux petits cafés moka, votre besoin n’est pas le même que si vous remplissez deux grands mugs. La question utile n’est donc pas « combien de personnes ? » mais « combien de café faut-il préparer en une fois ? ».</p>
       <p>Une cafetière trop petite vous oblige à relancer une préparation. Une cafetière beaucoup trop grande n’est pas automatiquement plus polyvalente : vous achetez alors une capacité que vous n’utilisez pas. Commencez par le volume, puis regardez quelle taille du modèle choisi s’en approche.</p>
       <div class="guide-callout"><strong>Règle simple :</strong> comparez les capacités en ml/cl de la taille exacte et considérez le nombre de tasses comme un repère propre à la gamme.</div>
-      <p><a class="text-link" href="capacites/">Voir les guides par capacité →</a></p>
+      <p><a class="text-link" href="/capacites/">Voir les guides par capacité →</a></p>
     </section>
 
     <section>
@@ -63,7 +68,7 @@
           <p>Choisissez-le pour ses caractéristiques de construction ou parce qu’un modèle précis répond à vos contraintes, pas sur la promesse vague qu’il produirait nécessairement un meilleur café.</p>
         </div>
       </div>
-      <p><a class="text-link" href="guides/cafetiere-italienne-aluminium-ou-inox/">Approfondir le choix aluminium ou inox →</a></p>
+      <p><a class="text-link" href="/guides/cafetiere-italienne-aluminium-ou-inox/">Approfondir le choix aluminium ou inox →</a></p>
     </section>
 
     <section>
@@ -120,8 +125,8 @@
       <h2>Vous connaissez maintenant vos critères : comparez les modèles</h2>
       <p>Si votre plaque, votre volume et vos contraintes sont définis, vous pouvez passer à la sélection de produits. Le comparatif est l’endroit où les modèles peuvent être mis en concurrence ; ce guide reste volontairement centré sur la décision qui précède.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="comparatifs/meilleure-cafetiere-italienne/">Comparer les cafetières →</a>
-        <a class="btn btn-secondary" href="comparatifs/cafetiere-italienne-induction/">Voir les modèles induction</a>
+        <a class="btn btn-primary" href="/comparatifs/meilleure-cafetiere-italienne/">Comparer les cafetières →</a>
+        <a class="btn btn-secondary" href="/comparatifs/cafetiere-italienne-induction/">Voir les modèles induction</a>
       </div>
     </section>
 
@@ -149,7 +154,9 @@
         <li>Design & prix</li>
       </ol>
       <p>Vous êtes sur induction ? Commencez par vérifier la compatibilité avant tout le reste.</p>
-      <a class="sidebar-link" href="guides/cafetiere-italienne-induction-compatibilite/">Guide induction →</a>
+      <a class="sidebar-link" href="/guides/cafetiere-italienne-induction-compatibilite/">Guide induction →</a>
     </div>
   </aside>
-</div></main><footer class="site-footer"><div class="container"><div class="footer-grid"><div><a class="brand" href=""><img src="/assets/logo.svg" alt="">Cafetière Italienne</a><p class="footer-about">Le guide spécialisé pour choisir, utiliser et entretenir sa cafetière moka.</p></div><div><h4>Choisir</h4><a href="comparatifs/">Comparatifs</a><a href="comparatifs/cafetiere-italienne-induction/">Induction</a><a href="capacites/">Par taille</a><a href="marques/bialetti/">Bialetti</a></div><div><h4>Apprendre</h4><a href="guides/comment-utiliser-cafetiere-italienne/">Comment utiliser</a><a href="guides/dosage-cafe-cafetiere-italienne/">Dosage</a><a href="guides/mouture-cafetiere-italienne/">Mouture</a><a href="guides/nettoyer-cafetiere-italienne/">Entretien</a></div><div><h4>Le site</h4><a href="a-propos/">À propos</a><a href="notre-methode/">Notre méthode</a><a href="affiliation/">Affiliation</a><a href="contact/">Contact</a></div></div><div class="footer-bottom">© 2026 Cafetière Italienne <span>Informations vérifiées auprès des fabricants</span></div></div></footer><script src="assets/app.js"></script></body></html>
+</div>`
+  }
+};
