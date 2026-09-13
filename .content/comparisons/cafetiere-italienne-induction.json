@@ -1,30 +1,106 @@
 {
-  "slug":"cafetiere-italienne-induction",
-  "url":"/comparatifs/cafetiere-italienne-induction/",
-  "intent":{"query":"cafetière italienne induction","decision":"Choisir une moka réellement détectable par une plaque induction, dans une taille adaptée."},
-  "product_universe":[
-    {"id":"bialetti-venus","name":"Bialetti Venus","status":"ELIGIBLE","source":"https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"},
-    {"id":"bialetti-moka-induction","name":"Bialetti Moka Induction","status":"ELIGIBLE","source":"https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"},
-    {"id":"bialetti-brikka-induction","name":"Bialetti Brikka Induction","status":"CONDITIONALLY_ELIGIBLE","source":"https://www.bialetti.co.nz/collections/all-stovetops-excludes-d-g/products/bialetti-brikka-induction"},
-    {"id":"alessi-9090","name":"Alessi 9090","status":"ELIGIBLE","source":"https://alessi.com/fr/products/9090-espresso-coffee-maker"},
-    {"id":"alessi-vite","name":"Alessi Vite","status":"ELIGIBLE","source":"https://alessi.com/fr/products/vite-espresso-coffee-maker"}
+  "slug": "cafetiere-italienne-induction",
+  "url": "/comparatifs/cafetiere-italienne-induction/",
+  "comparison_type": "FEATURE_SPECIFIC",
+  "intent": {
+    "query": "cafetière italienne induction",
+    "decision": "Choisir une cafetière moka dont la variante exacte sera détectée par sa plaque à induction et dont le volume correspond à l'usage réel.",
+    "boundary": "Le guide /guides/cafetiere-italienne-induction-compatibilite/ explique comment fonctionne la compatibilité. Cette page compare des produits et variantes d'achat précis."
+  },
+  "jtbd": {
+    "job": "Acheter une moka compatible induction sans découvrir après achat que la petite taille n'est pas détectée ou que le volume est mal adapté.",
+    "decision_changers": [
+      "compatibilité induction documentée pour la variante exacte",
+      "diamètre de base ou seuil de détection de la plaque",
+      "volume réellement préparé",
+      "construction et entretien",
+      "fonction spécialisée réellement utile"
+    ]
+  },
+  "hard_gates": [
+    "La variante exacte doit être explicitement annoncée comme compatible induction par une source primaire.",
+    "Lorsque la taille de la base peut changer la détection, le diamètre documenté doit être présenté ou l'incertitude doit être signalée.",
+    "Le volume ou la taille utile doit être documenté avant toute recommandation.",
+    "Un matériau seul ne suffit jamais à déclarer une variante compatible induction."
   ],
-  "criteria":[
-    {"id":"detection","label":"Compatibilité et diamètre de détection"},
-    {"id":"taille","label":"Taille disponible"},
-    {"id":"materiaux","label":"Construction du fond et du corps"},
-    {"id":"specialisation","label":"Fonction ou usage spécifique"}
+  "product_universe": [
+    {"id":"bialetti-venus-4","name":"Bialetti Venus 4 tasses","status":"ELIGIBLE","source":"https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"},
+    {"id":"bialetti-venus-6","name":"Bialetti Venus 6 tasses","status":"ELIGIBLE","source":"https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"},
+    {"id":"bialetti-moka-induction-2","name":"Bialetti Moka Induction 2 tasses","status":"ELIGIBLE","source":"https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"},
+    {"id":"bialetti-moka-induction-4","name":"Bialetti Moka Induction 4 tasses","status":"ELIGIBLE","source":"https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"},
+    {"id":"bialetti-moka-induction-6","name":"Bialetti Moka Induction 6 tasses","status":"ELIGIBLE","source":"https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"},
+    {"id":"bialetti-brikka-induction-4","name":"Bialetti Brikka Induction 4 tasses","status":"ELIGIBLE_SPECIALIZED","source":"https://www.bialetti.co.nz/products/bialetti-brikka-induction"},
+    {"id":"bialetti-mini-express-induction","name":"Bialetti Mini Express Induction 2 tasses","status":"EXCLUDED_SPECIAL_FORMAT","source":"https://www.bialetti.co.nz/products/bialetti-mini-express-induction-2-cup-set"},
+    {"id":"bra-magna-4","name":"BRA Magna 4 tasses","status":"ELIGIBLE","source":"https://braisogona.com/producto/cafetera-magna"},
+    {"id":"bra-magna-6","name":"BRA Magna 6 tasses","status":"ELIGIBLE","source":"https://braisogona.com/producto/cafetera-magna"},
+    {"id":"bra-magna-10","name":"BRA Magna 10 tasses","status":"ELIGIBLE","source":"https://braisogona.com/producto/cafetera-magna"},
+    {"id":"groenenberg-induction-4","name":"Grønenberg induction 4 tasses","status":"ELIGIBLE","source":"https://groenenberg-coffee.de/products/espressokocher-induktion-4-tassen"},
+    {"id":"groenenberg-induction-6","name":"Grønenberg induction 6 tasses","status":"ELIGIBLE","source":"https://groenenberg-coffee.de/products/espressokocher-induktion-4-tassen"},
+    {"id":"alessi-9090-1","name":"Alessi 9090 1 tasse","status":"CONDITIONALLY_ELIGIBLE","source":"https://alessi.com/fr/products/9090-espresso-coffee-maker"},
+    {"id":"alessi-vite-3","name":"Alessi Vite 3 tasses","status":"CONSIDERED_NOT_SELECTED","source":"https://alessi.com/fr/products/vite-espresso-coffee-maker"},
+    {"id":"milu-induction-6","name":"Milu induction 6 tasses","status":"EVIDENCE_GAP","source":"https://milu-store.de/en/products/milu-espressokocher-induktion-geeignet-3-6-9-tassen-aluminium-mokkakanne-edelstahl-espressokanne-espresso-maker-set-inkl-loffel-burste-schwarz-6-tassen-300ml"}
   ],
-  "ranking":[
-    {"rank":1,"product_id":"bialetti-venus","context":"choix par défaut en 4/6 tasses"},
-    {"rank":2,"product_id":"bialetti-moka-induction","context":"si l'esthétique classique compte"},
-    {"rank":3,"product_id":"bialetti-brikka-induction","context":"si l'on veut la logique Brikka"},
-    {"rank":4,"product_id":"alessi-9090","context":"premium"},
-    {"rank":5,"product_id":"alessi-vite","context":"design contemporain 2026"}
+  "criteria": [
+    {"id":"eligibility","label":"Compatibilité induction de la variante exacte","role":"hard_gate"},
+    {"id":"detection","label":"Base ou seuil de détection documenté","role":"decision"},
+    {"id":"volume","label":"Volume utile / taille réellement préparée","role":"decision"},
+    {"id":"construction","label":"Construction et entretien vérifiables","role":"tradeoff"},
+    {"id":"specialization","label":"Fonction spécialisée qui change réellement l'usage","role":"tradeoff"},
+    {"id":"evidence","label":"Qualité et précision de la preuve disponible","role":"confidence"}
   ],
-  "recommendation_logic":"La compatibilité de la taille exacte prime. Venus 2 tasses est exclue de l'induction malgré le nom de gamme ; les petits diamètres nécessitent une vérification de la plaque.",
-  "methodology_note":"Specs officielles prioritaires, sans supposer qu'un matériau ou une marque suffit à garantir la détection induction.",
-  "affiliate_commission_used_in_ranking":false,
-  "research_date":"2026-09-13",
-  "status":"READY_FOR_PUBLISH_REVIEW"
+  "evidence_matrix": [
+    {"product_id":"bialetti-venus-4","facts":["170 ml","base 9,5 cm","inox 18/10","induction documentée"],"evidence":"PRIMARY+INDEPENDENT","limitations":["Bialetti demande de vérifier le diamètre accepté par la plaque","l'indépendant Selectos a testé l'usage sur gaz, pas la performance induction"]},
+    {"product_id":"bialetti-venus-6","facts":["235 ml","base 10,5 cm","inox 18/10","induction documentée"],"evidence":"PRIMARY+INDEPENDENT","limitations":["Bialetti demande de vérifier le diamètre accepté par la plaque","l'indépendant Selectos a testé l'usage sur gaz, pas la performance induction"]},
+    {"product_id":"bialetti-moka-induction-2","facts":["100 ml","base 9,5 cm","base bi-couche inox/aluminium","induction documentée"],"evidence":"PRIMARY","limitations":["lavage à la main","vérifier le diamètre accepté par la plaque"]},
+    {"product_id":"bialetti-moka-induction-4","facts":["150 ml","base 10 cm","base bi-couche inox/aluminium","induction documentée"],"evidence":"PRIMARY","limitations":["lavage à la main","pas d'avantage fonctionnel universel démontré face à Venus"]},
+    {"product_id":"bialetti-moka-induction-6","facts":["280 ml","base 11,5 cm","base bi-couche inox/aluminium","induction documentée"],"evidence":"PRIMARY","limitations":["lavage à la main","pas d'avantage fonctionnel universel démontré face à Venus"]},
+    {"product_id":"bialetti-brikka-induction-4","facts":["160 ml","base 11,5 cm","soupape Brikka","induction documentée"],"evidence":"PRIMARY","limitations":["format spécialisé","claim de concentration attribué au fabricant, pas traité comme mesure indépendante"]},
+    {"product_id":"bra-magna-4","facts":["4 tasses","base induction 9 cm","inox 18/10","lave-vaisselle"],"evidence":"PRIMARY","limitations":["volume en ml non publié sur la fiche consultée"]},
+    {"product_id":"bra-magna-6","facts":["6 tasses","base induction 9,3 cm","inox 18/10","lave-vaisselle"],"evidence":"PRIMARY","limitations":["volume en ml non publié sur la fiche consultée"]},
+    {"product_id":"bra-magna-10","facts":["10 tasses","base induction 11 cm","inox 18/10","lave-vaisselle"],"evidence":"PRIMARY","limitations":["volume en ml non publié sur la fiche consultée"]},
+    {"product_id":"groenenberg-induction-4","facts":["200 ml","zone induction minimale 9,5 cm","inox 304/430","réducteur fourni","lave-vaisselle"],"evidence":"PRIMARY+VERIFIED_USER_SIGNAL","limitations":["au moins un avis vérifié signale que le réducteur ne lui convenait pas"]},
+    {"product_id":"groenenberg-induction-6","facts":["300 ml","zone induction minimale 10,5 cm","inox 304/430","réducteur fourni","lave-vaisselle"],"evidence":"PRIMARY+VERIFIED_USER_SIGNAL","limitations":["au moins un avis vérifié signale que le réducteur ne lui convenait pas"]},
+    {"product_id":"alessi-9090-1","facts":["70 ml","diamètre 9,5 cm","plaque devant accepter 90 mm minimum","inox 18/10","fond magnétique"],"evidence":"PRIMARY","limitations":["très petit volume","positionnement premium"]},
+    {"product_id":"alessi-vite-3","facts":["150 ml","largeur 10 cm","fond acier magnétique","production démarrée en 2026"],"evidence":"PRIMARY","limitations":["proposition principalement design qui ne change pas le choix induction de base"]},
+    {"product_id":"milu-induction-6","facts":["300 ml","aluminium + inox 430","induction documentée","réducteur fourni"],"evidence":"PRIMARY_PARTIAL","limitations":["diamètre de base non documenté sur la source fabricant consultée","moins de certitude pour la détection par une petite zone"]}
+  ],
+  "major_exclusions": [
+    {"candidate":"Bialetti Venus 2 tasses","reason":"Bialetti indique explicitement que la 2 tasses n'est pas compatible induction."},
+    {"candidate":"Bialetti Moka Express classique","reason":"La version aluminium classique n'est pas compatible induction directe ; un adaptateur relève du guide/accessoire, pas du choix neuf par défaut."},
+    {"candidate":"Bialetti Brikka classique","reason":"La version classique n'est pas compatible induction ; seule la Brikka Induction 4 tasses reste dans le scope."},
+    {"candidate":"Bialetti Mini Express Induction","reason":"Format à service direct dans deux tasses, trop différent d'une moka standard pour le noyau de comparaison."},
+    {"candidate":"Alessi Vite 3 tasses","reason":"Compatible et actuelle, mais sa principale différenciation est le design ; elle ne modifie pas le verdict pratique induction dans cette page."},
+    {"candidate":"Milu induction 6 tasses","reason":"Compatible selon le fabricant, mais le diamètre de base n'est pas publié sur la source consultée ; confiance insuffisante pour la recommander comme référence de détection."}
+  ],
+  "recommendations": [
+    {"context":"4 ou 6 tasses, choix général documenté","product_ids":["bialetti-venus-4","bialetti-venus-6"],"why":"compatibilité de ces tailles explicitement documentée, base mesurée par le fabricant, construction inox 18/10 et signal indépendant positif sur la facilité d'usage/nettoyage","limitation":"la plaque doit accepter respectivement une base d'environ 9,5 ou 10,5 cm"},
+    {"context":"petit volume, 2 tasses","product_ids":["bialetti-moka-induction-2"],"why":"100 ml et base 9,5 cm documentés ; contrairement à la Venus 2 tasses, cette variante est annoncée compatible induction","limitation":"la détection dépend toujours du diamètre minimal accepté par la plaque"},
+    {"context":"inox intégral et lave-vaisselle","product_ids":["bra-magna-4","bra-magna-6","bra-magna-10"],"why":"BRA documente inox 18/10, Full Induction, diamètre de base et compatibilité lave-vaisselle","limitation":"la fiche consultée ne donne pas le volume en ml"},
+    {"context":"volume flexible / réducteur","product_ids":["groenenberg-induction-4","groenenberg-induction-6"],"why":"le fabricant publie le volume, le seuil de zone induction et fournit un réducteur","limitation":"le réducteur reçoit des retours utilisateurs non parfaitement homogènes ; ne pas acheter uniquement pour cet accessoire"},
+    {"context":"petit format premium","product_ids":["alessi-9090-1"],"why":"70 ml, diamètre 9,5 cm et seuil de plaque 90 mm explicitement documentés ; construction inox et fermeture à levier","limitation":"positionnement premium et petit volume"},
+    {"context":"fonction Brikka spécifique","product_ids":["bialetti-brikka-induction-4"],"why":"seule option retenue dont la soupape Brikka constitue une fonction réellement différente","limitation":"4 tasses uniquement dans la source consultée ; intérêt plus spécialisé qu'une moka induction standard"}
+  ],
+  "recommendation_logic": "Il n'y a pas de classement universel. L'éligibilité de la variante exacte est un hard gate ; le verdict bascule ensuite selon le volume, le diamètre de détection, l'entretien et une éventuelle fonction spécialisée.",
+  "independent_evidence": [
+    {"source":"https://selectos.eu/meilleures-cafetieres-italiennes/","use":"Test 2025 de la New Venus 6 tasses pour facilité de préparation/nettoyage ; test réalisé sur gaz, donc non utilisé pour prouver l'induction."},
+    {"source":"https://www.trustedshops.de/bewertung/info_X76A6BA471F73839D2D4A3C3AA91435B9.html","use":"Avis vérifiés Grønenberg comme signal d'usage ; un avis positif sur l'induction et un retour négatif sur le réducteur sont conservés comme limite."}
+  ],
+  "affiliate_value": {
+    "commission_used_for_candidates": false,
+    "commission_used_in_ranking": false,
+    "unique_value": "Matrice variante exacte × diamètre/zone induction × volume, exclusions explicites et distinction entre preuve fabricant et expérience indépendante.",
+    "useful_without_affiliate_links": true
+  },
+  "geo_notes": {
+    "answer_first": true,
+    "entities_disambiguated": true,
+    "variant_specific_facts": true,
+    "named_sources_for_critical_claims": true,
+    "extractable_decision_blocks": true,
+    "draft_noindex_preserved": true
+  },
+  "methodology_note": "Deskresearch uniquement. Les spécifications dures viennent en priorité des fabricants ; les sources indépendantes servent seulement aux jugements d'usage qu'elles ont effectivement observés. Aucun test physique propriétaire n'est revendiqué.",
+  "affiliate_commission_used_in_ranking": false,
+  "research_date": "2026-09-13",
+  "status": "READY_FOR_PUBLISH_REVIEW"
 }
