@@ -1,0 +1,60 @@
+name: Test exact capacity workflow on 4-tasses
+
+on:
+  push:
+    branches: [capacity-4-tasses-exact-workflow]
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build site
+        run: npm run build
+      - name: Check site
+        run: npm run check
+      - name: Validate capacity cluster
+        run: python3 validate_capacities.py
+      - name: Verify 4-tasses exact-workflow output
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('capacites/cafetiere-italienne-4-tasses/index.html')
+          t = p.read_text(encoding='utf-8')
+          assert 'Cafetière italienne 4 tasses : combien de ml ?' in t
+          assert '150 à 200 ml' in t
+          assert 'Moka Induction 4' in t
+          assert 'Venus 4' in t
+          assert 'Moka Express 4' in t
+          assert 'Moking 400' in t
+          assert 'Grønenberg 4 tasses' in t
+          assert '<meta name="robots" content="noindex,follow">' in t
+          assert 'https://cafetiere-italienne.be/capacites/cafetiere-italienne-4-tasses/' in t
+          low = t.lower()
+          for bad in ['nous avons testé', 'notre test', 'top 5', 'notre classement', 'score sur 10']:
+              assert bad not in low, bad
+          assert '/comparatifs/cafetiere-italienne-induction/' in t
+          assert '/comparatifs/' in t
+          print('PASS: 4-tasses exact-workflow output')
+          PY
+      - name: Persist reviewed 4-tasses HTML
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add capacites/cafetiere-italienne-4-tasses/index.html
+          if git diff --cached --quiet; then
+            echo 'No generated HTML changes to commit'
+          else
+            git commit -m 'build: render exact-workflow 4-tasses page'
+            git push
+          fi
