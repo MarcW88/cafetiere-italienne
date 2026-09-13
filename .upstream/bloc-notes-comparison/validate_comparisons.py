@@ -187,7 +187,7 @@ for fp in sorted((ROOT / '.content' / 'comparisons').glob('*.json')):
 
     if len(re.findall(r'<h1\b', html, re.I)) != 1:
         fail(f'{slug}: expected exactly one H1')
-    if not re.search(r'<link rel="canonical" href="https://cafetiere-italienne\.be/comparatifs/[^\"]+/">', html, re.I):
+    if not re.search(r'<link rel="canonical" href="https://bloc-notes-numeriques\.fr/comparatifs/[^\"]+/">', html, re.I):
         fail(f'{slug}: canonical')
     if not re.search(r'href="https?://', body, re.I):
         fail(f'{slug}: no external evidence source rendered')

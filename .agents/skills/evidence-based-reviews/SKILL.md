@@ -1,13 +1,13 @@
 ---
 name: evidence-based-reviews
-description: Encadrer les reviews, avis et recommandations produit par des niveaux de preuve explicites sans inventer de test hands-on. Adapté du skill evidence-based-reviews de rampstackco/claude-skills et de sa réutilisation dans MarcW88/cafetiere-italienne.
+description: Encadrer les reviews, avis et recommandations produit par des niveaux de preuve explicites sans inventer de test hands-on. Adapté du skill evidence-based-reviews de rampstackco/claude-skills et de sa réutilisation dans MarcW88/italiaanse-percolator.
 metadata:
   upstream: https://github.com/rampstackco/claude-skills/tree/main/skills/evidence-based-reviews
-  adapted_via: https://github.com/MarcW88/cafetiere-italienne/tree/main/.agents/skills/evidence-based-reviews
-  adapted_for: cafetiere-italienne.be
+  adapted_via: https://github.com/MarcW88/italiaanse-percolator/tree/main/.agents/skills/evidence-based-reviews
+  adapted_for: bloc-notes-numeriques.fr
 ---
 
-# Evidence-Based Reviews — adaptation cafetiere-italienne.be
+# Evidence-Based Reviews — adaptation bloc-notes-numeriques.fr
 
 Utiliser pour toute page `REVIEW`, tout avis sur une marque ou un produit et toute recommandation dont le jugement dépasse de simples spécifications.
 

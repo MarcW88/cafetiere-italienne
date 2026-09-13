@@ -1,230 +1,279 @@
 ---
 name: comparison-content-workflow
-description: Workflow unique de création et de réécriture des pages /comparatifs/ de cafetiere-italienne.be. Orchestre majoritairement des skills GitHub existants pour l'intention, les produits, les preuves, l'affiliation, le SEO, le GEO/AEO, la rédaction, l'anti-AI-slop et la QA. La logique custom reste limitée à la décision comparative.
+description: Workflow unique de création et de réécriture des pages /comparatifs/ de bloc-notes-numeriques.fr. Orchestre principalement des skills GitHub externes pour l'intention, l'audit, la preuve, le brief, la rédaction, l'on-page et l'édition. La logique custom est limitée à la décision comparative et au contrôle du cluster.
 metadata:
-  adapted_for: cafetiere-italienne.be
+  adapted_for: bloc-notes-numeriques.fr
   orchestration_target: ">=80% existing GitHub skills"
-  custom_scope: "orchestration + comparison decision logic + publication state"
+  custom_scope: "orchestration + comparison decision logic"
 ---
 
 # Comparison Content Workflow
 
 ## Rôle
 
-C'est le **seul workflow de production** pour créer ou réécrire une URL `/comparatifs/`.
+C'est le **seul workflow de production** à utiliser pour créer ou réécrire une URL `/comparatifs/`.
 
-Principe :
+Comme le `brand-content-workflow`, il doit orchestrer des skills spécialisés plutôt que fabriquer une méthode maison parallèle.
 
-> AUDIT → intention → produits → preuves → affiliation → décision → brief → rédaction → GEO → humanisation/anti-slop → maillage/SEO → QA → PUBLISH_REVIEW.
+Principe central :
 
-La couche custom doit rester <=20 %. Aucun sous-workflow maison ne doit remplacer une méthode déjà couverte par un skill existant.
+> **Intention → preuves → décision → brief → rédaction → review.**
+
+Un comparatif peut être excellent sans score numérique. Un score, une pondération, un tableau ou un Total Solution Cost ne sont utilisés que s'ils rendent la décision plus claire.
 
 ---
 
-# 1. Entrées obligatoires
+# 1. Entrées
 
-Pour une page existante, lire d'abord le dernier `comparison-analysis-workflow / AUDIT`.
+Pour une page existante, lire d'abord le rapport le plus récent du `comparison-analysis-workflow / AUDIT` et le traiter comme le handoff de départ.
 
-Lire aussi :
+Lire également selon pertinence :
 
 - page actuelle ;
 - comparatifs voisins ;
 - `comparison-workflow.config.yaml` ;
-- `.content/comparisons/<slug>.json` ;
-- `.content/products/registry.json` ;
-- GSC / analyse sémantique / historique si disponible ;
-- pages Marques, Modèles, Capacités et Guides utiles ;
+- données `.content/comparisons/` existantes ;
+- GSC / sémantique / historique ;
+- pages marques, usages et guides utiles ;
 - sources actuelles nécessaires.
 
-Ne jamais démarrer un draft en choisissant d'abord trois produits “connus”.
+Ne pas refaire un audit complet si un rapport récent existe, sauf si les données ou la gamme ont changé de façon significative.
 
 ---
 
-# 2. Chaîne principale — skills existants
+# 2. Chaîne principale de production — skills existants
 
 ## 2.1 `seo-keyword` — Rampstack
 
-Confirmer query/cluster, intent, forme de SERP, rôle unique de l'URL et chevauchements.
+Confirmer :
 
-## 2.2 `jobs-to-be-done` — Wondel.ai
+- target query / cluster ;
+- intent dominant ;
+- format accepté dans la SERP ;
+- rôle unique de l'URL ;
+- risque de chevauchement avec un autre comparatif.
 
-À utiliser lorsque le contexte d'usage change le choix. Pas de persona inventé.
+Le SERP et les données disponibles priment sur une intuition de template.
+
+## 2.2 `jobs-to-be-done` — Wondel.ai, lorsque pertinent
+
+Pour les pages liées à un contexte réel (`étudiant`, `professionnel`, PDF, mobilité, etc.), traduire le besoin en contraintes et critères de décision.
+
+Ne pas inventer de motivations utilisateur non documentées.
 
 ## 2.3 `seo-content-audit` — Rampstack
 
-Préserver ce qui fonctionne. Respecter `LIGHT_UPDATE` vs `DEEP_REWRITE` sauf nouvelle découverte majeure.
+Pour une page existante : préserver ce qui fonctionne. Le workflow ne réécrit pas un bon passage uniquement pour créer de la nouveauté.
 
-## 2.4 Produits — registre + recherche candidats
+Si l'audit a conclu `LIGHT_UPDATE`, respecter ce niveau de changement sauf découverte factuelle majeure.
 
-Utiliser `.content/products/registry.json` comme source de vérité des identités produit.
+## 2.4 `evidence-based-reviews` — Rampstack
 
-Avant toute recommandation :
+Construire la base de preuve de la recommandation :
 
-1. définir ce qu'est un candidat éligible pour la requête ;
-2. rechercher un ensemble raisonnable de produits susceptibles de changer la décision ;
-3. ajouter/mettre à jour les produits dans le registre ;
-4. distinguer gamme, modèle, taille et variante ;
-5. documenter les exclusions majeures ;
-6. vérifier qu'aucun produit n'est retenu parce qu'il possède simplement un lien affilié.
+- specs officielles ;
+- synthèse propriétaires/utilisateurs lorsque nécessaire ;
+- tests indépendants nommés lorsque le jugement le nécessite ;
+- hands-on uniquement lorsqu'il existe réellement.
 
-Une variante qui change l'induction, la capacité, la disponibilité ou une fonction doit être traitée comme une identité décisionnelle distincte.
+Ne pas sur-documenter des faits simples. Concentrer les preuves fortes sur les éléments qui changent le choix.
 
-## 2.5 `evidence-based-reviews` — Rampstack
+## 2.5 `fact-check`
 
-Construire la base de preuve : specs primaires, sources indépendantes quand un claim d'usage le demande, retours utilisateurs synthétisés avec prudence, hands-on uniquement s'il existe réellement.
+Vérifier les claims importants et les données susceptibles d'évoluer : génération, fonctions, compatibilités, prix, abonnement, disponibilité et comparaison factuelle.
 
-## 2.6 `fact-check`
+Une appréciation éditoriale reste une appréciation éditoriale ; ne pas la déguiser en mesure.
 
-Vérifier tous les faits qui peuvent changer l'achat : modèle, génération, taille, matériau, compatibilité, fonctions, disponibilité, prix si mentionné.
+## 2.6 `affiliate-value`
 
-## 2.7 `affiliate-value`
+Avant la rédaction, identifier la valeur originale :
 
-Avant rédaction, expliciter la valeur originale : arbitrages, limites, alternatives, incompatibilités, coût caché si pertinent et information difficile à obtenir depuis une seule fiche fabricant.
+- différences réellement décisionnelles ;
+- limites ;
+- cas où un produit n'est pas le bon choix ;
+- alternatives ;
+- coûts ou contraintes cachés réellement pertinents ;
+- information difficile à obtenir depuis une seule fiche fabricant.
 
-La page doit rester utile sans aucun lien affilié. La commission ne peut influencer ni candidats ni ranking.
+La page doit rester utile si tous les liens affiliés disparaissent.
 
-## 2.8 Couche custom légère — scope, critères, verdict
+## 2.7 `content-brief-authoring` — Rampstack
 
-Custom autorisé uniquement ici :
+Construire le brief **avant** le draft.
 
-- scope raisonnable ;
-- critères définis avant le gagnant ;
-- comparabilité honnête ;
-- verdict conditionnel ou ranking si réellement utile ;
-- coût approfondi seulement s'il est décisionnel.
+Le brief doit au minimum préciser :
 
-Scoring et pondération sont optionnels. Aucune fausse précision.
+- query/cluster ;
+- décision du lecteur ;
+- scope de la comparaison ;
+- principaux critères ;
+- faits/preuves obligatoires ;
+- arbitrages importants ;
+- angle éditorial ;
+- anti-patterns ;
+- outline proposé et rôle de chaque section.
 
-## 2.9 `content-brief-authoring` — Rampstack
+Le plan est spécifique à l'URL. Le workflow n'impose aucun squelette de comparatif.
 
-Créer le brief **avant** le draft. Il contient : query/intent, rôle de l'URL, candidats/exclusions, critères, preuves obligatoires, arbitrages, angle, risques de cannibalisation, anti-patterns et outline spécifique.
+## 2.8 `content-and-copy` — Rampstack
 
-Aucun template éditorial universel.
+Rédiger depuis le brief et les preuves.
 
-## 2.10 `content-and-copy` — Rampstack
+Priorités :
 
-Rédiger depuis le brief et les preuves. Priorités : décision claire, substance, trade-offs, structure propre à la requête, voix naturelle.
+1. décision claire ;
+2. substance ;
+3. trade-offs ;
+4. structure adaptée ;
+5. voix éditoriale naturelle.
+
+Ne pas produire six fiches produits mécaniquement symétriques si la décision peut être mieux expliquée autrement.
 
 ---
 
-# 3. Post-draft obligatoire
+# 3. Couche custom minimale — décision comparative
 
-## 3.1 `fact-check`
+Cette couche existe uniquement parce qu'un comparatif doit recommander ou arbitrer entre plusieurs options.
 
-Réextraire les claims du draft et vérifier qu'aucune reformulation n'a augmenté la certitude au-delà des sources.
+## 3.1 Scope / candidats
 
-## 3.2 `geo-aeo-comparison`
+Identifier un ensemble **raisonnable** de choix plausibles pour la requête.
 
-Contrôler la citabilité sans écrire pour les robots :
+Il n'est pas nécessaire de documenter tout le marché. En revanche :
 
-- réponse/verdict extractibles ;
-- produits et variantes explicitement nommés ;
-- attribution claire des faits décisionnels ;
-- passages autonomes lorsque cela améliore la compréhension ;
-- fraîcheur ;
-- tableaux/listes utiles ;
-- structured data fidèle au contenu visible.
+- ne pas omettre silencieusement un candidat évident susceptible de changer la conclusion ;
+- expliquer les exclusions majeures lorsque cela aide le lecteur ;
+- ne jamais inclure un produit uniquement parce qu'il est monétisable.
 
-Le draft reste `noindex,follow` jusqu'à validation humaine : ne jamais traiter ce statut comme un échec GEO.
+## 3.2 Critères
 
-## 3.3 `humanizer`
+Définir les critères avant la recommandation. Ils viennent de l'intention, du JTBD et des différences réelles entre produits.
 
-Corriger prose générique, répétitive ou trop lisse sans toucher aux faits.
+Aucune obligation de pondération numérique.
 
-## 3.4 `general-writing` — msimchowitz/writing-skills
+## 3.3 Verdict
 
-Passage de clarté, précision et voix. Éditer le minimum nécessaire.
+Le verdict doit être traçable aux critères et aux preuves.
 
-## 3.5 `anti-ai-slop`
+Favoriser une formulation utile :
 
-Gate explicite. Contrôler notamment :
+- « meilleur choix général pour X » ;
+- « choisissez Y si votre priorité est… » ;
+- « évitez Z si… » ;
+- ou verdict conditionnel dans un head-to-head.
 
-- blocs produit interchangeables ;
-- “avantages / limites / pour qui” cloné ;
-- transitions mécaniques ;
-- phrases abstraites sans information ;
-- conclusion qui répète le ranking ;
-- même architecture que les comparatifs voisins ;
-- généralités applicables à n'importe quelle moka.
+Un gagnant absolu n'est pas obligatoire.
 
-Un finding sévère bloque le PUBLISH_REVIEW.
+## 3.4 Scoring — optionnel
 
-## 3.6 `internal-linking-audit`
+N'utiliser un score que s'il rend les arbitrages plus compréhensibles.
 
-Vérifier les liens contextuels vers Guides, Capacités, Modèles, Marques et autres Comparatifs. Aucun quota fixe. Chaque lien doit aider à résoudre une sous-question ou éviter une cannibalisation.
+S'il est utilisé :
 
-## 3.7 `seo-onpage` — Rampstack
+- l'échelle doit être stable ;
+- les critères doivent être explicités ;
+- les notes sont clairement des jugements éditoriaux sauf mesure réelle ;
+- éviter les décimales qui simulent une précision inexistante ;
+- le classement doit rester intelligible sans le score.
 
-Title, meta, H1, headings, contenu, ancres, URL, canonical logique et schema honnête.
+Ne pas inventer des notes pour remplir un JSON.
 
-## 3.8 `seo-technical`
+## 3.5 Coût — proportionné
 
-Canonical, robots, crawlabilité, données structurées, intégrité HTML et état `noindex,follow` de draft.
+Pour `pas cher`, `sans abonnement` ou une intention fortement budgétaire, comparer la configuration réellement nécessaire.
 
-## 3.9 `editorial-qa`
-
-Dernière QA sur intention, valeur, factualité, naturel, utilité sans affiliation et cohérence globale.
+Pour une page où le prix est secondaire, un repère de prix/configuration suffit. Ne pas imposer un modèle de coût complexe si cela ne change pas la décision.
 
 ---
 
 # 4. Architecture éditoriale
 
-Aucun template obligatoire par type de comparatif.
+Aucun template par type de comparatif.
 
-Interdit d'imposer : nombre fixe de H2/H3, tableau obligatoire, FAQ obligatoire, nombre de produits fixe, même longueur par produit, même ordre `méthode → critères → ranking → fiches → FAQ → conclusion` ou quotas de mots/liens.
+Interdit d'imposer :
 
-La structure doit découler de la décision. Exemples possibles mais non obligatoires :
+- nombre fixe de H2/H3 ;
+- `méthode → critères → ranking → produit 1 → produit 2 → FAQ → conclusion` ;
+- même longueur par produit ;
+- tableau obligatoire ;
+- FAQ obligatoire ;
+- conclusion obligatoire ;
+- quotas de mots ou de liens.
 
-- induction : gate d'éligibilité puis sélection ;
-- électrique : fonctions et scénarios d'autonomie ;
-- design : familles esthétiques / conception / usage ;
-- meilleure : arbre de décision ;
-- petite : volume réel + dimensions + plaque.
+Chaque section doit justifier sa présence par une question, une décision, une preuve ou un arbitrage propre à cette URL.
 
-Ne pas transformer ces exemples en templates.
+Deux pages comparatives proches doivent pouvoir avoir des structures radicalement différentes si leurs décisions diffèrent.
 
 ---
 
-# 5. Persistance méthodologique
+# 5. Post-draft — skills spécialisés
 
-`.content/comparisons/<slug>.json` doit contenir uniquement ce qui est réellement utilisé, mais doit rendre la décision traçable :
+## 5.1 `fact-check`
+
+Réextraire les claims et corriger les faits, comparatifs, prix, générations et disponibilités.
+
+## 5.2 `humanizer`
+
+Modifier structure et prose lorsque le texte paraît générique, répétitif ou trop lisse. Préserver les faits.
+
+## 5.3 `general-writing` — msimchowitz/writing-skills
+
+Passage final de clarté, précision et voix. Éditer le minimum nécessaire plutôt que tout réécrire.
+
+## 5.4 `anti-ai-slop`
+
+Vérifier notamment :
+
+- blocs produits interchangeables ;
+- transitions répétées ;
+- « avantages / limites / pour qui » cloné ;
+- conclusion qui répète le classement ;
+- structure identique à un autre comparatif ;
+- généralités applicables à n'importe quelle tablette E Ink.
+
+## 5.5 `seo-onpage` — Rampstack
+
+Title, meta, H1, headings, contenu, liens internes, URL et schema honnête.
+
+## 5.6 `seo-technical`
+
+Uniquement pour les points techniques réellement applicables : canonical, robots, crawlabilité, structured data et intégrité HTML.
+
+## 5.7 `editorial-qa`
+
+Dernière QA générique : intention, valeur, factualité, naturel et utilité sans affiliation.
+
+---
+
+# 6. Persistance
+
+`.content/comparisons/<slug>.json` est un support méthodologique, **pas un formulaire obligatoire**.
+
+Conserver seulement les champs réellement utilisés, par exemple :
 
 - intent/JTBD ;
-- candidats et exclusions importantes ;
-- références vers les IDs du registre produit ;
+- scope/candidats ;
+- exclusions importantes ;
 - criteria ;
-- evidence/sources nécessaires ;
+- evidence / sources ;
 - recommendation logic ;
-- prix/configuration si décisionnel ;
-- score/weights/ranking uniquement s'ils sont réellement utilisés ;
-- research_date ;
+- price/configuration notes ;
+- scores/weights **si utilisés** ;
+- ranking **si la page utilise un ranking** ;
+- date de recherche ;
 - status.
 
-Ne jamais remplir un champ factice pour satisfaire une structure.
+Ne jamais ajouter un champ méthodologique uniquement pour satisfaire le workflow.
 
 ---
 
-# 6. PUBLISH_REVIEW
+# 7. Gate final
 
-Une fois le draft stable :
+Une fois le draft stable, appeler :
 
-1. `python3 validate_comparison_workflow.py`
-2. `python3 validate_comparisons.py`
-3. `comparison-analysis-workflow` en mode `PUBLISH_REVIEW`
+`.agents/skills/comparison-analysis-workflow/SKILL.md` en mode `PUBLISH_REVIEW`.
 
-Le review final doit être enregistré dans `.content/reviews/<slug>.comparison-review.md` avec :
-
-- `PRODUCTS: PASS`
-- `EVIDENCE: PASS`
-- `AFFILIATION: PASS`
-- `GEO: PASS`
-- `ANTI_AI_SLOP: PASS`
-- `SEO: PASS`
-- `INTERNAL_LINKING: PASS`
-- `TECHNICAL: PASS`
-- `EDITORIAL_QA: PASS`
-
-Puis seulement :
+Résultat requis avant validation humaine :
 
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
@@ -232,54 +281,53 @@ Sinon :
 
 `FAIL — KEEP_NOINDEX`
 
-Le statut du record ne peut passer à `READY_FOR_HUMAN_VALIDATION` que si ce review existe.
+Le gate final vérifie surtout : intention, décision, preuves, valeur, différenciation éditoriale, SEO et absence de faux hands-on — pas la présence d'une méthodologie chiffrée imposée.
 
 ---
 
-# 7. Indexation
+# 8. Indexation
 
-`noindex,follow` par défaut.
+Conserver `noindex,follow` par défaut.
 
-Indexation uniquement après validation machine, PUBLISH_REVIEW PASS, validation humaine explicite et instruction explicite d'indexer.
+Le workflow ne retire jamais `noindex` automatiquement.
+
+Indexation seulement après validation machine, PUBLISH_REVIEW PASS, validation humaine explicite et instruction explicite d'indexer.
 
 ---
 
-# 8. Orchestration 80/20
+# 9. Orchestration 80/20
 
 ```text
-comparison-analysis-workflow / AUDIT
-  ↓
-seo-keyword + jobs-to-be-done + seo-content-audit
-  ↓
-PRODUCT REGISTRY + candidate research
-  ↓
-evidence-based-reviews + fact-check
-  ↓
+PAGE EXISTANTE
+  comparison-analysis-workflow / AUDIT
+        ↓
+seo-keyword (Rampstack)
+        ↓
+jobs-to-be-done (Wondel.ai) si pertinent
+        ↓
+seo-content-audit (Rampstack)
+        ↓
+evidence-based-reviews (Rampstack) + fact-check
+        ↓
 affiliate-value
-  ↓
-CUSTOM <=20%: scope + criteria + recommendation logic
-  ↓
-content-brief-authoring
-  ↓
-content-and-copy
-  ↓
+        ↓
+CUSTOM LÉGER : scope + critères + logique de recommandation
+        ↓
+content-brief-authoring (Rampstack)
+        ↓
+content-and-copy (Rampstack)
+        ↓
 fact-check
-  ↓
-geo-aeo-comparison
-  ↓
+        ↓
 humanizer → general-writing → anti-ai-slop
-  ↓
-internal-linking-audit
-  ↓
-seo-onpage + seo-technical
-  ↓
+        ↓
+seo-onpage (Rampstack) + seo-technical
+        ↓
 editorial-qa
-  ↓
-validate_comparison_workflow.py + validate_comparisons.py
-  ↓
+        ↓
 comparison-analysis-workflow / PUBLISH_REVIEW
-  ↓
-human validation → explicit indexation approval
+        ↓
+validation humaine
 ```
 
-Upstream principal : Rampstack, Wondel.ai, OnVoyage AI, msimchowitz et les skills externes déjà vendored dans le repo. Le custom reste limité à l'orchestration et à la logique comparative spécifique au site.
+Le custom doit rester minoritaire et ne jamais réimplémenter les skills externes.

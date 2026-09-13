@@ -1,10 +1,10 @@
 ---
 name: affiliate-value
-description: Verhoog de originele beslissingswaarde van product-, review- en vergelijkingscontent op cafetiere-italienne.be zonder fake hands-on ervaring.
+description: Verhoog de originele beslissingswaarde van product-, review- en vergelijkingscontent op italiaanse-percolator.nl zonder fake hands-on ervaring.
 license: MIT
 ---
 
-# Affiliate value — cafetiere-italienne.be
+# Affiliate value — italiaanse-percolator.nl
 
 Gebruik voor productreviews, koopgidsen, categoriepagina's en vergelijkingen.
 

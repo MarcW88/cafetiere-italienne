@@ -4,7 +4,7 @@ description: "Write or edit website and editorial content with attention to read
 category: content
 metadata:
   upstream: https://github.com/rampstackco/claude-skills/tree/main/skills/content-and-copy
-  vendored_for: cafetiere-italienne.be
+  vendored_for: bloc-notes-numeriques.fr
 ---
 
 # Content and Copy

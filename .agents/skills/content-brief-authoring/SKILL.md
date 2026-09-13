@@ -4,7 +4,7 @@ description: "Build a per-piece editorial brief that guides a writer without blo
 category: content
 metadata:
   upstream: https://github.com/rampstackco/claude-skills/tree/main/skills/content-brief-authoring
-  vendored_for: cafetiere-italienne.be
+  vendored_for: bloc-notes-numeriques.fr
 ---
 
 # Content Brief Authoring

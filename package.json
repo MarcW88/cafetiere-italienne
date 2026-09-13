@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "node --import ./scripts/comparison-content-induction.mjs scripts/build.mjs",
+    "build": "node scripts/build.mjs",
     "check": "node scripts/check.mjs"
   }
 }

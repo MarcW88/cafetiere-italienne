@@ -1,0 +1,19 @@
+# Site-specific extension. The upstream Bloc Notes workflow and skills remain vendored unchanged.
+project: cafetiere-italienne.be
+custom_share_target: "<=20%"
+custom_scope:
+  - comparison URL mapping and product scope
+  - cafetiere-specific evidence / candidate research
+  - affiliate placements after page approval
+  - GEO/AEO post-draft gate
+  - site publication state
+geo:
+  skill: ".agents/skills/geo-aeo-comparison/SKILL.md"
+  run_after_fact_check: true
+  run_before_final_publish_review: true
+  rules:
+    - entity_and_variant_disambiguation
+    - extractable_decision_claims
+    - source_attribution_for_decision_critical_claims
+    - truthful_structured_data
+    - no_geo_keyword_stuffing
