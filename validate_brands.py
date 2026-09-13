@@ -30,7 +30,9 @@ for route in ROUTES:
     text=re.sub(r'<[^>]+>',' ',body).lower().replace('’',"'")
     if 'gabarit prêt' in text or 'zone de contenu' in text or 'à compléter' in text: FAIL.append(f'{route}: placeholder')
     if not re.search(r'href="https?://',body,re.I): FAIL.append(f'{route}: external evidence source')
-    if not re.search(r'href="/',body,re.I): FAIL.append(f'{route}: internal link')
+    hrefs=re.findall(r'href="([^"]+)"',body,re.I)
+    internal=[h for h in hrefs if not re.match(r'^(?:https?://|mailto:|tel:|#)',h,re.I)]
+    if not internal: FAIL.append(f'{route}: internal link')
     if re.search(r'\b(nous avons testé|lors de notre test|nous avons mesuré|nous avons constaté)\b',text,re.I): FAIL.append(f'{route}: possible fake hands-on')
     if re.search(r'\b(dans un monde où|en conclusion|solution idéale|choix parfait|produit incontournable)\b',text,re.I): FAIL.append(f'{route}: high-risk generic/promotional wording')
 
