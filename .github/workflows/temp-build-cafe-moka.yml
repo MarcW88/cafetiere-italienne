@@ -1,0 +1,65 @@
+name: Temporary cafe moka build
+
+on:
+  push:
+    branches:
+      - cafe-moka-pages
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Wire cafe moka pages and validate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          build=Path('scripts/build.mjs')
+          text=build.read_text(encoding='utf-8')
+          import_line="import { cafeMokaPages, cafeMokaHub } from './cafe-moka-content.mjs';"
+          if import_line not in text:
+              anchor="import { accessoryPages, accessoryHub } from './accessory-content.mjs';\n"
+              if anchor not in text: raise SystemExit('cafe moka import anchor missing')
+              text=text.replace(anchor,anchor+import_line+'\n',1)
+          old="const custom=cat==='guides'?(guidePages[slug]||guideHowToPages[slug]||guideFirstUsePages[slug]||guideBrewBasicsPages[slug]||guideMaterialsCarePages[slug]||guideTroubleshootingPages[slug]):cat==='comparatifs'?comparisonPages[slug]:cat==='marques'?brandPages[slug]:cat==='modeles'?modelPages[slug]:cat==='capacites'?capacityPages[slug]:cat==='accessoires'?accessoryPages[slug]:null;"
+          new="const custom=cat==='guides'?(guidePages[slug]||guideHowToPages[slug]||guideFirstUsePages[slug]||guideBrewBasicsPages[slug]||guideMaterialsCarePages[slug]||guideTroubleshootingPages[slug]):cat==='comparatifs'?comparisonPages[slug]:cat==='marques'?brandPages[slug]:cat==='modeles'?modelPages[slug]:cat==='capacites'?capacityPages[slug]:cat==='accessoires'?accessoryPages[slug]:cat==='cafe-moka'?cafeMokaPages[slug]:null;"
+          if old in text: text=text.replace(old,new,1)
+          elif new not in text: raise SystemExit('cafe moka custom anchor missing')
+
+          marker="}else if(cat==='accessoires'){fs.writeFileSync(path.join(dir,'index.html'),shell(accessoryHub.title,accessoryHub.body,accessoryHub.description,{robots:'noindex,follow',canonical:accessoryHub.canonical}));}else{fs.writeFileSync(path.join(dir,'index.html'),shell(labels[cat],"
+          replacement="}else if(cat==='accessoires'){fs.writeFileSync(path.join(dir,'index.html'),shell(accessoryHub.title,accessoryHub.body,accessoryHub.description,{robots:'noindex,follow',canonical:accessoryHub.canonical}));}else if(cat==='cafe-moka'){fs.writeFileSync(path.join(dir,'index.html'),shell(cafeMokaHub.title,cafeMokaHub.body,cafeMokaHub.description,{robots:'noindex,follow',canonical:cafeMokaHub.canonical}));}else{fs.writeFileSync(path.join(dir,'index.html'),shell(labels[cat],"
+          if marker in text: text=text.replace(marker,replacement,1)
+          elif "canonical:cafeMokaHub.canonical" not in text: raise SystemExit('cafe moka hub anchor missing')
+          build.write_text(text,encoding='utf-8')
+
+          css=Path('assets/styles.css')
+          c=css.read_text(encoding='utf-8')
+          if '/* Cafe moka editorial content */' not in c:
+              c += "\n\n/* Cafe moka editorial content */\n.cafe-moka-layout{align-items:start}\n"
+              css.write_text(c,encoding='utf-8')
+          PY
+
+          npm run build
+          npm run check
+          python3 validate_cafe_moka.py
+          for slug in quest-ce-que-le-cafe-moka comment-preparer-un-cafe-moka; do
+            page="cafe-moka/$slug/index.html"
+            grep -q '<meta name="robots" content="noindex,follow">' "$page"
+            grep -q '<article class="content-main">' "$page"
+            grep -q 'id="sources"' "$page"
+          done
+          grep -q '<meta name="robots" content="noindex,follow">' cafe-moka/index.html
+
+          git add scripts/build.mjs assets/styles.css cafe-moka
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "content: build cafe moka cluster"
+          git push origin HEAD:cafe-moka-pages
