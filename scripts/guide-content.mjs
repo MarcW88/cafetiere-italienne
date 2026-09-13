@@ -1,0 +1,162 @@
+export const guidePages = {
+  'comment-choisir-cafetiere-italienne': {
+    title: 'Comment choisir une cafetière italienne ?',
+    description: 'Plaque, contenance réelle, aluminium ou inox, entretien et pièces : les critères à vérifier pour choisir une cafetière italienne sans se tromper.',
+    canonical: '/guides/comment-choisir-cafetiere-italienne/',
+    body: `
+<section class="page-hero guide-hero">
+  <div class="container">
+    <div class="breadcrumbs"><a href="/">Accueil</a> · <a href="/guides/">Guides</a> · Comment choisir une cafetière italienne ?</div>
+    <span class="eyebrow">Guide de choix</span>
+    <h1>Comment choisir une cafetière italienne ?</h1>
+    <p>La bonne moka n’est pas d’abord une question de marque. Commencez par éliminer les modèles incompatibles avec votre plaque, puis choisissez le volume que vous buvez réellement. Le matériau, l’entretien, les pièces détachées et le design viennent ensuite.</p>
+  </div>
+</section>
+
+<div class="container template-grid guide-layout">
+  <article class="guide-article">
+    <section class="guide-answer">
+      <span class="eyebrow">Réponse courte</span>
+      <h2>Les 4 vérifications à faire avant d’acheter</h2>
+      <ol class="decision-list">
+        <li><strong>Votre plaque.</strong> Sur induction, vérifiez une compatibilité explicitement annoncée pour le modèle et la taille choisis.</li>
+        <li><strong>Le volume réel.</strong> Comparez les ml ou cl de la variante exacte, pas seulement le nombre de « tasses ».</li>
+        <li><strong>Le matériau.</strong> Aluminium ou inox change surtout les contraintes de compatibilité, de construction et d’entretien ; ce n’est pas un raccourci fiable vers un « meilleur goût ».</li>
+        <li><strong>L’usage dans le temps.</strong> Regardez la prise en main, le nettoyage et la disponibilité des joints, filtres et autres pièces d’usure.</li>
+      </ol>
+      <p>Une fois ces quatre points fixés, vous pouvez comparer les modèles sans vous laisser guider uniquement par le design, la marque ou une promotion.</p>
+    </section>
+
+    <section>
+      <h2>1. Commencez par votre plaque de cuisson</h2>
+      <p>C’est le premier critère éliminatoire. Une cafetière peut avoir la bonne capacité et vous plaire visuellement, mais rester inutilisable sur votre plaque sans accessoire supplémentaire.</p>
+
+      <h3>Si vous cuisinez à l’induction</h3>
+      <p>Ne déduisez pas la compatibilité du seul mot « inox ». Cherchez une mention explicite du fabricant pour <em>la variante exacte</em> que vous envisagez. La taille compte aussi : certaines plaques ne détectent pas les petits fonds, même lorsqu’ils sont magnétiques.</p>
+      <p>Alessi, par exemple, annonce sa 9090 en acier inoxydable avec fond magnétique compatible induction, tout en demandant, pour la version 1 tasse présentée sur sa fiche, de vérifier que la plaque peut s’activer avec un diamètre d’au moins 90 mm. Cette précision illustre bien pourquoi « compatible induction » ne suffit pas toujours à garantir que toutes les tailles fonctionneront sur toutes les plaques.</p>
+      <div class="guide-callout"><strong>À vérifier sur la fiche produit :</strong> compatibilité induction, diamètre du fond et éventuelle restriction liée à la taille. Si vous possédez déjà une moka aluminium, un adaptateur peut être une solution distincte plutôt qu’un nouvel achat.</div>
+      <p><a class="text-link" href="/guides/cafetiere-italienne-induction-compatibilite/">Comprendre en détail la compatibilité induction →</a></p>
+
+      <h3>Gaz, électrique ou vitrocéramique</h3>
+      <p>Le choix est généralement plus large, mais la même règle reste utile : fiez-vous à la compatibilité annoncée par le fabricant plutôt qu’à une supposition basée sur la forme ou le matériau. La Moka Express classique de Bialetti, par exemple, est annoncée pour le gaz, l’électrique et la vitrocéramique ; pour l’induction, Bialetti renvoie à l’usage d’une plaque adaptatrice.</p>
+    </section>
+
+    <section>
+      <h2>2. Choisissez la contenance en ml, pas seulement en « tasses »</h2>
+      <p>Le nombre de tasses est pratique pour identifier les tailles dans une gamme, mais ce n’est pas une unité universelle permettant de comparer précisément deux marques ou deux modèles. Les fiches fabricants le montrent : Bialetti annonce 270 ml pour une Moka Express 6 tasses, tandis qu’Alessi annonce 7 cl pour la version 1 tasse de sa 9090. Il vaut donc mieux comparer le volume annoncé pour chaque variante.</p>
+
+      <h3>Partez de ce que vous buvez réellement</h3>
+      <p>Mesurez ou estimez le volume que vous servez habituellement. Si vous préparez deux petits cafés moka, votre besoin n’est pas le même que si vous remplissez deux grands mugs. La question utile n’est donc pas « combien de personnes ? » mais « combien de café faut-il préparer en une fois ? ».</p>
+      <p>Une cafetière trop petite vous oblige à relancer une préparation. Une cafetière beaucoup trop grande n’est pas automatiquement plus polyvalente : vous achetez alors une capacité que vous n’utilisez pas. Commencez par le volume, puis regardez quelle taille du modèle choisi s’en approche.</p>
+      <div class="guide-callout"><strong>Règle simple :</strong> comparez les capacités en ml/cl de la taille exacte et considérez le nombre de tasses comme un repère propre à la gamme.</div>
+      <p><a class="text-link" href="/capacites/">Voir les guides par capacité →</a></p>
+    </section>
+
+    <section>
+      <h2>3. Aluminium ou inox : choisissez selon les contraintes réelles</h2>
+      <p>Le matériau est important, mais il arrive trop souvent trop tôt dans la décision. Avant de trancher, vous devriez déjà connaître votre plaque et votre volume cible.</p>
+
+      <div class="guide-split">
+        <div>
+          <h3>Aluminium</h3>
+          <p>C’est le matériau de la Moka Express classique de Bialetti. Selon le modèle, il peut convenir au gaz, à l’électrique ou à la vitrocéramique ; pour l’induction, il faut vérifier si la cafetière possède une conception dédiée ou si un adaptateur est nécessaire.</p>
+          <p>Choisissez-le si la compatibilité avec votre cuisine est établie et si vous recherchez ce type de construction. Vérifiez ensuite les recommandations d’entretien du fabricant du modèle précis.</p>
+        </div>
+        <div>
+          <h3>Inox</h3>
+          <p>De nombreux modèles inox sont conçus pour l’induction, mais « inox » ne signifie pas automatiquement « compatible avec toutes les plaques à induction ». La composition du fond, son diamètre et les exigences de la plaque restent à contrôler.</p>
+          <p>Choisissez-le pour ses caractéristiques de construction ou parce qu’un modèle précis répond à vos contraintes, pas sur la promesse vague qu’il produirait nécessairement un meilleur café.</p>
+        </div>
+      </div>
+      <p><a class="text-link" href="/guides/cafetiere-italienne-aluminium-ou-inox/">Approfondir le choix aluminium ou inox →</a></p>
+    </section>
+
+    <section>
+      <h2>4. Regardez ce qui se passe après l’achat</h2>
+      <p>Deux cafetières compatibles et de même capacité peuvent être très différentes à vivre au quotidien. À ce stade, les critères utiles sont moins spectaculaires que le design, mais ils ont plus de chances de compter après plusieurs mois.</p>
+
+      <h3>Pièces d’usure et réparabilité</h3>
+      <p>Vérifiez si le joint, le filtre et les pièces spécifiques à votre taille sont faciles à identifier et à remplacer. Une référence clairement documentée est plus rassurante qu’une cafetière pour laquelle il devient difficile de savoir quel joint commander.</p>
+
+      <h3>Ouverture, fermeture et prise en main</h3>
+      <p>Observez la forme de la poignée, le système d’ouverture, la stabilité du fond et l’accès aux parties à nettoyer. Ce sont des critères ergonomiques : sans essai documenté, nous évitons de prétendre qu’un modèle est objectivement « plus confortable ». En revanche, la conception et les mécanismes décrits par le fabricant peuvent être comparés.</p>
+
+      <h3>Entretien compatible avec vos habitudes</h3>
+      <p>Consultez les instructions du fabricant avant l’achat, notamment si vous comptez utiliser un lave-vaisselle ou des produits nettoyants. Les recommandations peuvent varier selon le matériau et la finition. Une routine d’entretien que vous êtes réellement prêt à suivre vaut mieux qu’un avantage théorique.</p>
+    </section>
+
+    <section>
+      <h2>5. Le bon choix selon votre situation</h2>
+      <div class="table-wrap">
+        <table class="guide-table">
+          <thead><tr><th>Votre situation</th><th>Priorité</th><th>À vérifier avant d’acheter</th></tr></thead>
+          <tbody>
+            <tr><td>Vous avez une plaque à induction</td><td>Compatibilité</td><td>Mention induction sur la variante exacte + diamètre du fond accepté par votre plaque.</td></tr>
+            <tr><td>Vous préparez toujours la même quantité</td><td>Volume</td><td>Capacité réelle en ml/cl correspondant à votre service habituel.</td></tr>
+            <tr><td>Vous hésitez entre aluminium et inox</td><td>Contraintes pratiques</td><td>Plaque, entretien, construction et variantes disponibles avant toute préférence de matériau.</td></tr>
+            <tr><td>Vous l’utiliserez tous les jours</td><td>Long terme</td><td>Joint, filtre, pièces disponibles, nettoyage et manipulation.</td></tr>
+            <tr><td>Vous cherchez surtout un bel objet</td><td>Design en dernier</td><td>Valider d’abord plaque, capacité et entretien pour ne pas acheter un modèle inadapté.</td></tr>
+            <tr><td>Vous voulez comparer des modèles précis</td><td>Comparatif</td><td>Passer au comparatif une fois vos critères fixés, plutôt que choisir sur une note globale.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>6. Les erreurs de choix les plus faciles à éviter</h2>
+      <ul class="guide-list">
+        <li><strong>Lire « 6 tasses » comme « 6 mugs ».</strong> Vérifiez le volume annoncé en ml ou cl.</li>
+        <li><strong>Acheter pour l’induction sans vérifier la taille.</strong> Un fond magnétique peut encore être trop petit pour la zone de cuisson.</li>
+        <li><strong>Supposer que tout inox fonctionne sur induction.</strong> La compatibilité doit être documentée pour le modèle concerné.</li>
+        <li><strong>Choisir le matériau sur une promesse de goût absolue.</strong> Plaque, volume, mouture et méthode de préparation doivent être séparés de ce type d’affirmation.</li>
+        <li><strong>Regarder la marque avant le besoin.</strong> Une bonne marque ne corrige pas une mauvaise capacité ou une incompatibilité avec votre cuisine.</li>
+        <li><strong>Négliger les pièces détachées.</strong> Un joint est une petite pièce jusqu’au jour où il faut trouver la bonne référence.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Quand la cafetière italienne n’est pas forcément le bon choix</h2>
+      <p>Une moka demande une source de chaleur et prépare un café concentré selon une méthode fixe. Si votre priorité est d’obtenir un grand volume de café filtre en une seule préparation, une boisson très courte proche d’un espresso sous pression, ou une préparation entièrement automatisée, une autre famille de cafetières peut mieux répondre au besoin.</p>
+      <p>Le but de ce guide n’est donc pas de vous convaincre qu’une moka convient à tout le monde. Il est de vérifier qu’elle correspond bien à votre usage avant de vous aider à choisir laquelle.</p>
+    </section>
+
+    <section class="guide-next">
+      <span class="eyebrow">Étape suivante</span>
+      <h2>Vous connaissez maintenant vos critères : comparez les modèles</h2>
+      <p>Si votre plaque, votre volume et vos contraintes sont définis, vous pouvez passer à la sélection de produits. Le comparatif est l’endroit où les modèles peuvent être mis en concurrence ; ce guide reste volontairement centré sur la décision qui précède.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="/comparatifs/meilleure-cafetiere-italienne/">Comparer les cafetières →</a>
+        <a class="btn btn-secondary" href="/comparatifs/cafetiere-italienne-induction/">Voir les modèles induction</a>
+      </div>
+    </section>
+
+    <section class="guide-sources">
+      <h2>Sources vérifiées</h2>
+      <p>Les exemples techniques de ce guide ont été vérifiés sur des sources fabricants. Les caractéristiques peuvent varier selon la taille et la variante : contrôlez toujours la fiche du modèle que vous achetez.</p>
+      <ul>
+        <li><a href="https://bialetti-cookware.zendesk.com/hc/fr/articles/5416208859282-Quelle-est-la-composition-de-la-Moka-Express">Bialetti — composition de la Moka Express</a></li>
+        <li><a href="https://www.bialetti.com.uy/producto/moka-express-l-6-pocillos/">Bialetti — Moka Express 6 tasses, capacité et compatibilité</a></li>
+        <li><a href="https://alessi.com/fr/products/9090-espresso-coffee-maker">Alessi — 9090, matériau, capacité et induction</a></li>
+      </ul>
+      <p class="source-date">Dernière vérification des sources : 13 septembre 2026.</p>
+    </section>
+  </article>
+
+  <aside>
+    <div class="sidebar-card guide-sidebar">
+      <span class="eyebrow">En un coup d’œil</span>
+      <h3>Ordre de décision</h3>
+      <ol>
+        <li>Plaque</li>
+        <li>Volume réel</li>
+        <li>Matériau</li>
+        <li>Entretien & pièces</li>
+        <li>Design & prix</li>
+      </ol>
+      <p>Vous êtes sur induction ? Commencez par vérifier la compatibilité avant tout le reste.</p>
+      <a class="sidebar-link" href="/guides/cafetiere-italienne-induction-compatibilite/">Guide induction →</a>
+    </div>
+  </aside>
+</div>`
+  }
+};
