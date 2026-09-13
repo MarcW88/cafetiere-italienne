@@ -4,15 +4,38 @@ on:
   push:
     branches:
       - main
-      - capacity-cluster-audit-guide-exact
+      - capacity-decision-layer-exact
     paths:
       - 'capacity-workflow.config.yaml'
-      - '.agents/skills/**'
+      - '.agents/skills/capacity-decision-workflow/**'
+      - '.agents/skills/thinking-toolkit/**'
+      - '.agents/skills/comparison-analysis-workflow/**'
+      - '.agents/skills/comparison-content-workflow/**'
+      - '.agents/skills/seo-content-audit/**'
+      - '.agents/skills/seo-keyword/**'
+      - '.agents/skills/jobs-to-be-done/**'
+      - '.agents/skills/evidence-based-reviews/**'
+      - '.agents/skills/fact-check/**'
+      - '.agents/skills/affiliate-value/**'
+      - '.agents/skills/content-brief-authoring/**'
+      - '.agents/skills/content-and-copy/**'
+      - '.agents/skills/internal-linking-audit/**'
+      - '.agents/skills/humanizer/**'
+      - '.agents/skills/general-writing/**'
+      - '.agents/skills/anti-ai-slop/**'
+      - '.agents/skills/seo-onpage/**'
+      - '.agents/skills/seo-technical/**'
+      - '.agents/skills/seo-best-practices/**'
+      - '.agents/skills/editorial-qa/**'
+      - '.content/capacities/decisions/**'
       - '.github/workflows/check-capacity-workflow-parity.yml'
   pull_request:
     paths:
       - 'capacity-workflow.config.yaml'
+      - '.agents/skills/capacity-decision-workflow/**'
+      - '.agents/skills/thinking-toolkit/**'
       - '.agents/skills/**'
+      - '.content/capacities/decisions/**'
       - '.github/workflows/check-capacity-workflow-parity.yml'
   workflow_dispatch:
 
@@ -23,54 +46,109 @@ jobs:
       - name: Checkout Cafetiere repo
         uses: actions/checkout@v4
 
-      - name: Checkout pinned Bloc Notes reference
+      - name: Checkout pinned Bloc Notes comparison reference
         run: |
           git clone --quiet https://github.com/MarcW88/bloc-notes-numerique.git /tmp/bloc-notes
           git -C /tmp/bloc-notes checkout --quiet 534e9fd7e0fc2f7bd83da5b053987ac327c4e9fe
 
-      - name: Verify 80/20 contract markers
+      - name: Checkout pinned thinking-toolkit reference
+        run: |
+          git clone --quiet https://github.com/ponomr/thinking-toolkit.git /tmp/thinking-toolkit
+          git -C /tmp/thinking-toolkit checkout --quiet 1e4c78dd0a0252ca7dab60e6fb3ce9e4404d3328
+
+      - name: Verify 80/20 contract and upstream pins
         run: |
           grep -F 'target_existing_skill_share: ">=80%"' capacity-workflow.config.yaml
           grep -F 'custom_share_target: "<=20%"' capacity-workflow.config.yaml
           grep -F 'custom_must_not_replace_existing_skill: true' capacity-workflow.config.yaml
+          grep -F 'comparison_commit: 534e9fd7e0fc2f7bd83da5b053987ac327c4e9fe' capacity-workflow.config.yaml
+          grep -F 'decision_commit: 1e4c78dd0a0252ca7dab60e6fb3ce9e4404d3328' capacity-workflow.config.yaml
+          grep -F 'decision_version: 1.0.0' capacity-workflow.config.yaml
 
-      - name: Verify exact reused skill directories
+      - name: Verify exact Bloc Notes comparison/shared skill directories
         run: |
+          set -euo pipefail
           skills=(
-            affiliate-value
-            anti-ai-slop
-            content-and-copy
-            content-brief-authoring
-            editorial-qa
-            evidence-based-reviews
-            fact-check
-            general-writing
-            humanizer
-            internal-linking-audit
-            seo-best-practices
+            comparison-analysis-workflow
+            comparison-content-workflow
             seo-content-audit
             seo-keyword
+            jobs-to-be-done
+            evidence-based-reviews
+            fact-check
+            affiliate-value
+            content-brief-authoring
+            content-and-copy
+            internal-linking-audit
+            humanizer
+            general-writing
+            anti-ai-slop
             seo-onpage
             seo-technical
+            seo-best-practices
+            editorial-qa
           )
           for skill in "${skills[@]}"; do
-            echo "Checking $skill"
+            echo "Checking Bloc Notes parity: $skill"
             diff -qr ".agents/skills/$skill" "/tmp/bloc-notes/.agents/skills/$skill"
           done
 
-      - name: Verify capacity-specific custom scope only
+      - name: Verify exact thinking-toolkit decision files
         run: |
-          python - <<'PY'
+          set -euo pipefail
+          files=(
+            SKILL.md
+            VERSION
+            references/catalog.md
+            references/hard-choice-model.md
+            references/decision-matrix.md
+          )
+          for file in "${files[@]}"; do
+            echo "Checking thinking-toolkit parity: $file"
+            cmp -s ".agents/skills/thinking-toolkit/$file" "/tmp/thinking-toolkit/$file"
+          done
+
+      - name: Verify custom scope excludes methodology ownership
+        run: |
+          python3 - <<'PY'
           from pathlib import Path
           text = Path('capacity-workflow.config.yaml').read_text(encoding='utf-8')
-          forbidden = [
-              'custom_allowed_for:\n    - seo_methodology',
-              'custom_allowed_for:\n    - fact_check_methodology',
-              'custom_allowed_for:\n    - writing_methodology',
-              'custom_allowed_for:\n    - affiliate_methodology',
+          required_forbidden = [
+              'seo_methodology',
+              'search_intent_methodology',
+              'evidence_methodology',
+              'fact_check_methodology',
+              'affiliate_methodology',
+              'decision_methodology',
+              'scoring_methodology',
+              'writing_methodology',
+              'humanization_methodology',
+              'anti_ai_slop_methodology',
+              'editorial_qa_methodology',
           ]
-          for marker in forbidden:
-              if marker in text:
-                  raise SystemExit(f'Forbidden custom methodology marker: {marker}')
-          print('PASS: custom layer is restricted to orchestration/capacity-specific concerns')
+          for marker in required_forbidden:
+              if marker not in text:
+                  raise SystemExit(f'Missing custom-forbidden methodology marker: {marker}')
+          if 'require_decision_artifact_before_content_brief: true' not in text:
+              raise SystemExit('Decision artifact gate missing')
+          print('PASS: custom layer is orchestration/integration only; decision methodology belongs to thinking-toolkit')
           PY
+
+      - name: Verify decision artifacts are upstream-model based
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          decision_dir = Path('.content/capacities/decisions')
+          if decision_dir.exists():
+              for path in decision_dir.glob('*.md'):
+                  text = path.read_text(encoding='utf-8')
+                  if 'thinking-toolkit' not in text or 'Hard Choice Model' not in text:
+                      raise SystemExit(f'{path}: missing thinking-toolkit/Hard Choice traceability')
+                  if 'Decision Matrix: NOT_REQUIRED' not in text and 'Decision Matrix: APPLIED' not in text:
+                      raise SystemExit(f'{path}: Decision Matrix selection state missing')
+          print('PASS: decision artifacts trace the upstream decision skill')
+          PY
+
+      - name: Report
+        run: |
+          echo "PASS - capacity workflow reuses exact Bloc Notes comparison/shared skills plus exact ponomr/thinking-toolkit v1.0.0 decision files"
