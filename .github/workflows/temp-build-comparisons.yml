@@ -49,18 +49,13 @@ jobs:
                   break
           if not replaced and "canonical:'/comparatifs/'" not in text:
               raise SystemExit('comparison hub generation anchor missing')
-          text='\n'.join(lines)+'\n'
-          build.write_text(text,encoding='utf-8')
+          build.write_text('\n'.join(lines)+'\n',encoding='utf-8')
 
           css=Path('assets/styles.css')
           c=css.read_text(encoding='utf-8')
           marker='/* Comparison editorial content */'
           if marker not in c:
-              c += r'''
-
-/* Comparison editorial content */
-.comparison-layout{align-items:start}.content-main{min-width:0}.content-main>section{padding:34px 0;border-bottom:1px solid var(--line)}.content-main>section:first-child{padding-top:0}.content-main>section:last-child{border-bottom:0}.content-main h2{font-size:clamp(1.9rem,3vw,2.65rem);margin-bottom:18px}.content-main h3{font-size:1.45rem;margin:26px 0 10px}.content-main p{margin:0 0 16px}.content-main ul{padding-left:1.3rem}.comparison-picks{display:grid;grid-template-columns:1fr 1fr;gap:16px}.pick{padding:22px;background:var(--paper);border:1px solid var(--line);border-radius:18px}.pick h3{margin-top:7px}.source-list li+li{margin-top:10px}@media(max-width:760px){.comparison-picks{grid-template-columns:1fr}}
-'''
+              c += "\n\n/* Comparison editorial content */\n.comparison-layout{align-items:start}.content-main{min-width:0}.content-main>section{padding:34px 0;border-bottom:1px solid var(--line)}.content-main>section:first-child{padding-top:0}.content-main>section:last-child{border-bottom:0}.content-main h2{font-size:clamp(1.9rem,3vw,2.65rem);margin-bottom:18px}.content-main h3{font-size:1.45rem;margin:26px 0 10px}.content-main p{margin:0 0 16px}.content-main ul{padding-left:1.3rem}.comparison-picks{display:grid;grid-template-columns:1fr 1fr;gap:16px}.pick{padding:22px;background:var(--paper);border:1px solid var(--line);border-radius:18px}.pick h3{margin-top:7px}.source-list li+li{margin-top:10px}@media(max-width:760px){.comparison-picks{grid-template-columns:1fr}}\n"
               css.write_text(c,encoding='utf-8')
           PY
 
