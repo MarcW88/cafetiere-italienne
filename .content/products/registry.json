@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "updated_at": "2026-09-13",
+  "policy": {
+    "purpose": "Shared identity and evidence registry for products considered by comparison pages.",
+    "affiliate_fields_are_not_ranking_inputs": true,
+    "variant_specific_facts_required_when_variant_changes_decision": true,
+    "evidence_status_values": ["PARTIAL", "VERIFIED", "RESEARCH_REQUIRED", "OUTDATED"]
+  },
+  "products": {
+    "bialetti-moka-express": {
+      "name": "Bialetti Moka Express",
+      "brand": "Bialetti",
+      "family": "Moka Express",
+      "identity_scope": "range",
+      "evidence_status": "PARTIAL",
+      "primary_sources": ["https://bialetti-cookware.zendesk.com/hc/fr/articles/5416235346322-Comment-utiliser-la-Moka-Express"]
+    },
+    "bialetti-moka-express-small": {
+      "name": "Bialetti Moka Express — small sizes",
+      "brand": "Bialetti",
+      "family": "Moka Express",
+      "identity_scope": "variant-group",
+      "evidence_status": "RESEARCH_REQUIRED",
+      "primary_sources": ["https://bialetti-cookware.zendesk.com/hc/fr/articles/5416235346322-Comment-utiliser-la-Moka-Express"]
+    },
+    "bialetti-venus": {
+      "name": "Bialetti Venus",
+      "brand": "Bialetti",
+      "family": "Venus",
+      "identity_scope": "range",
+      "evidence_status": "PARTIAL",
+      "primary_sources": ["https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"]
+    },
+    "bialetti-moka-induction": {
+      "name": "Bialetti Moka Induction",
+      "brand": "Bialetti",
+      "family": "Moka Induction",
+      "identity_scope": "range",
+      "evidence_status": "PARTIAL",
+      "primary_sources": ["https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"]
+    },
+    "bialetti-brikka-induction": {
+      "name": "Bialetti Brikka Induction",
+      "brand": "Bialetti",
+      "family": "Brikka",
+      "identity_scope": "model",
+      "evidence_status": "PARTIAL",
+      "primary_sources": ["https://www.bialetti.co.nz/collections/all-stovetops-excludes-d-g/products/bialetti-brikka-induction"]
+    },
+    "bialetti-mini-express-induction": {
+      "name": "Bialetti Mini Express Induction 2 cup",
+      "brand": "Bialetti",
+      "family": "Mini Express",
+      "identity_scope": "variant",
+      "evidence_status": "PARTIAL",
+      "primary_sources": ["https://www.bialetti.co.nz/products/bialetti-mini-express-induction-2-cup-set"]
+    },
+    "alessi-9090": {
+      "name": "Alessi 9090",
+      "brand": "Alessi",
+      "family": "9090",
+      "identity_scope": "range",
+      "evidence_status": "PARTIAL",
+      "primary_sources": ["https://alessi.com/fr/products/9090-espresso-coffee-maker"]
+    },
+    "alessi-9090-1": {
+      "name": "Alessi 9090 — 1 cup",
+      "brand": "Alessi",
+      "family": "9090",
+      "identity_scope": "variant",
+      "evidence_status": "RESEARCH_REQUIRED",
+      "primary_sources": ["https://alessi.com/products/9090-espresso-coffee-maker"]
+    },
+    "alessi-vite": {
+      "name": "Alessi Vite",
+      "brand": "Alessi",
+      "family": "Vite",
+      "identity_scope": "range",
+      "evidence_status": "PARTIAL",
+      "primary_sources": ["https://alessi.com/fr/products/vite-espresso-coffee-maker"]
+    },
+    "alessi-menhir": {
+      "name": "Alessi Menhir",
+      "brand": "Alessi",
+      "family": "Menhir",
+      "identity_scope": "range",
+      "evidence_status": "PARTIAL",
+      "primary_sources": ["https://alessi.com/fr/products/menhir-espresso-coffee-maker"]
+    },
+    "alessi-pulcina": {
+      "name": "Alessi Pulcina",
+      "brand": "Alessi",
+      "family": "Pulcina",
+      "identity_scope": "range",
+      "evidence_status": "PARTIAL",
+      "primary_sources": ["https://alessi.com/fr/products/pulcina-espresso-coffee-maker-1"]
+    },
+    "alessi-pulcina-1": {
+      "name": "Alessi Pulcina — 1 cup",
+      "brand": "Alessi",
+      "family": "Pulcina",
+      "identity_scope": "variant",
+      "evidence_status": "RESEARCH_REQUIRED",
+      "primary_sources": ["https://alessi.com/fr/products/pulcina-espresso-coffee-maker-1"]
+    },
+    "alessi-la-cupola": {
+      "name": "Alessi La Cupola",
+      "brand": "Alessi",
+      "family": "La Cupola",
+      "identity_scope": "range",
+      "evidence_status": "PARTIAL",
+      "primary_sources": ["https://alessi.com/fr/products/la-cupola-espresso-coffee-maker"]
+    },
+    "ariete-1368": {
+      "name": "Ariete Moka Aroma 1368",
+      "brand": "Ariete",
+      "family": "Moka Aroma",
+      "identity_scope": "model",
+      "evidence_status": "PARTIAL",
+      "primary_sources": ["https://www.ariete.eu/en/product/Moka-Aroma"]
+    },
+    "ariete-1358": {
+      "name": "Ariete Moka Aroma Electric 1358",
+      "brand": "Ariete",
+      "family": "Moka Aroma Electric",
+      "identity_scope": "model",
+      "evidence_status": "PARTIAL",
+      "primary_sources": ["https://www.ariete.eu/en/product/Moka-Aroma-Elettrica-nera"]
+    },
+    "delonghi-alicia-emk6": {
+      "name": "De'Longhi Alicia EMK6",
+      "brand": "De'Longhi",
+      "family": "Alicia",
+      "identity_scope": "model",
+      "evidence_status": "RESEARCH_REQUIRED",
+      "primary_sources": ["https://www.delonghi.com/fr-fr/s/EMK6"]
+    }
+  }
+}
