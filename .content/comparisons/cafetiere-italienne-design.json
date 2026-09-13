@@ -1,0 +1,22 @@
+{
+  "slug":"cafetiere-italienne-design",
+  "url":"/comparatifs/cafetiere-italienne-design/",
+  "intent":{"query":"cafetière italienne design","decision":"Choisir une moka dont le langage de design correspond réellement à l'usage et à la cuisine."},
+  "product_universe":[
+    {"id":"alessi-9090","name":"Alessi 9090","status":"ELIGIBLE","source":"https://alessi.com/fr/products/9090-espresso-coffee-maker"},
+    {"id":"alessi-vite","name":"Alessi Vite","status":"ELIGIBLE","source":"https://alessi.com/fr/products/vite-espresso-coffee-maker"},
+    {"id":"alessi-pulcina","name":"Alessi Pulcina","status":"ELIGIBLE","source":"https://alessi.com/fr/products/pulcina-espresso-coffee-maker-1"},
+    {"id":"alessi-la-cupola","name":"Alessi La Cupola","status":"ELIGIBLE","source":"https://alessi.com/fr/products/la-cupola-espresso-coffee-maker"}
+  ],
+  "criteria":[
+    {"id":"identite","label":"Identité formelle"},
+    {"id":"fonction","label":"Design fonctionnel vs pure expression"},
+    {"id":"compatibilite","label":"Compatibilité avec la cuisine"},
+    {"id":"positionnement","label":"Cohérence du niveau de gamme"}
+  ],
+  "recommendation_logic":"Pas de classement absolu : 9090 pour l'icône fonctionnelle, Vite pour le contemporain 2026, Pulcina pour la sculpture, La Cupola pour l'architecture domestique.",
+  "methodology_note":"Le design est traité comme un choix éditorial conditionnel, sans score pseudo-scientifique et sans supposer qu'un prix supérieur améliore le goût.",
+  "affiliate_commission_used_in_ranking":false,
+  "research_date":"2026-09-13",
+  "status":"READY_FOR_PUBLISH_REVIEW"
+}

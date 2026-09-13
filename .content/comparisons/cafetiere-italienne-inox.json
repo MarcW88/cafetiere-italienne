@@ -1,0 +1,26 @@
+{
+  "slug":"cafetiere-italienne-inox",
+  "url":"/comparatifs/cafetiere-italienne-inox/",
+  "intent":{"query":"cafetière italienne inox","decision":"Choisir une moka inox selon l'usage, la compatibilité et le niveau de finition, sans extrapoler de bénéfice santé ou goût."},
+  "product_universe":[
+    {"id":"bialetti-venus","name":"Bialetti Venus","status":"ELIGIBLE","source":"https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"},
+    {"id":"alessi-9090","name":"Alessi 9090","status":"ELIGIBLE","source":"https://alessi.com/fr/products/9090-espresso-coffee-maker"},
+    {"id":"alessi-menhir","name":"Alessi Menhir","status":"ELIGIBLE","source":"https://alessi.com/fr/products/menhir-espresso-coffee-maker"}
+  ],
+  "criteria":[
+    {"id":"construction","label":"Construction inox documentée"},
+    {"id":"induction","label":"Fond magnétique et compatibilité"},
+    {"id":"usage","label":"Simplicité au quotidien"},
+    {"id":"design","label":"Valeur de conception"}
+  ],
+  "ranking":[
+    {"rank":1,"product_id":"bialetti-venus","context":"meilleur choix quotidien"},
+    {"rank":2,"product_id":"alessi-9090","context":"meilleur choix premium iconique"},
+    {"rank":3,"product_id":"alessi-menhir","context":"alternative design contemporaine"}
+  ],
+  "recommendation_logic":"Venus gagne sur la simplicité et la polyvalence ; 9090 et Menhir deviennent plus cohérents lorsque le design et la fabrication justifient un positionnement premium.",
+  "methodology_note":"Aucun claim santé ou supériorité gustative attribué à l'inox sans preuve dédiée. L'induction est vérifiée modèle/taille par modèle/taille.",
+  "affiliate_commission_used_in_ranking":false,
+  "research_date":"2026-09-13",
+  "status":"READY_FOR_PUBLISH_REVIEW"
+}
