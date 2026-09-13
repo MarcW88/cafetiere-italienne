@@ -1,0 +1,119 @@
+name: Test capacity decision layer V2
+
+on:
+  push:
+    branches:
+      - capacity-decision-layer-exact
+    paths:
+      - 'capacity-workflow.config.yaml'
+      - '.agents/skills/capacity-decision-workflow/**'
+      - '.agents/skills/thinking-toolkit/**'
+      - '.content/capacities/decisions/**'
+      - '.content/briefs/*decision-v2.md'
+      - '.content/capacities/workflow-provenance-v2-2026-09-13.md'
+      - '.github/workflows/test-capacity-decision-layer.yml'
+  pull_request:
+    paths:
+      - 'capacity-workflow.config.yaml'
+      - '.agents/skills/capacity-decision-workflow/**'
+      - '.agents/skills/thinking-toolkit/**'
+      - '.content/capacities/decisions/**'
+      - '.content/briefs/*decision-v2.md'
+      - '.content/capacities/workflow-provenance-v2-2026-09-13.md'
+      - '.github/workflows/test-capacity-decision-layer.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-capacity-decision-layer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build site
+        run: npm run build
+
+      - name: Check generated site
+        run: npm run check
+
+      - name: Validate capacity publication blockers
+        run: python3 validate_capacities.py
+
+      - name: Verify decision artifacts precede V2 briefs
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          pairs = [
+              (
+                  Path('.content/capacities/decisions/capacites-hub.md'),
+                  Path('.content/briefs/capacites-hub-decision-v2.md'),
+              ),
+              (
+                  Path('.content/capacities/decisions/cafetiere-italienne-10-tasses.md'),
+                  Path('.content/briefs/cafetiere-italienne-10-tasses-decision-v2.md'),
+              ),
+          ]
+          for decision, brief in pairs:
+              if not decision.exists() or not brief.exists():
+                  raise SystemExit(f'Missing decision/brief pair: {decision} / {brief}')
+              d = decision.read_text(encoding='utf-8')
+              b = brief.read_text(encoding='utf-8')
+              required = ['thinking-toolkit', 'Hard Choice Model: APPLIED']
+              for marker in required:
+                  if marker not in d:
+                      raise SystemExit(f'{decision}: missing {marker}')
+              if 'Decision Matrix: NOT_REQUIRED' not in d and 'Decision Matrix: APPLIED' not in d:
+                  raise SystemExit(f'{decision}: missing Decision Matrix state')
+              if str(decision) not in b:
+                  raise SystemExit(f'{brief}: does not consume decision artifact {decision}')
+          print('PASS: V2 briefs explicitly consume upstream decision artifacts')
+          PY
+
+      - name: Verify hub and 10-tasses boundaries
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          pages = [
+              Path('capacites/index.html'),
+              Path('capacites/cafetiere-italienne-10-tasses/index.html'),
+          ]
+          forbidden = [
+              'name="robots" content="index,follow"',
+              'notre gagnante',
+              'la meilleure cafetière 10 tasses est',
+              'nous avons testé',
+              'top 5',
+          ]
+          for page in pages:
+              text = page.read_text(encoding='utf-8')
+              low = text.lower()
+              if 'name="robots" content="noindex,follow"' not in text:
+                  raise SystemExit(f'{page}: noindex,follow missing')
+              for marker in forbidden:
+                  if marker.lower() in low:
+                      raise SystemExit(f'{page}: forbidden marker {marker}')
+          print('PASS: capacity/comparison boundary and noindex state preserved')
+          PY
+
+      - name: Verify decision-layer migration causes no HTML churn
+        run: |
+          git fetch --quiet origin main
+          git diff --exit-code origin/main...HEAD -- \
+            capacites/index.html \
+            capacites/cafetiere-italienne-10-tasses/index.html
+
+      - name: Report
+        run: |
+          echo 'PASS - V2 decision layer validates the two benchmark pages without content churn'
