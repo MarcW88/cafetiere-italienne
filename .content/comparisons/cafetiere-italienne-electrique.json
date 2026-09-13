@@ -1,0 +1,26 @@
+{
+  "slug":"cafetiere-italienne-electrique",
+  "url":"/comparatifs/cafetiere-italienne-electrique/",
+  "intent":{"query":"cafetière italienne électrique","decision":"Choisir une moka autonome sans plaque selon la capacité et les fonctions électriques réellement documentées."},
+  "product_universe":[
+    {"id":"ariete-1368","name":"Ariete Moka Aroma 1368","status":"ELIGIBLE","source":"https://www.ariete.eu/en/product/Moka-Aroma"},
+    {"id":"ariete-1358","name":"Ariete Moka Aroma Electric 1358","status":"ELIGIBLE","source":"https://www.ariete.eu/en/product/Moka-Aroma-Elettrica-nera"},
+    {"id":"delonghi-alicia-emk6","name":"De’Longhi Alicia EMK6","status":"CONDITIONALLY_ELIGIBLE","source":"https://www.delonghi.com/fr-fr/s/EMK6"}
+  ],
+  "criteria":[
+    {"id":"capacite","label":"Capacité"},
+    {"id":"autonomie","label":"Arrêt automatique / maintien au chaud"},
+    {"id":"encombrement","label":"Format et base"},
+    {"id":"disponibilite","label":"Documentation et disponibilité actuelle"}
+  ],
+  "ranking":[
+    {"rank":1,"product_id":"ariete-1368","context":"meilleur choix pour plusieurs tasses"},
+    {"rank":2,"product_id":"ariete-1358","context":"meilleur choix compact"},
+    {"rank":3,"product_id":"delonghi-alicia-emk6","context":"alternative si disponible"}
+  ],
+  "recommendation_logic":"1368 est prioritaire lorsque la capacité et le maintien au chaud comptent ; 1358 quand 2/4 tasses suffisent. Alicia reste documentée mais sa disponibilité marchande doit être vérifiée au moment de l'achat.",
+  "methodology_note":"Comparaison fonctionnelle à partir des fiches/support fabricants. Aucun test gustatif ou thermique propriétaire revendiqué.",
+  "affiliate_commission_used_in_ranking":false,
+  "research_date":"2026-09-13",
+  "status":"READY_FOR_PUBLISH_REVIEW"
+}
