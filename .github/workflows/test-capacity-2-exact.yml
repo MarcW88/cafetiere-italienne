@@ -1,0 +1,104 @@
+name: Validate exact 2-cup capacity workflow
+
+on:
+  push:
+    branches: [capacity-2-tasses-exact-workflow]
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build site
+        run: npm run build
+
+      - name: Check internal links
+        run: npm run check
+
+      - name: Validate capacity publication blockers
+        run: python3 validate_capacities.py
+
+      - name: Verify exact 2-cup output and workflow boundaries
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          page = Path('capacites/cafetiere-italienne-2-tasses/index.html').read_text(encoding='utf-8')
+          required = [
+              'Cafetière italienne 2 tasses : combien de ml et quand la choisir ?',
+              '85 à 100 ml',
+              'Moka Express 2',
+              'Moka Induction 2',
+              'Piccolina 200',
+              '/comparatifs/petite-cafetiere-italienne/',
+              '/comparatifs/cafetiere-italienne-induction/',
+              '/guides/cafetiere-italienne-induction-compatibilite/',
+              'Sources vérifiées',
+              '<meta name="robots" content="noindex,follow">',
+              '<link rel="canonical" href="https://cafetiere-italienne.be/capacites/cafetiere-italienne-2-tasses/">',
+          ]
+          for marker in required:
+              assert marker in page, marker
+
+          for forbidden in [
+              '—', '–',
+              'nous avons testé', 'notre test', 'dans notre test',
+              'meilleure 2 tasses', 'notre classement', 'top 5', 'score sur 10',
+              '2 tasses = 2 personnes',
+              'Barazzoni 8,5', 'Barazzoni 8.5',
+          ]:
+              assert forbidden.lower() not in page.lower(), forbidden
+
+          # Required exact-workflow artifacts.
+          artifacts = [
+              '.content/capacities/audits/cafetiere-italienne-2-tasses-2026-09-13.md',
+              '.content/capacities/evidence-ledgers/cafetiere-italienne-2-tasses-2026-09-13.md',
+              '.content/capacities/decisions/cafetiere-italienne-2-tasses.md',
+              '.content/capacities/affiliate-value-cafetiere-italienne-2-tasses-2026-09-13.md',
+              '.content/briefs/cafetiere-italienne-2-tasses-exact.md',
+              '.content/capacities/post-draft-fact-check-cafetiere-italienne-2-tasses-2026-09-13.md',
+              '.content/capacities/post-draft-gates-cafetiere-italienne-2-tasses-2026-09-13.md',
+          ]
+          for artifact in artifacts:
+              assert Path(artifact).exists(), artifact
+
+          decision = Path('.content/capacities/decisions/cafetiere-italienne-2-tasses.md').read_text(encoding='utf-8')
+          assert 'Decision Matrix' in decision and 'NOT_REQUIRED' in decision
+          assert 'Low impact + easy comparison = no-brainer' in decision
+
+          print('PASS: exact 2-cup workflow artifacts and output boundaries verified')
+          PY
+
+      - name: Verify sibling capacity HTML remains untouched
+        run: |
+          git fetch origin main
+          git diff --exit-code origin/main -- \
+            capacites/cafetiere-italienne-4-tasses/index.html \
+            capacites/cafetiere-italienne-6-tasses/index.html \
+            capacites/cafetiere-italienne-10-tasses/index.html \
+            capacites/cafetiere-italienne-12-tasses/index.html
+
+      - name: Persist generated 2-cup HTML
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add capacites/cafetiere-italienne-2-tasses/index.html
+          if git diff --cached --quiet; then
+            echo 'No generated 2-cup HTML changes to commit'
+          else
+            git commit -m 'build: render exact-workflow 2-cup page'
+            git push
+          fi
