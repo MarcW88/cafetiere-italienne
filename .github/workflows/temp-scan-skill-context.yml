@@ -1,0 +1,27 @@
+name: Temporary skill context scan
+
+on:
+  push:
+    branches:
+      - adapt-skills-cafetiere
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find legacy site references in skills
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo '=== Explicit legacy references ==='
+          grep -RIniE --exclude='temp-scan-skill-context.yml' \
+            'bloc[- _]?notes[- _]?numerique|bloc[- _]?notes|italiaanse[- _]?percolator|italiaanse percolator|percolator\.nl|bloc-notes-numerique\.fr' \
+            .agents AGENTS.md || true
+          echo '=== Broader product-context references ==='
+          grep -RIniE --exclude='temp-scan-skill-context.yml' \
+            'digital notebook|digital notebooks|carnet numérique|carnets numériques|bloc-notes numérique|bloc-notes numériques|bloc notes numérique|bloc notes numériques' \
+            .agents AGENTS.md || true
