@@ -35,7 +35,8 @@ for slug,route in zip(SLUGS,ROUTES):
     if not internal: FAIL.append(f'{route}: internal link')
     if re.search(r'\b(nous avons testé|lors de notre test|nous avons mesuré|nous avons constaté)\b',text,re.I): FAIL.append(f'{route}: fake hands-on')
     if slug=='adaptateur-induction-cafetiere-italienne':
-        if 'puissance moyenne' not in text or 'à vide' not in text: FAIL.append(f'{route}: missing induction plate safety guidance')
+        no_empty_load = any(x in text for x in ['à vide','sans charge','plaque seule','préchauffer la plaque seule'])
+        if 'puissance moyenne' not in text or not no_empty_load: FAIL.append(f'{route}: missing induction plate safety guidance')
     if slug=='filtre-cafetiere-italienne':
         if 'entonnoir' not in text or 'plaque filtrante' not in text: FAIL.append(f'{route}: filter/funnel distinction missing')
 
