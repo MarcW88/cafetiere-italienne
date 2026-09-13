@@ -1,0 +1,64 @@
+name: TEMP finalize comparison port
+
+on:
+  push:
+    branches: [comparison-workflow-exact-port]
+    paths:
+      - ".github/workflows/temp-finalize-comparison-port.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: comparison-workflow-exact-port
+          fetch-depth: 0
+      - name: Make Bloc Notes Python engine the sole owner of comparison detail content
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/build.mjs')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace("import { comparisonPages } from './comparison-content.mjs';\n", "")
+          old = "cat==='comparatifs'?comparisonPages[slug]:cat==='marques'?brandPages[slug]"
+          new = "cat==='comparatifs'?null:cat==='marques'?brandPages[slug]"
+          if old not in s:
+              raise SystemExit('comparison custom selector pattern not found')
+          s = s.replace(old, new, 1)
+          marker = "if(custom){fs.writeFileSync(path.join(p,'index.html'),shell(custom.title,custom.body,custom.description,{robots:'noindex,follow',canonical:custom.canonical}));continue;}"
+          replacement = marker + "if(cat==='comparatifs' && fs.existsSync(path.join(p,'index.html'))) continue;"
+          if marker not in s:
+              raise SystemExit('custom write marker not found')
+          s = s.replace(marker, replacement, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+          rm -f scripts/comparison-content.mjs
+      - name: Prove normal site build preserves comparison content
+        run: |
+          sha256sum comparatifs/*/index.html > /tmp/before.txt
+          npm run build
+          sha256sum comparatifs/*/index.html > /tmp/after.txt
+          diff -u /tmp/before.txt /tmp/after.txt
+          npm run check
+      - name: Re-run exact Bloc Notes comparison engine
+        run: |
+          python apply_comparison_content.py
+          python generate_comparison_metadata.py
+          python apply_comparison_indexation.py
+          python apply_product_cards.py comparisons
+          python validate_product_cards.py comparisons
+          python validate_comparisons.py
+          npm run check
+      - name: Commit ownership fix
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "workflow: give exact comparison engine sole page ownership"
+          git push origin HEAD:comparison-workflow-exact-port
