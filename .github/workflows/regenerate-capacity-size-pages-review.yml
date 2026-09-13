@@ -1,0 +1,62 @@
+name: Regenerate reviewed capacity size pages
+
+on:
+  push:
+    branches: [capacity-pages-full-review]
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build reviewed pages
+        run: npm run build
+      - name: Check site
+        run: npm run check
+      - name: Validate capacity cluster
+        run: python3 validate_capacities.py
+      - name: Verify reviewed size-page boundaries
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          pages = ['2','4','6','12']
+          for n in pages:
+              p = Path(f'capacites/cafetiere-italienne-{n}-tasses/index.html')
+              t = p.read_text(encoding='utf-8')
+              assert '<meta name="robots" content="noindex,follow">' in t
+              low = t.lower()
+              for bad in ['nous avons testé', 'notre test', 'meilleure 2 tasses', 'meilleure 4 tasses', 'meilleure 6 tasses', 'meilleure 12 tasses']:
+                  assert bad not in low, (n, bad)
+              assert '/comparatifs/' in t
+              assert 'Sources vérifiées' in t
+          assert '85 à 100 ml' in Path('capacites/cafetiere-italienne-2-tasses/index.html').read_text()
+          assert '150 à 200 ml' in Path('capacites/cafetiere-italienne-4-tasses/index.html').read_text()
+          assert '235 à 300 ml' in Path('capacites/cafetiere-italienne-6-tasses/index.html').read_text()
+          assert '595 à 600 ml' in Path('capacites/cafetiere-italienne-12-tasses/index.html').read_text()
+          print('PASS: four reviewed size pages keep capacity/comparison boundaries')
+          PY
+      - name: Commit generated HTML
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            capacites/cafetiere-italienne-2-tasses/index.html \
+            capacites/cafetiere-italienne-4-tasses/index.html \
+            capacites/cafetiere-italienne-6-tasses/index.html \
+            capacites/cafetiere-italienne-12-tasses/index.html
+          if git diff --cached --quiet; then
+            echo 'No generated HTML changes to commit'
+          else
+            git commit -m 'build: render reviewed capacity size pages'
+            git push
+          fi
