@@ -1,0 +1,20 @@
+name: Temporary guide publish review
+
+on:
+  push:
+    branches:
+      - guide-comment-choisir
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and validate authored Guides
+        run: |
+          npm run build
+          npm run check
+          python3 validate_guide_quality.py
