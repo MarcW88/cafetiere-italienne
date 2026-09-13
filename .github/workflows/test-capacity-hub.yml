@@ -14,10 +14,11 @@ on:
       - 'capacity_publication.py'
       - '.content/capacities/**'
       - '.content/briefs/capacites-hub.md'
+      - '.content/reviews/capacites-hub.md'
       - '.github/workflows/test-capacity-hub.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate-capacity-hub:
@@ -70,3 +71,14 @@ jobs:
                   raise SystemExit(f'FAIL missing internal handoff {target}')
           print('PASS: reviewed /capacites/ hub markers and boundaries are valid')
           PY
+      - name: Commit reviewed hub output
+        run: |
+          git config user.name "Marc Williame"
+          git config user.email "146358493+MarcW88@users.noreply.github.com"
+          git add capacites/index.html
+          if git diff --cached --quiet; then
+            echo "No generated hub changes to commit"
+          else
+            git commit -m "content: generate reviewed capacity hub"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
