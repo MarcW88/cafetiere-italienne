@@ -8,6 +8,7 @@ content:
     - "/comparatifs/"
   source_of_truth:
     - "scripts/comparison-content.mjs"
+    - "scripts/comparison-content-*.mjs"
     - ".content/comparisons/*.json"
     - ".content/products/registry.json"
   generated_output: "comparatifs/*/index.html"
@@ -102,6 +103,7 @@ editorial:
   humanizer_skill: ".agents/skills/humanizer/SKILL.md"
   general_writing_skill: ".agents/skills/general-writing/SKILL.md"
   anti_ai_slop_skill: ".agents/skills/anti-ai-slop/SKILL.md"
+  image_planner_skill: ".agents/skills/editorial-image-planner/SKILL.md"
   editorial_qa_skill: ".agents/skills/editorial-qa/SKILL.md"
   prohibit_high_severity_ai_slop: true
   prohibit_unjustified_structural_cloning: true
@@ -158,6 +160,7 @@ editorial_chain:
   - anti_ai_slop
   - internal_linking_audit
   - seo_onpage_and_technical
+  - editorial_image_planner_decision
   - editorial_qa
   - machine_validation
   - comparison_analysis_publish_review
@@ -173,6 +176,7 @@ quality_gate:
   require_anti_ai_slop_review: true
   require_seo_review: true
   require_internal_linking_review: true
+  require_editorial_image_decision: true
   require_noindex_in_draft: true
   require_manifest_for_indexed_pages: true
   prohibit_fake_test_language: true
