@@ -1,10 +1,19 @@
-version: 1
+version: 2
 site: cafetiere-italienne.be
 route_root: /capacites/
+
 methodology_reference:
-  repository: MarcW88/bloc-notes-numerique
-  commit: 534e9fd7e0fc2f7bd83da5b053987ac327c4e9fe
-  base_workflow: guide
+  comparison_repository: MarcW88/bloc-notes-numerique
+  comparison_commit: 534e9fd7e0fc2f7bd83da5b053987ac327c4e9fe
+  comparison_analysis_workflow: .agents/skills/comparison-analysis-workflow/SKILL.md
+  comparison_content_workflow: .agents/skills/comparison-content-workflow/SKILL.md
+  decision_repository: ponomr/thinking-toolkit
+  decision_commit: 1e4c78dd0a0252ca7dab60e6fb3ce9e4404d3328
+  decision_version: 1.0.0
+  decision_skill: .agents/skills/thinking-toolkit/SKILL.md
+  decision_models:
+    - .agents/skills/thinking-toolkit/references/hard-choice-model.md
+    - .agents/skills/thinking-toolkit/references/decision-matrix.md
 
 reuse_policy:
   target_existing_skill_share: ">=80%"
@@ -12,43 +21,69 @@ reuse_policy:
   custom_allowed_for:
     - orchestration
     - capacity_route_mapping
-    - cup_to_ml_and_adjacent_size_reasoning
+    - evidence_normalization_for_capacity_labels
     - category_boundaries_and_handoffs
     - geo_aeo_extension
     - publication_state
+  custom_forbidden_for:
+    - seo_methodology
+    - search_intent_methodology
+    - evidence_methodology
+    - fact_check_methodology
+    - affiliate_methodology
+    - decision_methodology
+    - scoring_methodology
+    - writing_methodology
+    - humanization_methodology
+    - anti_ai_slop_methodology
+    - editorial_qa_methodology
   custom_must_not_replace_existing_skill: true
 
 exact_bloc_notes_skill_dirs:
-  - affiliate-value
-  - anti-ai-slop
-  - content-and-copy
-  - content-brief-authoring
-  - editorial-qa
-  - evidence-based-reviews
-  - fact-check
-  - general-writing
-  - humanizer
-  - internal-linking-audit
-  - seo-best-practices
+  - comparison-analysis-workflow
+  - comparison-content-workflow
   - seo-content-audit
   - seo-keyword
+  - jobs-to-be-done
+  - evidence-based-reviews
+  - fact-check
+  - affiliate-value
+  - content-brief-authoring
+  - content-and-copy
+  - internal-linking-audit
+  - humanizer
+  - general-writing
+  - anti-ai-slop
   - seo-onpage
   - seo-technical
+  - seo-best-practices
+  - editorial-qa
+
+thinking_toolkit_exact_files:
+  - SKILL.md
+  - VERSION
+  - references/catalog.md
+  - references/hard-choice-model.md
+  - references/decision-matrix.md
 
 upstream_provenance:
-  - "seo-content-audit / seo-keyword / content-brief-authoring / content-and-copy / evidence-based-reviews: Rampstack-origin skills already vendored in bloc-notes-numerique"
-  - "general-writing: msimchowitz/writing-skills"
-  - "humanizer: external GitHub skill already vendored in bloc-notes-numerique"
-  - "anti-ai-slop: external GitHub skill already vendored in bloc-notes-numerique"
-  - "SEO technical/on-page/best-practices: shared external GitHub SEO skills already vendored in bloc-notes-numerique"
-  - "affiliate-value / internal-linking-audit / editorial-qa / fact-check: shared site/recovery skills used by bloc-notes-numerique"
+  - "comparison orchestration and shared content methodology: MarcW88/bloc-notes-numerique @ 534e9fd7e0fc2f7bd83da5b053987ac327c4e9fe"
+  - "seo-content-audit / seo-keyword / content-brief-authoring / content-and-copy / evidence-based-reviews / seo-onpage: Rampstack-origin skills vendored through bloc-notes-numerique"
+  - "general-writing + humanizer: msimchowitz/writing-skills, vendored through bloc-notes-numerique"
+  - "anti-ai-slop: external GitHub skill vendored through bloc-notes-numerique"
+  - "fact-check / affiliate-value / internal-linking-audit / editorial-qa: existing skills reused by bloc-notes-numerique, several originating from MarcW88/italiaanse-percolator"
+  - "capacity decision layer: ponomr/thinking-toolkit v1.0.0 @ 1e4c78dd0a0252ca7dab60e6fb3ce9e4404d3328"
 
 analysis_chain:
-  - seo_content_audit
-  - seo_keyword
-  - fact_check
-  - evidence_based_reviews_when_experiential_claims
-  - affiliate_value_when_purchase_influencing
+  - comparison_shared_diagnostic: seo_content_audit
+  - comparison_shared_intent: seo_keyword
+  - comparison_shared_context: jobs_to_be_done_when_relevant
+  - comparison_shared_evidence: evidence_based_reviews_when_experiential_claims
+  - comparison_shared_fact_check: fact_check
+  - comparison_shared_affiliate_gate: affiliate_value_when_purchase_influencing
+  - capacity_decision_model_selection: thinking_toolkit
+  - capacity_decision_primary_model: hard_choice_model
+  - capacity_decision_secondary_model: decision_matrix_only_when_toolkit_selects_it
   - internal_linking_audit
   - anti_ai_slop
   - seo_onpage_and_technical
@@ -57,8 +92,13 @@ analysis_chain:
 
 production_chain:
   - consume_cluster_audit
-  - seo_keyword_and_intent_confirmation
-  - fact_check_and_evidence_ledger
+  - comparison_shared_keyword_and_intent_confirmation
+  - comparison_shared_candidate_and_variant_research
+  - comparison_shared_evidence_ledger
+  - fact_check
+  - thinking_toolkit_model_selection
+  - hard_choice_model
+  - decision_matrix_only_if_multiple_comparable_options_remain
   - affiliate_value_when_relevant
   - content_brief_authoring
   - content_and_copy
@@ -75,8 +115,24 @@ production_chain:
   - capacity_publish_review
   - human_validation
 
+capacity_decision_contract:
+  inputs:
+    - verified_capacity_or_brewed_volume
+    - exact_variant
+    - plate_compatibility_when_relevant
+    - base_diameter_when_relevant
+    - adjacent_sizes
+    - evidence_quality_and_unknowns
+  hard_constraints_before_preferences: true
+  decision_matrix_is_optional: true
+  prohibit_false_precision: true
+  prohibit_product_winner_on_capacity_page: true
+  output_artifact_required: true
+  artifact_path_pattern: .content/capacities/decisions/<slug>.md
+  handoff_to_comparison_when_product_choice_is_primary: true
+
 boundaries:
-  capacity: "Expliquer et aider à choisir une capacité/volume sans classer des produits."
+  capacity: "Décider d'un palier de volume/capacité à partir de faits vérifiés, sans classer les produits précis."
   comparison: "Comparer, évaluer ou recommander des produits précis."
   guide: "Expliquer une technologie, un critère ou une procédure."
   usage: "Traiter un job complet, ses circonstances et ses frictions."
@@ -90,6 +146,7 @@ rules:
   require_handoff_to_comparison_when_product_choice_is_primary: true
   require_fact_check_for_model_specific_capacity_or_compatibility: true
   require_affiliate_value_gate_when_purchase_influencing: true
+  require_decision_artifact_before_content_brief: true
   require_anti_ai_slop_gate: true
   require_seo_gate: true
   require_internal_linking_gate: true
