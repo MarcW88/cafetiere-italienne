@@ -1,6 +1,6 @@
 ---
 name: natural-writing
-description: Verwijder onnatuurlijke AI-schrijfpatronen uit Nederlandse content van italiaanse-percolator.nl zonder feiten, zoekintentie of nuttige details te verliezen.
+description: Verwijder onnatuurlijke AI-schrijfpatronen uit Nederlandse content van cafetiere-italienne.be zonder feiten, zoekintentie of nuttige details te verliezen.
 license: MIT
 ---
 

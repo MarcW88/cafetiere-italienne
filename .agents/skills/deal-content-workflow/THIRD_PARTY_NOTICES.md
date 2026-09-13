@@ -1,6 +1,6 @@
 # Third-party notices
 
-This workflow is original orchestration for `bloc-notes-numeriques.fr`, with adapted methodological ideas from the following MIT-licensed projects.
+This workflow is original orchestration for `cafetiere-italienne.be`, with adapted methodological ideas from the following MIT-licensed projects.
 
 ## mardab96/ecommerce-claude-skills
 

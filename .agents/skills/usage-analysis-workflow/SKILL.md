@@ -1,8 +1,8 @@
 ---
 name: usage-analysis-workflow
-description: Workflow unique d'analyse des pages /usages/ de bloc-notes-numeriques.fr. Audite une page ou le cluster, vérifie JTBD, rôle éditorial, cannibalisation avec comparatifs/guides, preuves, valeur affiliée, AI-slop et SEO, puis décide KEEP, LIGHT_UPDATE, DEEP_REWRITE, MERGE ou NOINDEX. En mode PUBLISH_REVIEW, sert de gate final avant validation humaine.
+description: Workflow unique d'analyse des pages /usages/ de cafetiere-italienne.be. Audite une page ou le cluster, vérifie JTBD, rôle éditorial, cannibalisation avec comparatifs/guides, preuves, valeur affiliée, AI-slop et SEO, puis décide KEEP, LIGHT_UPDATE, DEEP_REWRITE, MERGE ou NOINDEX. En mode PUBLISH_REVIEW, sert de gate final avant validation humaine.
 metadata:
-  adapted_for: bloc-notes-numeriques.fr
+  adapted_for: cafetiere-italienne.be
   orchestration_target: ">=80% existing skills"
 ---
 
@@ -175,11 +175,11 @@ Vérifier :
 - progrès recherché ;
 - frictions qui changent réellement selon le job ;
 - critères dérivés de ces frictions ;
-- alternatives raisonnables au bloc-notes E Ink ;
+- alternatives raisonnables à la cafetière italienne ;
 - contre-indications ;
 - prochaine décision logique.
 
-Une page n'est pas justifiée uniquement parce qu'un mot-clé combine `bloc-notes numérique + étudiant/professionnel/dessin/etc.`.
+Une page n'est pas justifiée uniquement parce qu'un mot-clé combine `cafetière italienne + induction/inox/capacité/etc.`.
 
 ### Signaux d'échec
 
@@ -187,7 +187,7 @@ Une page n'est pas justifiée uniquement parce qu'un mot-clé combine `bloc-note
 - même raisonnement applicable à toutes les pages usage ;
 - critères dérivés des specs disponibles plutôt que du job ;
 - page utile uniquement comme liste de produits ;
-- absence de cas où le bloc-notes numérique est un mauvais choix.
+- absence de cas où la cafetière italienne est un mauvais choix.
 
 ---
 
@@ -209,8 +209,8 @@ Une page usage peut citer des familles ou des exemples, mais elle ne doit pas cr
 
 Exemples à contrôler explicitement :
 
-- `/usages/prise-de-notes-etudiant/` vs `/comparatifs/bloc-notes-numerique-etudiant/` ;
-- `/usages/prise-de-notes-professionnelle/` vs `/comparatifs/bloc-notes-numerique-professionnel/`.
+- `/usages/cafe-pour-deux/` vs `/comparatifs/petite-cafetiere-italienne/` ;
+- `/usages/cafe-sur-induction/` vs `/comparatifs/cafetiere-italienne-induction/`.
 
 ## `/usages/` vs `/guides/`
 
@@ -218,7 +218,7 @@ La page usage doit rester centrée sur le **job complet**. Une sous-question tec
 
 Exemple à contrôler explicitement :
 
-- `/usages/annotation-pdf/` vs `/guides/annoter-pdf-tablette-e-ink/`.
+- `/usages/cafe-sur-induction/` vs `/guides/cafetiere-italienne-induction-compatibilite/`.
 
 ### Test pratique
 
@@ -357,7 +357,7 @@ Réexécuter au minimum :
 - job et circonstances réellement visibles ;
 - critères reliés aux frictions du job ;
 - hypothèses utilisateur signalées comme telles ;
-- alternatives hors E Ink considérées lorsqu'elles sont pertinentes ;
+- alternatives à la cafetière italienne considérées lorsqu'elles sont pertinentes ;
 - contre-indications honnêtes ;
 - absence de ranking produit déguisé ;
 - séparation claire avec comparatifs et guides ;

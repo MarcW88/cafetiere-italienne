@@ -1,8 +1,8 @@
 ---
 name: deal-analysis-workflow
-description: Workflow unique d'analyse des pages /bons-plans/ de bloc-notes-numeriques.fr. Audite une URL ou le cluster, contrôle intention, fraîcheur, preuve de prix, validité des offres, valeur affiliée, frontières éditoriales, industrialisation et SEO, puis décide KEEP, LIGHT_UPDATE, DEEP_REWRITE, MERGE ou NOINDEX. En PUBLISH_REVIEW, sert de gate final avant validation humaine et peut générer un handoff de correction vers deal-content-workflow.
+description: Workflow unique d'analyse des pages /bons-plans/ de cafetiere-italienne.be. Audite une URL ou le cluster, contrôle intention, fraîcheur, preuve de prix, validité des offres, valeur affiliée, frontières éditoriales, industrialisation et SEO, puis décide KEEP, LIGHT_UPDATE, DEEP_REWRITE, MERGE ou NOINDEX. En PUBLISH_REVIEW, sert de gate final avant validation humaine et peut générer un handoff de correction vers deal-content-workflow.
 metadata:
-  adapted_for: bloc-notes-numeriques.fr
+  adapted_for: cafetiere-italienne.be
   orchestration_target: ">=80% existing GitHub skills"
   custom_scope: "orchestration + deal integrity + freshness + cluster similarity"
 ---

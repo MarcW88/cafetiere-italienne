@@ -12,7 +12,7 @@ Créer `.content/comparisons/<slug>.json` à partir de la méthode du projet.
 
 ## Utilisation recommandée
 
-> Applique `comparison-content-workflow` à `/comparatifs/meilleur-bloc-notes-numerique/`.
+> Applique `comparison-content-workflow` à `/comparatifs/meilleure-cafetiere-italienne/`.
 > Définis les critères et poids avant de scorer.
 > Utilise uniquement des sources vérifiées.
 > Ne tiens jamais compte des commissions dans le classement.

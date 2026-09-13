@@ -1,10 +1,10 @@
 ---
 name: fact-check
-description: Verifieer product- en koffieclaims op italiaanse-percolator.nl in een aparte pass na de inhoudelijke rewrite.
+description: Verifieer product- en koffieclaims op cafetiere-italienne.be in een aparte pass na de inhoudelijke rewrite.
 license: MIT
 ---
 
-# Fact check — italiaanse-percolator.nl
+# Fact check — cafetiere-italienne.be
 
 Deze pass staat los van schrijven. Een claim is niet betrouwbaar omdat hij plausibel klinkt.
 

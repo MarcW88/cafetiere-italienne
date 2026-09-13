@@ -6,7 +6,7 @@ catalog_summary: "Discovery, intent classification, clustering, prioritization"
 display_order: 3
 metadata:
   upstream: https://github.com/rampstackco/claude-skills/tree/main/skills/seo-keyword
-  vendored_for: bloc-notes-numeriques.fr
+  vendored_for: cafetiere-italienne.be
 ---
 
 # Keyword Research

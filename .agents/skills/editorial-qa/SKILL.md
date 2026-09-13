@@ -1,10 +1,10 @@
 ---
 name: editorial-qa
-description: Laatste publicatiegate voor herstelde content op italiaanse-percolator.nl.
+description: Laatste publicatiegate voor herstelde content op cafetiere-italienne.be.
 license: MIT
 ---
 
-# Editorial QA — italiaanse-percolator.nl
+# Editorial QA — cafetiere-italienne.be
 
 Gebruik als laatste stap. Deze skill schrijft de pagina niet opnieuw tenzij een kleine fout direct corrigeerbaar is.
 
@@ -66,7 +66,7 @@ Controleer ook:
 
 ## Gate 7 — Décision d'image éditoriale
 
-Pour les contenus de `bloc-notes-numeriques.fr`, exécuter `.agents/skills/editorial-image-planner/SKILL.md` après la rédaction et avant la publication.
+Pour les contenus de `cafetiere-italienne.be`, exécuter `.agents/skills/editorial-image-planner/SKILL.md` après la rédaction et avant la publication.
 
 PASS lorsque l'une des deux décisions est explicitement prise :
 

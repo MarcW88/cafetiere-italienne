@@ -1,8 +1,8 @@
 ---
 name: brand-content-workflow
-description: Workflow unique de rédaction et de refonte des pages /marques/ de bloc-notes-numeriques.fr. Orchestre majoritairement des skills GitHub existants pour produire un contenu d'affiliation e-commerce utile, sourcé, fact-checké, non templatisé et sans faux test. La structure éditoriale doit découler de l'intention et des preuves, jamais du seul type de page.
+description: Workflow unique de rédaction et de refonte des pages /marques/ de cafetiere-italienne.be. Orchestre majoritairement des skills GitHub existants pour produire un contenu d'affiliation e-commerce utile, sourcé, fact-checké, non templatisé et sans faux test. La structure éditoriale doit découler de l'intention et des preuves, jamais du seul type de page.
 metadata:
-  adapted_for: bloc-notes-numeriques.fr
+  adapted_for: cafetiere-italienne.be
   orchestration_target: ">=80% existing skills"
 ---
 
