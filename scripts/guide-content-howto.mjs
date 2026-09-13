@@ -1,7 +1,12 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href='/'><title>Comment utiliser une cafetière italienne ? | Cafetière Italienne</title><meta name="description" content="Eau, café, chauffe et arrêt : la méthode simple pour utiliser une cafetière italienne correctement, avec les points à vérifier selon votre modèle."><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://cafetiere-italienne.be/guides/comment-utiliser-cafetiere-italienne/"><link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="assets/styles.css"></head><body><div class="top-note">Guide indépendant · Comparatifs transparents · Liens affiliés signalés</div><header class="site-header"><div class="container header-row"><a class="brand" href=""><img src="/assets/logo.svg" alt=""><span>Cafetière Italienne</span></a><nav class="nav"><a href="comparatifs/">Comparatifs</a><a href="marques/bialetti/">Bialetti</a><a href="capacites/">Par taille</a><a href="guides/">Guides</a><a href="guides/nettoyer-cafetiere-italienne/">Entretien</a></nav><button class="search-btn" aria-label="Rechercher">⌕</button><button class="menu-btn" aria-label="Menu">☰</button></div></header><div class="quick-nav"><div class="quick-row"><a href="comparatifs/cafetiere-italienne-induction/">Induction</a><a href="capacites/cafetiere-italienne-2-tasses/">2 tasses</a><a href="capacites/cafetiere-italienne-4-tasses/">4 tasses</a><a href="capacites/cafetiere-italienne-6-tasses/">6 tasses</a><a href="comparatifs/cafetiere-italienne-inox/">Inox</a></div></div><main>
+export const guideHowToPages = {
+  'comment-utiliser-cafetiere-italienne': {
+    title: 'Comment utiliser une cafetière italienne ?',
+    description: 'Eau, café, chauffe et arrêt : la méthode simple pour utiliser une cafetière italienne correctement, avec les points à vérifier selon votre modèle.',
+    canonical: '/guides/comment-utiliser-cafetiere-italienne/',
+    body: `
 <section class="page-hero guide-hero">
   <div class="container">
-    <div class="breadcrumbs"><a href="">Accueil</a> · <a href="guides/">Guides</a> · Comment utiliser une cafetière italienne ?</div>
+    <div class="breadcrumbs"><a href="/">Accueil</a> · <a href="/guides/">Guides</a> · Comment utiliser une cafetière italienne ?</div>
     <span class="eyebrow">Mode d’emploi</span>
     <h1>Comment utiliser une cafetière italienne ?</h1>
     <p>Pour une moka classique : mettez l’eau sous le niveau de la soupape, remplissez le filtre de café moulu sans le tasser, fermez la cafetière, chauffez à feu doux à moyen puis retirez-la du feu dès que la partie supérieure est remplie. Les détails de nettoyage, de plaque et de première mise en service restent propres au modèle.</p>
@@ -26,8 +31,8 @@
     <section>
       <h2>Avant de mettre le café : vérifiez trois choses</h2>
       <p>Une moka est simple, mais elle n’est pas universelle. Avant la préparation, vérifiez que le joint et le filtre sont correctement en place, que la soupape n’est pas obstruée et que la cafetière est compatible avec votre plaque.</p>
-      <p>Sur induction en particulier, ne supposez pas qu’une cafetière fonctionnera parce qu’elle est métallique : la compatibilité dépend du modèle, du fond et parfois de sa taille. Si vous avez un doute, consultez le <a class="text-link" href="guides/cafetiere-italienne-induction-compatibilite/">guide sur la compatibilité induction</a>.</p>
-      <div class="guide-callout"><strong>Première utilisation ?</strong> Ne suivez pas automatiquement la routine quotidienne. Certains fabricants demandent un nettoyage initial et plusieurs préparations à jeter. Voir le <a href="guides/premiere-utilisation-cafetiere-italienne/">guide de première utilisation</a>.</div>
+      <p>Sur induction en particulier, ne supposez pas qu’une cafetière fonctionnera parce qu’elle est métallique : la compatibilité dépend du modèle, du fond et parfois de sa taille. Si vous avez un doute, consultez le <a class="text-link" href="/guides/cafetiere-italienne-induction-compatibilite/">guide sur la compatibilité induction</a>.</p>
+      <div class="guide-callout"><strong>Première utilisation ?</strong> Ne suivez pas automatiquement la routine quotidienne. Certains fabricants demandent un nettoyage initial et plusieurs préparations à jeter. Voir le <a href="/guides/premiere-utilisation-cafetiere-italienne/">guide de première utilisation</a>.</div>
     </section>
 
     <section>
@@ -41,14 +46,14 @@
       <h2>2. Remplissez le filtre de café sans le tasser</h2>
       <p>Insérez l’entonnoir-filtre, puis ajoutez le café moulu. Bialetti précise de ne pas appuyer ni compacter le café. Alessi indique de remplir le filtre et de niveler doucement la mouture.</p>
       <p>Il n’est donc pas nécessaire de transformer cette étape en tassage d’espresso. La moka fonctionne selon son propre principe d’extraction et la consigne fabricant est de laisser la mouture non comprimée.</p>
-      <p>La quantité exacte et la finesse de mouture méritent leurs propres explications : elles changent le résultat mais ne doivent pas être inventées comme des valeurs universelles. Pour aller plus loin, consultez <a class="text-link" href="guides/dosage-cafe-cafetiere-italienne/">le guide du dosage</a> et <a class="text-link" href="guides/mouture-cafetiere-italienne/">le guide de la mouture</a>.</p>
+      <p>La quantité exacte et la finesse de mouture méritent leurs propres explications : elles changent le résultat mais ne doivent pas être inventées comme des valeurs universelles. Pour aller plus loin, consultez <a class="text-link" href="/guides/dosage-cafe-cafetiere-italienne/">le guide du dosage</a> et <a class="text-link" href="/guides/mouture-cafetiere-italienne/">le guide de la mouture</a>.</p>
     </section>
 
     <section>
       <h2>3. Fermez la cafetière avant de chauffer</h2>
       <p>Vissez ou verrouillez la partie supérieure selon le mécanisme de votre cafetière. Sur la Moka Express, Bialetti demande de visser fermement la partie supérieure sur la base.</p>
       <p>La fermeture doit être correcte, mais la poignée n’est pas un levier de serrage. Bialetti déconseille notamment d’utiliser la poignée pour dévisser la Moka Express lors de la première mise en service, car elle peut être endommagée.</p>
-      <p>Si vous observez ensuite une fuite de vapeur au niveau de la jonction, le problème ne se résume pas forcément à « serrer plus fort » : joint, filtre, filetage ou montage peuvent être en cause. Voir le <a class="text-link" href="guides/cafetiere-italienne-fuite-vapeur/">guide sur les fuites de vapeur</a>.</p>
+      <p>Si vous observez ensuite une fuite de vapeur au niveau de la jonction, le problème ne se résume pas forcément à « serrer plus fort » : joint, filtre, filetage ou montage peuvent être en cause. Voir le <a class="text-link" href="/guides/cafetiere-italienne-fuite-vapeur/">guide sur les fuites de vapeur</a>.</p>
     </section>
 
     <section>
@@ -62,13 +67,13 @@
       <h2>5. Retirez la moka du feu lorsque la préparation est terminée</h2>
       <p>Pour la Moka Express, Bialetti indique de retirer la cafetière immédiatement du feu lorsque la partie supérieure est remplie et de ne pas laisser le café bouillir. C’est un repère plus fiable qu’un minutage fixe, car le temps dépend notamment de la taille de la cafetière et de l’intensité de chauffe.</p>
       <p>Évitez donc les règles trop rigides du type « toujours X minutes ». Bialetti mentionne une plage de quelques minutes pour sa Moka Express, mais ce n’est pas une minuterie universelle pour toutes les moka.</p>
-      <p>Si votre café sort régulièrement très amer ou présente un goût brûlé, le problème mérite un diagnostic séparé : <a class="text-link" href="guides/cafetiere-italienne-cafe-amer-brule/">pourquoi une cafetière italienne donne un café amer ou brûlé</a>.</p>
+      <p>Si votre café sort régulièrement très amer ou présente un goût brûlé, le problème mérite un diagnostic séparé : <a class="text-link" href="/guides/cafetiere-italienne-cafe-amer-brule/">pourquoi une cafetière italienne donne un café amer ou brûlé</a>.</p>
     </section>
 
     <section>
       <h2>6. Servez, laissez refroidir puis nettoyez selon le modèle</h2>
       <p>Après le service, laissez la cafetière refroidir avant de la démonter. Pour la Moka Express, Bialetti recommande un lavage à la main dans de l’eau tiède après démontage.</p>
-      <p>Ne généralisez toutefois pas cette consigne à toutes les cafetières italiennes : matériau, finition et instructions peuvent varier. Pour l’entretien complet, suivez la notice de votre modèle et consultez notre <a class="text-link" href="guides/nettoyer-cafetiere-italienne/">guide de nettoyage</a>.</p>
+      <p>Ne généralisez toutefois pas cette consigne à toutes les cafetières italiennes : matériau, finition et instructions peuvent varier. Pour l’entretien complet, suivez la notice de votre modèle et consultez notre <a class="text-link" href="/guides/nettoyer-cafetiere-italienne/">guide de nettoyage</a>.</p>
     </section>
 
     <section>
@@ -85,7 +90,7 @@
     <section>
       <h2>Si le résultat n’est pas bon, changez une variable à la fois</h2>
       <p>Une utilisation correcte ne garantit pas à elle seule que le café correspondra immédiatement à vos goûts. Le dosage, la mouture, le café utilisé et la chauffe peuvent encore modifier le résultat.</p>
-      <p>Pour éviter de tourner en rond, gardez la méthode de base stable puis ajustez une seule variable. Commencez par la <a class="text-link" href="guides/mouture-cafetiere-italienne/">mouture</a> ou le <a class="text-link" href="guides/dosage-cafe-cafetiere-italienne/">dosage</a>, plutôt que de changer simultanément l’eau, la quantité de café et la puissance.</p>
+      <p>Pour éviter de tourner en rond, gardez la méthode de base stable puis ajustez une seule variable. Commencez par la <a class="text-link" href="/guides/mouture-cafetiere-italienne/">mouture</a> ou le <a class="text-link" href="/guides/dosage-cafe-cafetiere-italienne/">dosage</a>, plutôt que de changer simultanément l’eau, la quantité de café et la puissance.</p>
     </section>
 
     <section class="guide-next">
@@ -93,8 +98,8 @@
       <h2>Affinez maintenant la recette, pas le mode d’emploi</h2>
       <p>Une fois la procédure maîtrisée, les deux variables les plus logiques à explorer sont la quantité de café et la mouture. Elles ont leurs propres guides pour éviter de transformer cette page en recette fourre-tout.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="guides/dosage-cafe-cafetiere-italienne/">Comprendre le dosage →</a>
-        <a class="btn btn-secondary" href="guides/mouture-cafetiere-italienne/">Choisir la mouture</a>
+        <a class="btn btn-primary" href="/guides/dosage-cafe-cafetiere-italienne/">Comprendre le dosage →</a>
+        <a class="btn btn-secondary" href="/guides/mouture-cafetiere-italienne/">Choisir la mouture</a>
       </div>
     </section>
 
@@ -122,7 +127,9 @@
         <li>Retrait dès la fin</li>
       </ol>
       <p>Les réglages de recette viennent après ces fondamentaux.</p>
-      <a class="sidebar-link" href="guides/premiere-utilisation-cafetiere-italienne/">Première utilisation →</a>
+      <a class="sidebar-link" href="/guides/premiere-utilisation-cafetiere-italienne/">Première utilisation →</a>
     </div>
   </aside>
-</div></main><footer class="site-footer"><div class="container"><div class="footer-grid"><div><a class="brand" href=""><img src="/assets/logo.svg" alt="">Cafetière Italienne</a><p class="footer-about">Le guide spécialisé pour choisir, utiliser et entretenir sa cafetière moka.</p></div><div><h4>Choisir</h4><a href="comparatifs/">Comparatifs</a><a href="comparatifs/cafetiere-italienne-induction/">Induction</a><a href="capacites/">Par taille</a><a href="marques/bialetti/">Bialetti</a></div><div><h4>Apprendre</h4><a href="guides/comment-utiliser-cafetiere-italienne/">Comment utiliser</a><a href="guides/dosage-cafe-cafetiere-italienne/">Dosage</a><a href="guides/mouture-cafetiere-italienne/">Mouture</a><a href="guides/nettoyer-cafetiere-italienne/">Entretien</a></div><div><h4>Le site</h4><a href="a-propos/">À propos</a><a href="notre-methode/">Notre méthode</a><a href="affiliation/">Affiliation</a><a href="contact/">Contact</a></div></div><div class="footer-bottom">© 2026 Cafetière Italienne <span>Informations vérifiées auprès des fabricants</span></div></div></footer><script src="assets/app.js"></script></body></html>
+</div>`
+  }
+};
