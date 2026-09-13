@@ -4,7 +4,7 @@ description: "Audit existing content to decide what to keep, update, merge, redi
 category: seo-foundation
 metadata:
   upstream: https://github.com/rampstackco/claude-skills/tree/main/skills/seo-content-audit
-  vendored_for: cafetiere-italienne.be
+  vendored_for: bloc-notes-numeriques.fr
 ---
 
 # SEO Content Audit
@@ -21,7 +21,7 @@ Every audited page maps first to one of these upstream actions:
 - `REDIRECT` — page has no future as a standalone URL but equity/intent should move elsewhere.
 - `DELETE` — no meaningful demand, value or assets worth preserving.
 
-For cafetiere-italienne.be, destructive actions are recommendations only unless the user explicitly asks to implement them.
+For bloc-notes-numeriques.fr, destructive actions are recommendations only unless the user explicitly asks to implement them.
 
 ## Evidence to consider
 

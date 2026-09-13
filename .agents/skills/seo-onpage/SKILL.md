@@ -4,7 +4,7 @@ description: "Run a single-page on-page SEO audit or optimization covering title
 category: seo-foundation
 metadata:
   upstream: https://github.com/rampstackco/claude-skills/tree/main/skills/seo-onpage
-  vendored_for: cafetiere-italienne.be
+  vendored_for: bloc-notes-numeriques.fr
 ---
 
 # On-Page SEO
