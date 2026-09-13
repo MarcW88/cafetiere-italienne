@@ -1,0 +1,28 @@
+{
+  "slug":"petite-cafetiere-italienne",
+  "url":"/comparatifs/petite-cafetiere-italienne/",
+  "intent":{"query":"petite cafetière italienne","decision":"Choisir un petit format réellement adapté à 1 ou 2 personnes sans se faire piéger par le diamètre induction."},
+  "product_universe":[
+    {"id":"bialetti-moka-express-small","name":"Bialetti Moka Express 1 à 3 tasses","status":"ELIGIBLE","source":"https://bialetti-cookware.zendesk.com/hc/fr/articles/5416235346322-Comment-utiliser-la-Moka-Express"},
+    {"id":"bialetti-mini-express-induction","name":"Bialetti Mini Express Induction 2 tasses","status":"ELIGIBLE","source":"https://www.bialetti.co.nz/products/bialetti-mini-express-induction-2-cup-set"},
+    {"id":"alessi-9090-1","name":"Alessi 9090 1 tasse","status":"CONDITIONALLY_ELIGIBLE","source":"https://alessi.com/products/9090-espresso-coffee-maker"},
+    {"id":"alessi-pulcina-1","name":"Alessi Pulcina 1 tasse","status":"ELIGIBLE","source":"https://alessi.com/fr/products/pulcina-espresso-coffee-maker-1"}
+  ],
+  "criteria":[
+    {"id":"volume","label":"Volume réellement préparé"},
+    {"id":"diametre","label":"Diamètre et détection induction"},
+    {"id":"simplicite","label":"Simplicité"},
+    {"id":"design","label":"Valeur design éventuelle"}
+  ],
+  "ranking":[
+    {"rank":1,"product_id":"bialetti-moka-express-small","context":"meilleur choix hors induction"},
+    {"rank":2,"product_id":"bialetti-mini-express-induction","context":"meilleur petit format documenté pour induction"},
+    {"rank":3,"product_id":"alessi-9090-1","context":"premium compact si la plaque détecte le diamètre"},
+    {"rank":4,"product_id":"alessi-pulcina-1","context":"alternative design hors priorité induction"}
+  ],
+  "recommendation_logic":"La taille nominale ne suffit pas : on compare le volume final et, sur induction, la détection de la taille exacte. La Venus 2 tasses n'est pas retenue comme solution induction.",
+  "methodology_note":"Sélection par usage réel et compatibilité de taille. Aucun raccourci gamme = compatibilité de toutes les tailles.",
+  "affiliate_commission_used_in_ranking":false,
+  "research_date":"2026-09-13",
+  "status":"READY_FOR_PUBLISH_REVIEW"
+}
