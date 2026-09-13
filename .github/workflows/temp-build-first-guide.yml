@@ -9,66 +9,113 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Wire guide source and build
+      - name: Complete guide workflow and validate
         shell: bash
         run: |
           set -euo pipefail
+
           python3 - <<'PY'
           from pathlib import Path
 
+          guide = Path('scripts/guide-content.mjs')
+          text = guide.read_text(encoding='utf-8')
+          text = text.replace('<article class="guide-article">', '<article class="guide-article content-main">')
+          text = text.replace('<h2>Sources vérifiées</h2>', '<h2 id="sources">Sources vérifiées</h2>')
+          guide.write_text(text, encoding='utf-8')
+
           build = Path('scripts/build.mjs')
           text = build.read_text(encoding='utf-8')
+          old_hub = "fs.writeFileSync(path.join(dir,'index.html'),shell(labels[cat],`<section class=\"page-hero\"><div class=\"container\"><div class=\"breadcrumbs\"><a href=\"/\">Accueil</a> · ${labels[cat]}</div><span class=\"eyebrow\">Explorer</span><h1>${labels[cat]}</h1><p>Retrouvez toutes les pages prévues pour cette rubrique. Les contenus éditoriaux seront ajoutés ultérieurement.</p></div></section><section class=\"section\"><div class=\"container directory\">${links}</div></section>`));"
+          new_hub = "fs.writeFileSync(path.join(dir,'index.html'),shell(labels[cat],`<section class=\"page-hero\"><div class=\"container\"><div class=\"breadcrumbs\"><a href=\"/\">Accueil</a> · ${labels[cat]}</div><span class=\"eyebrow\">Explorer</span><h1>${labels[cat]}</h1><p>Retrouvez toutes les pages prévues pour cette rubrique. Les contenus éditoriaux seront ajoutés ultérieurement.</p></div></section><section class=\"section\"><div class=\"container directory\">${links}</div></section>`,undefined,cat==='guides'?{robots:'index,follow',canonical:'/guides/'}:{}));"
+          if old_hub in text:
+              text = text.replace(old_hub, new_hub)
 
-          import_line = "import { guidePages } from './guide-content.mjs';"
-          if import_line not in text:
-              text = text.replace("import fs from 'node:fs';import path from 'node:path';\n", "import fs from 'node:fs';import path from 'node:path';\n" + import_line + "\n")
+          needle = "</aside></div>`));}"
+          replacement = "</aside></div>`,undefined,cat==='guides'?{robots:'noindex,follow',canonical:`/guides/${slug}/`}:{}));}"
+          if needle in text:
+              text = text.replace(needle, replacement, 1)
+          build.write_text(text, encoding='utf-8')
+          PY
 
-          lines = text.splitlines()
-          shell_replaced = False
-          loop_replaced = False
-          new_shell = "const shell=(t,body,desc='Guide spécialisé consacré aux cafetières italiennes.',opts={})=>{const robots=opts.robots||'index,follow';const canonical=opts.canonical?`<link rel=\"canonical\" href=\"https://cafetiere-italienne.be${opts.canonical}\">`:'';return `<!doctype html><html lang=\"fr\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><base href='${siteBase}'><title>${t} | Cafetière Italienne</title><meta name=\"description\" content=\"${desc}\"><meta name=\"robots\" content=\"${robots}\">${canonical}<link rel=\"icon\" href=\"assets/logo.svg\"><link rel=\"stylesheet\" href=\"assets/styles.css\"></head><body>${header}<main>${body}</main>${footer}<script src=\"assets/app.js\"></script></body></html>`.replaceAll('href=\"/','href=\"');};"
-          for i, line in enumerate(lines):
-              if line.startswith('const shell='):
-                  lines[i] = new_shell
-                  shell_replaced = True
-              if line.startswith(' for(const slug of slugs){') and "const t=title(slug);" in line and "const custom=" not in line:
-                  insertion = "const t=title(slug);const custom=cat==='guides'?guidePages[slug]:null;if(custom){fs.writeFileSync(path.join(p,'index.html'),shell(custom.title,custom.body,custom.description,{robots:'noindex,follow',canonical:custom.canonical}));continue;}"
-                  lines[i] = line.replace('const t=title(slug);', insertion)
-                  loop_replaced = True
-          if not shell_replaced:
-              raise SystemExit('Could not find shell definition')
-          if not loop_replaced and 'const custom=' not in '\n'.join(lines):
-              raise SystemExit('Could not wire custom guide content')
-          build.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+          cat > publication_indexation.py <<'PY'
+          """Explicit indexation state for the progressively authored Guide cluster."""
 
-          css = Path('assets/styles.css')
-          css_text = css.read_text(encoding='utf-8')
-          marker = '/* Editorial guide content */'
-          if marker not in css_text:
-              css_text += '''\n\n/* Editorial guide content */\n.guide-layout{align-items:start}.guide-article{min-width:0}.guide-article>section{padding:34px 0;border-bottom:1px solid var(--line)}.guide-article>section:first-child{padding-top:0}.guide-article>section:last-child{border-bottom:0}.guide-article h2{font-size:clamp(1.9rem,3vw,2.65rem);margin-bottom:18px}.guide-article h3{font-size:1.45rem;margin:28px 0 10px}.guide-article p{margin:0 0 16px}.guide-article ul,.guide-article ol{margin:16px 0 18px;padding-left:1.35rem}.guide-article li+li{margin-top:10px}.guide-answer{background:var(--paper);border:1px solid var(--line)!important;border-radius:22px;padding:28px!important;margin-bottom:10px}.guide-answer h2{margin-top:8px}.decision-list{counter-reset:decision;list-style:none;padding:0!important;display:grid;gap:12px}.decision-list li{position:relative;padding:16px 18px 16px 52px;background:var(--cream);border-radius:15px;margin:0!important}.decision-list li:before{counter-increment:decision;content:counter(decision);position:absolute;left:16px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--terra);color:white;display:grid;place-items:center;font-weight:700;font-size:.78rem}.guide-callout{margin:24px 0;padding:20px 22px;background:#f1e8dc;border-left:4px solid var(--terra);border-radius:0 14px 14px 0}.text-link{color:var(--terra);font-weight:700}.guide-split{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0}.guide-split>div{padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--paper)}.guide-split h3{margin-top:0}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:var(--paper)}.guide-table{width:100%;border-collapse:collapse;min-width:680px}.guide-table th,.guide-table td{text-align:left;vertical-align:top;padding:16px 18px;border-bottom:1px solid var(--line)}.guide-table th{background:var(--sand);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em}.guide-table tr:last-child td{border-bottom:0}.guide-list{padding-left:1.2rem!important}.guide-next{background:var(--moka);color:white;border-radius:22px;padding:28px!important;margin-top:34px;border:0!important}.guide-next p{color:#e2d5cb}.guide-next .btn-secondary{color:white;border-color:rgba(255,255,255,.35)}.guide-sources{font-size:.9rem;color:var(--muted)}.guide-sources h2{color:var(--ink);font-size:1.7rem}.guide-sources a{text-decoration:underline;text-underline-offset:3px}.source-date{font-size:.8rem}.guide-sidebar ol{padding-left:1.25rem;margin:18px 0 22px}.guide-sidebar li+li{margin-top:7px}.sidebar-link{font-weight:700;color:#fff;text-decoration:underline;text-underline-offset:4px}@media(max-width:900px){.guide-split{grid-template-columns:1fr}.guide-sidebar{position:static}}\n'''
-              css.write_text(css_text, encoding='utf-8')
+          # The Guide hub is already a navigational page. Individual Guide articles
+          # remain noindex,follow until explicit human validation and indexation approval.
+          INDEXABLE_GUIDE_ROUTES = {
+              "/guides/",
+          }
+          PY
+
+          curl -fsSL https://raw.githubusercontent.com/MarcW88/bloc-notes-numerique/main/validate_guide_quality.py -o validate_guide_quality.py
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p = Path('validate_guide_quality.py')
+          text = p.read_text(encoding='utf-8')
+          text = text.replace('SITE_ORIGIN = "https://bloc-notes-numeriques.fr"', 'SITE_ORIGIN = "https://cafetiere-italienne.be"')
+          text = text.replace('    "<!-- Contenu à rédiger -->",', '    "<!-- Contenu à rédiger -->",\n    "Zone de contenu à rédiger.",')
+
+          marker = '\ndef inspect_hub() -> list[str]:\n'
+          draft_fn = r'''
+def inspect_noindex_placeholder(page: Path) -> list[str]:
+    page_html = page.read_text(encoding="utf-8")
+    issues = []
+    route = route_for_page(page)
+
+    robots = ROBOTS_RE.findall(page_html)
+    normalized = [",".join(part.strip().lower() for part in value.split(",")) for value in robots]
+    if "noindex,follow" not in normalized:
+        issues.append("placeholder Guide must remain noindex,follow")
+
+    canonicals = CANONICAL_RE.findall(page_html)
+    expected = expected_canonical(page)
+    if canonicals != [expected]:
+        issues.append(f"canonical mismatch: {canonicals} != {[expected]}")
+
+    title = TITLE_RE.findall(page_html)
+    h1s = H1_RE.findall(page_html)
+    descriptions = META_DESCRIPTION_RE.findall(page_html)
+    if len(title) != 1 or not clean_text(title[0]):
+        issues.append("missing or empty <title>")
+    if len(h1s) != 1 or not clean_text(h1s[0]):
+        issues.append("missing or empty H1")
+    if len(descriptions) != 1 or not descriptions[0].strip():
+        issues.append("missing or empty meta description")
+    return issues
+
+'''
+          if 'def inspect_noindex_placeholder' not in text:
+              text = text.replace(marker, draft_fn + marker)
+
+          old = '''    for page in pages:\n        issues = inspect(page)\n        if issues:\n            failures[page.parent.name] = issues\n'''
+          new = '''    for page in pages:\n        page_html = page.read_text(encoding="utf-8")\n        is_placeholder = any(marker.lower() in page_html.lower() for marker in PLACEHOLDER_PATTERNS)\n        issues = inspect_noindex_placeholder(page) if is_placeholder else inspect(page)\n        if issues:\n            failures[page.parent.name] = issues\n'''
+          if old not in text:
+              raise SystemExit('Could not adapt validator main loop')
+          text = text.replace(old, new)
+          p.write_text(text, encoding='utf-8')
           PY
 
           npm run build
           npm run check
+          python3 validate_guide_quality.py
 
-          test -f guides/comment-choisir-cafetiere-italienne/index.html
+          grep -q '<article class="guide-article content-main">' guides/comment-choisir-cafetiere-italienne/index.html
           grep -q '<meta name="robots" content="noindex,follow">' guides/comment-choisir-cafetiere-italienne/index.html
-          grep -q 'Comment choisir une cafetière italienne ?' guides/comment-choisir-cafetiere-italienne/index.html
-          grep -q 'Sources vérifiées' guides/comment-choisir-cafetiere-italienne/index.html
+          grep -q '<link rel="canonical" href="https://cafetiere-italienne.be/guides/comment-choisir-cafetiere-italienne/">' guides/comment-choisir-cafetiere-italienne/index.html
 
-          git add scripts/build.mjs assets/styles.css guides/comment-choisir-cafetiere-italienne/index.html
+          git add scripts/guide-content.mjs scripts/build.mjs assets/styles.css guides validate_guide_quality.py publication_indexation.py
           if git diff --cached --quiet; then
-            echo 'No generated changes to commit.'
+            echo 'No changes to commit.'
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "feat: publish draft choosing moka guide"
+          git commit -m "chore: enforce guide publication gates"
           git push origin HEAD:guide-comment-choisir
