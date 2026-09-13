@@ -1,0 +1,76 @@
+name: Test exact capacity workflow on 6-tasses
+
+on:
+  push:
+    branches: [capacity-6-tasses-exact-workflow]
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build site
+        run: npm run build
+      - name: Check site
+        run: npm run check
+      - name: Validate capacity cluster
+        run: python3 validate_capacities.py
+      - name: Verify 6-tasses exact-workflow output
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('capacites/cafetiere-italienne-6-tasses/index.html')
+          t = p.read_text(encoding='utf-8')
+          assert 'Cafetière italienne 6 tasses : combien de ml ?' in t
+          assert '235 et 300 ml' in t or '235 à 300 ml' in t
+          assert 'Bialetti Venus 6' in t
+          assert 'Bialetti Moka Express 6' in t
+          assert 'Bialetti Moka Induction 6' in t
+          assert 'CRISTEL Torino 6' in t
+          assert 'Grønenberg 6 tasses' in t
+          assert 'Cecotec Moking 600' in t
+          assert '<meta name="robots" content="noindex,follow">' in t
+          assert 'https://cafetiere-italienne.be/capacites/cafetiere-italienne-6-tasses/' in t
+          low = t.lower()
+          for bad in ['nous avons testé', 'notre test', 'top 5', 'notre classement', 'score sur 10', 'meilleure 6 tasses']:
+              assert bad not in low, bad
+          assert '/capacites/cafetiere-italienne-4-tasses/' in t
+          assert '/capacites/cafetiere-italienne-10-tasses/' in t
+          assert '/comparatifs/cafetiere-italienne-induction/' in t
+          assert '/comparatifs/' in t
+          print('PASS: 6-tasses exact-workflow output')
+          PY
+      - name: Verify other approved capacity pages are unchanged
+        run: |
+          git fetch origin main
+          npm run build
+          for page in \
+            capacites/cafetiere-italienne-2-tasses/index.html \
+            capacites/cafetiere-italienne-4-tasses/index.html \
+            capacites/cafetiere-italienne-10-tasses/index.html \
+            capacites/cafetiere-italienne-12-tasses/index.html; do
+            git show origin/main:$page > /tmp/base.html
+            cmp -s /tmp/base.html "$page" || { echo "Unexpected change: $page"; exit 1; }
+          done
+          echo 'PASS: 2/4/10/12 unchanged'
+      - name: Persist reviewed 6-tasses HTML
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add capacites/cafetiere-italienne-6-tasses/index.html
+          if git diff --cached --quiet; then
+            echo 'No generated HTML changes to commit'
+          else
+            git commit -m 'build: render exact-workflow 6-tasses page'
+            git push
+          fi
