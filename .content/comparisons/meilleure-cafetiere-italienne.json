@@ -9,36 +9,128 @@
   },
   "jtbd": {
     "job": "Acheter une première ou nouvelle moka sans payer pour une caractéristique inutile ni choisir un modèle incompatible avec sa plaque.",
-    "decision_changers": ["source de chaleur", "volume réel", "entretien", "fonction distinctive", "valeur design réellement recherchée"]
+    "decision_changers": [
+      "source de chaleur",
+      "volume réel",
+      "entretien",
+      "fonction distinctive",
+      "valeur design réellement recherchée"
+    ]
   },
   "product_universe": [
-    {"id":"bialetti-moka-express","name":"Bialetti Moka Express","status":"SELECTED_CLASSIC","source":"https://www.bialetti.co.nz/products/moka-express"},
-    {"id":"bialetti-venus","name":"Bialetti Venus 4/6","status":"SELECTED_INDUCTION","source":"https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"},
-    {"id":"alessi-9090","name":"Alessi 9090","status":"SELECTED_PREMIUM_FUNCTIONAL","source":"https://alessi.com/products/9090-espresso-coffee-maker"},
-    {"id":"alessi-pulcina","name":"Alessi Pulcina","status":"SELECTED_DESIGN","source":"https://alessi.com/fr/products/pulcina-espresso-coffee-maker-1"},
-    {"id":"groenenberg","name":"Grønenberg inox induction","status":"SELECTED_TECHNICAL","source":"https://groenenberg-coffee.de/products/espressokocher-induktion-4-tassen"},
-    {"id":"bialetti-moka-induction","name":"Bialetti Moka Induction","status":"RECONSIDERED_SUBCOMPARISON","source":"https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"},
-    {"id":"bialetti-brikka","name":"Bialetti Brikka / Brikka Induction","status":"RECONSIDERED_SPECIALIZED"},
-    {"id":"ilsa-omnia","name":"ILSA Omnia Express","status":"RECONSIDERED_INOX","source":"https://shop.ilsa-italy.it/caffettiera-espresso-omnia-express-per-induzione-in-acciaio-inox-18-10-0092.html"},
-    {"id":"ilsa-slancio","name":"ILSA Slancio","status":"RECONSIDERED_INOX","source":"https://shop.ilsa-italy.it/caffettiera-espresso-slancio-satinata-per-induzione-in-acciaio-inox-18-10-0091s.html"},
-    {"id":"barazzoni-inox","name":"Barazzoni La Caffettiera inox","status":"RECONSIDERED_INOX","source":"https://www.barazzoni.it/en/products/la-caffettiera-caffettiera-acciaio-inox-830008002"}
+    {
+      "id": "bialetti-moka-express",
+      "name": "Bialetti Moka Express",
+      "status": "SELECTED_CLASSIC",
+      "source": "https://www.bialetti.co.nz/products/moka-express"
+    },
+    {
+      "id": "bialetti-venus",
+      "name": "Bialetti Venus 4/6",
+      "status": "SELECTED_INDUCTION",
+      "source": "https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"
+    },
+    {
+      "id": "alessi-9090",
+      "name": "Alessi 9090",
+      "status": "SELECTED_PREMIUM_FUNCTIONAL",
+      "source": "https://alessi.com/products/9090-espresso-coffee-maker"
+    },
+    {
+      "id": "alessi-pulcina",
+      "name": "Alessi Pulcina",
+      "status": "SELECTED_DESIGN",
+      "source": "https://alessi.com/fr/products/pulcina-espresso-coffee-maker-1"
+    },
+    {
+      "id": "groenenberg",
+      "name": "Grønenberg inox induction",
+      "status": "SELECTED_TECHNICAL",
+      "source": "https://groenenberg-coffee.de/products/espressokocher-induktion-4-tassen"
+    },
+    {
+      "id": "bialetti-moka-induction",
+      "name": "Bialetti Moka Induction",
+      "status": "RECONSIDERED_SUBCOMPARISON",
+      "source": "https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"
+    },
+    {
+      "id": "bialetti-brikka",
+      "name": "Bialetti Brikka / Brikka Induction",
+      "status": "RECONSIDERED_SPECIALIZED"
+    },
+    {
+      "id": "ilsa-omnia",
+      "name": "ILSA Omnia Express",
+      "status": "RECONSIDERED_INOX",
+      "source": "https://shop.ilsa-italy.it/caffettiera-espresso-omnia-express-per-induzione-in-acciaio-inox-18-10-0092.html"
+    },
+    {
+      "id": "ilsa-slancio",
+      "name": "ILSA Slancio",
+      "status": "RECONSIDERED_INOX",
+      "source": "https://shop.ilsa-italy.it/caffettiera-espresso-slancio-satinata-per-induzione-in-acciaio-inox-18-10-0091s.html"
+    },
+    {
+      "id": "barazzoni-inox",
+      "name": "Barazzoni La Caffettiera inox",
+      "status": "RECONSIDERED_INOX",
+      "source": "https://www.barazzoni.it/en/products/la-caffettiera-caffettiera-acciaio-inox-830008002"
+    }
   ],
   "criteria": [
-    {"id":"hob","label":"Source de chaleur / induction","role":"hard_gate"},
-    {"id":"volume","label":"Volume réel","role":"decision"},
-    {"id":"care","label":"Entretien","role":"decision"},
-    {"id":"evidence","label":"Qualité de preuve d'usage","role":"confidence"},
-    {"id":"function","label":"Fonction distinctive","role":"tradeoff"},
-    {"id":"design","label":"Valeur design recherchée","role":"secondary"}
+    {
+      "id": "hob",
+      "label": "Source de chaleur / induction",
+      "role": "hard_gate"
+    },
+    {
+      "id": "volume",
+      "label": "Volume réel",
+      "role": "decision"
+    },
+    {
+      "id": "care",
+      "label": "Entretien",
+      "role": "decision"
+    },
+    {
+      "id": "evidence",
+      "label": "Qualité de preuve d'usage",
+      "role": "confidence"
+    },
+    {
+      "id": "function",
+      "label": "Fonction distinctive",
+      "role": "tradeoff"
+    },
+    {
+      "id": "design",
+      "label": "Valeur design recherchée",
+      "role": "secondary"
+    }
   ],
   "independent_evidence": [
-    {"source":"https://www.seriouseats.com/best-moka-pots-7570691","use":"Test de 13 moka pots : Moka Express choix général, Venus inox, 9090 design premium."},
-    {"source":"https://selectos.eu/meilleures-cafetieres-italiennes/","use":"Test comparatif commun incluant Venus, Pulcina, Moka Express et Mini Express."},
-    {"source":"https://www.homesandgardens.com/buying-guides/best-moka-pots","use":"Guide testé : Moka Express overall, Venus induction."}
+    {
+      "source": "https://www.seriouseats.com/best-moka-pots-7570691",
+      "use": "Test de 13 moka pots : Moka Express choix général, Venus inox, 9090 design premium."
+    },
+    {
+      "source": "https://selectos.eu/meilleures-cafetieres-italiennes/",
+      "use": "Test comparatif commun incluant Venus, Pulcina, Moka Express et Mini Express."
+    },
+    {
+      "source": "https://www.homesandgardens.com/buying-guides/best-moka-pots",
+      "use": "Guide testé : Moka Express overall, Venus induction."
+    }
   ],
   "recommendation_logic": "Pas de podium universel. Moka Express est le point de départ hors induction ; Venus prend le relais sur induction ; 9090/Pulcina/Grønenberg deviennent meilleurs uniquement lorsque leur différence correspond à la priorité du lecteur.",
-  "affiliate_value": {"commission_used_for_candidates":false,"commission_used_in_ranking":false,"useful_without_affiliate_links":true},
+  "affiliate_value": {
+    "commission_used_for_candidates": false,
+    "commission_used_in_ranking": false,
+    "useful_without_affiliate_links": true
+  },
   "methodology_note": "Deskresearch. Specs primaires pour faits ; tests indépendants nommés pour les jugements d'usage ; aucun hands-on propriétaire.",
   "research_date": "2026-09-13",
-  "status": "READY_FOR_PUBLISH_REVIEW"
+  "status": "READY_FOR_HUMAN_VALIDATION"
 }

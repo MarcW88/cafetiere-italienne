@@ -9,38 +9,130 @@
   },
   "jtbd": {
     "job": "Obtenir une petite quantité de moka sans acheter un modèle trop petit pour sa consommation ou non détecté par sa plaque induction.",
-    "decision_changers": ["volume réel en ml/cl", "diamètre/base", "compatibilité induction exacte", "format classique vs service direct", "entretien", "design secondaire"]
+    "decision_changers": [
+      "volume réel en ml/cl",
+      "diamètre/base",
+      "compatibilité induction exacte",
+      "format classique vs service direct",
+      "entretien",
+      "design secondaire"
+    ]
   },
   "product_universe": [
-    {"id":"moka-express-1-2-3","name":"Bialetti Moka Express 1 / 2 / 3","status":"SELECTED_NONINDUCTION","source":"https://www.bialetti.co.nz/products/moka-express"},
-    {"id":"moka-induction-2","name":"Bialetti Moka Induction 2","status":"SELECTED_INDUCTION","source":"https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"},
-    {"id":"alessi-9090-1","name":"Alessi 9090 1 tasse","status":"SELECTED_PREMIUM","source":"https://alessi.com/products/9090-espresso-coffee-maker"},
-    {"id":"alessi-pulcina-1","name":"Alessi Pulcina 1 tasse","status":"SELECTED_DESIGN","source":"https://alessi.com/fr/products/pulcina-espresso-coffee-maker-1"},
-    {"id":"carmencita-small","name":"ILSA/Lavazza Carmencita Pop 1 / 2","status":"CONDITIONAL_DESIGN","source":"https://shop.ilsa-italy.it/caffettiera-carmencita-pop-in-alluminio-con-manico-e-pomolo-blu-0099b.html"},
-    {"id":"mini-express-2","name":"Bialetti Mini Express 2","status":"RECONSIDERED_SPECIAL_FORMAT","source":"https://www.bialetti.co.nz/products/bialetti-mini-express-induction-2-cup-set"},
-    {"id":"venus-2","name":"Bialetti Venus 2","status":"EXCLUDED_AS_INDUCTION","source":"https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"},
-    {"id":"barazzoni-2","name":"Barazzoni La Caffettiera 2","status":"RECONSIDERED_INOX","source":"https://www.barazzoni.it/en/products/la-caffettiera-caffettiera-acciaio-inox-830008002"},
-    {"id":"ilsa-slancio-1-2","name":"ILSA Slancio 1 / 2","status":"RECONSIDERED_INOX","source":"https://shop.ilsa-italy.it/caffettiera-espresso-slancio-satinata-per-induzione-in-acciaio-inox-18-10-0091s.html"}
+    {
+      "id": "moka-express-1-2-3",
+      "name": "Bialetti Moka Express 1 / 2 / 3",
+      "status": "SELECTED_NONINDUCTION",
+      "source": "https://www.bialetti.co.nz/products/moka-express"
+    },
+    {
+      "id": "moka-induction-2",
+      "name": "Bialetti Moka Induction 2",
+      "status": "SELECTED_INDUCTION",
+      "source": "https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"
+    },
+    {
+      "id": "alessi-9090-1",
+      "name": "Alessi 9090 1 tasse",
+      "status": "SELECTED_PREMIUM",
+      "source": "https://alessi.com/products/9090-espresso-coffee-maker"
+    },
+    {
+      "id": "alessi-pulcina-1",
+      "name": "Alessi Pulcina 1 tasse",
+      "status": "SELECTED_DESIGN",
+      "source": "https://alessi.com/fr/products/pulcina-espresso-coffee-maker-1"
+    },
+    {
+      "id": "carmencita-small",
+      "name": "ILSA/Lavazza Carmencita Pop 1 / 2",
+      "status": "CONDITIONAL_DESIGN",
+      "source": "https://shop.ilsa-italy.it/caffettiera-carmencita-pop-in-alluminio-con-manico-e-pomolo-blu-0099b.html"
+    },
+    {
+      "id": "mini-express-2",
+      "name": "Bialetti Mini Express 2",
+      "status": "RECONSIDERED_SPECIAL_FORMAT",
+      "source": "https://www.bialetti.co.nz/products/bialetti-mini-express-induction-2-cup-set"
+    },
+    {
+      "id": "venus-2",
+      "name": "Bialetti Venus 2",
+      "status": "EXCLUDED_AS_INDUCTION",
+      "source": "https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"
+    },
+    {
+      "id": "barazzoni-2",
+      "name": "Barazzoni La Caffettiera 2",
+      "status": "RECONSIDERED_INOX",
+      "source": "https://www.barazzoni.it/en/products/la-caffettiera-caffettiera-acciaio-inox-830008002"
+    },
+    {
+      "id": "ilsa-slancio-1-2",
+      "name": "ILSA Slancio 1 / 2",
+      "status": "RECONSIDERED_INOX",
+      "source": "https://shop.ilsa-italy.it/caffettiera-espresso-slancio-satinata-per-induzione-in-acciaio-inox-18-10-0091s.html"
+    }
   ],
   "criteria": [
-    {"id":"volume","label":"Volume réel documenté","role":"hard_gate"},
-    {"id":"base","label":"Diamètre/base","role":"decision"},
-    {"id":"induction","label":"Compatibilité induction de la variante exacte","role":"decision"},
-    {"id":"format","label":"Collecteur classique vs service direct","role":"tradeoff"},
-    {"id":"care","label":"Entretien","role":"tradeoff"},
-    {"id":"design","label":"Valeur design","role":"secondary"}
+    {
+      "id": "volume",
+      "label": "Volume réel documenté",
+      "role": "hard_gate"
+    },
+    {
+      "id": "base",
+      "label": "Diamètre/base",
+      "role": "decision"
+    },
+    {
+      "id": "induction",
+      "label": "Compatibilité induction de la variante exacte",
+      "role": "decision"
+    },
+    {
+      "id": "format",
+      "label": "Collecteur classique vs service direct",
+      "role": "tradeoff"
+    },
+    {
+      "id": "care",
+      "label": "Entretien",
+      "role": "tradeoff"
+    },
+    {
+      "id": "design",
+      "label": "Valeur design",
+      "role": "secondary"
+    }
   ],
   "independent_evidence": [
-    {"source":"https://www.seriouseats.com/best-moka-pots-7570691","use":"Test de la famille Moka Express et de l'Alessi 9090 ; utilisé pour contextualiser l'usage, pas pour déduire un comportement identique de toutes les tailles."},
-    {"source":"https://selectos.eu/meilleures-cafetieres-italiennes/","use":"Test comparatif de plusieurs familles Bialetti/Alessi ; utilisé comme contexte indépendant, pas comme conversion taille = personne."}
+    {
+      "source": "https://www.seriouseats.com/best-moka-pots-7570691",
+      "use": "Test de la famille Moka Express et de l'Alessi 9090 ; utilisé pour contextualiser l'usage, pas pour déduire un comportement identique de toutes les tailles."
+    },
+    {
+      "source": "https://selectos.eu/meilleures-cafetieres-italiennes/",
+      "use": "Test comparatif de plusieurs familles Bialetti/Alessi ; utilisé comme contexte indépendant, pas comme conversion taille = personne."
+    }
   ],
   "major_exclusions": [
-    {"candidate":"Bialetti Venus 2","reason":"Petite et inox mais explicitement non compatible induction selon Bialetti ; ne peut pas servir de recommandation petite + induction."},
-    {"candidate":"Bialetti Mini Express 2","reason":"Format de service direct dans les tasses, suffisamment différent d'une moka classique pour rester une option spécialisée."}
+    {
+      "candidate": "Bialetti Venus 2",
+      "reason": "Petite et inox mais explicitement non compatible induction selon Bialetti ; ne peut pas servir de recommandation petite + induction."
+    },
+    {
+      "candidate": "Bialetti Mini Express 2",
+      "reason": "Format de service direct dans les tasses, suffisamment différent d'une moka classique pour rester une option spécialisée."
+    }
   ],
   "recommendation_logic": "Le volume réel précède le nom de taille. Hors induction, Moka Express 1/2/3 fournit 60/90/130 ml ; sur induction, Moka Induction 2 devient le point de départ vers 100 ml si la plaque détecte 9,5 cm ; 9090 1 et Pulcina 1 couvrent des choix premium/design spécifiques.",
-  "affiliate_value": {"commission_used_for_candidates":false,"commission_used_in_ranking":false,"useful_without_affiliate_links":true},
+  "affiliate_value": {
+    "commission_used_for_candidates": false,
+    "commission_used_in_ranking": false,
+    "useful_without_affiliate_links": true
+  },
   "methodology_note": "Aucune équation taille moka = nombre de personnes. Les volumes et compatibilités viennent des fabricants ; aucune expérience de goût propriétaire n'est revendiquée.",
   "research_date": "2026-09-13",
-  "status": "READY_FOR_PUBLISH_REVIEW"
+  "status": "READY_FOR_HUMAN_VALIDATION"
 }

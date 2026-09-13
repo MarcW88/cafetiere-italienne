@@ -8,35 +8,121 @@
   },
   "jtbd": {
     "job": "Acheter une moka inox adaptée à sa plaque et à son entretien quotidien.",
-    "decision_changers": ["type d'inox documenté", "induction par variante", "tailles/volumes", "lave-vaisselle", "pièces/réducteur", "preuve indépendante"]
+    "decision_changers": [
+      "type d'inox documenté",
+      "induction par variante",
+      "tailles/volumes",
+      "lave-vaisselle",
+      "pièces/réducteur",
+      "preuve indépendante"
+    ]
   },
   "product_universe": [
-    {"id":"bialetti-venus","name":"Bialetti Venus","status":"SELECTED_BENCHMARK","source":"https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"},
-    {"id":"ilsa-omnia","name":"ILSA Omnia Express","status":"SELECTED_SIMPLE","source":"https://shop.ilsa-italy.it/caffettiera-espresso-omnia-express-per-induzione-in-acciaio-inox-18-10-0092.html"},
-    {"id":"ilsa-slancio","name":"ILSA Slancio","status":"SELECTED_RANGE","source":"https://shop.ilsa-italy.it/caffettiera-espresso-slancio-satinata-per-induzione-in-acciaio-inox-18-10-0091s.html"},
-    {"id":"barazzoni-inox","name":"Barazzoni La Caffettiera inox","status":"SELECTED_CARE","source":"https://www.barazzoni.it/en/products/la-caffettiera-caffettiera-acciaio-inox-830008002"},
-    {"id":"alessi-9090","name":"Alessi 9090","status":"SELECTED_PREMIUM","source":"https://alessi.com/products/9090-espresso-coffee-maker"},
-    {"id":"groenenberg","name":"Grønenberg inox induction","status":"SELECTED_TECHNICAL","source":"https://groenenberg-coffee.de/products/espressokocher-induktion-4-tassen"},
-    {"id":"alessi-menhir","name":"Alessi Menhir","status":"RECONSIDERED_DESIGN"},
-    {"id":"bra-magna","name":"BRA Magna","status":"RECONSIDERED_INDUCTION"},
-    {"id":"giannina","name":"Giannina / Giannini","status":"RESEARCH_REQUIRED"}
+    {
+      "id": "bialetti-venus",
+      "name": "Bialetti Venus",
+      "status": "SELECTED_BENCHMARK",
+      "source": "https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"
+    },
+    {
+      "id": "ilsa-omnia",
+      "name": "ILSA Omnia Express",
+      "status": "SELECTED_SIMPLE",
+      "source": "https://shop.ilsa-italy.it/caffettiera-espresso-omnia-express-per-induzione-in-acciaio-inox-18-10-0092.html"
+    },
+    {
+      "id": "ilsa-slancio",
+      "name": "ILSA Slancio",
+      "status": "SELECTED_RANGE",
+      "source": "https://shop.ilsa-italy.it/caffettiera-espresso-slancio-satinata-per-induzione-in-acciaio-inox-18-10-0091s.html"
+    },
+    {
+      "id": "barazzoni-inox",
+      "name": "Barazzoni La Caffettiera inox",
+      "status": "SELECTED_CARE",
+      "source": "https://www.barazzoni.it/en/products/la-caffettiera-caffettiera-acciaio-inox-830008002"
+    },
+    {
+      "id": "alessi-9090",
+      "name": "Alessi 9090",
+      "status": "SELECTED_PREMIUM",
+      "source": "https://alessi.com/products/9090-espresso-coffee-maker"
+    },
+    {
+      "id": "groenenberg",
+      "name": "Grønenberg inox induction",
+      "status": "SELECTED_TECHNICAL",
+      "source": "https://groenenberg-coffee.de/products/espressokocher-induktion-4-tassen"
+    },
+    {
+      "id": "alessi-menhir",
+      "name": "Alessi Menhir",
+      "status": "RECONSIDERED_DESIGN"
+    },
+    {
+      "id": "bra-magna",
+      "name": "BRA Magna",
+      "status": "RECONSIDERED_INDUCTION"
+    },
+    {
+      "id": "giannina",
+      "name": "Giannina / Giannini",
+      "status": "RESEARCH_REQUIRED"
+    }
   ],
   "criteria": [
-    {"id":"construction","label":"Construction inox documentée","role":"hard_gate"},
-    {"id":"induction","label":"Compatibilité induction par variante","role":"decision"},
-    {"id":"sizes","label":"Tailles / volumes","role":"decision"},
-    {"id":"care","label":"Entretien","role":"decision"},
-    {"id":"parts","label":"Pièces / réducteur","role":"tradeoff"},
-    {"id":"evidence","label":"Preuve indépendante d'usage","role":"confidence"}
+    {
+      "id": "construction",
+      "label": "Construction inox documentée",
+      "role": "hard_gate"
+    },
+    {
+      "id": "induction",
+      "label": "Compatibilité induction par variante",
+      "role": "decision"
+    },
+    {
+      "id": "sizes",
+      "label": "Tailles / volumes",
+      "role": "decision"
+    },
+    {
+      "id": "care",
+      "label": "Entretien",
+      "role": "decision"
+    },
+    {
+      "id": "parts",
+      "label": "Pièces / réducteur",
+      "role": "tradeoff"
+    },
+    {
+      "id": "evidence",
+      "label": "Preuve indépendante d'usage",
+      "role": "confidence"
+    }
   ],
   "independent_evidence": [
-    {"source":"https://www.seriouseats.com/best-moka-pots-7570691","use":"Venus choix inox ; 9090 premium design après test."},
-    {"source":"https://selectos.eu/meilleures-cafetieres-italiennes/","use":"Venus testée sur préparation/nettoyage."},
-    {"source":"https://www.homesandgardens.com/kitchens/appliances/bialetti-venus-coffee-maker-review","use":"Test Venus 2026 avec avantages et limites d'usage."}
+    {
+      "source": "https://www.seriouseats.com/best-moka-pots-7570691",
+      "use": "Venus choix inox ; 9090 premium design après test."
+    },
+    {
+      "source": "https://selectos.eu/meilleures-cafetieres-italiennes/",
+      "use": "Venus testée sur préparation/nettoyage."
+    },
+    {
+      "source": "https://www.homesandgardens.com/kitchens/appliances/bialetti-venus-coffee-maker-review",
+      "use": "Test Venus 2026 avec avantages et limites d'usage."
+    }
   ],
   "recommendation_logic": "Venus est le benchmark de preuve, mais le verdict bascule vers Omnia/Slancio/Barazzoni/Grønenberg/9090 selon simplicité, tailles, entretien, documentation de plaque ou premium fonctionnel.",
-  "affiliate_value": {"commission_used_for_candidates":false,"commission_used_in_ranking":false,"useful_without_affiliate_links":true},
+  "affiliate_value": {
+    "commission_used_for_candidates": false,
+    "commission_used_in_ranking": false,
+    "useful_without_affiliate_links": true
+  },
   "methodology_note": "Aucun claim santé/goût à partir du seul matériau. Les descriptions fabricant restent des faits ; les jugements d'usage sont attribués à des tests nommés.",
   "research_date": "2026-09-13",
-  "status": "READY_FOR_PUBLISH_REVIEW"
+  "status": "READY_FOR_HUMAN_VALIDATION"
 }
