@@ -8,6 +8,7 @@ from pathlib import Path
 import re
 
 from comparison_bespoke_cafetiere import CONTENT as CAFETIERE_CONTENT
+from comparison_bespoke_remaining_cafetiere import CONTENT as REMAINING_CONTENT
 
 ROOT = Path(__file__).resolve().parent
 SLUGS = (
@@ -18,6 +19,8 @@ SLUGS = (
     'cafetiere-italienne-design',
     'petite-cafetiere-italienne',
 )
+
+REVIEWED_CONTENT = {**CAFETIERE_CONTENT, **REMAINING_CONTENT}
 
 
 def _existing_article(slug: str) -> str:
@@ -32,9 +35,9 @@ def _existing_article(slug: str) -> str:
 CONTENT = {
     slug: _existing_article(slug)
     for slug in SLUGS
-    if slug not in CAFETIERE_CONTENT
+    if slug not in REVIEWED_CONTENT
 }
-CONTENT.update(CAFETIERE_CONTENT)
+CONTENT.update(REVIEWED_CONTENT)
 
 # The Cafetière shell predates the Bloc Notes page-meta component. Keep META
 # empty here and preserve the existing title/H1 shell until a site-specific
