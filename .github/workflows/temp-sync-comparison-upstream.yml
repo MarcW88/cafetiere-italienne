@@ -1,0 +1,122 @@
+name: TEMP sync exact comparison upstream
+
+on:
+  push:
+    branches: [comparison-workflow-exact-port]
+    paths:
+      - ".github/workflows/temp-sync-comparison-upstream.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: comparison-workflow-exact-port
+          fetch-depth: 0
+      - name: Fetch pinned Bloc Notes source
+        run: |
+          git clone https://github.com/MarcW88/bloc-notes-numerique.git /tmp/bloc-notes-numerique
+          git -C /tmp/bloc-notes-numerique checkout 534e9fd7e0fc2f7bd83da5b053987ac327c4e9fe
+      - name: Copy exact workflow skills
+        run: |
+          set -euo pipefail
+          SRC=/tmp/bloc-notes-numerique
+          skills=(
+            comparison-analysis-workflow
+            comparison-content-workflow
+            seo-content-audit
+            seo-keyword
+            jobs-to-be-done
+            evidence-based-reviews
+            fact-check
+            affiliate-value
+            content-brief-authoring
+            content-and-copy
+            humanizer
+            general-writing
+            anti-ai-slop
+            seo-onpage
+            seo-technical
+            editorial-qa
+          )
+          for skill in "${skills[@]}"; do
+            rm -rf ".agents/skills/$skill"
+            mkdir -p .agents/skills
+            cp -a "$SRC/.agents/skills/$skill" ".agents/skills/$skill"
+          done
+      - name: Copy exact comparison engine and product-affiliate engine
+        run: |
+          set -euo pipefail
+          SRC=/tmp/bloc-notes-numerique
+          files=(
+            comparison-workflow.config.yaml
+            apply_comparison_content.py
+            apply_comparison_indexation.py
+            comparison_bespoke_output.py
+            comparison_bespoke_priority_20260909.py
+            comparison_bespoke_remaining_20260909.py
+            comparison_content.py
+            comparison_pages.py
+            comparison_products.py
+            comparison_publication.py
+            generate_comparison_metadata.py
+            validate_comparisons.py
+            comparisons.css
+            product_cards.py
+            apply_product_cards.py
+            validate_product_cards.py
+            apply_inline_affiliate_links.py
+            validate_inline_affiliate_links.py
+            _generate.py
+            assets/product-cards.css
+            assets/product-affiliate.js
+            assets/inline-affiliate.css
+            .github/workflows/regenerate-comparisons.yml
+            .github/workflows/apply-product-modules.yml
+            .github/workflows/maintain-inline-affiliate-links.yml
+          )
+          for file in "${files[@]}"; do
+            mkdir -p "$(dirname "$file")"
+            cp -a "$SRC/$file" "$file"
+          done
+          mkdir -p .content/products
+          cp -a "$SRC/.content/products/README.md" .content/products/README.md
+          cp -a "$SRC/.content/products/affiliate.json" .content/products/affiliate.upstream.json
+          cp -a "$SRC/.content/products/placements.json" .content/products/placements.upstream.json
+          cp -a "$SRC/.content/products/registry.json" .content/products/registry.upstream.json
+          cp -a "$SRC/.content/products/inline-affiliate.json" .content/products/inline-affiliate.upstream.json
+      - name: Record pinned upstream manifest
+        run: |
+          set -euo pipefail
+          SRC=/tmp/bloc-notes-numerique
+          {
+            echo '# Exact comparison upstream manifest'
+            echo
+            echo 'Source repository: `MarcW88/bloc-notes-numerique`'
+            echo 'Source commit: `534e9fd7e0fc2f7bd83da5b053987ac327c4e9fe`'
+            echo
+            echo 'The workflow skills and engine files copied by `temp-sync-comparison-upstream.yml` are vendored byte-for-byte from this commit.'
+            echo 'Site-specific adaptations must be kept outside the upstream skill directories whenever possible.'
+          } > .content/reviews/comparison-upstream-manifest.md
+      - name: Verify byte parity for vendored core
+        run: |
+          set -euo pipefail
+          SRC=/tmp/bloc-notes-numerique
+          skills=(comparison-analysis-workflow comparison-content-workflow seo-content-audit seo-keyword jobs-to-be-done evidence-based-reviews fact-check affiliate-value content-brief-authoring content-and-copy humanizer general-writing anti-ai-slop seo-onpage seo-technical editorial-qa)
+          for skill in "${skills[@]}"; do diff -qr "$SRC/.agents/skills/$skill" ".agents/skills/$skill"; done
+          files=(apply_comparison_content.py apply_comparison_indexation.py comparison_content.py comparison_pages.py comparison_products.py comparison_publication.py generate_comparison_metadata.py validate_comparisons.py product_cards.py apply_product_cards.py validate_product_cards.py apply_inline_affiliate_links.py validate_inline_affiliate_links.py)
+          for file in "${files[@]}"; do cmp -s "$SRC/$file" "$file"; done
+          echo 'PASS: vendored comparison core is byte-identical to Bloc Notes source commit'
+      - name: Commit exact upstream port
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .agents/skills comparison-workflow.config.yaml apply_comparison_content.py apply_comparison_indexation.py comparison_bespoke_output.py comparison_bespoke_priority_20260909.py comparison_bespoke_remaining_20260909.py comparison_content.py comparison_pages.py comparison_products.py comparison_publication.py generate_comparison_metadata.py validate_comparisons.py comparisons.css product_cards.py apply_product_cards.py validate_product_cards.py apply_inline_affiliate_links.py validate_inline_affiliate_links.py _generate.py assets/product-cards.css assets/product-affiliate.js assets/inline-affiliate.css .github/workflows/regenerate-comparisons.yml .github/workflows/apply-product-modules.yml .github/workflows/maintain-inline-affiliate-links.yml .content/products .content/reviews/comparison-upstream-manifest.md
+          git commit -m "workflow: vendor exact Bloc Notes comparison engine"
+          git push origin HEAD:comparison-workflow-exact-port
