@@ -35,7 +35,7 @@ jobs:
               t = p.read_text(encoding='utf-8')
               assert '<meta name="robots" content="noindex,follow">' in t
               low = t.lower()
-              for bad in ['nous avons testé', 'notre test', 'meilleure 2 tasses', 'meilleure 4 tasses', 'meilleure 6 tasses', 'meilleure 12 tasses']:
+              for bad in ['nous avons testé', 'notre test', 'top 5', 'notre classement', 'winner badge', 'score sur 10']:
                   assert bad not in low, (n, bad)
               assert '/comparatifs/' in t
               assert 'Sources vérifiées' in t
