@@ -10,7 +10,11 @@ for (const target of targets) {
   const file = path.join(root, target);
   if (!fs.existsSync(file)) throw new Error(`Missing generated page: ${target}`);
   let html = fs.readFileSync(file, 'utf8');
-  html = html.replaceAll('—', ',').replaceAll('–', ' à ');
+  html = html
+    .replaceAll(' — ', ', ')
+    .replaceAll('—', ', ')
+    .replaceAll(' – ', ' à ')
+    .replaceAll('–', ' à ');
   fs.writeFileSync(file, html);
   console.log(`PASS: sanitized reviewed typography in ${target}`);
 }
