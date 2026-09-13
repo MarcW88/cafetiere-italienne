@@ -1,28 +1,136 @@
 {
-  "slug":"meilleure-cafetiere-italienne",
-  "url":"/comparatifs/meilleure-cafetiere-italienne/",
-  "intent":{"query":"meilleure cafetière italienne","decision":"Choisir la moka la plus adaptée selon la plaque, la capacité, le matériau et le niveau de finition."},
-  "product_universe":[
-    {"id":"bialetti-moka-express","name":"Bialetti Moka Express","status":"ELIGIBLE","source":"https://bialetti-cookware.zendesk.com/hc/fr/articles/5416235346322-Comment-utiliser-la-Moka-Express"},
-    {"id":"bialetti-venus","name":"Bialetti Venus","status":"ELIGIBLE","source":"https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"},
-    {"id":"bialetti-moka-induction","name":"Bialetti Moka Induction","status":"ELIGIBLE","source":"https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"},
-    {"id":"alessi-9090","name":"Alessi 9090","status":"ELIGIBLE","source":"https://alessi.com/fr/products/9090-espresso-coffee-maker"}
+  "slug": "meilleure-cafetiere-italienne",
+  "url": "/comparatifs/meilleure-cafetiere-italienne/",
+  "comparison_type": "BEST_OVERALL",
+  "intent": {
+    "query": "meilleure cafetière italienne",
+    "decision": "Choisir une famille de moka selon la plaque, le volume et la priorité d'usage.",
+    "boundary": "Cette page est l'arbre de décision général. Les sous-comparatifs induction, inox, électrique, design et petite moka absorbent les cas spécialisés."
+  },
+  "jtbd": {
+    "job": "Acheter une première ou nouvelle moka sans payer pour une caractéristique inutile ni choisir un modèle incompatible avec sa plaque.",
+    "decision_changers": [
+      "source de chaleur",
+      "volume réel",
+      "entretien",
+      "fonction distinctive",
+      "valeur design réellement recherchée"
+    ]
+  },
+  "product_universe": [
+    {
+      "id": "bialetti-moka-express",
+      "name": "Bialetti Moka Express",
+      "status": "SELECTED_CLASSIC",
+      "source": "https://www.bialetti.co.nz/products/moka-express"
+    },
+    {
+      "id": "bialetti-venus",
+      "name": "Bialetti Venus 4/6",
+      "status": "SELECTED_INDUCTION",
+      "source": "https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"
+    },
+    {
+      "id": "alessi-9090",
+      "name": "Alessi 9090",
+      "status": "SELECTED_PREMIUM_FUNCTIONAL",
+      "source": "https://alessi.com/products/9090-espresso-coffee-maker"
+    },
+    {
+      "id": "alessi-pulcina",
+      "name": "Alessi Pulcina",
+      "status": "SELECTED_DESIGN",
+      "source": "https://alessi.com/fr/products/pulcina-espresso-coffee-maker-1"
+    },
+    {
+      "id": "groenenberg",
+      "name": "Grønenberg inox induction",
+      "status": "SELECTED_TECHNICAL",
+      "source": "https://groenenberg-coffee.de/products/espressokocher-induktion-4-tassen"
+    },
+    {
+      "id": "bialetti-moka-induction",
+      "name": "Bialetti Moka Induction",
+      "status": "RECONSIDERED_SUBCOMPARISON",
+      "source": "https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"
+    },
+    {
+      "id": "bialetti-brikka",
+      "name": "Bialetti Brikka / Brikka Induction",
+      "status": "RECONSIDERED_SPECIALIZED"
+    },
+    {
+      "id": "ilsa-omnia",
+      "name": "ILSA Omnia Express",
+      "status": "RECONSIDERED_INOX",
+      "source": "https://shop.ilsa-italy.it/caffettiera-espresso-omnia-express-per-induzione-in-acciaio-inox-18-10-0092.html"
+    },
+    {
+      "id": "ilsa-slancio",
+      "name": "ILSA Slancio",
+      "status": "RECONSIDERED_INOX",
+      "source": "https://shop.ilsa-italy.it/caffettiera-espresso-slancio-satinata-per-induzione-in-acciaio-inox-18-10-0091s.html"
+    },
+    {
+      "id": "barazzoni-inox",
+      "name": "Barazzoni La Caffettiera inox",
+      "status": "RECONSIDERED_INOX",
+      "source": "https://www.barazzoni.it/en/products/la-caffettiera-caffettiera-acciaio-inox-830008002"
+    }
   ],
-  "criteria":[
-    {"id":"compatibilite","label":"Compatibilité avec la plaque"},
-    {"id":"capacite","label":"Capacité adaptée à l'usage"},
-    {"id":"construction","label":"Construction et entretien"},
-    {"id":"valeur","label":"Valeur fonctionnelle par rapport au positionnement"}
+  "criteria": [
+    {
+      "id": "hob",
+      "label": "Source de chaleur / induction",
+      "role": "hard_gate"
+    },
+    {
+      "id": "volume",
+      "label": "Volume réel",
+      "role": "decision"
+    },
+    {
+      "id": "care",
+      "label": "Entretien",
+      "role": "decision"
+    },
+    {
+      "id": "evidence",
+      "label": "Qualité de preuve d'usage",
+      "role": "confidence"
+    },
+    {
+      "id": "function",
+      "label": "Fonction distinctive",
+      "role": "tradeoff"
+    },
+    {
+      "id": "design",
+      "label": "Valeur design recherchée",
+      "role": "secondary"
+    }
   ],
-  "ranking":[
-    {"rank":1,"product_id":"bialetti-moka-express","context":"meilleur choix classique hors induction"},
-    {"rank":2,"product_id":"bialetti-venus","context":"meilleur choix par défaut sur induction"},
-    {"rank":3,"product_id":"bialetti-moka-induction","context":"meilleur compromis esthétique classique + induction"},
-    {"rank":4,"product_id":"alessi-9090","context":"meilleur choix premium/design"}
+  "independent_evidence": [
+    {
+      "source": "https://www.seriouseats.com/best-moka-pots-7570691",
+      "use": "Test de 13 moka pots : Moka Express choix général, Venus inox, 9090 design premium."
+    },
+    {
+      "source": "https://selectos.eu/meilleures-cafetieres-italiennes/",
+      "use": "Test comparatif commun incluant Venus, Pulcina, Moka Express et Mini Express."
+    },
+    {
+      "source": "https://www.homesandgardens.com/buying-guides/best-moka-pots",
+      "use": "Guide testé : Moka Express overall, Venus induction."
+    }
   ],
-  "recommendation_logic":"Le classement est conditionnel : Moka Express ne reste n°1 que si l'induction n'est pas requise. Venus devient le choix par défaut sur induction. Les deux autres répondent à des priorités plus spécifiques.",
-  "methodology_note":"Sélection fondée sur les specs officielles et l'utilité décisionnelle. Aucun test hands-on revendiqué, aucun score pseudo-scientifique.",
-  "affiliate_commission_used_in_ranking":false,
-  "research_date":"2026-09-13",
-  "status":"READY_FOR_PUBLISH_REVIEW"
+  "recommendation_logic": "Pas de podium universel. Moka Express est le point de départ hors induction ; Venus prend le relais sur induction ; 9090/Pulcina/Grønenberg deviennent meilleurs uniquement lorsque leur différence correspond à la priorité du lecteur.",
+  "affiliate_value": {
+    "commission_used_for_candidates": false,
+    "commission_used_in_ranking": false,
+    "useful_without_affiliate_links": true
+  },
+  "methodology_note": "Deskresearch. Specs primaires pour faits ; tests indépendants nommés pour les jugements d'usage ; aucun hands-on propriétaire.",
+  "research_date": "2026-09-13",
+  "status": "READY_FOR_HUMAN_VALIDATION"
 }

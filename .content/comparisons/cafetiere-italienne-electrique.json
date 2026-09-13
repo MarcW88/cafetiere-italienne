@@ -1,26 +1,126 @@
 {
-  "slug":"cafetiere-italienne-electrique",
-  "url":"/comparatifs/cafetiere-italienne-electrique/",
-  "intent":{"query":"cafetière italienne électrique","decision":"Choisir une moka autonome sans plaque selon la capacité et les fonctions électriques réellement documentées."},
-  "product_universe":[
-    {"id":"ariete-1368","name":"Ariete Moka Aroma 1368","status":"ELIGIBLE","source":"https://www.ariete.eu/en/product/Moka-Aroma"},
-    {"id":"ariete-1358","name":"Ariete Moka Aroma Electric 1358","status":"ELIGIBLE","source":"https://www.ariete.eu/en/product/Moka-Aroma-Elettrica-nera"},
-    {"id":"delonghi-alicia-emk6","name":"De’Longhi Alicia EMK6","status":"CONDITIONALLY_ELIGIBLE","source":"https://www.delonghi.com/fr-fr/s/EMK6"}
+  "slug": "cafetiere-italienne-electrique",
+  "url": "/comparatifs/cafetiere-italienne-electrique/",
+  "comparison_type": "CATEGORY_CURRENTNESS",
+  "intent": {
+    "query": "cafetière italienne électrique",
+    "decision": "Choisir une moka électrique autonome encore cohérente en 2026 selon la capacité, les fonctions et le statut réel de la gamme.",
+    "boundary": "La page compare des moka électriques autonomes. Une présence chez un revendeur ou dans un centre de support ne suffit pas à prouver qu'un modèle est encore activement commercialisé."
+  },
+  "jtbd": {
+    "job": "Acheter une moka électrique sans plaque et éviter un modèle ancien uniquement encore présent dans des stocks résiduels.",
+    "decision_changers": [
+      "statut actuel de la gamme",
+      "capacité",
+      "arrêt automatique",
+      "maintien au chaud",
+      "base 360°",
+      "disponibilité vérifiable"
+    ]
+  },
+  "product_universe": [
+    {
+      "id": "ariete-1358a",
+      "name": "Ariete Moka Aroma 1358A",
+      "status": "SELECTED_CURRENT",
+      "source": "https://www.ariete.eu/en/product/Moka-Aroma-Elettrica-nera"
+    },
+    {
+      "id": "ariete-capri-1358a",
+      "name": "Ariete Moka Aroma Capri 1358A",
+      "status": "CURRENT_VARIANT",
+      "source": "https://www.ariete.net/en/product/ariete-electric-moka-pot-capri"
+    },
+    {
+      "id": "ariete-positano-1358a",
+      "name": "Ariete Moka Aroma Positano 1358A",
+      "status": "CURRENT_VARIANT",
+      "source": "https://m.ariete.net/en/product/ariete-electric-moka-pot-positano"
+    },
+    {
+      "id": "ariete-1368",
+      "name": "Ariete Moka Aroma 1368",
+      "status": "SELECTED_VERIFY_STOCK",
+      "source": "https://www.ariete.eu/en/product/Moka-Aroma"
+    },
+    {
+      "id": "delonghi-alicia",
+      "name": "De'Longhi Alicia EMK / EMKM",
+      "status": "CONDITIONAL_LEGACY",
+      "source": "https://www.delonghi.com/fr-fr/s/EMK6"
+    },
+    {
+      "id": "rommelsbacher-eko-376g",
+      "name": "Rommelsbacher EKO 376/G",
+      "status": "DISCONTINUED",
+      "source": "https://www.rommelsbacher.de/en/espresso-maker-eko-376-g"
+    },
+    {
+      "id": "bialetti-electric-legacy",
+      "name": "Bialetti Easy Timer / Moka Timer / Elettrika",
+      "status": "RESEARCH_REQUIRED",
+      "source": "https://www.idealo.fr/cat/14573F1925454/cafetieres-italiennes.html"
+    }
   ],
-  "criteria":[
-    {"id":"capacite","label":"Capacité"},
-    {"id":"autonomie","label":"Arrêt automatique / maintien au chaud"},
-    {"id":"encombrement","label":"Format et base"},
-    {"id":"disponibilite","label":"Documentation et disponibilité actuelle"}
+  "criteria": [
+    {
+      "id": "freshness",
+      "label": "Documentation et statut actuel",
+      "role": "hard_gate"
+    },
+    {
+      "id": "capacity",
+      "label": "Capacité",
+      "role": "decision"
+    },
+    {
+      "id": "autooff",
+      "label": "Arrêt automatique",
+      "role": "decision"
+    },
+    {
+      "id": "keepwarm",
+      "label": "Maintien au chaud",
+      "role": "tradeoff"
+    },
+    {
+      "id": "base",
+      "label": "Base 360° / service sans fil",
+      "role": "tradeoff"
+    },
+    {
+      "id": "availability",
+      "label": "Disponibilité à vérifier",
+      "role": "confidence"
+    }
   ],
-  "ranking":[
-    {"rank":1,"product_id":"ariete-1368","context":"meilleur choix pour plusieurs tasses"},
-    {"rank":2,"product_id":"ariete-1358","context":"meilleur choix compact"},
-    {"rank":3,"product_id":"delonghi-alicia-emk6","context":"alternative si disponible"}
+  "independent_evidence": [
+    {
+      "source": "https://homecoffeeexpert.com/delonghi-emk6-review/",
+      "use": "Review mise à jour en juin 2026 décrivant l'EMK6 comme discontinued/difficile à trouver ; utilisé comme signal et non comme preuve que toute la gamme Alicia est arrêtée."
+    },
+    {
+      "source": "https://www.idealo.fr/cat/14573F1925454/cafetieres-italiennes.html",
+      "use": "Signal de marché montrant que la catégorie mélange modèles actuels, variantes et références anciennes ; jamais utilisé comme source primaire de specs."
+    }
   ],
-  "recommendation_logic":"1368 est prioritaire lorsque la capacité et le maintien au chaud comptent ; 1358 quand 2/4 tasses suffisent. Alicia reste documentée mais sa disponibilité marchande doit être vérifiée au moment de l'achat.",
-  "methodology_note":"Comparaison fonctionnelle à partir des fiches/support fabricants. Aucun test gustatif ou thermique propriétaire revendiqué.",
-  "affiliate_commission_used_in_ranking":false,
-  "research_date":"2026-09-13",
-  "status":"READY_FOR_PUBLISH_REVIEW"
+  "major_exclusions": [
+    {
+      "candidate": "Rommelsbacher EKO 376/G",
+      "reason": "Le fabricant indique explicitement que l'article n'est plus disponible."
+    },
+    {
+      "candidate": "Bialetti Easy Timer / Moka Timer / Elettrika",
+      "reason": "Présence marchande actuelle mais documentation fabricant actuelle insuffisamment claire pour confirmer génération, fonctions et statut de façon homogène."
+    }
+  ],
+  "recommendation_logic": "Ariete 1358A est le choix actuel principal pour 2/4 tasses. Ariete 1368 devient pertinente pour 4/6 tasses seulement si un stock fiable est disponible. De'Longhi Alicia reste une option legacy à vérifier référence par référence ; les modèles explicitement arrêtés ne servent pas à remplir artificiellement un classement.",
+  "affiliate_value": {
+    "commission_used_for_candidates": false,
+    "commission_used_in_ranking": false,
+    "useful_without_affiliate_links": true
+  },
+  "methodology_note": "Deskresearch. Les fonctions viennent des fabricants ; le statut commercial est traité avec prudence et daté. Aucun test thermique ou gustatif propriétaire.",
+  "research_date": "2026-09-13",
+  "status": "READY_FOR_HUMAN_VALIDATION"
 }
