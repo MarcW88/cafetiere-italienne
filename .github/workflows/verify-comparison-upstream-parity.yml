@@ -1,0 +1,141 @@
+name: Verify Bloc Notes comparison upstream parity
+
+on:
+  pull_request:
+    paths:
+      - ".agents/skills/comparison-analysis-workflow/**"
+      - ".agents/skills/comparison-content-workflow/**"
+      - ".agents/skills/seo-content-audit/**"
+      - ".agents/skills/seo-keyword/**"
+      - ".agents/skills/jobs-to-be-done/**"
+      - ".agents/skills/evidence-based-reviews/**"
+      - ".agents/skills/fact-check/**"
+      - ".agents/skills/affiliate-value/**"
+      - ".agents/skills/content-brief-authoring/**"
+      - ".agents/skills/content-and-copy/**"
+      - ".agents/skills/humanizer/**"
+      - ".agents/skills/general-writing/**"
+      - ".agents/skills/anti-ai-slop/**"
+      - ".agents/skills/seo-onpage/**"
+      - ".agents/skills/seo-technical/**"
+      - ".agents/skills/editorial-qa/**"
+      - "apply_comparison_content.py"
+      - "apply_comparison_indexation.py"
+      - "comparison_bespoke_output.py"
+      - "comparison_bespoke_remaining_20260909.py"
+      - "comparison_content.py"
+      - "comparison_products.py"
+      - "generate_comparison_metadata.py"
+      - "product_cards.py"
+      - "apply_product_cards.py"
+      - "apply_inline_affiliate_links.py"
+      - "validate_inline_affiliate_links.py"
+      - "assets/product-cards.css"
+      - "assets/product-affiliate.js"
+      - "assets/inline-affiliate.css"
+      - ".github/workflows/regenerate-comparisons.yml"
+      - ".github/workflows/apply-product-modules.yml"
+      - ".github/workflows/maintain-inline-affiliate-links.yml"
+      - ".upstream/bloc-notes-comparison/**"
+      - ".github/workflows/verify-comparison-upstream-parity.yml"
+  push:
+    branches: [main]
+    paths:
+      - ".agents/skills/comparison-analysis-workflow/**"
+      - ".agents/skills/comparison-content-workflow/**"
+      - ".agents/skills/seo-content-audit/**"
+      - ".agents/skills/seo-keyword/**"
+      - ".agents/skills/jobs-to-be-done/**"
+      - ".agents/skills/evidence-based-reviews/**"
+      - ".agents/skills/fact-check/**"
+      - ".agents/skills/affiliate-value/**"
+      - ".agents/skills/content-brief-authoring/**"
+      - ".agents/skills/content-and-copy/**"
+      - ".agents/skills/humanizer/**"
+      - ".agents/skills/general-writing/**"
+      - ".agents/skills/anti-ai-slop/**"
+      - ".agents/skills/seo-onpage/**"
+      - ".agents/skills/seo-technical/**"
+      - ".agents/skills/editorial-qa/**"
+      - "apply_comparison_content.py"
+      - "apply_comparison_indexation.py"
+      - "comparison_bespoke_output.py"
+      - "comparison_bespoke_remaining_20260909.py"
+      - "comparison_content.py"
+      - "comparison_products.py"
+      - "generate_comparison_metadata.py"
+      - "product_cards.py"
+      - "apply_product_cards.py"
+      - "apply_inline_affiliate_links.py"
+      - "validate_inline_affiliate_links.py"
+      - "assets/product-cards.css"
+      - "assets/product-affiliate.js"
+      - "assets/inline-affiliate.css"
+      - ".github/workflows/regenerate-comparisons.yml"
+      - ".github/workflows/apply-product-modules.yml"
+      - ".github/workflows/maintain-inline-affiliate-links.yml"
+      - ".upstream/bloc-notes-comparison/**"
+      - ".github/workflows/verify-comparison-upstream-parity.yml"
+  workflow_dispatch:
+
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch pinned Bloc Notes source
+        run: |
+          git clone --quiet https://github.com/MarcW88/bloc-notes-numerique.git /tmp/bloc-notes-numerique
+          git -C /tmp/bloc-notes-numerique checkout --quiet 534e9fd7e0fc2f7bd83da5b053987ac327c4e9fe
+      - name: Verify exact skill directories
+        run: |
+          set -euo pipefail
+          SRC=/tmp/bloc-notes-numerique
+          skills=(
+            comparison-analysis-workflow comparison-content-workflow
+            seo-content-audit seo-keyword jobs-to-be-done evidence-based-reviews
+            fact-check affiliate-value content-brief-authoring content-and-copy
+            humanizer general-writing anti-ai-slop seo-onpage seo-technical editorial-qa
+          )
+          for skill in "${skills[@]}"; do
+            diff -qr "$SRC/.agents/skills/$skill" ".agents/skills/$skill"
+          done
+      - name: Verify exact active engine files
+        run: |
+          set -euo pipefail
+          SRC=/tmp/bloc-notes-numerique
+          files=(
+            apply_comparison_content.py
+            apply_comparison_indexation.py
+            comparison_bespoke_output.py
+            comparison_bespoke_remaining_20260909.py
+            comparison_content.py
+            comparison_products.py
+            generate_comparison_metadata.py
+            product_cards.py
+            apply_product_cards.py
+            apply_inline_affiliate_links.py
+            validate_inline_affiliate_links.py
+            assets/product-cards.css
+            assets/product-affiliate.js
+            assets/inline-affiliate.css
+            .github/workflows/regenerate-comparisons.yml
+            .github/workflows/apply-product-modules.yml
+            .github/workflows/maintain-inline-affiliate-links.yml
+          )
+          for file in "${files[@]}"; do
+            cmp -s "$SRC/$file" "$file"
+          done
+      - name: Verify preserved originals for intentionally adapted files
+        run: |
+          set -euo pipefail
+          SRC=/tmp/bloc-notes-numerique
+          cmp -s "$SRC/comparison-workflow.config.yaml" .upstream/bloc-notes-comparison/comparison-workflow.config.yaml
+          cmp -s "$SRC/comparison_pages.py" .upstream/bloc-notes-comparison/comparison_pages.py
+          cmp -s "$SRC/comparison_bespoke_priority_20260909.py" .upstream/bloc-notes-comparison/comparison_bespoke_priority_20260909.py
+          cmp -s "$SRC/comparison_publication.py" .upstream/bloc-notes-comparison/comparison_publication.py
+          cmp -s "$SRC/validate_comparisons.py" .upstream/bloc-notes-comparison/validate_comparisons.py
+          cmp -s "$SRC/validate_product_cards.py" .upstream/bloc-notes-comparison/validate_product_cards.py
+          cmp -s "$SRC/.github/workflows/regenerate-comparisons.yml" .upstream/bloc-notes-comparison/regenerate-comparisons.yml
+      - name: Report
+        run: echo "PASS - comparison workflow core is byte-identical to Bloc Notes commit 534e9fd7e0fc2f7bd83da5b053987ac327c4e9fe"
