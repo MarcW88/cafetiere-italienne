@@ -1,22 +1,46 @@
 {
-  "slug":"cafetiere-italienne-design",
-  "url":"/comparatifs/cafetiere-italienne-design/",
-  "intent":{"query":"cafetière italienne design","decision":"Choisir une moka dont le langage de design correspond réellement à l'usage et à la cuisine."},
-  "product_universe":[
-    {"id":"alessi-9090","name":"Alessi 9090","status":"ELIGIBLE","source":"https://alessi.com/fr/products/9090-espresso-coffee-maker"},
-    {"id":"alessi-vite","name":"Alessi Vite","status":"ELIGIBLE","source":"https://alessi.com/fr/products/vite-espresso-coffee-maker"},
-    {"id":"alessi-pulcina","name":"Alessi Pulcina","status":"ELIGIBLE","source":"https://alessi.com/fr/products/pulcina-espresso-coffee-maker-1"},
-    {"id":"alessi-la-cupola","name":"Alessi La Cupola","status":"ELIGIBLE","source":"https://alessi.com/fr/products/la-cupola-espresso-coffee-maker"}
+  "slug": "cafetiere-italienne-design",
+  "url": "/comparatifs/cafetiere-italienne-design/",
+  "comparison_type": "AESTHETIC_DECISION",
+  "intent": {
+    "query": "cafetière italienne design",
+    "decision": "Choisir une moka dont le langage de design correspond à l'usage et à la cuisine, sans confondre prestige, décoration et amélioration fonctionnelle.",
+    "boundary": "Le design est traité comme une décision éditoriale conditionnelle ; aucun score esthétique ni lien prix = qualité en tasse."
+  },
+  "jtbd": {
+    "job": "Choisir une moka qui peut rester visible dans la cuisine et dont l'histoire ou la forme apporte une valeur réellement recherchée.",
+    "decision_changers": ["design fonctionnel", "héritage / designer", "décoration vs structure", "compatibilité plaque", "présence visuelle", "recul historique"]
+  },
+  "product_universe": [
+    {"id":"alessi-9090","name":"Alessi 9090 — Richard Sapper","status":"SELECTED_FUNCTIONAL_ICON","source":"https://alessi.com/products/9090-espresso-coffee-maker"},
+    {"id":"ilsa-carmencita","name":"ILSA/Lavazza Carmencita — Marco Zanuso","status":"SELECTED_HERITAGE_POP","source":"https://ilsa-italy.it/en/espresso-drip-coffee-makers/carmencita-en/"},
+    {"id":"bialetti-dg","name":"Bialetti × Dolce&Gabbana Moka Express","status":"SELECTED_DECOR_COLLAB","source":"https://www.dolcegabbana.com/fr-fr/casa/table/the-et-cafe/accessoires/moka-express-moyenne-bialetti-dolceetgabbana-multicolore-TCCE14TCAEFUL003.html"},
+    {"id":"alessi-vite","name":"Alessi Vite — Philippe Malouin","status":"SELECTED_CONTEMPORARY_2026","source":"https://alessi.com/fr/products/vite-espresso-coffee-maker"},
+    {"id":"alessi-pulcina","name":"Alessi Pulcina — Michele De Lucchi","status":"SELECTED_SCULPTURAL","source":"https://alessi.com/fr/products/pulcina-espresso-coffee-maker-1"},
+    {"id":"alessi-la-cupola","name":"Alessi La Cupola — Aldo Rossi","status":"SELECTED_ARCHITECTURAL","source":"https://alessi.com/fr/products/la-cupola-espresso-coffee-maker"},
+    {"id":"alessi-menhir","name":"Alessi Menhir","status":"RECONSIDERED_ALessi_SCOPE"},
+    {"id":"alessi-la-conica","name":"Alessi La Conica","status":"RECONSIDERED_ALessi_SCOPE"},
+    {"id":"bialetti-moka-express","name":"Bialetti Moka Express classique","status":"RECONSIDERED_HISTORIC_ICON"}
   ],
-  "criteria":[
-    {"id":"identite","label":"Identité formelle"},
-    {"id":"fonction","label":"Design fonctionnel vs pure expression"},
-    {"id":"compatibilite","label":"Compatibilité avec la cuisine"},
-    {"id":"positionnement","label":"Cohérence du niveau de gamme"}
+  "criteria": [
+    {"id":"language","label":"Langage formel distinct","role":"decision"},
+    {"id":"function","label":"Fonction réellement modifiée par le design","role":"decision"},
+    {"id":"history","label":"Histoire/design sourçable","role":"evidence"},
+    {"id":"compatibility","label":"Compatibilité avec la plaque","role":"hard_gate"},
+    {"id":"decor_vs_structure","label":"Décoration vs conception structurelle","role":"tradeoff"},
+    {"id":"freshness","label":"Recul historique vs nouveauté","role":"confidence"}
   ],
-  "recommendation_logic":"Pas de classement absolu : 9090 pour l'icône fonctionnelle, Vite pour le contemporain 2026, Pulcina pour la sculpture, La Cupola pour l'architecture domestique.",
-  "methodology_note":"Le design est traité comme un choix éditorial conditionnel, sans score pseudo-scientifique et sans supposer qu'un prix supérieur améliore le goût.",
-  "affiliate_commission_used_in_ranking":false,
-  "research_date":"2026-09-13",
-  "status":"READY_FOR_PUBLISH_REVIEW"
+  "independent_evidence": [
+    {"source":"https://www.seriouseats.com/best-moka-pots-7570691","use":"Test de la 9090 comme choix design premium ; utilisé pour les observations d'usage, pas comme score esthétique universel."},
+    {"source":"https://selectos.eu/meilleures-cafetieres-italiennes/","use":"Test de la Pulcina comme option haut de gamme/design ; utilisé uniquement pour l'usage réellement observé."}
+  ],
+  "major_exclusions": [
+    {"candidate":"Alessi Menhir / La Conica","reason":"Pertinentes, mais les ajouter comme choix principaux recréerait un comparatif essentiellement Alessi sans nouvelle règle de décision."},
+    {"candidate":"Moka Express classique","reason":"Icône historique importante, mais la collaboration Dolce&Gabbana permet de traiter plus explicitement la différence entre mécanique historique et intervention décorative."}
+  ],
+  "recommendation_logic": "Pas de classement esthétique. La page organise la décision par langage de design : 9090 fonctionnel, Carmencita héritage/pop, Bialetti × D&G décoratif, Vite contemporain, Pulcina sculptural, La Cupola architectural.",
+  "affiliate_value": {"commission_used_for_candidates":false,"commission_used_in_ranking":false,"useful_without_affiliate_links":true},
+  "methodology_note": "Les faits historiques et techniques viennent des fabricants ; les tests indépendants servent uniquement aux observations d'usage. Aucun score esthétique ni claim prix = goût.",
+  "research_date": "2026-09-13",
+  "status": "READY_FOR_PUBLISH_REVIEW"
 }
