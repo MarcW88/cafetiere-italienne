@@ -1,11 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { capacityExactReviewed } from './capacity-exact-reviewed.mjs';
+import { capacityExactReviewedExtra } from './capacity-exact-reviewed-extra.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const escapeAttr = (value) => value.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+const reviewedPages = { ...capacityExactReviewed, ...capacityExactReviewedExtra };
 
-for (const [slug, reviewed] of Object.entries(capacityExactReviewed)) {
+for (const [slug, reviewed] of Object.entries(reviewedPages)) {
   const page = path.join(root, 'capacites', slug, 'index.html');
   if (!fs.existsSync(page)) throw new Error(`Missing generated capacity page: ${slug}`);
 
