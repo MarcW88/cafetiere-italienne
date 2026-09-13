@@ -1,0 +1,28 @@
+{
+  "slug":"meilleure-cafetiere-italienne",
+  "url":"/comparatifs/meilleure-cafetiere-italienne/",
+  "intent":{"query":"meilleure cafetière italienne","decision":"Choisir la moka la plus adaptée selon la plaque, la capacité, le matériau et le niveau de finition."},
+  "product_universe":[
+    {"id":"bialetti-moka-express","name":"Bialetti Moka Express","status":"ELIGIBLE","source":"https://bialetti-cookware.zendesk.com/hc/fr/articles/5416235346322-Comment-utiliser-la-Moka-Express"},
+    {"id":"bialetti-venus","name":"Bialetti Venus","status":"ELIGIBLE","source":"https://www.bialetti.co.nz/products/bialetti-venus-induction-copper"},
+    {"id":"bialetti-moka-induction","name":"Bialetti Moka Induction","status":"ELIGIBLE","source":"https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black"},
+    {"id":"alessi-9090","name":"Alessi 9090","status":"ELIGIBLE","source":"https://alessi.com/fr/products/9090-espresso-coffee-maker"}
+  ],
+  "criteria":[
+    {"id":"compatibilite","label":"Compatibilité avec la plaque"},
+    {"id":"capacite","label":"Capacité adaptée à l'usage"},
+    {"id":"construction","label":"Construction et entretien"},
+    {"id":"valeur","label":"Valeur fonctionnelle par rapport au positionnement"}
+  ],
+  "ranking":[
+    {"rank":1,"product_id":"bialetti-moka-express","context":"meilleur choix classique hors induction"},
+    {"rank":2,"product_id":"bialetti-venus","context":"meilleur choix par défaut sur induction"},
+    {"rank":3,"product_id":"bialetti-moka-induction","context":"meilleur compromis esthétique classique + induction"},
+    {"rank":4,"product_id":"alessi-9090","context":"meilleur choix premium/design"}
+  ],
+  "recommendation_logic":"Le classement est conditionnel : Moka Express ne reste n°1 que si l'induction n'est pas requise. Venus devient le choix par défaut sur induction. Les deux autres répondent à des priorités plus spécifiques.",
+  "methodology_note":"Sélection fondée sur les specs officielles et l'utilité décisionnelle. Aucun test hands-on revendiqué, aucun score pseudo-scientifique.",
+  "affiliate_commission_used_in_ranking":false,
+  "research_date":"2026-09-13",
+  "status":"READY_FOR_PUBLISH_REVIEW"
+}
