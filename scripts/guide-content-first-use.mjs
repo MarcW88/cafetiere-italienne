@@ -1,7 +1,12 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href='/'><title>Première utilisation d’une cafetière italienne : que faire ? | Cafetière Italienne</title><meta name="description" content="Premier lavage, cafés à jeter et précautions : les étapes à vérifier avant d’utiliser une cafetière italienne pour la première fois."><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://cafetiere-italienne.be/guides/premiere-utilisation-cafetiere-italienne/"><link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="assets/styles.css"></head><body><div class="top-note">Guide indépendant · Comparatifs transparents · Liens affiliés signalés</div><header class="site-header"><div class="container header-row"><a class="brand" href=""><img src="/assets/logo.svg" alt=""><span>Cafetière Italienne</span></a><nav class="nav"><a href="comparatifs/">Comparatifs</a><a href="marques/bialetti/">Bialetti</a><a href="capacites/">Par taille</a><a href="guides/">Guides</a><a href="guides/nettoyer-cafetiere-italienne/">Entretien</a></nav><button class="search-btn" aria-label="Rechercher">⌕</button><button class="menu-btn" aria-label="Menu">☰</button></div></header><div class="quick-nav"><div class="quick-row"><a href="comparatifs/cafetiere-italienne-induction/">Induction</a><a href="capacites/cafetiere-italienne-2-tasses/">2 tasses</a><a href="capacites/cafetiere-italienne-4-tasses/">4 tasses</a><a href="capacites/cafetiere-italienne-6-tasses/">6 tasses</a><a href="comparatifs/cafetiere-italienne-inox/">Inox</a></div></div><main>
+export const guideFirstUsePages = {
+  'premiere-utilisation-cafetiere-italienne': {
+    title: 'Première utilisation d’une cafetière italienne : que faire ?',
+    description: 'Premier lavage, cafés à jeter et précautions : les étapes à vérifier avant d’utiliser une cafetière italienne pour la première fois.',
+    canonical: '/guides/premiere-utilisation-cafetiere-italienne/',
+    body: `
 <section class="page-hero guide-hero">
   <div class="container">
-    <div class="breadcrumbs"><a href="">Accueil</a> · <a href="guides/">Guides</a> · Première utilisation d’une cafetière italienne</div>
+    <div class="breadcrumbs"><a href="/">Accueil</a> · <a href="/guides/">Guides</a> · Première utilisation d’une cafetière italienne</div>
     <span class="eyebrow">Mise en service</span>
     <h1>Première utilisation d’une cafetière italienne : que faire ?</h1>
     <p>La première utilisation dépend du modèle. Pour la Moka Express, Bialetti recommande de laver d’abord toutes les pièces à l’eau chaude, puis de préparer et jeter les trois premières infusions. Pour une autre moka, vérifiez la notice avant de reprendre cette routine telle quelle.</p>
@@ -33,7 +38,7 @@
       <h2>2. Faites le premier lavage demandé par le fabricant</h2>
       <p>Pour la Moka Express, Bialetti recommande de laver toutes les pièces à l’eau chaude avant la première utilisation. La marque ne demande pas, dans cette consigne de mise en service, d’ajouter une procédure complexe ou un produit spécifique.</p>
       <p>Le point important est donc de ne pas improviser un « nettoyage en profondeur » avec du vinaigre, du bicarbonate, un détergent ou le lave-vaisselle si le fabricant de votre modèle ne le prévoit pas.</p>
-      <p>Après cette première mise en service, l’entretien courant devient un sujet séparé : <a class="text-link" href="guides/nettoyer-cafetiere-italienne/">comment nettoyer une cafetière italienne</a>.</p>
+      <p>Après cette première mise en service, l’entretien courant devient un sujet séparé : <a class="text-link" href="/guides/nettoyer-cafetiere-italienne/">comment nettoyer une cafetière italienne</a>.</p>
     </section>
 
     <section>
@@ -47,7 +52,7 @@
       <h2>4. Préparez ces infusions comme une utilisation normale</h2>
       <p>Pour la Moka Express, Bialetti décrit ensuite la préparation classique : eau dans la base sous la soupape de sécurité, filtre en place, café moulu sans le compacter, fermeture correcte, puis chauffe douce à moyenne.</p>
       <p>Vous n’avez donc pas besoin d’inventer une recette spéciale pour les préparations à jeter. Utilisez la procédure prévue pour la cafetière, puis éliminez le café si la consigne de première utilisation l’exige.</p>
-      <p>Le mode d’emploi complet est détaillé ici : <a class="text-link" href="guides/comment-utiliser-cafetiere-italienne/">comment utiliser une cafetière italienne</a>.</p>
+      <p>Le mode d’emploi complet est détaillé ici : <a class="text-link" href="/guides/comment-utiliser-cafetiere-italienne/">comment utiliser une cafetière italienne</a>.</p>
     </section>
 
     <section>
@@ -62,8 +67,8 @@
       <p>Une fois les étapes de mise en service indiquées par le fabricant terminées, vous pouvez passer à la routine normale. Pour une Moka Express neuve, cela signifie notamment avoir effectué le lavage initial et les trois préparations à jeter demandées par Bialetti.</p>
       <p>À partir de là, la qualité du café dépend davantage des variables de recette et d’usage : quantité de café, mouture, café choisi et maîtrise de la chauffe.</p>
       <div class="actions">
-        <a class="btn btn-secondary" href="guides/dosage-cafe-cafetiere-italienne/">Voir le dosage</a>
-        <a class="btn btn-secondary" href="guides/mouture-cafetiere-italienne/">Choisir la mouture</a>
+        <a class="btn btn-secondary" href="/guides/dosage-cafe-cafetiere-italienne/">Voir le dosage</a>
+        <a class="btn btn-secondary" href="/guides/mouture-cafetiere-italienne/">Choisir la mouture</a>
       </div>
     </section>
 
@@ -82,7 +87,7 @@
       <span class="eyebrow">Après la mise en service</span>
       <h2>Passez maintenant au mode d’emploi quotidien</h2>
       <p>La première utilisation est une étape ponctuelle. Une fois terminée, gardez une routine simple et conforme à votre modèle pour les préparations suivantes.</p>
-      <a class="btn btn-primary" href="guides/comment-utiliser-cafetiere-italienne/">Voir comment utiliser la moka →</a>
+      <a class="btn btn-primary" href="/guides/comment-utiliser-cafetiere-italienne/">Voir comment utiliser la moka →</a>
     </section>
 
     <section class="guide-sources">
@@ -107,7 +112,9 @@
         <li>Ne pas dévisser par la poignée</li>
       </ol>
       <p>Pour une autre moka, vérifiez la notice avant d’appliquer cette séquence.</p>
-      <a class="sidebar-link" href="guides/comment-utiliser-cafetiere-italienne/">Mode d’emploi quotidien →</a>
+      <a class="sidebar-link" href="/guides/comment-utiliser-cafetiere-italienne/">Mode d’emploi quotidien →</a>
     </div>
   </aside>
-</div></main><footer class="site-footer"><div class="container"><div class="footer-grid"><div><a class="brand" href=""><img src="/assets/logo.svg" alt="">Cafetière Italienne</a><p class="footer-about">Le guide spécialisé pour choisir, utiliser et entretenir sa cafetière moka.</p></div><div><h4>Choisir</h4><a href="comparatifs/">Comparatifs</a><a href="comparatifs/cafetiere-italienne-induction/">Induction</a><a href="capacites/">Par taille</a><a href="marques/bialetti/">Bialetti</a></div><div><h4>Apprendre</h4><a href="guides/comment-utiliser-cafetiere-italienne/">Comment utiliser</a><a href="guides/dosage-cafe-cafetiere-italienne/">Dosage</a><a href="guides/mouture-cafetiere-italienne/">Mouture</a><a href="guides/nettoyer-cafetiere-italienne/">Entretien</a></div><div><h4>Le site</h4><a href="a-propos/">À propos</a><a href="notre-methode/">Notre méthode</a><a href="affiliation/">Affiliation</a><a href="contact/">Contact</a></div></div><div class="footer-bottom">© 2026 Cafetière Italienne <span>Informations vérifiées auprès des fabricants</span></div></div></footer><script src="assets/app.js"></script></body></html>
+</div>`
+  }
+};
