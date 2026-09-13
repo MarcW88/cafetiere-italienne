@@ -3,7 +3,7 @@
 Date: 2026-09-13
 Route: `/capacites/cafetiere-italienne-4-tasses/`
 Workflow: `.agents/skills/capacity-decision-workflow/SKILL.md`
-Status: **MACHINE_RECHECK_PENDING**
+Status: **PASS — READY_FOR_HUMAN_VALIDATION**
 
 ## Workflow order evidence
 
@@ -75,13 +75,16 @@ PASS.
 
 ## SEO technical
 
-Pending machine build recheck.
+PASS.
 
-Expected:
-- canonical `/capacites/cafetiere-italienne-4-tasses/`;
+GitHub Actions run `34777057670` completed successfully:
+- `npm run build`: PASS;
+- `npm run check`: PASS;
+- `python3 validate_capacities.py`: PASS;
+- 4-tasses output assertions: PASS;
+- canonical preserved;
 - `noindex,follow` preserved;
-- valid generated HTML;
-- no broken internal links.
+- generated reviewed HTML persisted.
 
 ## GEO / AEO
 
@@ -95,7 +98,7 @@ PASS.
 
 ## Editorial QA
 
-PASS editorially.
+PASS.
 
 The page answers a distinct question, remains useful without affiliate links, does not rank products, and hands off correctly once the reader moves from capacity to product choice.
 
@@ -103,4 +106,4 @@ The page answers a distinct question, remains useful without affiliate links, do
 
 `KEEP_NOINDEX`
 
-No automatic indexation and no monetization activation. Final status will become `PASS — READY_FOR_HUMAN_VALIDATION` only after machine build/check/validator success.
+No automatic indexation and no monetization activation. Human validation remains required before any indexation instruction.
