@@ -6,7 +6,7 @@
   "reason": "Montrer une routine d’entretien sobre : pièces démontées, rincées puis laissées sécher, sans imposer un produit ou une méthode propre à un modèle précis.",
   "allow_ai_generation": true,
   "truth_risk": "LOW",
-  "status": "PENDING",
+  "status": "GENERATED",
   "marker": "<!-- EDITORIAL_IMAGE:nettoyage-sechage-pieces -->",
   "placement": "replace",
   "output_path": "assets/generated/nettoyage-sechage-pieces.webp",
@@ -17,5 +17,8 @@
   "height": 672,
   "prompt_upsampling": true,
   "seed": null,
-  "generated_at": null
+  "generated_at": "2026-09-14T08:52:04.502407+00:00",
+  "bfl_request_id": "61a662aa-9c38-41f5-9d30-2d1822521106",
+  "bfl_endpoint": "https://api.bfl.ai/v1/flux-2-pro-preview",
+  "bfl_cost": 3.0
 }

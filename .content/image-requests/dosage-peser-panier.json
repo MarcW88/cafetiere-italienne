@@ -6,7 +6,7 @@
   "reason": "Illustrer la pesée de la dose réellement contenue dans le panier de sa propre moka, sans présenter un grammage universel.",
   "allow_ai_generation": true,
   "truth_risk": "LOW",
-  "status": "PENDING",
+  "status": "GENERATED",
   "marker": "<!-- EDITORIAL_IMAGE:dosage-peser-panier -->",
   "placement": "replace",
   "output_path": "assets/generated/dosage-peser-panier.webp",
@@ -17,5 +17,8 @@
   "height": 672,
   "prompt_upsampling": true,
   "seed": null,
-  "generated_at": null
+  "generated_at": "2026-09-14T08:51:45.938653+00:00",
+  "bfl_request_id": "e2d0be12-b3a7-4a60-bbc7-f13506320f85",
+  "bfl_endpoint": "https://api.bfl.ai/v1/flux-2-pro-preview",
+  "bfl_cost": 3.0
 }
