@@ -1,70 +1,174 @@
-# PUBLISH_REVIEW — Comment utiliser une cafetière italienne ?
+# AUDIT — comment-utiliser-cafetiere-italienne
 
-## Résultat
-`PASS — READY_FOR_HUMAN_VALIDATION`
+- URL : `/guides/comment-utiliser-cafetiere-italienne/`
+- Date : 14 septembre 2026
+- Mode : `AUDIT` → `LIGHT_UPDATE` → strict skill-by-skill review
+- Décision d’origine : `LIGHT_UPDATE`
+- État après correction : `PUBLISH_REVIEW_IN_PROGRESS`
+- Confiance éditoriale : élevée
+- Robots : `noindex,follow` à conserver
+- Source de vérité : `scripts/guide-content-howto.mjs`
+- Publication : validation humaine requise avant toute décision d’indexation
 
-La page reste `noindex,follow`. Ce PASS n’autorise pas l’indexation sans validation humaine explicite.
+## 1. Intention et rôle dans le cluster
 
-## Audit amont
-- Décision : `DEEP_REWRITE`
-- Type dominant : `HOW_TO`
-- Cause : URL existante réduite à un placeholder, sans procédure exploitable.
+Type dominant : `HOW_TO`.
 
-## Passes réellement effectuées
+Tâche lecteur : exécuter correctement une préparation moka quotidienne, puis savoir quels réglages relèvent d’un autre guide.
 
-### Intention / frontière — PASS
-- Tâche : permettre une préparation moka complète et exécutable.
-- Le guide ne devient pas un comparatif produit.
-- Dosage, mouture, choix du café, première utilisation, amertume et induction sont traités comme handoffs vers leurs pages dédiées.
+Frontières :
+- première mise en service → `/guides/premiere-utilisation-cafetiere-italienne/` ;
+- dosage → `/guides/dosage-cafe-cafetiere-italienne/` ;
+- mouture → `/guides/mouture-cafetiere-italienne/` ;
+- choix du café → `/guides/quel-cafe-pour-cafetiere-italienne/` ;
+- café amer/brûlé → `/guides/cafetiere-italienne-cafe-amer-brule/` ;
+- induction → `/guides/cafetiere-italienne-induction-compatibilite/` ;
+- fuite / soupape → `/guides/cafetiere-italienne-fuite-vapeur/`.
 
-### Fact-check — PASS
-Claims centraux revérifiés après rédaction :
-- eau sous la soupape sur Moka Express ;
-- café non tassé ;
-- fermeture avant chauffe ;
-- feu doux à moyen ;
-- flamme gaz contenue sous la cafetière ;
-- retrait du feu dès que la préparation est terminée ;
-- lavage à la main et eau tiède pour la Moka Express.
+La version précédente était déjà une vraie procédure. Le besoin n’était pas une reconstruction complète mais une mise à niveau de précision : bord du filtre, poignée, service et séparation claire entre instruction fabricant et astuce de recette.
 
-Sources principales : Bialetti et Alessi, consultées le 13 septembre 2026.
+## 2. Architecture et profondeur utile
 
-### Evidence / faux hands-on — PASS
-- Aucun test personnel revendiqué.
-- Aucun jugement sensoriel présenté comme mesure.
-- Les effets gustatifs sont attribués ou renvoyés vers une page de diagnostic plutôt que décrits comme expérience propre.
+Structure finale :
+1. méthode en six gestes ;
+2. pré-check avant préparation ;
+3. eau et niveau sous la soupape ;
+4. filtre non tassé + bord propre ;
+5. fermeture correcte sans levier sur la poignée ;
+6. chauffe douce à moyenne ;
+7. retrait du feu en fin de préparation ;
+8. service, mélange optionnel Bialetti et refroidissement ;
+9. tableau instruction / conseil / option ;
+10. erreurs à éviter ;
+11. handoff vers ajustements de recette.
 
-### Affiliate value — PASS
-- Page utile sans lien marchand.
-- Aucun produit classé ou recommandé.
-- Le raisonnement reste procédural et indépendant d’une conversion.
+La page reste un HOW_TO, pas une recette de barista exhaustive.
 
-### Internal linking — PASS
-Les liens servent les prochaines questions logiques : première utilisation, induction, dosage, mouture, fuite, amertume et nettoyage. Les cibles ont été vérifiées par `npm run check`.
+## 3. Preuves et factualité
 
-### Humanizer / general writing / anti-AI-slop — PASS
-- Architecture différente du guide de choix : progression procédurale plutôt que matrice de décision.
-- Pas de FAQ générique ajoutée.
-- Pas de nombre artificiel d’étapes imposé pour imiter un template.
-- Répétitions limitées aux consignes critiques réellement nécessaires.
+Claims vérifiés :
+- Bialetti France : eau juste sous la soupape, entonnoir rempli sans compacter, fermeture ferme, feu doux à moyen, flamme gaz sous la base, retrait immédiat lorsque la cafetière est pleine, lavage à la main ;
+- Bialetti NZ : medium-fine pour la Moka Express, 3–6 minutes selon taille/chauffe, bord de l’entonnoir à garder propre, poignée à ne pas utiliser comme levier, mélange doux avant service ;
+- Bialetti première utilisation : lavage initial + trois préparations à jeter + avertissement poignée ;
+- Alessi : eau froide sous soupape, filtre rempli et nivelé doucement, fermeture ferme, chauffe moyen-bas.
 
-### SEO on-page / technique — PASS
-- Title, description et H1 présents.
-- Canonical : `https://cafetiere-italienne.be/guides/comment-utiliser-cafetiere-italienne/`
-- Robots : `noindex,follow`.
-- Une seule section de sources avec liens externes.
-- Aucun lien interne cassé détecté.
+Limites de preuve respectées :
+- eau préchauffée non érigée en obligation ;
+- couvercle ouvert non érigé en règle universelle ;
+- aucun signal sonore ou changement de couleur présenté comme critère universel ;
+- refroidissement de la base sous l’eau non présenté comme étape fabricant ;
+- 3–6 minutes borné à la Moka Express et non généralisé ;
+- aucune valeur universelle de grammage ou de mouture ;
+- mélange avant service qualifié comme conseil Bialetti, pas comme condition de fonctionnement.
 
-### Validation machine — PASS
-Exécuté sur la branche :
-- `npm run build` → PASS ; 49 pages générées.
-- `npm run check` → PASS ; 49 pages HTML, aucun lien interne cassé.
-- `python3 validate_guide_quality.py` → PASS ; 2 Guides rédigés sans blocker machine.
+## 4. Valeur existante à préserver / content refresh
 
-## Risques résiduels
-- Les notices spécifiques peuvent différer selon marque ou modèle ; cette limite est explicitement indiquée.
-- Les futurs guides dosage/mouture devront éviter de réintroduire ici des valeurs universelles non démontrées.
-- Les liens vers des guides encore placeholders sont utiles au parcours mais ces pages doivent rester non indexables tant qu’elles ne sont pas rédigées.
+Préservé :
+- niveau d’eau ;
+- non-tassement ;
+- chauffe modérée ;
+- retrait en fin de préparation ;
+- séparation entre mode d’emploi et réglages de recette ;
+- handoffs vers les pages dédiées.
 
-## Blockers
-Aucun blocker identifié pour une validation humaine du contenu.
+Renforcé :
+- propreté du bord avant fermeture ;
+- usage correct de la poignée ;
+- nuance eau froide / préchauffée ;
+- différence entre repère fabricant et astuces populaires ;
+- mélange Bialetti avant service ;
+- tableau « instruction / conseil / option » ;
+- qualification du visuel BFL.
+
+## 5. Naturalité / humanizer / general-writing
+
+PASS éditorial.
+
+La prose reste procédurale, sans faux vécu, sans « secret de barista », sans promesse de café parfait et sans surcharge de jargon. Les répétitions concernent uniquement des consignes critiques.
+
+## 6. Anti-AI / comparaison cluster
+
+PASS éditorial.
+
+La structure reste propre à un HOW_TO : pré-check → préparation → chauffe → arrêt → service → handoffs.
+
+Rôles voisins distincts :
+- `premiere-utilisation` = mise en service ;
+- `dosage` = remplissage et reproductibilité ;
+- `mouture` = réglage technique ;
+- `amer-brule` = diagnostic ;
+- `comment-utiliser` = séquence quotidienne complète.
+
+Le tableau sur les statuts de gestes apporte une valeur spécifique sans recopier les matrices des Guides de choix.
+
+## 7. SEO / GEO / maillage
+
+- H1 aligné sur « comment utiliser une cafetière italienne » ;
+- réponse immédiate et exécutable ;
+- meta élargie à fermeture, chauffe, retrait, service et distinction astuces/règles ;
+- entités : Moka Express, Bialetti, Alessi, soupape de sécurité, filtre-entonoir ;
+- sous-réponses citables : `ne pas tasser`, `bord propre`, `poignée ≠ levier`, `eau préchauffée ≠ obligation`, `3–6 min ≠ règle universelle` ;
+- maillage vers première utilisation, induction, dosage, mouture, fuite, amertume et nettoyage ;
+- aucun lien commercial forcé.
+
+## 8. Technique
+
+Attendus après CI :
+- canonical : `https://cafetiere-italienne.be/guides/comment-utiliser-cafetiere-italienne/` ;
+- robots : `noindex,follow` ;
+- HTML régénéré depuis `scripts/guide-content-howto.mjs` ;
+- image BFL existante conservée avec légende de qualification ;
+- liens internes valides ;
+- blockers Guide machine passants ;
+- reproductibilité du HTML ;
+- rendu visuel Guides valide ;
+- aucun nouvel asset BFL.
+
+## 9. Trace skill par skill — parité `bloc-notes-numerique`
+
+| Skill / gate | Statut | Trace / résultat |
+|---|---|---|
+| `seo-content-audit` | PASS | page déjà utile ; complétude améliorée sur fermeture, service et limites de preuve |
+| `seo-keyword` | PASS avec limite | intention HOW_TO et sous-thèmes SERP validés qualitativement ; pas de GSC/volume propre au site |
+| `search-intent` | PASS | procédure quotidienne complète, sans dérive en recette experte universelle |
+| `content-refresh` | PASS | valeur existante conservée, manques ciblés corrigés |
+| `fact-check` pré-rédaction | PASS | registre de preuves mis à jour dans le brief |
+| `evidence-based-reviews` | N/A | aucun test ou vécu personnel revendiqué |
+| `affiliate-value` | PASS | page autonome, sans dépendance à un lien marchand |
+| `content-brief-authoring` | PASS | brief actualisé avec preuves, exclusions et claims refusés |
+| `content-and-copy` | PASS | corrections dans la source JS |
+| `fact-check` post-rédaction | PASS éditorial | nouveaux claims bornés aux sources ; machine gates à confirmer |
+| `internal-linking-audit` | PASS éditorial | cibles correspondant aux prochaines questions logiques |
+| `humanizer` | PASS | ton naturel, pas de faux témoignage ni de surpromesse |
+| `general-writing` | PASS | phrases procédurales simples, distinctions explicites |
+| `anti-ai-slop` | PASS | pas de FAQ générique, pas de checklist artificielle sans fonction |
+| comparaison cluster | PASS | rôle distinct des pages première utilisation/dosage/mouture/diagnostic |
+| `seo-onpage` | PASS éditorial | title/meta/H1 cohérents ; rendu final à confirmer |
+| `seo-technical` | PENDING CI | canonical, robots, liens, blockers et reproductibilité à confirmer |
+| `seo-best-practices` | PASS / applicable limité | aucune addition artificielle nécessaire |
+| `seo-drift` | N/A | aucune baseline avant/après exploitable |
+| `editorial-image-planner` | PASS — EXISTING_IMAGE | visuel existant conservé ; caption explicite ajoutée ; aucun nouvel appel BFL |
+| `editorial-qa` | PASS éditorial | intention, valeur, factualité et frontières validées ; machine/visuel à confirmer |
+
+## 10. Blockers et corrections requises
+
+Blockers / manques éditoriaux corrigés :
+- bord du filtre non traité → corrigé ;
+- poignée encore présentée surtout comme consigne de première utilisation → corrigé comme règle d’usage Bialetti ;
+- eau préchauffée / couvercle ouvert / signaux sonores risquaient d’être interprétés comme règles implicites → statut explicitement optionnel/non universel ;
+- mélange avant service absent → ajouté comme conseil Bialetti, correctement borné ;
+- temps 3–6 minutes insuffisamment qualifié → borné à la Moka Express ;
+- visuel BFL sans qualification suffisante → caption ajoutée dans la requête persistée.
+
+Blocker restant avant verdict final :
+- confirmer les gates GitHub réels de régénération, liens, blockers, reproductibilité et rendu Guides.
+
+## 11. Verdict et prochaine étape
+
+État actuel : `PUBLISH_REVIEW_IN_PROGRESS`.
+
+Verdict final à inscrire uniquement après confirmation des gates :
+- `PASS — READY_FOR_HUMAN_VALIDATION`, ou
+- `FAIL — KEEP_NOINDEX`.
+
+Ne pas indexer automatiquement.
