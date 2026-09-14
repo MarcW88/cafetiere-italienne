@@ -6,7 +6,7 @@
   "reason": "Illustrer concrètement la gestion d’une chauffe modérée, qui est le premier geste de diagnostic de la page, sans représenter un appareil ou un résultat d’extraction mesuré.",
   "allow_ai_generation": true,
   "truth_risk": "LOW",
-  "status": "PENDING",
+  "status": "GENERATED",
   "marker": "<!-- EDITORIAL_IMAGE:cafe-amer-chauffe-maitrisee -->",
   "placement": "replace",
   "output_path": "assets/generated/cafe-amer-chauffe-maitrisee.webp",
@@ -17,5 +17,8 @@
   "height": 672,
   "prompt_upsampling": true,
   "seed": null,
-  "generated_at": null
+  "generated_at": "2026-09-14T09:20:55.600421+00:00",
+  "bfl_request_id": "eedd8194-de49-44ac-8d42-04f8b8179673",
+  "bfl_endpoint": "https://api.bfl.ai/v1/flux-2-pro-preview",
+  "bfl_cost": 3.0
 }

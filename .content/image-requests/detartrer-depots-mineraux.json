@@ -6,7 +6,7 @@
   "reason": "Montrer à quoi ressemble un dépôt minéral léger dans une chambre d’eau générique et contextualiser le détartrage sans imposer un produit, un dosage ou une géométrie de fabricant précis.",
   "allow_ai_generation": true,
   "truth_risk": "LOW",
-  "status": "PENDING",
+  "status": "GENERATED",
   "marker": "<!-- EDITORIAL_IMAGE:detartrer-depots-mineraux -->",
   "placement": "replace",
   "output_path": "assets/generated/detartrer-depots-mineraux.webp",
@@ -17,5 +17,8 @@
   "height": 672,
   "prompt_upsampling": true,
   "seed": null,
-  "generated_at": null
+  "generated_at": "2026-09-14T09:21:04.760231+00:00",
+  "bfl_request_id": "5eb0c87c-4123-47b3-a04a-b67c88b1def8",
+  "bfl_endpoint": "https://api.bfl.ai/v1/flux-2-pro-preview",
+  "bfl_cost": 3.0
 }
