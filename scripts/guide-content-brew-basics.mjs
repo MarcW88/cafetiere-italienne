@@ -116,7 +116,7 @@ export const guideBrewBasicsPages = {
 
   'mouture-cafetiere-italienne': {
     title: 'Quelle mouture pour une cafetière italienne ?',
-    description: 'La mouture recommandée pour une cafetière moka, comment reconnaître un réglage trop fin ou trop grossier et comment ajuster sans tout changer à la fois.',
+    description: 'Mouture moka : medium-fine, plus grossière qu’espresso, repères tactiles, diagnostic trop fin ou trop grossier et méthode d’ajustement sans tasser.',
     canonical: '/guides/mouture-cafetiere-italienne/',
     body: `
 <section class="page-hero guide-hero">
@@ -124,81 +124,93 @@ export const guideBrewBasicsPages = {
     <div class="breadcrumbs"><a href="/">Accueil</a> · <a href="/guides/">Guides</a> · Mouture</div>
     <span class="eyebrow">Réglage essentiel</span>
     <h1>Quelle mouture pour une cafetière italienne ?</h1>
-    <p>Commencez par une mouture moyenne-fine : plus fine qu’une mouture filtre classique, mais plus grossière qu’une mouture espresso. Bialetti la décrit comme légèrement granuleuse au toucher, pas poudreuse.</p>
+    <p>Commencez par une mouture moyenne-fine : plus fine qu’une mouture filtre classique, mais plus grossière qu’une mouture espresso. Bialetti la décrit comme granuleuse au toucher, pas poudreuse. Ensuite, ajustez par petits pas à partir du comportement de votre propre moka.</p>
   </div>
 </section>
 <div class="container template-grid guide-layout">
   <article class="guide-article content-main">
     <section class="guide-answer">
-      <span class="eyebrow">Point de départ</span>
-      <h2>Medium-fine, puis ajustez à partir du comportement de votre moka</h2>
-      <p>Bialetti recommande une mouture <strong>medium-fine</strong> pour ses cafetières moka. Sur son moulin manuel, la marque situe la moka entre les réglages espresso et les méthodes plus grossières comme le pour-over ou la presse française.</p>
-      <p>Le bon réglage n’est donc pas “espresso”. C’est un point intermédiaire qui doit laisser l’eau traverser le lit de café sans transformer la mouture en poudre compacte.</p>
+      <span class="eyebrow">Réponse courte</span>
+      <h2>Medium-fine : le bon point de départ, pas un numéro universel</h2>
+      <ul class="guide-list">
+        <li><strong>Texture :</strong> visez une mouture moyenne-fine, légèrement granuleuse au toucher et non poudreuse.</li>
+        <li><strong>Position :</strong> elle se situe entre l’espresso et les méthodes filtre plus grossières.</li>
+        <li><strong>Réglage :</strong> les crans d’un moulin ne se transposent pas automatiquement à un autre ; partez d’une zone moka puis ajustez progressivement.</li>
+        <li><strong>Tassage :</strong> ne compactez pas le café dans le filtre-entonoir pour « corriger » une mouture trop grossière.</li>
+      </ul>
     </section>
 
     <section>
-      <h2>Pourquoi la mouture change autant le résultat</h2>
-      <p>La taille des particules modifie à la fois la surface de café exposée à l’eau et la résistance que rencontre l’eau en traversant le panier. C’est pour cela qu’un changement de mouture peut modifier le temps de montée, la régularité du flux et le goût final.</p>
-      <p>Il est inutile de chercher une taille en microns universelle si votre moulin n’utilise pas la même géométrie de meules ou la même échelle qu’un autre. Le meilleur repère est un niveau de mouture, puis l’observation de votre propre extraction.</p>
+      <h2>Ce que Bialetti documente réellement</h2>
+      <div class="table-wrap"><table class="guide-table"><thead><tr><th>Source</th><th>Repère</th><th>Ce qu’il faut en déduire</th></tr></thead><tbody><tr><td>Moka Express</td><td>Medium-fine, granuleux au toucher, pas poudreux</td><td>Le premier repère est une zone de texture, pas une granulométrie en microns</td></tr><tr><td>Moulin manuel Bialetti</td><td>2–3 pour Moka Express, contre 1–2 pour espresso</td><td>Ce chiffre vaut pour ce moulin précis, pas pour toutes les échelles</td></tr><tr><td>Guide café Bialetti</td><td>Trop fin : la moka s’étouffe et le café devient amer ; trop grossier : l’eau traverse trop vite</td><td>La mouture se règle à partir du comportement de la préparation</td></tr><tr><td>FAQ dépannage Bialetti</td><td>Une mouture espresso fine peut colmater la cafetière ; le café ne doit pas être tassé</td><td>Plus fin n’est pas automatiquement meilleur, et le tassage n’est pas un levier de réglage</td></tr></tbody></table></div>
     </section>
 
     <section>
-      <h2>Comment reconnaître votre point de départ</h2>
-      <div class="guide-split">
-        <div>
-          <h3>Trop proche de l’espresso</h3>
-          <p>La mouture paraît très poudreuse et compacte facilement. Si, avec une chauffe correcte et un panier non tassé, le café monte difficilement ou le comportement devient anormalement lent, essayez légèrement plus grossier.</p>
-        </div>
-        <div>
-          <h3>Trop grossière</h3>
-          <p>Les particules se rapprochent d’une mouture filtre très ouverte. Si la préparation coule très vite et semble mince malgré un dosage correct, essayez légèrement plus fin.</p>
-        </div>
-      </div>
-      <div class="guide-callout"><strong>Diagnostic, pas verdict :</strong> un café amer, faible ou irrégulier peut aussi venir de la chauffe, du café choisi, du dosage ou d’un problème d’étanchéité. Ne changez qu’une variable à la fois.</div>
+      <h2>Pourquoi il n’existe pas de cran universel</h2>
+      <p>Le « 2–3 » cité par Bialetti est utile uniquement parce qu’il est associé à son propre moulin manuel. Une autre marque peut numéroter ses crans dans l’autre sens, proposer beaucoup plus de positions ou utiliser une échelle sans correspondance directe.</p>
+      <p>La même prudence vaut pour une valeur en microns : sans mesure réelle et sans savoir comment la distribution des particules a été obtenue, un chiffre isolé donne une précision trompeuse. Pour un usage domestique, le repère le plus robuste reste donc <strong>medium-fine + observation de votre moka</strong>.</p>
+      <div class="guide-callout"><strong>Bon réflexe :</strong> notez le réglage qui fonctionne sur votre moulin, mais présentez-le comme votre repère de machine, pas comme « le réglage moka » universel.</div>
     </section>
 
     <section>
-      <h2>Si vous utilisez un moulin réglable</h2>
+      <h2>Comment reconnaître une mouture trop fine ou trop grossière</h2>
+      <div class="table-wrap"><table class="guide-table"><thead><tr><th>Observation</th><th>Hypothèse à tester</th><th>Correction</th></tr></thead><tbody><tr><td>Mouture très poudreuse, café qui monte difficilement, passage qui semble freiné</td><td>Mouture trop fine ou café trop compact</td><td>Ouvrir légèrement le réglage et vérifier que le panier n’est pas tassé</td></tr><tr><td>Préparation très rapide et tasse nettement légère malgré une méthode stable</td><td>Mouture possiblement trop grossière</td><td>Resserrer légèrement le réglage</td></tr><tr><td>Amertume avec flux difficile</td><td>Mouture trop fine possible</td><td>Tester un cran plus grossier avant de modifier plusieurs autres variables</td></tr><tr><td>Résultat irrégulier sans symptôme clair</td><td>La mouture n’est peut-être pas la cause principale</td><td>Vérifier aussi dosage, chauffe, étanchéité et propreté</td></tr></tbody></table></div>
+      <div class="guide-callout"><strong>Diagnostic, pas verdict :</strong> Bialetti relie bien une mouture trop fine au risque de colmatage et une mouture trop grossière à un passage trop rapide, mais un symptôme en tasse n’identifie jamais à lui seul la cause.</div>
+    </section>
+
+    <section>
+      <h2>Comment régler un moulin sans tout changer à la fois</h2>
       <ol class="decision-list">
-        <li>Placez-vous dans la zone <strong>medium-fine</strong> recommandée pour moka.</li>
-        <li>Préparez votre café avec la même dose et la même chauffe.</li>
-        <li>Observez le flux et goûtez le résultat une fois la boisson suffisamment refroidie.</li>
-        <li>Modifiez le réglage par petits pas, sans changer simultanément la dose, le café et le feu.</li>
+        <li><strong>Partez d’une zone medium-fine</strong> ou du repère moka proposé par le fabricant de votre moulin.</li>
+        <li><strong>Gardez le même café, le même remplissage et la même chauffe</strong> pendant le test.</li>
+        <li><strong>Observez d’abord le comportement</strong> : montée normale, difficulté de passage ou traversée très rapide.</li>
+        <li><strong>Goûtez ensuite</strong> lorsque la boisson a suffisamment refroidi pour être jugée correctement.</li>
+        <li><strong>Modifiez par petit pas</strong>, puis recommencez sans toucher simultanément au dosage ou au feu.</li>
       </ol>
-      <p>Le moulin manuel Bialetti cité dans nos sources propose, par exemple, six niveaux et place les cafetières moka autour de 2–3, contre 1–2 pour l’espresso. Ce chiffre appartient à <em>ce moulin précis</em> : il ne doit pas être recopié tel quel sur une autre marque.</p>
+      <p>Sur le moulin manuel Bialetti actuellement documenté, la marque donne 2–3 pour la moka et 1–2 pour l’espresso. Conservez cet exemple comme <strong>illustration d’une échelle fabricant</strong>, jamais comme règle à recopier sur un autre moulin.</p>
     </section>
 
     <section>
-      <h2>Si vous achetez du café déjà moulu</h2>
-      <p>Le plus simple est de choisir un paquet explicitement annoncé pour moka ou cafetière italienne. Cela réduit une variable importante, surtout si vous débutez.</p>
-      <p>Un paquet marqué uniquement “espresso” n’est pas automatiquement idéal : la mouture peut être plus fine que ce que Bialetti recommande pour une moka. À l’inverse, une mouture filtre peut être trop grossière.</p>
-      <p><a class="text-link" href="/guides/quel-cafe-pour-cafetiere-italienne/">Voir comment choisir le café lui-même →</a></p>
+      <h2>Et si vous achetez du café déjà moulu ?</h2>
+      <p>Le choix le plus simple est un café explicitement moulu pour moka ou cafetière italienne. Bialetti indique par exemple que ses paquets dédiés sont moulus à la consistance prévue pour une préparation stovetop.</p>
+      <p>Un paquet « espresso » n’est pas un substitut automatique. La documentation Bialetti avertit qu’une mouture espresso fine peut être trop fine et colmater la cafetière. À l’inverse, une mouture filtre classique peut être trop grossière.</p>
+      <p><a class="text-link" href="/guides/quel-cafe-pour-cafetiere-italienne/">Choisir le café lui-même →</a></p>
     </section>
 
     <section>
-      <h2>Ne tassez pas pour compenser une mouture trop grossière</h2>
-      <p>Bialetti demande de remplir le filtre sans presser le café. Si votre extraction vous semble trop rapide ou trop légère, la correction doit donc se faire par le réglage de mouture, le café utilisé ou la méthode de chauffe, pas en transformant le panier moka en porte-filtre tassé.</p>
+      <h2>Ne tassez pas pour compenser</h2>
+      <p>Bialetti demande de remplir le filtre sans presser le café et précise dans sa FAQ dépannage qu’un café compacté gêne le passage de l’eau. Si la préparation vous paraît trop rapide, corrigez d’abord la mouture plutôt que de transformer le panier moka en porte-filtre tassé.</p>
+      <p>Le remplissage du panier est traité séparément dans le guide dosage afin de ne pas mélanger quantité et granulométrie.</p>
       <p><a class="text-link" href="/guides/dosage-cafe-cafetiere-italienne/">Revoir le dosage correct →</a></p>
     </section>
 
     <section>
+      <h2>Quand arrêter de régler la mouture et passer au diagnostic</h2>
+      <p>Si le café ne monte pas, si de la vapeur fuit sur les côtés ou si la soupape de sécurité libère régulièrement vapeur ou pression, ne continuez pas à affiner ou grossir la mouture en chauffant la cafetière.</p>
+      <p>Bialetti demande alors de vérifier notamment filtre, entonnoir, conduit, joint et éventuel blocage. Si la soupape de sécurité continue à s’activer après les contrôles prévus par la marque, Bialetti recommande de cesser immédiatement l’utilisation et de faire contrôler la cafetière.</p>
+      <p><a class="text-link" href="/guides/cafetiere-italienne-fuite-vapeur/">Diagnostiquer une fuite de vapeur →</a></p>
+    </section>
+
+    <section>
       <h2>Et si le café reste amer ou brûlé ?</h2>
-      <p>Une mouture trop fine peut contribuer à une extraction difficile, mais elle n’est pas la seule cause possible. Bialetti insiste aussi sur une chauffe douce à moyenne et sur le retrait immédiat de la cafetière lorsque le café est prêt.</p>
-      <p>Si votre mouture est déjà dans une zone medium-fine cohérente, vérifiez la chauffe avant de continuer à grossir le réglage.</p>
+      <p>Une mouture trop fine peut contribuer à un passage difficile et à une tasse amère, mais elle n’est pas la seule cause possible. La chauffe et le moment où la moka est retirée du feu restent d’autres variables importantes.</p>
+      <p>Si votre mouture est déjà dans une zone medium-fine cohérente et que le flux ne semble pas bloqué, vérifiez donc la chauffe avant de continuer à ouvrir le réglage.</p>
       <p><a class="text-link" href="/guides/cafetiere-italienne-cafe-amer-brule/">Diagnostiquer un café amer ou brûlé →</a></p>
     </section>
 
     <section class="guide-sources">
       <h2 id="sources">Sources vérifiées</h2>
       <ul>
-        <li><a href="https://www.bialetti.co.nz/products/moka-express">Bialetti — Moka Express, recommandation medium-fine</a></li>
-        <li><a href="https://www.bialetti.co.nz/products/bialetti-hand-coffee-grinder-stainless-black">Bialetti — Moulin manuel, réglages par méthode</a></li>
-        <li><a href="https://bialetti-cookware.zendesk.com/hc/fr/articles/5416235346322-Comment-utiliser-la-Moka-Express">Bialetti — ne pas compacter le café</a></li>
+        <li><a href="https://www.bialetti.co.nz/products/moka-express">Bialetti NZ — Moka Express, mouture medium-fine et repère tactile</a></li>
+        <li><a href="https://www.bialetti.co.nz/products/bialetti-hand-coffee-grinder-stainless-black">Bialetti NZ — Moulin manuel, réglages par méthode</a></li>
+        <li><a href="https://www.bialetti.co.nz/pages/bialetti-coffee-buying-guide">Bialetti NZ — Guide café, effets d’une mouture trop fine ou trop grossière</a></li>
+        <li><a href="https://www.bialetti.co.nz/blogs/making-great-coffee/troubleshooting-faqs">Bialetti NZ — dépannage, colmatage, tassage et soupape de sécurité</a></li>
+        <li><a href="https://www.bialetti.co.nz/products/bialetti-coffee-beans-classico-500gm">Bialetti NZ — mouture moka et café pré-moulu dédié</a></li>
       </ul>
-      <p class="source-date">Dernière vérification des sources : 13 septembre 2026.</p>
+      <p class="source-date">Dernière vérification des sources : 14 septembre 2026.</p>
     </section>
   </article>
-  <aside><div class="sidebar-card guide-sidebar"><span class="eyebrow">Repère tactile</span><h3>Granuleux, pas poudreux</h3><p>Le point de départ Bialetti est une mouture moyenne-fine : plus fine que filtre, plus grossière qu’espresso.</p></div></aside>
+  <aside><div class="sidebar-card guide-sidebar"><span class="eyebrow">Repère tactile</span><h3>Granuleux, pas poudreux</h3><p>Commencez en medium-fine. Les numéros de moulin restent propres à chaque échelle : observez ensuite le comportement de votre moka et ajustez par petits pas.</p></div></aside>
 </div>`
   },
 
