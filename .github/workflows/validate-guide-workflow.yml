@@ -1,41 +1,9 @@
 name: Validate Guide workflow
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'AGENTS.md'
-      - '.agents/skills/guide-analysis-workflow/**'
-      - '.agents/skills/guide-content-workflow/**'
-      - '.agents/skills/seo-content-audit/**'
-      - '.agents/skills/seo-keyword/**'
-      - '.agents/skills/search-intent/**'
-      - '.agents/skills/content-refresh/**'
-      - '.agents/skills/fact-check/**'
-      - '.agents/skills/evidence-based-reviews/**'
-      - '.agents/skills/affiliate-value/**'
-      - '.agents/skills/content-brief-authoring/**'
-      - '.agents/skills/content-and-copy/**'
-      - '.agents/skills/internal-linking-audit/**'
-      - '.agents/skills/humanizer/**'
-      - '.agents/skills/general-writing/**'
-      - '.agents/skills/anti-ai-slop/**'
-      - '.agents/skills/seo-onpage/**'
-      - '.agents/skills/seo-technical/**'
-      - '.agents/skills/editorial-qa/**'
-      - '.content/briefs/**'
-      - '.content/reviews/**'
-      - 'scripts/guide-content*.mjs'
-      - 'scripts/apply-guide-hub-reviewed.mjs'
-      - 'scripts/build.mjs'
-      - 'validate_guide_quality.py'
-      - 'publication_indexation.py'
-      - 'apply_section_indexation.py'
-      - 'guides/**'
-      - 'package.json'
-      - '.github/workflows/validate-guide-workflow.yml'
-      - '.github/workflows/regenerate-guides.yml'
+  workflow_run:
+    workflows: ["Regenerate and quality-check Guide cluster"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -43,10 +11,16 @@ permissions:
 
 jobs:
   validate-guides:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout regenerated main
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Set up Node
         uses: actions/setup-node@v4
