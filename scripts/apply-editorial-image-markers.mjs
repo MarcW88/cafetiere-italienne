@@ -57,7 +57,7 @@ const placements=[
   },
   {
     page:'guides/detartrer-cafetiere-italienne/index.html',
-    heading:'<h2>Procédure pas à pas</h2>',
+    heading:'<h2>Procédure Moka Express, étape par étape</h2>',
     marker:'<!-- EDITORIAL_IMAGE:detartrer-depots-mineraux -->',
   },
   {
