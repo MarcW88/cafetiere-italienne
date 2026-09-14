@@ -1,15 +1,20 @@
+function loadStylesheet(href,key){
+  if(document.querySelector(`link[data-style-key="${key}"]`))return;
+  const link=document.createElement('link');
+  link.rel='stylesheet';
+  link.href=href;
+  link.dataset.styleKey=key;
+  document.head.append(link);
+}
+
+loadStylesheet('assets/editorial.css','editorial');
+
 const currentPath=window.location.pathname.replace(/\/+$/,'')||'/';
 const isComparison=currentPath==='/comparatifs'||currentPath.startsWith('/comparatifs/');
 if(isComparison){
   document.documentElement.classList.add('comparison-page');
   if(currentPath==='/comparatifs')document.documentElement.classList.add('comparison-hub-page');
-  if(!document.querySelector('link[data-comparison-styles]')){
-    const comparisonStyles=document.createElement('link');
-    comparisonStyles.rel='stylesheet';
-    comparisonStyles.href='comparisons.css';
-    comparisonStyles.dataset.comparisonStyles='true';
-    document.head.append(comparisonStyles);
-  }
+  loadStylesheet('comparisons.css','comparisons');
 }
 
 const menu=document.querySelector('.menu-btn');
