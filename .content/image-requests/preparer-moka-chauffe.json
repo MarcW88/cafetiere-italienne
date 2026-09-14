@@ -1,0 +1,21 @@
+{
+  "id": "preparer-moka-chauffe",
+  "page": "cafe-moka/comment-preparer-un-cafe-moka/index.html",
+  "slot": "editorial",
+  "required": true,
+  "reason": "Montrer la notion de chauffe modérée dans un contexte domestique réel, sans dépendre d’un modèle ou d’une marque précise.",
+  "allow_ai_generation": true,
+  "truth_risk": "LOW",
+  "status": "PENDING",
+  "marker": "<!-- EDITORIAL_IMAGE:preparer-moka-chauffe -->",
+  "placement": "replace",
+  "output_path": "assets/generated/preparer-moka-chauffe.webp",
+  "prompt": "Photorealistic editorial kitchen photograph of a classic generic unbranded stovetop moka coffee maker brewing on a small gas burner at low to moderate heat. The controlled blue flame stays fully underneath the base and does not climb the sides; the black handle points safely away from the flame. The moka has realistic metal proportions and subtle everyday wear without matching a specific commercial model. Calm domestic morning atmosphere, natural side light, simple tiled or stone backsplash, no theatrical steam cloud, no advertising composition, candid documentary framing, realistic materials and scale. No visible logo, no brand-specific markings, no packaging, no readable text, no watermark, no person presented as conducting a product test.",
+  "alt": "Cafetière moka générique chauffée doucement sur une petite flamme",
+  "caption": "",
+  "width": 1024,
+  "height": 672,
+  "prompt_upsampling": true,
+  "seed": null,
+  "generated_at": null
+}
