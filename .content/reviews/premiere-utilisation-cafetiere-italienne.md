@@ -4,9 +4,9 @@
 - Date : 14 septembre 2026
 - Mode : `AUDIT` → `LIGHT_UPDATE` → strict skill-by-skill review
 - Décision actuelle : `LIGHT_UPDATE`
-- État après correction : `PUBLISH_REVIEW_IN_PROGRESS`
+- État après correction : `PASS — READY_FOR_HUMAN_VALIDATION`
 - Confiance éditoriale : élevée
-- Robots : `noindex,follow` à conserver
+- Robots : `noindex,follow` conservé
 - Source de vérité : `scripts/guide-content-first-use.mjs`
 - Publication : validation humaine requise avant toute décision d’indexation
 
@@ -23,7 +23,7 @@ Frontières :
 - mouture → `/guides/mouture-cafetiere-italienne/` ;
 - induction → `/guides/cafetiere-italienne-induction-compatibilite/`.
 
-La page existante était déjà exploitable. La passe actuelle ne justifie pas un nouveau deep rewrite : elle renforce surtout la portée des preuves et l’anti-mythologie.
+La page existante était déjà exploitable. La passe actuelle ne justifiait pas un nouveau deep rewrite : elle renforce surtout la portée des preuves et l’anti-mythologie.
 
 ## 2. Architecture et profondeur utile
 
@@ -76,13 +76,13 @@ Renforcé :
 
 ## 5. Naturalité / humanizer / general-writing
 
-PASS éditorial.
+PASS.
 
 Le texte évite le folklore de la moka présenté comme science, les injonctions absolues et les formulations de type « secret italien ». Il explique ce que l’on sait et assume explicitement ce que les sources ne disent pas.
 
 ## 6. Anti-AI / comparaison cluster
 
-PASS éditorial.
+PASS.
 
 Structure propre à la mise en service : modèle → lavage initial → préparations à jeter → fin de mise en service. Elle reste distincte :
 - de `comment-utiliser`, centré sur la routine quotidienne ;
@@ -104,16 +104,23 @@ Le tableau final sert à gérer l’incertitude, pas à reproduire le même gaba
 
 ## 8. Technique
 
-Attendus après CI :
+Résultat confirmé :
 - canonical : `https://cafetiere-italienne.be/guides/premiere-utilisation-cafetiere-italienne/` ;
 - robots : `noindex,follow` ;
 - HTML régénéré depuis `scripts/guide-content-first-use.mjs` ;
 - image BFL existante conservée avec caption explicite ;
-- liens internes valides ;
-- blockers Guide machine passants ;
-- reproductibilité du HTML ;
-- rendu visuel Guides valide ;
+- liens internes contrôlés ;
+- blockers Guide machine contrôlés ;
+- reproductibilité du HTML généré contrôlée ;
+- rendu visuel Guides contrôlé ;
 - aucun nouvel appel BFL.
+
+Gates exécutés sur cette version :
+- `Regenerate and quality-check Guide cluster` #57 — success ;
+- `Validate Guide workflow` #57 — success ;
+- `Visual design review` #159 — success.
+
+Le HTML final conserve explicitement `noindex,follow`, le canonical attendu, la nouvelle meta, la table « ce que l’on sait / ce que l’on ne doit pas inventer » et la légende de qualification du visuel BFL.
 
 ## 9. Trace skill par skill — parité `bloc-notes-numerique`
 
@@ -128,18 +135,18 @@ Attendus après CI :
 | `affiliate-value` | PASS | page autonome sans achat requis |
 | `content-brief-authoring` | PASS | brief actualisé avec claims, portée, unknowns et image decision |
 | `content-and-copy` | PASS | corrections dans la source JS |
-| `fact-check` post-rédaction | PASS éditorial | claims bornés aux modèles et régions des sources ; machine gates à confirmer |
-| `internal-linking-audit` | PASS éditorial | handoffs vers usage, nettoyage, dosage, mouture et induction |
+| `fact-check` post-rédaction | PASS | claims bornés aux modèles et régions des sources, rendu final contrôlé |
+| `internal-linking-audit` | PASS | handoffs vers usage, nettoyage, dosage, mouture et induction ; liens contrôlés par CI |
 | `humanizer` | PASS | ton pédagogique, pas de folklore présenté comme preuve |
 | `general-writing` | PASS | distinction connu / inconnu lisible |
 | `anti-ai-slop` | PASS | pas de FAQ générique ni d’allongement artificiel |
 | comparaison cluster | PASS | rôle distinct du guide d’utilisation et des guides entretien/réglage |
-| `seo-onpage` | PASS éditorial | title/meta/H1 cohérents ; rendu final à confirmer |
-| `seo-technical` | PENDING CI | canonical, robots, liens, blockers, reproductibilité à confirmer |
+| `seo-onpage` | PASS | title/meta/H1 cohérents et HTML final vérifié |
+| `seo-technical` | PASS | canonical, robots, liens, blockers et reproductibilité validés |
 | `seo-best-practices` | PASS / applicable limité | aucune addition artificielle requise |
 | `seo-drift` | N/A | aucune baseline avant/après exploitable |
 | `editorial-image-planner` | PASS — EXISTING_IMAGE | image existante conservée, caption ajoutée, aucun nouvel appel BFL |
-| `editorial-qa` | PASS éditorial | intention, valeur, factualité, naturel et frontières validés ; machine/visuel à confirmer |
+| `editorial-qa` | PASS | intention, valeur, factualité, naturel, frontières, machine gates et rendu visuel validés |
 
 ## 10. Blockers et corrections requises
 
@@ -149,17 +156,20 @@ Manques corrigés :
 - raison des trois cafés laissée implicite → statut « non explicité par les sources vérifiées » rendu clair ;
 - risque de reprendre « culottage = raison fabricant » → explicitement refusé ;
 - lavage initial et détartrage risquaient d’être confondus → séparés ;
-- image BFL sans qualification suffisante → caption ajoutée dans la requête persistée.
+- image BFL sans qualification suffisante → caption ajoutée et vérifiée dans le HTML final.
 
-Blocker restant avant verdict final :
-- confirmer les gates GitHub réels de régénération, liens, blockers, reproductibilité et rendu Guides.
+Blocker restant : aucun blocker éditorial, machine ou visuel identifié dans cette passe.
 
 ## 11. Verdict et prochaine étape
 
-État actuel : `PUBLISH_REVIEW_IN_PROGRESS`.
+`PASS — READY_FOR_HUMAN_VALIDATION`
 
-Verdict final à inscrire uniquement après confirmation des gates :
-- `PASS — READY_FOR_HUMAN_VALIDATION`, ou
-- `FAIL — KEEP_NOINDEX`.
+La page atteint le niveau de profondeur retenu pour les Guides avec une trace skill par skill comparable aux URLs déjà validées.
 
-Ne pas indexer automatiquement.
+Deux gates restent volontairement `N/A` :
+- `evidence-based-reviews`, car aucun jugement expérientiel n’est revendiqué ;
+- `seo-drift`, car aucune baseline avant/après exploitable n’est disponible.
+
+Le `seo-keyword` reste limité à une validation qualitative faute de données GSC / volume propres au site.
+
+Ne pas indexer automatiquement. Conserver `noindex,follow` jusqu’à validation humaine explicite.
