@@ -12,7 +12,7 @@
   "output_path": "assets/generated/dosage-peser-panier.webp",
   "prompt": "Documentary editorial photograph in a real home kitchen showing a generic unbranded moka funnel basket filled level with loose ground coffee and placed on a small digital kitchen scale to record a personal repeatable dose. The coffee is not tamped or compressed. A disassembled generic moka base sits nearby, softly out of focus. The scale display is intentionally out of focus or not readable so the image does not imply any universal gram value. Natural window light, warm stone or wood counter, realistic metal and coffee textures, subtle everyday imperfections, calm practical composition, European kitchen atmosphere, not advertising. No logo, no identifiable commercial moka model, no packaging, no readable numbers or text, no watermark, no claim of product testing.",
   "alt": "Panier de cafetière moka rempli de café et posé sur une balance pour mémoriser sa dose",
-  "caption": "",
+  "caption": "Illustration éditoriale d’une pesée personnelle : l’affichage est volontairement illisible et le visuel ne démontre aucun grammage universel pour une moka.",
   "width": 1024,
   "height": 672,
   "prompt_upsampling": true,
