@@ -4,9 +4,9 @@
 - Date : 14 septembre 2026
 - Mode : `AUDIT` → `LIGHT_UPDATE` → strict skill-by-skill review
 - Décision d’origine : `LIGHT_UPDATE`
-- État après correction : `PUBLISH_REVIEW_IN_PROGRESS`
+- État après correction : `PASS — READY_FOR_HUMAN_VALIDATION`
 - Confiance éditoriale : élevée
-- Robots : `noindex,follow` à conserver
+- Robots : `noindex,follow` conservé
 - Source de vérité : `scripts/guide-content-howto.mjs`
 - Publication : validation humaine requise avant toute décision d’indexation
 
@@ -82,13 +82,13 @@ Renforcé :
 
 ## 5. Naturalité / humanizer / general-writing
 
-PASS éditorial.
+PASS.
 
 La prose reste procédurale, sans faux vécu, sans « secret de barista », sans promesse de café parfait et sans surcharge de jargon. Les répétitions concernent uniquement des consignes critiques.
 
 ## 6. Anti-AI / comparaison cluster
 
-PASS éditorial.
+PASS.
 
 La structure reste propre à un HOW_TO : pré-check → préparation → chauffe → arrêt → service → handoffs.
 
@@ -113,16 +113,23 @@ Le tableau sur les statuts de gestes apporte une valeur spécifique sans recopie
 
 ## 8. Technique
 
-Attendus après CI :
+Résultat confirmé :
 - canonical : `https://cafetiere-italienne.be/guides/comment-utiliser-cafetiere-italienne/` ;
 - robots : `noindex,follow` ;
 - HTML régénéré depuis `scripts/guide-content-howto.mjs` ;
-- image BFL existante conservée avec légende de qualification ;
-- liens internes valides ;
-- blockers Guide machine passants ;
-- reproductibilité du HTML ;
-- rendu visuel Guides valide ;
+- image BFL existante conservée avec légende explicite ;
+- liens internes contrôlés ;
+- blockers Guide machine contrôlés ;
+- reproductibilité du HTML généré contrôlée ;
+- rendu visuel Guides contrôlé ;
 - aucun nouvel asset BFL.
+
+Gates exécutés sur cette version :
+- `Regenerate and quality-check Guide cluster` #52 — success ;
+- `Validate Guide workflow` #53 — success ;
+- `Visual design review` #152, job `visual-pages (guides)` — success.
+
+Le HTML final conserve explicitement `noindex,follow`, le canonical attendu, la nouvelle meta, la table de qualification des gestes et la légende du visuel généré.
 
 ## 9. Trace skill par skill — parité `bloc-notes-numerique`
 
@@ -137,18 +144,18 @@ Attendus après CI :
 | `affiliate-value` | PASS | page autonome, sans dépendance à un lien marchand |
 | `content-brief-authoring` | PASS | brief actualisé avec preuves, exclusions et claims refusés |
 | `content-and-copy` | PASS | corrections dans la source JS |
-| `fact-check` post-rédaction | PASS éditorial | nouveaux claims bornés aux sources ; machine gates à confirmer |
-| `internal-linking-audit` | PASS éditorial | cibles correspondant aux prochaines questions logiques |
+| `fact-check` post-rédaction | PASS | nouveaux claims bornés aux sources et rendu final contrôlé |
+| `internal-linking-audit` | PASS | cibles correspondant aux prochaines questions logiques ; liens contrôlés par CI |
 | `humanizer` | PASS | ton naturel, pas de faux témoignage ni de surpromesse |
 | `general-writing` | PASS | phrases procédurales simples, distinctions explicites |
 | `anti-ai-slop` | PASS | pas de FAQ générique, pas de checklist artificielle sans fonction |
 | comparaison cluster | PASS | rôle distinct des pages première utilisation/dosage/mouture/diagnostic |
-| `seo-onpage` | PASS éditorial | title/meta/H1 cohérents ; rendu final à confirmer |
-| `seo-technical` | PENDING CI | canonical, robots, liens, blockers et reproductibilité à confirmer |
+| `seo-onpage` | PASS | title/meta/H1 cohérents et HTML final vérifié |
+| `seo-technical` | PASS | canonical, robots, liens, blockers et reproductibilité validés |
 | `seo-best-practices` | PASS / applicable limité | aucune addition artificielle nécessaire |
 | `seo-drift` | N/A | aucune baseline avant/après exploitable |
 | `editorial-image-planner` | PASS — EXISTING_IMAGE | visuel existant conservé ; caption explicite ajoutée ; aucun nouvel appel BFL |
-| `editorial-qa` | PASS éditorial | intention, valeur, factualité et frontières validées ; machine/visuel à confirmer |
+| `editorial-qa` | PASS | intention, valeur, factualité, naturel, frontières, machine gates et rendu Guides validés |
 
 ## 10. Blockers et corrections requises
 
@@ -158,17 +165,20 @@ Blockers / manques éditoriaux corrigés :
 - eau préchauffée / couvercle ouvert / signaux sonores risquaient d’être interprétés comme règles implicites → statut explicitement optionnel/non universel ;
 - mélange avant service absent → ajouté comme conseil Bialetti, correctement borné ;
 - temps 3–6 minutes insuffisamment qualifié → borné à la Moka Express ;
-- visuel BFL sans qualification suffisante → caption ajoutée dans la requête persistée.
+- visuel BFL sans qualification suffisante → caption ajoutée et vérifiée dans le HTML final.
 
-Blocker restant avant verdict final :
-- confirmer les gates GitHub réels de régénération, liens, blockers, reproductibilité et rendu Guides.
+Blocker restant : aucun blocker éditorial, machine ou visuel identifié dans cette passe.
 
 ## 11. Verdict et prochaine étape
 
-État actuel : `PUBLISH_REVIEW_IN_PROGRESS`.
+`PASS — READY_FOR_HUMAN_VALIDATION`
 
-Verdict final à inscrire uniquement après confirmation des gates :
-- `PASS — READY_FOR_HUMAN_VALIDATION`, ou
-- `FAIL — KEEP_NOINDEX`.
+La page atteint le niveau de profondeur retenu pour les Guides avec une trace skill par skill comparable aux autres URLs déjà validées.
 
-Ne pas indexer automatiquement.
+Deux gates restent volontairement `N/A` :
+- `evidence-based-reviews`, car aucun jugement expérientiel n’est revendiqué ;
+- `seo-drift`, car aucune baseline avant/après exploitable n’est disponible.
+
+Le `seo-keyword` reste limité à une validation qualitative faute de données GSC / volume propres au site.
+
+Ne pas indexer automatiquement. Conserver `noindex,follow` jusqu’à validation humaine explicite.
