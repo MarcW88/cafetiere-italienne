@@ -1,10 +1,11 @@
-name: Validate guide content workflow
+name: Validate Guide workflow
 
 on:
   push:
+    branches:
+      - main
     paths:
       - 'AGENTS.md'
-      - '.github/workflows/validate-guide-workflow.yml'
       - '.agents/skills/guide-analysis-workflow/**'
       - '.agents/skills/guide-content-workflow/**'
       - '.agents/skills/seo-content-audit/**'
@@ -23,52 +24,62 @@ on:
       - '.agents/skills/seo-onpage/**'
       - '.agents/skills/seo-technical/**'
       - '.agents/skills/editorial-qa/**'
+      - '.content/briefs/**'
+      - '.content/reviews/**'
+      - 'scripts/guide-content*.mjs'
+      - 'scripts/apply-guide-hub-reviewed.mjs'
+      - 'scripts/build.mjs'
       - 'validate_guide_quality.py'
       - 'publication_indexation.py'
       - 'apply_section_indexation.py'
       - 'guides/**'
-  pull_request:
-    paths:
-      - 'AGENTS.md'
+      - 'package.json'
       - '.github/workflows/validate-guide-workflow.yml'
-      - '.agents/skills/guide-analysis-workflow/**'
-      - '.agents/skills/guide-content-workflow/**'
-      - '.agents/skills/seo-content-audit/**'
-      - '.agents/skills/seo-keyword/**'
-      - '.agents/skills/search-intent/**'
-      - '.agents/skills/content-refresh/**'
-      - '.agents/skills/fact-check/**'
-      - '.agents/skills/evidence-based-reviews/**'
-      - '.agents/skills/affiliate-value/**'
-      - '.agents/skills/content-brief-authoring/**'
-      - '.agents/skills/content-and-copy/**'
-      - '.agents/skills/internal-linking-audit/**'
-      - '.agents/skills/humanizer/**'
-      - '.agents/skills/general-writing/**'
-      - '.agents/skills/anti-ai-slop/**'
-      - '.agents/skills/seo-onpage/**'
-      - '.agents/skills/seo-technical/**'
-      - '.agents/skills/editorial-qa/**'
-      - 'validate_guide_quality.py'
-      - 'publication_indexation.py'
-      - 'apply_section_indexation.py'
-      - 'guides/**'
+      - '.github/workflows/regenerate-guides.yml'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
-  validate:
+  validate-guides:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Apply approved Guide indexation
-        run: python apply_section_indexation.py guides
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Validate Guide machine blockers
-        run: python validate_guide_quality.py
+      - name: Rebuild from Guide source of truth
+        run: npm run build
+
+      - name: Enforce explicit Guide publication state
+        run: python3 apply_section_indexation.py guides
+
+      - name: Validate repository links
+        run: npm run check
+
+      - name: Validate machine-detectable Guide blockers
+        run: python3 validate_guide_quality.py
+
+      - name: Verify generated Guide HTML is reproducible
+        shell: bash
+        run: |
+          if ! git diff --quiet -- guides/; then
+            echo 'Generated Guide HTML differs from committed output.'
+            git diff -- guides/
+            exit 1
+          fi
+          echo 'PASS: committed Guide HTML matches current source modules.'

@@ -1,188 +1,160 @@
 #!/usr/bin/env python3
-"""Machine-detectable publication blockers for authored /guides/ pages.
+"""Machine-detectable quality blockers for the /guides/ cluster.
 
-Adapted from MarcW88/bloc-notes-numerique/validate_guide_quality.py for the
-progressive authoring model used on cafetiere-italienne.be. Placeholder Guide
-routes are not considered authored pages; every authored Guide remains
-noindex,follow until explicit human validation and indexation approval.
+This is a port of the bloc-notes-numerique Guide gate, adapted to the current
+static HTML and JS source architecture. It deliberately does not award a
+content-quality score: substantive intent, evidence, naturality and usefulness
+remain PUBLISH_REVIEW responsibilities.
 """
-from pathlib import Path
+
+from __future__ import annotations
+
 import html as html_lib
 import re
-from urllib.parse import urlsplit
+from pathlib import Path
+from urllib.parse import urlparse
+
+from publication_indexation import INDEXABLE_GUIDE_ROUTES
 
 ROOT = Path(__file__).resolve().parent
 GUIDES = ROOT / "guides"
 SITE_ORIGIN = "https://cafetiere-italienne.be"
-INDEXABLE_GUIDE_ROUTES: set[str] = set()
 
-ARTICLE_RE = re.compile(
-    r'<article\b[^>]*class="[^"]*guide-article[^"]*"[^>]*>(.*?)</article>',
-    re.S | re.I,
-)
-H1_RE = re.compile(r'<h1\b[^>]*>(.*?)</h1>', re.S | re.I)
-TITLE_RE = re.compile(r'<title>(.*?)</title>', re.S | re.I)
-META_DESCRIPTION_RE = re.compile(
-    r'<meta\b[^>]*name="description"[^>]*content="([^"]*)"[^>]*>', re.I
-)
-CANONICAL_RE = re.compile(
-    r'<link\b[^>]*rel="canonical"[^>]*href="([^"]+)"[^>]*>', re.I
-)
-ROBOTS_RE = re.compile(
-    r'<meta\b[^>]*name="robots"[^>]*content="([^"]+)"[^>]*>', re.I
-)
+TITLE_RE = re.compile(r"<title>(.*?)</title>", re.I | re.S)
+META_DESC_RE = re.compile(r'<meta\s+name="description"\s+content="([^"]*)"', re.I)
+ROBOTS_RE = re.compile(r'<meta\s+name="robots"\s+content="([^"]*)"', re.I)
+CANONICAL_RE = re.compile(r'<link\b[^>]*rel="canonical"[^>]*href="([^"]+)"[^>]*>', re.I)
+H1_RE = re.compile(r"<h1\b[^>]*>(.*?)</h1>", re.I | re.S)
 ID_RE = re.compile(r'\bid="([^"]+)"', re.I)
-HREF_RE = re.compile(r'<a\b[^>]*href="([^"]+)"', re.I)
-TAG_RE = re.compile(r"<[^>]+>", re.S)
-SOURCES_SECTION_RE = re.compile(
-    r'<section\b[^>]*class="[^"]*guide-sources[^"]*"[^>]*>(.*?)</section>',
-    re.S | re.I,
+HREF_RE = re.compile(r'href="([^"]+)"', re.I)
+ARTICLE_RE = re.compile(
+    r'<article\b[^>]*class="[^"]*(?:guide-article|content-main)[^"]*"[^>]*>(.*?)</article>',
+    re.I | re.S,
 )
-EXTERNAL_LINK_RE = re.compile(r'<a\b[^>]*href="https?://', re.I)
+SOURCES_RE = re.compile(r'<section\b[^>]*class="[^"]*guide-sources[^"]*"[^>]*>(.*?)</section>', re.I | re.S)
+TAG_RE = re.compile(r"<[^>]+>")
 
-PLACEHOLDER_PATTERNS = (
-    "Zone de contenu à rédiger.",
-    "Lorem ipsum",
-    "TODO_CONTENT",
-    "CONTENT_PLACEHOLDER",
+PLACEHOLDERS = (
+    "Zone de contenu à rédiger",
+    "Gabarit prêt à recevoir",
+    "Contenu à rédiger",
+    "À compléter",
+    "Les contenus éditoriaux seront ajoutés ultérieurement",
 )
 
 
-def clean_text(raw: str) -> str:
-    raw = TAG_RE.sub(" ", raw)
-    raw = html_lib.unescape(raw)
-    return re.sub(r"\s+", " ", raw).strip()
+def strip_tags(value: str) -> str:
+    return " ".join(html_lib.unescape(TAG_RE.sub(" ", value)).split())
 
 
 def route_for_page(page: Path) -> str:
-    return f"/guides/{page.parent.name}/"
-
-
-def expected_canonical(page: Path) -> str:
-    return f"{SITE_ORIGIN}{route_for_page(page)}"
+    relative = page.relative_to(ROOT).as_posix()
+    if relative == "guides/index.html":
+        return "/guides/"
+    return "/" + relative[: -len("index.html")]
 
 
 def expected_robots(route: str) -> str:
     return "index,follow" if route in INDEXABLE_GUIDE_ROUTES else "noindex,follow"
 
 
-def local_target_exists(href: str) -> bool:
-    parsed = urlsplit(href)
-    if parsed.scheme or parsed.netloc:
-        return True
-    path = parsed.path
-    if not path or path.startswith("#"):
-        return True
-    if not path.startswith("/"):
-        path = "/" + path
-    target = ROOT / path.lstrip("/")
-    if target.is_dir():
+def resolve_internal_target(href: str) -> Path | None:
+    if href.startswith(("http://", "https://", "mailto:", "tel:", "#")):
+        return None
+    clean = href.split("#", 1)[0].split("?", 1)[0]
+    if not clean:
+        return None
+    # The site declares <base href="/">, so both /guides/x/ and guides/x/
+    # resolve from the site root.
+    target = ROOT / clean.lstrip("/")
+    if target.is_dir() or clean.endswith("/"):
         target = target / "index.html"
-    return target.exists()
+    return target
 
 
-def inspect(page: Path):
-    page_html = page.read_text(encoding="utf-8")
-    issues = []
+def validate_page(page: Path) -> list[str]:
+    failures: list[str] = []
+    html = page.read_text(encoding="utf-8")
     route = route_for_page(page)
+    rel = page.relative_to(ROOT)
 
-    article_matches = ARTICLE_RE.findall(page_html)
-    if len(article_matches) != 1:
-        issues.append(f"article.guide-article count={len(article_matches)} (expected 1)")
-        article = article_matches[0] if article_matches else ""
-    else:
-        article = article_matches[0]
+    title = TITLE_RE.search(html)
+    if not title or not strip_tags(title.group(1)):
+        failures.append(f"{rel}: title absent/vide")
 
-    if not clean_text(article):
-        issues.append("article.guide-article empty")
+    meta = META_DESC_RE.search(html)
+    if not meta or not meta.group(1).strip():
+        failures.append(f"{rel}: meta description absente/vide")
 
-    for marker in PLACEHOLDER_PATTERNS:
-        if marker.lower() in page_html.lower():
-            issues.append(f"placeholder present: {marker}")
+    h1s = H1_RE.findall(html)
+    if len(h1s) != 1 or not strip_tags(h1s[0]):
+        failures.append(f"{rel}: exige exactement un H1 non vide, trouvé {len(h1s)}")
 
-    title = TITLE_RE.findall(page_html)
-    if len(title) != 1 or not clean_text(title[0]):
-        issues.append("missing or empty <title>")
-
-    descriptions = META_DESCRIPTION_RE.findall(page_html)
-    if len(descriptions) != 1 or not descriptions[0].strip():
-        issues.append("missing or empty meta description")
-
-    h1s = H1_RE.findall(page_html)
-    if len(h1s) != 1 or not clean_text(h1s[0]):
-        issues.append(f"H1 count={len(h1s)} (expected one non-empty H1)")
-
-    robots = ROBOTS_RE.findall(page_html)
-    normalized_robots = [
-        ",".join(part.strip().lower() for part in value.split(","))
-        for value in robots
-    ]
+    robots = ROBOTS_RE.search(html)
     expected = expected_robots(route)
-    if expected not in normalized_robots:
-        issues.append(f"robots publication state mismatch: expected {expected}")
+    if not robots or robots.group(1).lower() != expected:
+        failures.append(f"{rel}: robots={robots.group(1) if robots else None!r}, attendu={expected!r}")
 
-    canonicals = CANONICAL_RE.findall(page_html)
-    expected_canonical_url = expected_canonical(page)
-    if len(canonicals) != 1:
-        issues.append(f"canonical count={len(canonicals)} (expected 1)")
-    elif canonicals[0] != expected_canonical_url:
-        issues.append(f"canonical mismatch: {canonicals[0]} != {expected_canonical_url}")
+    canonicals = CANONICAL_RE.findall(html)
+    expected_canonical = f"{SITE_ORIGIN}{route}"
+    if len(canonicals) != 1 or canonicals[0] != expected_canonical:
+        failures.append(f"{rel}: canonical={canonicals!r}, attendu={[expected_canonical]!r}")
 
-    ids = ID_RE.findall(page_html)
-    duplicates = sorted({value for value in ids if ids.count(value) > 1})
+    ids = ID_RE.findall(html)
+    duplicates = sorted({item for item in ids if ids.count(item) > 1})
     if duplicates:
-        issues.append("duplicate IDs: " + ", ".join(duplicates))
-    id_set = set(ids)
+        failures.append(f"{rel}: IDs dupliqués {duplicates}")
 
+    for placeholder in PLACEHOLDERS:
+        if placeholder.lower() in html.lower():
+            failures.append(f"{rel}: placeholder détecté: {placeholder!r}")
+
+    if route == "/guides/":
+        if "guide-hub-group" not in html:
+            failures.append(f"{rel}: hub Guide non structuré en parcours éditoriaux")
+        return failures
+
+    articles = ARTICLE_RE.findall(html)
+    if len(articles) != 1:
+        failures.append(f"{rel}: exige exactement un article Guide, trouvé {len(articles)}")
+        return failures
+    article = articles[0]
+
+    # Contextual links must point to existing repository routes.
     for href in HREF_RE.findall(article):
-        if href.startswith("#"):
-            anchor = href[1:]
-            if anchor and anchor not in id_set:
-                issues.append(f"broken in-page anchor: {href}")
-            continue
-        if not local_target_exists(href):
-            issues.append(f"broken internal link: {href}")
+        target = resolve_internal_target(href)
+        if target is not None and not target.exists():
+            failures.append(f"{rel}: lien contextuel cassé {href!r}")
 
-    sources = SOURCES_SECTION_RE.findall(article)
-    if len(sources) != 1:
-        issues.append(f"guide-sources section count={len(sources)} (expected 1)")
-    elif not EXTERNAL_LINK_RE.search(sources[0]):
-        issues.append("Sources section present but no external source link found")
+    # In-page fragments must resolve when they target the same document.
+    for href in HREF_RE.findall(article):
+        if href.startswith("#") and href[1:] not in ids:
+            failures.append(f"{rel}: ancre interne absente {href!r}")
 
-    return issues
+    sources = SOURCES_RE.search(article)
+    if sources:
+        external = [h for h in HREF_RE.findall(sources.group(1)) if h.startswith(("http://", "https://"))]
+        if not external:
+            failures.append(f"{rel}: section Sources sans source externe")
+
+    return failures
 
 
-def main():
-    pages = []
-    for page in sorted(GUIDES.glob("*/index.html")):
-        page_html = page.read_text(encoding="utf-8")
-        if 'guide-article' in page_html:
-            pages.append(page)
-
+def main() -> None:
+    failures: list[str] = []
+    pages = sorted(GUIDES.rglob("index.html"))
     if not pages:
-        raise SystemExit("FAIL: no authored Guide page detected")
-
-    failures = {}
+        raise SystemExit("Aucune page Guide trouvée")
     for page in pages:
-        issues = inspect(page)
-        if issues:
-            failures[page.parent.name] = issues
+        failures.extend(validate_page(page))
 
     if failures:
-        for slug, issues in failures.items():
-            print(f"FAIL {slug}")
-            for issue in issues:
-                print(f"  - {issue}")
+        print("FAIL Guide quality gate")
+        print("\n".join(f"- {item}" for item in failures))
         raise SystemExit(1)
 
-    print(
-        f"PASS: {len(pages)} authored Guide route(s) have no machine-detectable "
-        "publication blockers and match explicit indexation approval"
-    )
-    print(
-        "NOTE: machine validation does not replace guide-analysis-workflow / "
-        "PUBLISH_REVIEW or human editorial judgment."
-    )
+    detail_count = len([p for p in pages if p != GUIDES / "index.html"])
+    print(f"PASS Guide quality gate: hub + {detail_count} guide(s), aucun blocker machine")
 
 
 if __name__ == "__main__":

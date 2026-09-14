@@ -1,80 +1,53 @@
 ---
 name: affiliate-value
-description: Verhoog de originele beslissingswaarde van product-, review- en vergelijkingscontent op italiaanse-percolator.nl zonder fake hands-on ervaring.
+description: Renforcer la valeur décisionnelle originale des guides, comparatifs et contenus produit de cafetiere-italienne.be sans fake hands-on ni dépendance à l'affiliation.
 license: MIT
 ---
 
-# Affiliate value — italiaanse-percolator.nl
+# Affiliate value — cafetiere-italienne.be
 
-Gebruik voor productreviews, koopgidsen, categoriepagina's en vergelijkingen.
+## Règle centrale
 
-## Kernregel
+La page doit rester utile si tous les liens affiliés disparaissent. Une reformulation de fiche marchand n'est pas une valeur ajoutée.
 
-De pagina moet nuttig blijven wanneer alle affiliate links worden verwijderd.
+## Niveaux de preuve
 
-Een herschreven merchantbeschrijving is geen toegevoegde waarde.
+- **A — primaire** : fabricant, manuel, documentation officielle.
+- **B — distribution fiable** : disponibilité ou spécification complémentaire, à recouper si possible.
+- **C — expérience utilisateurs** : patterns issus de plusieurs sources crédibles, attribués comme tels.
+- **D — test propriétaire** : uniquement si l'utilisateur a fourni des données, photos, mesures ou notes first-hand.
 
-## Evidence levels
+Sans D, ne jamais écrire « nous avons testé », « dans notre test », « après plusieurs semaines ».
 
-Label informatie intern volgens deze niveaus:
+## Pour un Guide moka
 
-### A — primaire productspecificatie
-Officiële fabrikantdocumentatie, handleiding of productspecificatie.
+La valeur originale peut venir de :
 
-### B — betrouwbare retailers / distributeurs
-Gebruik voor beschikbaarheid of aanvullende specificaties, maar controleer tegen de fabrikant als bronnen botsen.
+- ordre réel de décision ;
+- hard gates (plaque, volume, compatibilité, modèle/taille) ;
+- compromis et contre-indications ;
+- distinction instruction fabricant / conseil éditorial ;
+- limites d'une règle trop générale ;
+- diagnostic d'erreur ;
+- prochaine étape logique vers capacité, comparatif, modèle, accessoire ou autre guide.
 
-### C — gebruikerservaring
-Patronen uit meerdere geloofwaardige gebruikersreviews of communities. Presenteer als ervaring van gebruikers, niet als eigen test.
+Un Guide ne doit pas forcer une recommandation produit. Si la tâche devient « quel modèle acheter ? », handoff vers le workflow Comparatif.
 
-### D — eigen test
-Alleen gebruiken wanneer de gebruiker aantoonbare first-hand testdata, foto's, metingen of notities heeft aangeleverd.
+## Intégrité
 
-Zonder D nooit schrijven: "we hebben getest", "in onze test", "wij merkten", "na weken gebruik".
-
-## Verplichte beslissingswaarde
-
-Bij een product of aanbeveling moeten waar relevant minstens deze vragen beantwoord worden:
-- Voor wie is dit een goede keuze?
-- Voor wie niet?
-- Wat is het belangrijkste voordeel?
-- Wat is de belangrijkste beperking?
-- Welke alternatieven zijn logisch en waarom?
-- Welke eigenschap verandert de aankoopbeslissing echt?
-- Zijn er compatibiliteitsproblemen?
-- Welke specs klinken belangrijk maar maken in de praktijk weinig verschil?
-
-## Productvergelijkingen
-
-Vergelijk producten op vooraf gekozen criteria. Kies criteria vóór de winnaar.
-
-Voor mokapots/percolators kunnen relevante criteria zijn:
-- warmtebron en inductiecompatibiliteit;
-- materiaal;
-- bruikbare capaciteit versus marketingmaat;
-- onderhoud;
-- onderdelen/rubbers/filters;
-- ergonomie;
-- snelheid en gebruiksgemak;
-- prijsniveau;
-- beschikbaarheid van vervangonderdelen.
-
-Gebruik alleen criteria die relevant zijn voor de specifieke query.
-
-## Affiliate-integriteit
-
-- Rangschik een product niet hoger enkel omdat de commissie aantrekkelijker is.
-- Verberg nadelen niet.
-- Presenteer prijs als momentopname tenzij dynamische data beschikbaar is.
-- Noem een product niet "beste" zonder expliciete criteria.
-- Maak duidelijk wanneer een oordeel gebaseerd is op deskresearch in plaats van eigen test.
+- ne pas promouvoir selon la commission ;
+- ne pas masquer un inconvénient ;
+- ne pas présenter un prix comme durablement fixe ;
+- ne pas appeler « meilleur » sans critères explicites ;
+- signaler desk research vs véritable test ;
+- ne pas transformer une caractéristique en bénéfice sans expliquer la conséquence pratique.
 
 ## Output
 
-Geef vóór een rewrite:
-1. **Unique value already present**
-2. **Merchant-like content to remove**
-3. **Missing decision information**
-4. **Evidence needed**
-5. **Claims that must be qualified**
-6. **Recommended comparison criteria**
+Avant une correction, documenter :
+1. valeur unique déjà présente ;
+2. contenu générique/merchant-like à retirer ;
+3. information décisionnelle manquante ;
+4. preuves nécessaires ;
+5. claims à qualifier ;
+6. prochaine étape logique du lecteur.
