@@ -85,6 +85,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build static site
+        run: npm run build
+
+      - name: Check internal links
+        run: npm run check
+
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
@@ -129,6 +135,12 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Check internal links
+        run: npm run check
 
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
