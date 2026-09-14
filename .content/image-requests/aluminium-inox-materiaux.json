@@ -12,7 +12,7 @@
   "output_path": "assets/generated/aluminium-inox-materiaux.webp",
   "prompt": "Photorealistic editorial material study in a real kitchen: two generic unbranded stovetop moka coffee makers side by side on a neutral stone worktop, one with a clearly matte cast-aluminium silver-grey surface and subtle real texture, the other with a brushed stainless-steel surface and soft controlled reflections. The two moka pots have neutral plausible but non-identical generic forms so they do not reproduce a recognizable branded model. Three-quarter close crop focused on body materials and surface finish, natural window light, restrained warm background, realistic household imperfections, documentary product-material photography rather than advertising. No logo, no brand marks, no induction symbol, no packaging, no readable text, no watermark, no implication of superior performance, durability or compatibility.",
   "alt": "Finitions génériques d’une moka en aluminium et d’une moka en inox",
-  "caption": "",
+  "caption": "Illustration éditoriale de deux finitions génériques — les cafetières représentées ne correspondent pas à des modèles précis et ne démontrent aucune compatibilité technique.",
   "width": 1024,
   "height": 672,
   "prompt_upsampling": true,
