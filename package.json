@@ -6,16 +6,17 @@
     "build": "node scripts/build.mjs && node scripts/apply-capacity-hub-reviewed.mjs && node scripts/apply-capacity-10-tasses-reviewed.mjs && node scripts/apply-capacity-size-pages-reviewed.mjs && node scripts/apply-capacity-2-tasses-exact-reviewed.mjs && node scripts/apply-capacity-exact-reviewed.mjs && node scripts/sanitize-reviewed-page-typography.mjs capacites/cafetiere-italienne-6-tasses/index.html capacites/cafetiere-italienne-12-tasses/index.html",
     "check": "node scripts/check.mjs",
     "visual:install": "playwright install chromium",
-    "visual:home": "node .agents/skills/site-design-review/scripts/run-visual-review.mjs --route / --output .artifacts/design-review/home",
-    "visual:brands": "node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope brands --output .artifacts/design-review/brands",
-    "visual:comparisons": "node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope comparisons --output .artifacts/design-review/comparisons",
-    "visual:models": "node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope models --output .artifacts/design-review/models",
-    "visual:capacities": "node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope capacities --output .artifacts/design-review/capacities",
-    "visual:guides": "node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope guides --output .artifacts/design-review/guides",
-    "visual:accessories": "node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope accessories --output .artifacts/design-review/accessories",
-    "visual:cafe-moka": "node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope cafe-moka --output .artifacts/design-review/cafe-moka",
-    "visual:trust": "node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope trust --output .artifacts/design-review/trust",
-    "visual:all": "node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope all --output .artifacts/design-review/all"
+    "visual:prepare": "npm run build && npm run check",
+    "visual:home": "npm run visual:prepare && node .agents/skills/site-design-review/scripts/run-visual-review.mjs --route / --output .artifacts/design-review/home",
+    "visual:brands": "npm run visual:prepare && node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope brands --output .artifacts/design-review/brands",
+    "visual:comparisons": "npm run visual:prepare && node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope comparisons --output .artifacts/design-review/comparisons",
+    "visual:models": "npm run visual:prepare && node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope models --output .artifacts/design-review/models",
+    "visual:capacities": "npm run visual:prepare && node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope capacities --output .artifacts/design-review/capacities",
+    "visual:guides": "npm run visual:prepare && node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope guides --output .artifacts/design-review/guides",
+    "visual:accessories": "npm run visual:prepare && node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope accessories --output .artifacts/design-review/accessories",
+    "visual:cafe-moka": "npm run visual:prepare && node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope cafe-moka --output .artifacts/design-review/cafe-moka",
+    "visual:trust": "npm run visual:prepare && node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope trust --output .artifacts/design-review/trust",
+    "visual:all": "npm run visual:prepare && node .agents/skills/site-design-review/scripts/run-visual-review.mjs --scope all --output .artifacts/design-review/all"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0"
