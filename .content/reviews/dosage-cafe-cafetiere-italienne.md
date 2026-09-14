@@ -4,9 +4,9 @@
 - Date : 14 septembre 2026
 - Mode : `AUDIT` → `LIGHT_UPDATE` → strict skill-by-skill review
 - Décision actuelle : `LIGHT_UPDATE`
-- État après correction : `PUBLISH_REVIEW_IN_PROGRESS`
+- État après correction : `PASS — READY_FOR_HUMAN_VALIDATION`
 - Confiance éditoriale : élevée
-- Robots : `noindex,follow` à conserver
+- Robots : `noindex,follow` conservé
 - Source de vérité : `scripts/guide-content-brew-basics.mjs`
 - Publication : validation humaine requise avant toute décision d’indexation
 
@@ -83,7 +83,7 @@ Renforcé :
 
 ## 5. Naturalité / humanizer / general-writing
 
-PASS éditorial.
+PASS.
 
 Le texte évite le ton dogmatique « voici le ratio parfait » et ne remplace pas un chiffre artificiel par une longue dissertation. Les phrases restent orientées action : remplir, tarer, peser, noter, choisir une taille adaptée.
 
@@ -91,7 +91,7 @@ Pas de faux vécu, pas de prétention de test produit, pas de « secret italien 
 
 ## 6. Anti-AI / comparaison cluster
 
-PASS éditorial.
+PASS.
 
 La structure est spécifique au problème du dosage : unités trompeuses → instructions fabricant → pesée personnelle → sous-remplissage → intensité. Elle ne copie pas :
 - le guide d’utilisation, qui déroule toute la préparation ;
@@ -113,17 +113,24 @@ Le tableau fabricants a une fonction probatoire précise et ne constitue pas un 
 
 ## 8. Technique
 
-Attendus après CI :
+Résultat confirmé :
 - canonical : `https://cafetiere-italienne.be/guides/dosage-cafe-cafetiere-italienne/` ;
 - robots : `noindex,follow` ;
 - HTML régénéré depuis `scripts/guide-content-brew-basics.mjs` ;
 - image BFL existante conservée avec caption explicite ;
 - aucun chiffre lisible dans le visuel présenté comme dosage ;
-- liens internes valides ;
-- blockers Guide machine passants ;
-- reproductibilité du HTML ;
-- rendu visuel Guides valide ;
+- liens internes contrôlés ;
+- blockers Guide machine contrôlés ;
+- reproductibilité du HTML généré contrôlée ;
+- rendu visuel Guides contrôlé ;
 - aucun nouvel appel BFL.
+
+Gates exécutés sur cette version :
+- `Regenerate and quality-check Guide cluster` #62 — success ;
+- `Validate Guide workflow` #63 — success ;
+- `Visual design review` #168, job `visual-pages (guides)` — success.
+
+Le HTML final conserve explicitement `noindex,follow`, le canonical attendu, la nouvelle meta, le tableau fabricants, la méthode de pesée personnelle et la légende du visuel généré.
 
 ## 9. Trace skill par skill — parité `bloc-notes-numerique`
 
@@ -138,18 +145,18 @@ Attendus après CI :
 | `affiliate-value` | PASS | réponse complète sans achat ni clic marchand |
 | `content-brief-authoring` | PASS | brief complet avec claims, unknowns, exclusions et image decision |
 | `content-and-copy` | PASS | corrections dans la source JS |
-| `fact-check` post-rédaction | PASS éditorial | nouveaux claims bornés aux fabricants et variantes ; machine gates à confirmer |
-| `internal-linking-audit` | PASS éditorial | capacité, mouture, méthode et café sont les suites logiques |
+| `fact-check` post-rédaction | PASS | nouveaux claims bornés aux fabricants et variantes ; rendu final contrôlé |
+| `internal-linking-audit` | PASS | capacité, mouture, méthode et café sont les suites logiques ; liens contrôlés par CI |
 | `humanizer` | PASS | ton pratique, pas de surpromesse ni faux protocole personnel |
 | `general-writing` | PASS | réponse directe puis justification ; jargon limité |
 | `anti-ai-slop` | PASS | pas de FAQ générique ni remplissage rédactionnel artificiel |
 | comparaison cluster | PASS | rôle distinct de capacité / utilisation / mouture / café |
-| `seo-onpage` | PASS éditorial | title/meta/H1 cohérents ; HTML final à confirmer |
-| `seo-technical` | PENDING CI | canonical, robots, liens, blockers et reproductibilité à confirmer |
+| `seo-onpage` | PASS | title/meta/H1 cohérents et HTML final vérifié |
+| `seo-technical` | PASS | canonical, robots, liens, blockers et reproductibilité validés |
 | `seo-best-practices` | PASS / applicable limité | aucune addition structurelle artificielle nécessaire |
 | `seo-drift` | N/A | aucune baseline avant/après exploitable |
 | `editorial-image-planner` | PASS — EXISTING_IMAGE | visuel de pesée conservé ; caption explicite ; aucun nouvel appel BFL |
-| `editorial-qa` | PASS éditorial | intention, utilité, factualité, frontières et naturel validés ; machine/visuel à confirmer |
+| `editorial-qa` | PASS | intention, utilité, factualité, frontières, naturel, machine gates et rendu visuel validés |
 
 ## 10. Blockers et corrections requises
 
@@ -159,17 +166,20 @@ Manques corrigés :
 - besoin utilisateur « combien de grammes ? » traité surtout par négation → ajout d’une vraie procédure de pesée personnelle ;
 - « tasse » encore trop abstrait → exemple de volumes fabricant ajouté sans créer un tableau de normes ;
 - dépendance presque exclusive à Bialetti → validation du principe de remplissage auprès d’Alessi ;
-- visuel BFL sans qualification suffisante → caption ajoutée dans la requête persistée.
+- visuel BFL sans qualification suffisante → caption ajoutée et vérifiée dans le HTML final.
 
-Blocker restant avant verdict final :
-- confirmer les gates GitHub réels de régénération, liens, blockers, reproductibilité et rendu Guides.
+Blocker restant : aucun blocker éditorial, machine ou visuel identifié dans cette passe.
 
 ## 11. Verdict et prochaine étape
 
-État actuel : `PUBLISH_REVIEW_IN_PROGRESS`.
+`PASS — READY_FOR_HUMAN_VALIDATION`
 
-Verdict final à inscrire uniquement après confirmation des gates :
-- `PASS — READY_FOR_HUMAN_VALIDATION`, ou
-- `FAIL — KEEP_NOINDEX`.
+La page atteint le niveau de profondeur retenu pour les Guides avec une trace skill par skill comparable aux URLs déjà validées.
 
-Ne pas indexer automatiquement.
+Deux gates restent volontairement `N/A` :
+- `evidence-based-reviews`, car aucun jugement expérientiel n’est revendiqué ;
+- `seo-drift`, car aucune baseline avant/après exploitable n’est disponible.
+
+Le `seo-keyword` reste limité à une validation qualitative faute de données GSC / volume propres au site.
+
+Ne pas indexer automatiquement. Conserver `noindex,follow` jusqu’à validation humaine explicite.
