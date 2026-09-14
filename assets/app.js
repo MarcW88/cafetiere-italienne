@@ -9,6 +9,7 @@ function loadStylesheet(href,key){
 
 loadStylesheet('assets/editorial.css','editorial');
 loadStylesheet('assets/families.css','families');
+loadStylesheet('assets/navigation.css','navigation');
 
 const currentPath=window.location.pathname.replace(/\/+$/,'')||'/';
 const isComparison=currentPath==='/comparatifs'||currentPath.startsWith('/comparatifs/');
@@ -49,15 +50,162 @@ if(isCafeMoka){
   if(currentPath==='/cafe-moka')document.documentElement.classList.add('cafe-moka-hub-page');
 }
 
-const menu=document.querySelector('.menu-btn');
-const nav=document.querySelector('.nav');
-if(menu&&nav){
+const maintenancePaths=[
+  '/guides/nettoyer-cafetiere-italienne',
+  '/guides/detartrer-cafetiere-italienne',
+  '/guides/changer-joint-cafetiere-italienne',
+  '/guides/cafetiere-italienne-fuite-vapeur',
+  '/guides/cafetiere-italienne-cafe-amer-brule',
+];
+const isMaintenance=maintenancePaths.some(path=>currentPath===path);
+
+function chevron(){
+  return '<svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>';
+}
+
+function navItem({href,label,active,content}){
+  return `<div class="nav-item"><a class="nav-link" href="${href}"${active?' aria-current="page"':''}>${label}${chevron()}</a><div class="nav-dropdown">${content}</div></div>`;
+}
+
+function buildNavigation(){
+  const header=document.querySelector('.site-header');
+  const row=header?.querySelector('.header-row');
+  if(!header||!row)return;
+
+  const brand=row.querySelector('.brand');
+  if(!brand)return;
+
+  const comparisons=navItem({
+    href:'/comparatifs/',label:'Comparatifs',active:isComparison,
+    content:`<span class="nav-dropdown-label">Sélections</span>
+      <a href="/comparatifs/meilleure-cafetiere-italienne/">Meilleures cafetières italiennes</a>
+      <a href="/comparatifs/cafetiere-italienne-induction/">Pour l’induction</a>
+      <a href="/comparatifs/cafetiere-italienne-inox/">Modèles inox</a>
+      <a href="/comparatifs/cafetiere-italienne-electrique/">Modèles électriques</a>
+      <a href="/comparatifs/cafetiere-italienne-design/">Cafetières design</a>
+      <a href="/comparatifs/petite-cafetiere-italienne/">Petits formats</a>`
+  });
+
+  const brands=navItem({
+    href:'/marques/',label:'Marques',active:isBrand||isModel,
+    content:`<span class="nav-dropdown-label">Marques</span>
+      <a href="/marques/bialetti/">Bialetti</a>
+      <a href="/marques/alessi/">Alessi</a>
+      <div class="nav-dropdown-separator"></div>
+      <span class="nav-dropdown-label">Modèles</span>
+      <a href="/modeles/">Tous les modèles</a>
+      <a href="/modeles/bialetti-moka-express/">Bialetti Moka Express</a>
+      <a href="/modeles/bialetti-venus/">Bialetti Venus</a>
+      <a href="/modeles/bialetti-moka-induction/">Bialetti Moka Induction</a>
+      <a href="/modeles/alessi-9090/">Alessi 9090</a>`
+  });
+
+  const capacities=navItem({
+    href:'/capacites/',label:'Par taille',active:isCapacity,
+    content:`<span class="nav-dropdown-label">Choisir le bon volume</span>
+      <a href="/capacites/">Guide des tailles</a>
+      <div class="nav-dropdown-separator"></div>
+      <a href="/capacites/cafetiere-italienne-2-tasses/">2 tasses · ≈ 85–100 ml</a>
+      <a href="/capacites/cafetiere-italienne-4-tasses/">4 tasses · ≈ 150–185 ml</a>
+      <a href="/capacites/cafetiere-italienne-6-tasses/">6 tasses · ≈ 235–300 ml</a>
+      <a href="/capacites/cafetiere-italienne-10-tasses/">10 tasses</a>
+      <a href="/capacites/cafetiere-italienne-12-tasses/">12 tasses · ≈ 595 ml</a>`
+  });
+
+  const guides=navItem({
+    href:'/guides/',label:'Guides',active:(isGuide&&!isMaintenance)||isCafeMoka,
+    content:`<span class="nav-dropdown-label">Bien choisir</span>
+      <a href="/guides/comment-choisir-cafetiere-italienne/">Comment choisir sa moka</a>
+      <a href="/guides/cafetiere-italienne-aluminium-ou-inox/">Aluminium ou inox ?</a>
+      <a href="/guides/cafetiere-italienne-induction-compatibilite/">Compatibilité induction</a>
+      <div class="nav-dropdown-separator"></div>
+      <span class="nav-dropdown-label">Préparer</span>
+      <a href="/guides/comment-utiliser-cafetiere-italienne/">Comment utiliser une moka</a>
+      <a href="/guides/premiere-utilisation-cafetiere-italienne/">Première utilisation</a>
+      <a href="/guides/dosage-cafe-cafetiere-italienne/">Dosage du café</a>
+      <a href="/guides/mouture-cafetiere-italienne/">Choisir la mouture</a>
+      <a href="/guides/quel-cafe-pour-cafetiere-italienne/">Quel café choisir ?</a>
+      <div class="nav-dropdown-separator"></div>
+      <span class="nav-dropdown-label">Comprendre</span>
+      <a href="/cafe-moka/">Café moka</a>
+      <a href="/guides/cafetiere-italienne-vs-espresso/">Moka ou espresso ?</a>`
+  });
+
+  const care=navItem({
+    href:'/accessoires/',label:'Entretien',active:isAccessory||isMaintenance,
+    content:`<span class="nav-dropdown-label">Entretenir et dépanner</span>
+      <a href="/guides/nettoyer-cafetiere-italienne/">Nettoyer sa moka</a>
+      <a href="/guides/detartrer-cafetiere-italienne/">Détartrer</a>
+      <a href="/guides/changer-joint-cafetiere-italienne/">Changer le joint</a>
+      <a href="/guides/cafetiere-italienne-fuite-vapeur/">Fuite de vapeur</a>
+      <a href="/guides/cafetiere-italienne-cafe-amer-brule/">Café amer ou brûlé</a>
+      <div class="nav-dropdown-separator"></div>
+      <span class="nav-dropdown-label">Pièces et accessoires</span>
+      <a href="/accessoires/">Tous les accessoires</a>
+      <a href="/accessoires/adaptateur-induction-cafetiere-italienne/">Adaptateur induction</a>
+      <a href="/accessoires/joint-cafetiere-italienne/">Joint</a>
+      <a href="/accessoires/filtre-cafetiere-italienne/">Filtre</a>
+      <a href="/accessoires/pieces-detachees-bialetti/">Pièces détachées Bialetti</a>`
+  });
+
+  const navigation=document.createElement('nav');
+  navigation.className='site-nav nav';
+  navigation.id='site-navigation';
+  navigation.setAttribute('aria-label','Navigation principale');
+  navigation.innerHTML=comparisons+brands+capacities+guides+care;
+
+  const cta=document.createElement('a');
+  cta.className='header-cta';
+  cta.href='/#finder';
+  cta.textContent='Trouver ma moka';
+
+  const menu=document.createElement('button');
+  menu.className='menu-btn burger';
+  menu.type='button';
+  menu.setAttribute('aria-label','Ouvrir le menu');
   menu.setAttribute('aria-expanded','false');
+  menu.setAttribute('aria-controls','site-navigation');
+  menu.innerHTML='<span class="burger-lines" aria-hidden="true"><span></span><span></span><span></span></span>';
+
+  row.replaceChildren(brand,navigation,cta,menu);
+  document.querySelector('.quick-nav')?.remove();
+
+  const closeMenu=()=>{
+    document.body.classList.remove('nav-open');
+    navigation.classList.remove('open');
+    menu.setAttribute('aria-expanded','false');
+    menu.setAttribute('aria-label','Ouvrir le menu');
+  };
+  const setMobileNavTop=()=>{
+    document.documentElement.style.setProperty('--mobile-nav-top',`${Math.round(header.getBoundingClientRect().bottom)}px`);
+  };
+
   menu.addEventListener('click',()=>{
-    const open=nav.classList.toggle('open');
-    menu.setAttribute('aria-expanded',String(open));
+    const open=menu.getAttribute('aria-expanded')==='true';
+    if(open){
+      closeMenu();
+      return;
+    }
+    setMobileNavTop();
+    document.body.classList.add('nav-open');
+    navigation.classList.add('open');
+    menu.setAttribute('aria-expanded','true');
+    menu.setAttribute('aria-label','Fermer le menu');
+  });
+
+  navigation.addEventListener('click',event=>{
+    if(event.target.closest('a')&&window.matchMedia('(max-width:900px)').matches)closeMenu();
+  });
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Escape')closeMenu();
+  });
+  window.addEventListener('resize',()=>{
+    if(!window.matchMedia('(max-width:900px)').matches)closeMenu();
+    else if(document.body.classList.contains('nav-open'))setMobileNavTop();
   });
 }
+
+buildNavigation();
 
 const answers={};let step=0;const steps=[...document.querySelectorAll('.finder-step')];const bars=[...document.querySelectorAll('.finder-progress i')];
 function render(){steps.forEach((el,i)=>el.classList.toggle('active',i===step));bars.forEach((el,i)=>el.classList.toggle('on',i<=step))}
