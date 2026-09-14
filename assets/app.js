@@ -11,10 +11,26 @@ loadStylesheet('assets/editorial.css','editorial');
 
 const currentPath=window.location.pathname.replace(/\/+$/,'')||'/';
 const isComparison=currentPath==='/comparatifs'||currentPath.startsWith('/comparatifs/');
+const isBrand=currentPath==='/marques'||currentPath.startsWith('/marques/');
+const isModel=currentPath==='/modeles'||currentPath.startsWith('/modeles/');
+const isGuide=currentPath==='/guides'||currentPath.startsWith('/guides/');
+
 if(isComparison){
   document.documentElement.classList.add('comparison-page');
   if(currentPath==='/comparatifs')document.documentElement.classList.add('comparison-hub-page');
   loadStylesheet('comparisons.css','comparisons');
+}
+if(isBrand){
+  document.documentElement.classList.add('brand-page');
+  if(currentPath==='/marques')document.documentElement.classList.add('brand-hub-page');
+}
+if(isModel){
+  document.documentElement.classList.add('model-page');
+  if(currentPath==='/modeles')document.documentElement.classList.add('model-hub-page');
+}
+if(isGuide){
+  document.documentElement.classList.add('guide-page');
+  if(currentPath==='/guides')document.documentElement.classList.add('guide-hub-page');
 }
 
 const menu=document.querySelector('.menu-btn');
