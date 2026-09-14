@@ -1,0 +1,21 @@
+{
+  "id": "quel-cafe-grains-ou-moulu",
+  "page": "guides/quel-cafe-pour-cafetiere-italienne/index.html",
+  "slot": "editorial",
+  "required": true,
+  "reason": "Visualiser la différence de forme entre café en grains et café moulu dans un contexte moka sans prétendre représenter une origine, une espèce ou une torréfaction précise.",
+  "allow_ai_generation": true,
+  "truth_risk": "LOW",
+  "status": "PENDING",
+  "marker": "<!-- EDITORIAL_IMAGE:quel-cafe-grains-ou-moulu -->",
+  "placement": "replace",
+  "output_path": "assets/generated/quel-cafe-grains-ou-moulu.webp",
+  "prompt": "Documentary editorial close-up in a warm real home kitchen. On a natural wood or stone counter, two small ceramic dishes sit side by side: one contains ordinary whole roasted coffee beans, the other contains medium-fine ground coffee suitable as a generic visual reference for moka preparation. A simple unbranded hand grinder and a generic unbranded stovetop moka coffee maker are softly present in the background. An adult hand lightly pinches a small amount of ground coffee to show texture. Natural side window light, realistic crumbs and imperfections, restrained warm European kitchen palette, shallow depth of field, candid editorial food photography rather than advertising. Do not imply that either bowl represents Arabica, Robusta, a specific roast or a specific brand. No packaging, no labels, no logo, no readable text, no watermark, no staged product-test claim.",
+  "alt": "Café en grains et café moulu disposés près d’une moka générique",
+  "caption": "",
+  "width": 1024,
+  "height": 672,
+  "prompt_upsampling": true,
+  "seed": null,
+  "generated_at": null
+}

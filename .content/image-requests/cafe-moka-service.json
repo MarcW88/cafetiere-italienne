@@ -1,0 +1,21 @@
+{
+  "id": "cafe-moka-service",
+  "page": "cafe-moka/quest-ce-que-le-cafe-moka/index.html",
+  "slot": "editorial",
+  "required": true,
+  "reason": "Contextualiser simplement ce que désigne le café moka sur le site : une boisson préparée avec une moka, sans simuler une preuve produit ou une extraction mesurée.",
+  "allow_ai_generation": true,
+  "truth_risk": "LOW",
+  "status": "PENDING",
+  "marker": "<!-- EDITORIAL_IMAGE:cafe-moka-service -->",
+  "placement": "replace",
+  "output_path": "assets/generated/cafe-moka-service.webp",
+  "prompt": "Documentary breakfast scene in a real home kitchen with a generic unbranded stovetop moka coffee maker resting beside a small ceramic cup freshly filled with dark coffee. Subtle natural steam, a folded linen napkin and a simple teaspoon, realistic metal patina and coffee surface, no espresso machine and no chocolate drink visible. Medium close-up, natural morning side light, restrained warm European home palette, candid editorial photography rather than advertising. The moka must remain generic and unbranded with plausible proportions, no logo, no packaging, no readable text, no watermark, no staged product-test claim and no implication that the scene represents a specific manufacturer or coffee origin.",
+  "alt": "Café servi à côté d’une cafetière moka générique",
+  "caption": "",
+  "width": 1024,
+  "height": 672,
+  "prompt_upsampling": true,
+  "seed": null,
+  "generated_at": null
+}

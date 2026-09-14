@@ -34,6 +34,21 @@ const placements=[
     heading:'<h2>La Moka Express : lavage à la main</h2>',
     marker:'<!-- EDITORIAL_IMAGE:nettoyage-sechage-pieces -->',
   },
+  {
+    page:'guides/quel-cafe-pour-cafetiere-italienne/index.html',
+    heading:'<h2>Grains ou café déjà moulu ?</h2>',
+    marker:'<!-- EDITORIAL_IMAGE:quel-cafe-grains-ou-moulu -->',
+  },
+  {
+    page:'guides/cafetiere-italienne-aluminium-ou-inox/index.html',
+    heading:'<h2>Ce que le matériau change vraiment</h2>',
+    marker:'<!-- EDITORIAL_IMAGE:aluminium-inox-materiaux -->',
+  },
+  {
+    page:'cafe-moka/quest-ce-que-le-cafe-moka/index.html',
+    heading:'<h2>Un café moka est ici le café préparé avec une cafetière moka</h2>',
+    marker:'<!-- EDITORIAL_IMAGE:cafe-moka-service -->',
+  },
 ];
 
 let changed=0;
