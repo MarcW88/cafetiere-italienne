@@ -6,33 +6,36 @@ Audit piloté par `.agents/skills/editorial-image-planner/SKILL.md`. Une image g
 
 ## Couverture actuelle
 
-49 pages HTML dans le site. 9 pages disposent déjà d'une image éditoriale BFL générée et persistante après rebuild :
+49 pages HTML dans le site. 12 pages disposent maintenant d'une image éditoriale BFL générée et persistante après rebuild :
 
+- `/` — hero photographique moka en cuisine
 - `/guides/comment-utiliser-cafetiere-italienne/` — remplissage du filtre sans tassage
 - `/guides/premiere-utilisation-cafetiere-italienne/` — rinçage initial
 - `/guides/dosage-cafe-cafetiere-italienne/` — pesée du panier
 - `/guides/mouture-cafetiere-italienne/` — réglage du moulin
 - `/guides/nettoyer-cafetiere-italienne/` — séchage des pièces
-- `/cafe-moka/comment-preparer-un-cafe-moka/` — chauffe modérée
 - `/guides/quel-cafe-pour-cafetiere-italienne/` — grains vs café moulu
 - `/guides/cafetiere-italienne-aluminium-ou-inox/` — finitions aluminium et inox génériques
+- `/guides/detartrer-cafetiere-italienne/` — dépôts minéraux légers et contexte de rinçage
+- `/guides/cafetiere-italienne-cafe-amer-brule/` — chauffe maîtrisée
+- `/cafe-moka/comment-preparer-un-cafe-moka/` — chauffe modérée
 - `/cafe-moka/quest-ce-que-le-cafe-moka/` — café servi depuis une moka générique
 
-## Deuxième vague
+## Deuxième vague — terminée
 
-Trois besoins supplémentaires sont suffisamment utiles et à faible risque pour passer par BFL :
+Trois adaptations ont été ajoutées et générées uniquement via le workflow BFL :
 
-- `/` — hero photographique identitaire ; le média généré remplace visuellement l'ancienne illustration CSS lorsque disponible
+- `/` — le média BFL remplace visuellement l'ancienne illustration CSS du hero lorsqu'il est disponible ; l'illustration CSS reste un fallback avant génération
 - `/guides/detartrer-cafetiere-italienne/` — dépôts minéraux légers et contexte de rinçage, sans dosage précis ni géométrie fabricant
 - `/guides/cafetiere-italienne-cafe-amer-brule/` — petite flamme maîtrisée et retrait de la moka, sans simuler un test
 
-`/guides/comment-choisir-cafetiere-italienne/` reste sans génération : les critères, tableaux et liens accomplissent déjà la tâche, et un visuel supplémentaire serait surtout décoratif.
+`/guides/comment-choisir-cafetiere-italienne/` reste volontairement sans génération : les critères, tableaux et liens accomplissent déjà la tâche, et un visuel supplémentaire serait surtout décoratif.
 
 ## Décisions par famille
 
 ### Homepage
 
-Deuxième vague BFL : scène générique de moka en cuisine, conçue pour remplacer l'illustration CSS du hero une fois générée. Aucune marque ou référence produit identifiable.
+Couverte. Le hero utilise désormais une scène générique de moka en cuisine, sans marque ou référence produit identifiable.
 
 ### Marques
 
@@ -58,9 +61,7 @@ Le système visuel de mesure remplit déjà la fonction de compréhension. Pas d
 
 ### Guides
 
-Couverts : utilisation, première utilisation, dosage, mouture, nettoyage, choix du café, aluminium/inox.
-
-Deuxième vague : détartrage et café amer/brûlé.
+Couverts : utilisation, première utilisation, dosage, mouture, nettoyage, choix du café, aluminium/inox, détartrage, café amer/brûlé.
 
 À laisser sans génération : `comment-choisir` et `moka-vs-espresso` — le texte et les structures comparatives remplissent déjà la fonction.
 
@@ -84,4 +85,4 @@ Deuxième vague : détartrage et café amer/brûlé.
 
 ## Principe pour la suite
 
-Après chaque lot : génération via BFL, réinsertion par le build, check des liens, revue Playwright desktop/mobile. Aucun visuel produit identifiable n'est généré par IA. Après cette deuxième vague, ne pas ouvrir de nouveau lot sans besoin éditorial explicite.
+Le niveau de couverture est maintenant considéré comme suffisant pour le site actuel. Ne pas ouvrir de nouveau lot BFL par défaut. Ajouter une nouvelle image seulement lorsqu'une nouvelle page ou un nouveau besoin éditorial explicite le justifie. Aucun visuel produit identifiable n'est généré par IA.
