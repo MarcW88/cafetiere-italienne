@@ -4,7 +4,7 @@
 - Date: 14 septembre 2026
 - Mode: `AUDIT` → `DEEP_REWRITE` → strict skill-by-skill review
 - Décision d’origine: `DEEP_REWRITE`
-- État après correction: `PUBLISH_REVIEW_IN_PROGRESS`
+- État après correction: `PASS — READY_FOR_HUMAN_VALIDATION`
 - Confiance éditoriale: élevée
 - Robots: `noindex,follow` conservé
 - Source de vérité: `scripts/guide-content-materials-care.mjs`
@@ -124,7 +124,7 @@ Rôle distinct:
 
 - aluminium/inox explique le matériau et ses limites comme critère ;
 - comment-choisir séquence tous les critères d’achat ;
-- l’accessoire doit détailler le produit / usage adaptateur ;
+- l’accessoire détaille le produit / usage adaptateur ;
 - le comparatif sélectionne des modèles ;
 - cette page fournit la méthode de compatibilité et de diagnostic.
 
@@ -143,15 +143,22 @@ La structure n’est pas un clone de la page aluminium/inox : elle est organisé
 
 ## 8. Technique
 
-Attendus après CI:
+Résultat confirmé:
 
 - canonical: `https://cafetiere-italienne.be/guides/cafetiere-italienne-induction-compatibilite/` ;
 - robots: `noindex,follow` ;
-- HTML généré depuis `scripts/guide-content-materials-care.mjs` ;
-- liens internes valides ;
-- sources externes HTTPS ;
-- reproductibilité du HTML ;
+- HTML régénéré depuis `scripts/guide-content-materials-care.mjs` ;
+- liens internes contrôlés ;
+- blockers Guide machine contrôlés ;
+- reproductibilité du HTML généré contrôlée ;
+- rendu visuel Guides contrôlé ;
 - aucun nouvel asset BFL.
+
+Gates exécutés sur cette version:
+
+- `Regenerate and quality-check Guide cluster` #33 — success ;
+- `Validate Guide workflow` #34 — success ;
+- `Visual design review` #123, job `visual-pages (guides)` — success.
 
 ## 9. Trace skill par skill — parité `bloc-notes-numerique`
 
@@ -166,18 +173,18 @@ Attendus après CI:
 | `affiliate-value` | PASS | la page reste utile sans lien marchand et permet une décision autonome |
 | `content-brief-authoring` | PASS | brief enrichi avec tâche, thèse, preuves, scope, risques, frontières et maillage |
 | `content-and-copy` | PASS | correction portée dans la source JS |
-| `fact-check` post-rédaction | PASS éditorial | nouveaux claims reliés à Bialetti, Alessi et Siemens ; CI à confirmer |
-| `internal-linking-audit` | PASS éditorial | liens vers matériau, adaptateur et comparatif placés selon la prochaine question logique |
+| `fact-check` post-rédaction | PASS | nouveaux claims reliés à Bialetti, Alessi et Siemens ; rendu validé |
+| `internal-linking-audit` | PASS | liens vers matériau, adaptateur et comparatif placés selon la prochaine question logique et contrôlés par CI |
 | `humanizer` | PASS | parcours de diagnostic naturel, sans méta-discours ni remplissage |
 | `general-writing` | PASS | formulation concrète, nuances conservées |
 | `anti-ai-slop` | PASS | pas de symétrie artificielle, pas de FAQ générique, structure fonctionnelle |
 | comparaison cluster | PASS | rôle distinct des guides choix/matériau, accessoire et comparatif |
-| `seo-onpage` | PASS éditorial | title/meta/H1/intention cohérents ; rendu à confirmer |
-| `seo-technical` | PENDING CI | canonical, robots, liens, HTML et reproductibilité à confirmer |
+| `seo-onpage` | PASS | title/meta/H1/intention cohérents et HTML généré validé |
+| `seo-technical` | PASS | canonical, robots, liens, blockers et reproductibilité validés |
 | `seo-best-practices` | PASS / applicable limité | aucune règle additionnelle justifiant une modification |
 | `seo-drift` | N/A | aucune baseline exploitable avant/après |
 | `editorial-image-planner` | PASS — NO_NEW_IMAGE | aucun visuel supplémentaire requis pour cette intention décisionnelle |
-| `editorial-qa` | PASS éditorial | intention, valeur, factualité, naturel et frontières validés ; machine/visuel à confirmer |
+| `editorial-qa` | PASS | intention, valeur, factualité, naturel, frontières, machine gates et rendu Guides validés |
 
 ## 10. Blockers et corrections requises
 
@@ -190,17 +197,19 @@ Blockers éditoriaux précédents corrigés:
 - maillage insuffisant vers matériau et accessoire → corrigé ;
 - brief trop court pour tracer la preuve → corrigé.
 
-Blocker restant avant verdict final:
-
-- confirmer les gates GitHub réels de régénération, liens, blockers, reproductibilité et rendu avant d’inscrire un PASS technique.
+Blocker restant: aucun blocker éditorial, machine ou visuel identifié dans cette passe.
 
 ## 11. Verdict et prochaine étape
 
-État actuel: `PUBLISH_REVIEW_IN_PROGRESS`.
+`PASS — READY_FOR_HUMAN_VALIDATION`
 
-Verdict final à inscrire uniquement après confirmation des gates :
+La page atteint le niveau de profondeur retenu pour les Guides, avec une trace skill par skill comparable à `bloc-notes-numerique`.
 
-- `PASS — READY_FOR_HUMAN_VALIDATION`, ou
-- `FAIL — KEEP_NOINDEX`.
+Deux gates restent volontairement `N/A` :
 
-Ne pas indexer automatiquement.
+- `evidence-based-reviews`, car aucun jugement expérientiel n’est revendiqué ;
+- `seo-drift`, car aucun baseline avant/après exploitable n’est disponible.
+
+Le `seo-keyword` reste limité à une validation qualitative faute de données GSC / volume propres au site.
+
+Ne pas indexer automatiquement. Conserver `noindex,follow` jusqu’à validation humaine explicite.
