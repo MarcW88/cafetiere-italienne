@@ -12,7 +12,7 @@
   "output_path": "assets/generated/detartrer-depots-mineraux.webp",
   "prompt": "Photorealistic editorial maintenance close-up beside a kitchen sink. A generic unbranded stovetop moka coffee maker is opened, with the lower water chamber visible from a safe three-quarter angle. Show only light realistic pale mineral water spots and a faint chalky ring on the inner metal surface, not corrosion, damage or a blocked valve. Nearby sit a clear water carafe and a small plain glass bowl containing generic white citric-acid-like crystals, without a measuring spoon and without implying an exact dosage. An adult hand rinses the chamber with clear water. Natural daylight, believable brushed metal and water droplets, ordinary home-kitchen imperfections, documentary maintenance photography rather than advertising. No logo, no brand-specific internal geometry, no labels, no readable text, no packaging, no watermark, no harsh chemical imagery and no claim that the scene depicts a specific manufacturer procedure.",
   "alt": "Dépôts minéraux légers visibles dans une chambre d’eau de moka générique",
-  "caption": "",
+  "caption": "Illustration éditoriale de dépôts minéraux dans une moka générique — ce visuel ne représente ni un test produit ni une procédure fabricant.",
   "width": 1024,
   "height": 672,
   "prompt_upsampling": true,
