@@ -3,7 +3,9 @@ name: Visual design review
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["Generate approved editorial images with BFL"]
+    workflows:
+      - "Generate approved editorial images with BFL"
+      - "Regenerate and quality-check Guide cluster"
     types: [completed]
   push:
     branches: [main]
@@ -75,6 +77,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -126,6 +130,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Set up Node
         uses: actions/setup-node@v4
