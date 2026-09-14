@@ -67,14 +67,7 @@ function navItem({href,label,active,content}){
   return `<div class="nav-item"><a class="nav-link" href="${href}"${active?' aria-current="page"':''}>${label}${chevron()}</a><div class="nav-dropdown">${content}</div></div>`;
 }
 
-function buildNavigation(){
-  const header=document.querySelector('.site-header');
-  const row=header?.querySelector('.header-row');
-  if(!header||!row)return;
-
-  const brand=row.querySelector('.brand');
-  if(!brand)return;
-
+function createNavigationMarkup(){
   const comparisons=navItem({
     href:'/comparatifs/',label:'Comparatifs',active:isComparison,
     content:`<span class="nav-dropdown-label">Sélections</span>
@@ -148,26 +141,44 @@ function buildNavigation(){
       <a href="/accessoires/pieces-detachees-bialetti/">Pièces détachées Bialetti</a>`
   });
 
-  const navigation=document.createElement('nav');
-  navigation.className='site-nav nav';
-  navigation.id='site-navigation';
-  navigation.setAttribute('aria-label','Navigation principale');
-  navigation.innerHTML=comparisons+brands+capacities+guides+care;
+  return comparisons+brands+capacities+guides+care;
+}
 
-  const cta=document.createElement('a');
-  cta.className='header-cta';
-  cta.href='/#finder';
-  cta.textContent='Trouver ma moka';
+function setupNavigation(){
+  const header=document.querySelector('.site-header');
+  const row=header?.querySelector('.header-row');
+  if(!header||!row)return;
 
-  const menu=document.createElement('button');
-  menu.className='menu-btn burger';
-  menu.type='button';
-  menu.setAttribute('aria-label','Ouvrir le menu');
-  menu.setAttribute('aria-expanded','false');
-  menu.setAttribute('aria-controls','site-navigation');
-  menu.innerHTML='<span class="burger-lines" aria-hidden="true"><span></span><span></span><span></span></span>';
+  let navigation=row.querySelector('#site-navigation.site-nav');
+  let cta=row.querySelector('.header-cta');
+  let menu=row.querySelector('.menu-btn');
 
-  row.replaceChildren(brand,navigation,cta,menu);
+  if(!navigation||!cta||!menu){
+    const brand=row.querySelector('.brand');
+    if(!brand)return;
+
+    navigation=document.createElement('nav');
+    navigation.className='site-nav nav';
+    navigation.id='site-navigation';
+    navigation.setAttribute('aria-label','Navigation principale');
+    navigation.innerHTML=createNavigationMarkup();
+
+    cta=document.createElement('a');
+    cta.className='header-cta';
+    cta.href='/#finder';
+    cta.textContent='Trouver ma moka';
+
+    menu=document.createElement('button');
+    menu.className='menu-btn burger';
+    menu.type='button';
+    menu.setAttribute('aria-label','Ouvrir le menu');
+    menu.setAttribute('aria-expanded','false');
+    menu.setAttribute('aria-controls','site-navigation');
+    menu.innerHTML='<span class="burger-lines" aria-hidden="true"><span></span><span></span><span></span></span>';
+
+    row.replaceChildren(brand,navigation,cta,menu);
+  }
+
   document.querySelector('.quick-nav')?.remove();
 
   const closeMenu=()=>{
@@ -180,6 +191,8 @@ function buildNavigation(){
     document.documentElement.style.setProperty('--mobile-nav-top',`${Math.round(header.getBoundingClientRect().bottom)}px`);
   };
 
+  menu.setAttribute('aria-expanded','false');
+  menu.setAttribute('aria-controls','site-navigation');
   menu.addEventListener('click',()=>{
     const open=menu.getAttribute('aria-expanded')==='true';
     if(open){
@@ -205,7 +218,7 @@ function buildNavigation(){
   });
 }
 
-buildNavigation();
+setupNavigation();
 
 const answers={};let step=0;const steps=[...document.querySelectorAll('.finder-step')];const bars=[...document.querySelectorAll('.finder-progress i')];
 function render(){steps.forEach((el,i)=>el.classList.toggle('active',i===step));bars.forEach((el,i)=>el.classList.toggle('on',i<=step))}
