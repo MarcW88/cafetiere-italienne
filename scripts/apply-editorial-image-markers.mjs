@@ -32,7 +32,7 @@ const placements=[
   },
   {
     page:'guides/mouture-cafetiere-italienne/index.html',
-    heading:'<h2>Si vous utilisez un moulin réglable</h2>',
+    heading:'<h2>Comment régler un moulin sans tout changer à la fois</h2>',
     marker:'<!-- EDITORIAL_IMAGE:mouture-reglage-moulin -->',
   },
   {
