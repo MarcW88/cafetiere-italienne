@@ -1,7 +1,7 @@
 export const guideBrewBasicsPages = {
   'dosage-cafe-cafetiere-italienne': {
     title: 'Dosage pour cafetière italienne : combien de café et d’eau ?',
-    description: 'Comment doser une cafetière italienne sans inventer un ratio universel : niveau d’eau, remplissage du filtre, pesée et ajustements utiles.',
+    description: 'Dosage moka : eau sous la soupape, panier rempli sans tasser, pourquoi éviter les ratios universels et comment mémoriser sa propre dose en grammes.',
     canonical: '/guides/dosage-cafe-cafetiere-italienne/',
     body: `
 <section class="page-hero guide-hero">
@@ -9,50 +9,77 @@ export const guideBrewBasicsPages = {
     <div class="breadcrumbs"><a href="/">Accueil</a> · <a href="/guides/">Guides</a> · Dosage café</div>
     <span class="eyebrow">Guide pratique</span>
     <h1>Dosage pour cafetière italienne : combien de café et d’eau ?</h1>
-    <p>Avec une moka, le dosage dépend d’abord de la taille de la cafetière. La méthode la plus fiable n’est pas de chercher un ratio unique en grammes, mais de respecter les repères physiques du modèle : eau sous la soupape, filtre rempli sans tasser, puis éventuellement peser cette dose pour la reproduire.</p>
+    <p>Avec une moka, le premier dosage vient du modèle lui-même : eau sous la soupape, panier rempli de café sans tassage. Bialetti recommande même de préparer ses cafetières stovetop pleines plutôt que de sous-remplir eau ou café. Si vous voulez un chiffre en grammes, pesez ensuite cette configuration sur votre propre moka au lieu d’appliquer un ratio universel.</p>
   </div>
 </section>
 <div class="container template-grid guide-layout">
   <article class="guide-article content-main">
     <section class="guide-answer">
       <span class="eyebrow">Réponse courte</span>
-      <h2>Le bon dosage en trois repères</h2>
+      <h2>Le bon dosage en quatre repères</h2>
       <ul class="guide-list">
-        <li><strong>Eau :</strong> remplissez la chaudière jusqu’au niveau prévu par le fabricant, généralement juste sous la soupape de sécurité.</li>
-        <li><strong>Café :</strong> remplissez le filtre-entonoir de café moulu de façon homogène, sans le comprimer.</li>
-        <li><strong>Répétabilité :</strong> si vous voulez un chiffre en grammes, pesez la quantité qui remplit correctement <em>votre</em> filtre avec <em>votre</em> café et gardez cette valeur comme repère personnel.</li>
+        <li><strong>Eau :</strong> suivez le niveau prévu par le fabricant ; sur la Moka Express, Bialetti demande de rester juste sous la soupape de sécurité.</li>
+        <li><strong>Café :</strong> remplissez le filtre-entonoir sans compacter la mouture. Alessi décrit de son côté un filtre rempli puis nivelé doucement jusqu’au bord.</li>
+        <li><strong>Taille :</strong> ne cherchez pas à faire une demi-moka avec un grand modèle sans consigne explicite : Bialetti NZ indique que sous-remplir eau ou café affecte la pression et la qualité de la préparation.</li>
+        <li><strong>Grammes :</strong> si vous voulez reproduire exactement votre recette, pesez la quantité qui remplit correctement <em>votre</em> panier avec <em>votre</em> café et gardez cette valeur comme repère personnel.</li>
       </ul>
     </section>
 
     <section>
-      <h2>Pourquoi il n’existe pas un grammage universel par “tasse”</h2>
-      <p>Une “tasse” moka n’est pas une unité de dosage du café moulu. Elle décrit une taille de cafetière et un volume de boisson approximatif. Le panier, lui, a un volume déterminé par le modèle. Deux cafés différents peuvent aussi occuper un volume légèrement différent à poids égal selon leur densité et leur mouture.</p>
-      <p>Les instructions Bialetti ne donnent donc pas un nombre universel de grammes par tasse : elles demandent de remplir l’entonnoir de café moulu sans appuyer. C’est ce repère physique qui doit passer avant un chiffre générique trouvé ailleurs.</p>
-      <div class="guide-callout"><strong>À retenir :</strong> un chiffre en grammes n’est utile qu’après avoir vérifié qu’il correspond réellement au panier de votre cafetière.</div>
+      <h2>Pourquoi “3 tasses” ou “6 tasses” ne donne pas un grammage universel</h2>
+      <p>Le nombre de « tasses » est d’abord un <strong>libellé de taille de cafetière</strong>, pas une unité de café moulu. La preuve se voit déjà dans les propres données Bialetti : la fiche Moka Express indique environ 130 ml pour la 3 tasses et 250 ml pour la 6 tasses. Ces volumes sont approximatifs et la marque précise que le volume réellement obtenu dépend notamment de l’eau et du café utilisés.</p>
+      <p>Il serait donc trompeur de transformer « 1 tasse » en un nombre fixe de grammes applicable à toutes les moka, puis de multiplier. Le panier a une géométrie propre à la variante, et le fabricant donne avant tout un <strong>repère de remplissage</strong>.</p>
+      <div class="guide-callout"><strong>À retenir :</strong> les tableaux « x grammes par tasse » peuvent donner un ordre de grandeur pour un appareil précis, mais ils ne remplacent pas la notice ni le volume réel du panier.</div>
+    </section>
+
+    <section>
+      <h2>Ce que les fabricants demandent réellement</h2>
+      <div class="table-wrap"><table class="guide-table"><thead><tr><th>Source</th><th>Eau</th><th>Café</th><th>Ce que cela implique</th></tr></thead><tbody><tr><td>Bialetti Moka Express</td><td>Juste sous la soupape</td><td>Entonnoir rempli sans appuyer ni compacter</td><td>Le repère est physique, pas un ratio générique</td></tr><tr><td>Bialetti NZ — gamme stovetop</td><td>Préparation pleine recommandée</td><td>Préparation pleine recommandée</td><td>Le sous-remplissage n’est pas présenté comme la bonne méthode pour réduire la quantité</td></tr><tr><td>Alessi — moka</td><td>Eau sous la soupape</td><td>Café dans le filtre, nivelé doucement jusqu’au bord</td><td>La logique de remplissage du panier n’est pas propre à Bialetti</td></tr></tbody></table></div>
+      <p>Les formulations diffèrent selon la marque et le modèle. C’est précisément pourquoi cette page ne transforme pas ces repères en un ratio universel du type 1:7 ou 1:10.</p>
     </section>
 
     <section>
       <h2>Comment doser votre moka en pratique</h2>
       <ol class="decision-list">
-        <li><strong>Remplissez la chaudière d’eau</strong> jusqu’au repère prévu, sans couvrir la soupape de sécurité.</li>
-        <li><strong>Placez l’entonnoir</strong> puis ajoutez le café moulu jusqu’à remplir le panier de manière régulière.</li>
-        <li><strong>N’appuyez pas sur le café.</strong> Bialetti demande explicitement de ne pas compacter la mouture dans la Moka Express.</li>
-        <li><strong>Si vous voulez reproduire exactement votre préparation,</strong> pesez ensuite la quantité de café utilisée et notez-la pour ce modèle, cette mouture et ce café.</li>
+        <li><strong>Remplissez la chaudière d’eau</strong> jusqu’au niveau prévu par la notice, sans couvrir la soupape de sécurité lorsque le fabricant demande de rester dessous.</li>
+        <li><strong>Placez le filtre-entonoir</strong> et remplissez-le de café moulu de manière régulière.</li>
+        <li><strong>N’appuyez pas sur le café.</strong> Bialetti demande explicitement de ne pas compacter la mouture ; Alessi parle de la niveler doucement.</li>
+        <li><strong>Nettoyez le bord si nécessaire</strong> avant d’assembler la cafetière, afin de ne pas laisser volontairement du café sur le plan de joint.</li>
+        <li><strong>Utilisez la cafetière à sa configuration nominale</strong> lorsque la notice le demande, puis choisissez une autre taille si votre volume habituel est nettement inférieur.</li>
       </ol>
-      <p>Cette méthode sépare deux choses : le fonctionnement prévu de la cafetière et votre besoin de répétabilité. La première est imposée par la géométrie de la moka ; la seconde peut être obtenue avec une balance.</p>
+      <p>Cette méthode sépare le fonctionnement prévu de la cafetière de votre envie d’obtenir une recette chiffrée. Le premier vient de la notice ; la seconde peut être construite avec une balance.</p>
+    </section>
+
+    <section>
+      <h2>Comment créer votre propre repère en grammes</h2>
+      <p>Une balance est utile si votre objectif est la répétabilité, pas pour remplacer les repères de la moka par une formule extérieure.</p>
+      <ol class="decision-list">
+        <li>Placez le panier <strong>sec et vide</strong> sur la balance puis faites la tare.</li>
+        <li>Remplissez-le comme prévu pour votre moka, sans tasser.</li>
+        <li>Nivelez seulement si la notice ou la méthode du fabricant le prévoit.</li>
+        <li>Notez la masse obtenue avec le <strong>modèle, la taille, le café et la mouture</strong>.</li>
+        <li>Si vous changez fortement de café ou de mouture, vérifiez à nouveau que le même chiffre correspond toujours au bon remplissage du panier.</li>
+      </ol>
+      <p>Vous obtenez ainsi une dose réellement utile : non pas « la dose d’une moka 6 tasses », mais <strong>la dose de votre moka avec votre configuration</strong>.</p>
     </section>
 
     <section>
       <h2>Faut-il forcément utiliser une balance ?</h2>
-      <p>Non. La moka a justement des repères physiques simples : niveau d’eau et volume du panier. Une balance devient intéressante si vous changez souvent de café, si vous cherchez à reproduire une préparation précise ou si vous voulez comprendre pourquoi deux cafés remplissent différemment le filtre.</p>
-      <p>Dans ce cas, ne partez pas d’un ratio arbitraire. Commencez par remplir correctement la cafetière, pesez ce que cela représente, puis utilisez ce chiffre comme <strong>baseline de votre propre moka</strong>.</p>
+      <p>Non. Pour un usage quotidien, les repères physiques suffisent souvent : niveau d’eau et remplissage du panier. La balance devient intéressante si vous changez de café, si vous voulez comparer deux moutures ou si vous cherchez à reproduire exactement une préparation réussie.</p>
+      <p>Le visuel de cette page illustre précisément cet usage : mémoriser une dose personnelle. Il ne montre volontairement aucun chiffre lisible, car afficher « 18 g », « 30 g » ou une autre valeur comme référence universelle serait trompeur.</p>
     </section>
 
     <section>
-      <h2>Peut-on mettre moins de café pour obtenir une boisson plus légère ?</h2>
-      <p>Évitez de traiter la moka comme un porte-filtre d’espresso où l’on modifierait librement la dose et le tassage. Les instructions du fabricant sont conçues autour d’un panier rempli sans compression.</p>
-      <p>Si vous trouvez le résultat trop intense, les leviers les plus propres sont d’abord le choix du café, la mouture, la chauffe et éventuellement la dilution dans la tasse. Si vous préparez régulièrement un volume plus petit, une moka de taille inférieure est souvent une solution plus cohérente que d’utiliser un grand modèle très loin de sa configuration normale.</p>
+      <h2>Peut-on mettre moins de café ou moins d’eau ?</h2>
+      <p>Pour les cafetières stovetop Bialetti décrites sur le site officiel néo-zélandais, la réponse est claire : la marque recommande de les préparer <strong>pleines</strong> et précise que sous-remplir l’eau ou le café affecte la pression et la qualité de la préparation. Cette formulation appartient à Bialetti ; pour une autre marque, vérifiez la notice du modèle.</p>
+      <p>Si vous préparez régulièrement un volume plus petit, une moka de capacité inférieure est donc plus cohérente que de détourner un grand modèle de sa configuration prévue. C’est aussi la raison pour laquelle le choix de taille est une décision de dosage, pas seulement une décision d’encombrement.</p>
       <p><a class="text-link" href="/capacites/">Choisir une taille adaptée à votre volume réel →</a></p>
+    </section>
+
+    <section>
+      <h2>Et si vous voulez simplement un café moins intense ?</h2>
+      <p>Réduire arbitrairement la quantité dans le panier n’est pas le seul levier, ni celui que Bialetti recommande pour ses modèles vérifiés. Vous pouvez d’abord agir sur le café choisi, la mouture et la chauffe, ou diluer la boisson <em>après</em> extraction si vous souhaitez une tasse plus longue.</p>
+      <p>Cette distinction évite de confondre deux objectifs : <strong>faire fonctionner la moka dans sa configuration prévue</strong> et <strong>adapter le goût ou le volume servi dans la tasse</strong>.</p>
     </section>
 
     <section>
@@ -60,29 +87,30 @@ export const guideBrewBasicsPages = {
       <div class="guide-split">
         <div>
           <h3>La mouture</h3>
-          <p>À dose identique, une mouture plus fine ou plus grossière modifie la résistance au passage de l’eau et le comportement de l’extraction.</p>
+          <p>À remplissage identique, une mouture plus fine ou plus grossière modifie la résistance rencontrée par l’eau. Ne changez pas simultanément dose et mouture si vous cherchez à comprendre le résultat.</p>
           <p><a class="text-link" href="/guides/mouture-cafetiere-italienne/">Voir la mouture recommandée →</a></p>
         </div>
         <div>
           <h3>La chauffe</h3>
-          <p>Bialetti recommande un feu doux à moyen et de retirer la cafetière dès que la préparation est terminée. Une chauffe trop forte peut donc donner un mauvais résultat même si la dose est correcte.</p>
+          <p>Bialetti recommande un feu doux à moyen et de retirer la cafetière dès que la préparation est terminée. Une chauffe trop forte peut donc donner un mauvais résultat même avec un remplissage correct.</p>
           <p><a class="text-link" href="/guides/comment-utiliser-cafetiere-italienne/">Revoir la méthode complète →</a></p>
         </div>
       </div>
-      <p>Le troisième levier est le café lui-même : origine, composition, torréfaction et fraîcheur changent le goût sans modifier le volume du panier.</p>
+      <p>Le troisième levier est le café lui-même : composition et torréfaction peuvent modifier votre perception d’intensité sans que vous ayez besoin de sous-remplir le panier.</p>
       <p><a class="text-link" href="/guides/quel-cafe-pour-cafetiere-italienne/">Choisir un café pour moka →</a></p>
     </section>
 
     <section class="guide-sources">
       <h2 id="sources">Sources vérifiées</h2>
       <ul>
-        <li><a href="https://bialetti-cookware.zendesk.com/hc/fr/articles/5416235346322-Comment-utiliser-la-Moka-Express">Bialetti — Comment utiliser la Moka Express ?</a></li>
-        <li><a href="https://www.bialetti.co.nz/products/moka-express">Bialetti — Moka Express, capacités et conseils d’utilisation</a></li>
+        <li><a href="https://bialetti-cookware.zendesk.com/hc/fr/articles/5416235346322-Comment-utiliser-la-Moka-Express">Bialetti Europe — Comment utiliser la Moka Express ?</a></li>
+        <li><a href="https://www.bialetti.co.nz/products/moka-express">Bialetti NZ — Moka Express, volumes, remplissage et recommandation de préparation pleine</a></li>
+        <li><a href="https://uk.alessi.com/blogs/news/design-icons-for-the-perfect-coffee-ritual">Alessi — rituel moka : eau sous la soupape et filtre nivelé</a></li>
       </ul>
-      <p class="source-date">Dernière vérification des sources : 13 septembre 2026.</p>
+      <p class="source-date">Dernière vérification des sources : 14 septembre 2026.</p>
     </section>
   </article>
-  <aside><div class="sidebar-card guide-sidebar"><span class="eyebrow">Repère</span><h3>Pas de ratio magique</h3><p>Respectez d’abord le niveau d’eau et le volume du filtre de votre moka. La balance sert ensuite à reproduire ce dosage, pas à remplacer les repères du modèle.</p></div></aside>
+  <aside><div class="sidebar-card guide-sidebar"><span class="eyebrow">Repère</span><h3>Pas de ratio magique</h3><p>Respectez d’abord le niveau d’eau et le remplissage du filtre prévus par votre moka. La balance sert ensuite à mémoriser cette configuration, pas à imposer un chiffre universel.</p></div></aside>
 </div>`
   },
 
