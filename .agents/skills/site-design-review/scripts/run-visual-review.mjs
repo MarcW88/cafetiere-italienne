@@ -21,52 +21,81 @@ const COMPARISON_ROUTES = [
   '/comparatifs/petite-cafetiere-italienne/',
 ];
 
-const USAGE_ROUTES = [
-  '/usages/',
-  '/usages/cafe-quotidien/',
-  '/usages/cafe-pour-deux/',
-  '/usages/cafe-en-famille/',
-  '/usages/cafe-sur-induction/',
-  '/usages/camping-voyage/',
-  '/usages/remplacer-machine-capsules/',
+const MODEL_ROUTES = [
+  '/modeles/',
+  '/modeles/bialetti-moka-express/',
+  '/modeles/bialetti-venus/',
+  '/modeles/bialetti-moka-induction/',
+  '/modeles/alessi-9090/',
+];
+
+const CAPACITY_ROUTES = [
+  '/capacites/',
+  '/capacites/cafetiere-italienne-2-tasses/',
+  '/capacites/cafetiere-italienne-4-tasses/',
+  '/capacites/cafetiere-italienne-6-tasses/',
+  '/capacites/cafetiere-italienne-10-tasses/',
+  '/capacites/cafetiere-italienne-12-tasses/',
 ];
 
 const GUIDE_ROUTES = [
   '/guides/',
   '/guides/comment-choisir-cafetiere-italienne/',
   '/guides/comment-utiliser-cafetiere-italienne/',
+  '/guides/premiere-utilisation-cafetiere-italienne/',
+  '/guides/dosage-cafe-cafetiere-italienne/',
+  '/guides/mouture-cafetiere-italienne/',
+  '/guides/quel-cafe-pour-cafetiere-italienne/',
   '/guides/cafetiere-italienne-aluminium-ou-inox/',
   '/guides/cafetiere-italienne-induction-compatibilite/',
-  '/guides/cafetiere-italienne-vs-espresso/',
-  '/guides/mouture-cafetiere-italienne/',
-  '/guides/dosage-cafe-cafetiere-italienne/',
   '/guides/nettoyer-cafetiere-italienne/',
   '/guides/detartrer-cafetiere-italienne/',
-  '/guides/changer-joint-cafetiere-italienne/',
   '/guides/cafetiere-italienne-cafe-amer-brule/',
   '/guides/cafetiere-italienne-fuite-vapeur/',
+  '/guides/changer-joint-cafetiere-italienne/',
+  '/guides/cafetiere-italienne-vs-espresso/',
 ];
 
-const DEAL_ROUTES = [
-  '/bons-plans/',
-  '/bons-plans/cafetiere-italienne/',
-  '/bons-plans/bialetti/',
-  '/bons-plans/alessi/',
-  '/bons-plans/cafetiere-italienne-occasion/',
-  '/bons-plans/black-friday/',
+const ACCESSORY_ROUTES = [
+  '/accessoires/',
+  '/accessoires/adaptateur-induction-cafetiere-italienne/',
+  '/accessoires/joint-cafetiere-italienne/',
+  '/accessoires/filtre-cafetiere-italienne/',
+  '/accessoires/pieces-detachees-bialetti/',
 ];
 
-const SCOPES = {
+const CAFE_MOKA_ROUTES = [
+  '/cafe-moka/',
+  '/cafe-moka/quest-ce-que-le-cafe-moka/',
+  '/cafe-moka/comment-preparer-un-cafe-moka/',
+];
+
+const TRUST_ROUTES = [
+  '/a-propos/',
+  '/notre-methode/',
+  '/affiliation/',
+  '/contact/',
+];
+
+const BASE_SCOPES = {
   brands: BRAND_ROUTES,
   comparisons: COMPARISON_ROUTES,
-  usages: USAGE_ROUTES,
+  models: MODEL_ROUTES,
+  capacities: CAPACITY_ROUTES,
   guides: GUIDE_ROUTES,
-  deals: DEAL_ROUTES
+  accessories: ACCESSORY_ROUTES,
+  'cafe-moka': CAFE_MOKA_ROUTES,
+  trust: TRUST_ROUTES,
+};
+
+const SCOPES = {
+  ...BASE_SCOPES,
+  all: [...new Set(Object.values(BASE_SCOPES).flat())],
 };
 
 const VIEWPORTS = [
   { name: 'desktop', width: 1440, height: 1000 },
-  { name: 'mobile', width: 390, height: 844 }
+  { name: 'mobile', width: 390, height: 844 },
 ];
 
 function parseArgs(argv) {
@@ -75,7 +104,7 @@ function parseArgs(argv) {
     output: '.artifacts/design-review',
     port: 4173,
     routes: [],
-    scope: ''
+    scope: '',
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -94,7 +123,7 @@ function parseArgs(argv) {
     throw new Error(`Scope inconnu : ${options.scope}. Scopes disponibles : ${Object.keys(SCOPES).join(', ')}`);
   }
   if (!options.routes.length && options.scope) options.routes = SCOPES[options.scope];
-  if (!options.routes.length) options.routes = ['/marques/'];
+  if (!options.routes.length) options.routes = ['/'];
   return options;
 }
 
@@ -115,7 +144,7 @@ async function waitForServer(url) {
 
 const options = parseArgs(process.argv.slice(2));
 if (options.help) {
-  console.log('Usage: run-visual-review.mjs [--scope brands|comparisons|usages|guides|deals] [--route /chemin/] [--base-url URL] [--output dossier] [--port 4173]');
+  console.log(`Usage: run-visual-review.mjs [--scope ${Object.keys(SCOPES).join('|')}] [--route /chemin/] [--base-url URL] [--output dossier] [--port 4173]`);
   process.exit(0);
 }
 
@@ -128,7 +157,7 @@ let baseUrl = options.baseUrl.replace(/\/$/, '');
 if (!baseUrl) {
   baseUrl = `http://127.0.0.1:${options.port}`;
   server = spawn('python3', ['-m', 'http.server', String(options.port), '--bind', '127.0.0.1', '--directory', '.'], {
-    stdio: ['ignore', 'pipe', 'pipe']
+    stdio: ['ignore', 'pipe', 'pipe'],
   });
   await waitForServer(`${baseUrl}/`);
 }
@@ -139,7 +168,8 @@ const report = {
   scope: options.scope || null,
   routes: options.routes,
   viewports: VIEWPORTS,
-  pages: []
+  pages: [],
+  technicalFailures: [],
 };
 
 let browser;
@@ -149,7 +179,7 @@ try {
   for (const viewport of VIEWPORTS) {
     const context = await browser.newContext({
       viewport: { width: viewport.width, height: viewport.height },
-      reducedMotion: 'reduce'
+      reducedMotion: 'reduce',
     });
 
     for (const route of options.routes) {
@@ -165,44 +195,67 @@ try {
       await page.evaluate(() => document.fonts?.ready);
 
       const measurements = await page.evaluate(() => {
-        const sidebar = document.querySelector('.content-sidebar');
-        const headings = [...document.querySelectorAll('.content-main h2, .content-main h3')];
+        const main = document.querySelector('.content-main, .guide-article, article, main');
+        const sidebar = document.querySelector('.content-sidebar, .guide-sidebar, aside');
+        const headings = [...document.querySelectorAll('main h1, main h2, main h3')];
         const toc = document.querySelector('.sidebar-toc');
         const tocLinks = [...document.querySelectorAll('.sidebar-toc a')];
         const fixedHeader = document.querySelector('.site-header');
-        const tables = [...document.querySelectorAll('.table-wrapper')];
-        const articleAnswer = document.querySelector('.article-answer');
-        const firstEditorialLink = document.querySelector('.content-main a:not(.btn)');
+        const tables = [...document.querySelectorAll('main table')];
+        const articleAnswer = document.querySelector('.article-answer, .guide-answer');
+        const firstEditorialLink = main?.querySelector('a:not(.btn):not(.product-card__cta)') || null;
+        const buttonsMissingAccessibleName = [...document.querySelectorAll('button')]
+          .filter(button => {
+            const text = button.textContent?.trim();
+            const ariaLabel = button.getAttribute('aria-label')?.trim();
+            const labelledBy = button.getAttribute('aria-labelledby')?.trim();
+            const title = button.getAttribute('title')?.trim();
+            return !text && !ariaLabel && !labelledBy && !title;
+          })
+          .map(button => button.className || button.outerHTML.slice(0, 120));
+        const imagesMissingAlt = [...document.querySelectorAll('img:not([alt])')]
+          .map(img => img.getAttribute('src'));
+        const tablesWithoutResponsiveWrapper = tables
+          .filter(table => !table.closest('.table-wrapper, .table-wrap'))
+          .map(table => table.className || '(table sans classe)');
+
         return {
           title: document.title,
           statusReady: document.readyState,
           horizontalOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
           scrollWidth: document.documentElement.scrollWidth,
           clientWidth: document.documentElement.clientWidth,
+          h1Count: document.querySelectorAll('main h1').length,
           headingCount: headings.length,
           tocLinkCount: tocLinks.length,
           tocParentClass: toc?.parentElement?.className || null,
-          missingHeadingIds: headings.filter(heading => !heading.id).map(heading => heading.textContent.trim()),
+          missingHeadingIds: [...document.querySelectorAll('.content-main h2, .content-main h3')]
+            .filter(heading => !heading.id)
+            .map(heading => heading.textContent.trim()),
           tableCount: tables.length,
-          rawTableCount: document.querySelectorAll('.content-main table:not(.comp-table)').length,
+          tablesWithoutResponsiveWrapper,
           overflowingTables: tables
-            .filter(wrapper => wrapper.scrollWidth > wrapper.clientWidth)
-            .map(wrapper => ({ scrollWidth: wrapper.scrollWidth, clientWidth: wrapper.clientWidth })),
+            .map(table => table.closest('.table-wrapper, .table-wrap') || table)
+            .filter(element => element.scrollWidth > element.clientWidth)
+            .map(element => ({ scrollWidth: element.scrollWidth, clientWidth: element.clientWidth })),
           articleAnswer: articleAnswer ? {
             height: Math.round(articleAnswer.getBoundingClientRect().height),
             background: getComputedStyle(articleAnswer).backgroundColor,
-            borderLeftWidth: getComputedStyle(articleAnswer).borderLeftWidth
+            borderLeftWidth: getComputedStyle(articleAnswer).borderLeftWidth,
           } : null,
           firstEditorialLink: firstEditorialLink ? {
             color: getComputedStyle(firstEditorialLink).color,
-            decoration: getComputedStyle(firstEditorialLink).textDecorationLine
+            decoration: getComputedStyle(firstEditorialLink).textDecorationLine,
           } : null,
           sidebar: sidebar ? {
             height: Math.round(sidebar.getBoundingClientRect().height),
             top: Math.round(sidebar.getBoundingClientRect().top),
-            position: getComputedStyle(sidebar).position
+            position: getComputedStyle(sidebar).position,
           } : null,
-          headerHeight: fixedHeader ? Math.round(fixedHeader.getBoundingClientRect().height) : 0
+          headerHeight: fixedHeader ? Math.round(fixedHeader.getBoundingClientRect().height) : 0,
+          buttonsMissingAccessibleName,
+          imagesMissingAlt,
+          focusableCount: document.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])').length,
         };
       });
 
@@ -211,27 +264,66 @@ try {
       const screenshot = path.join(viewportFolder, `${slug(route)}.png`);
       await page.screenshot({ path: screenshot, fullPage: true, animations: 'disabled' });
 
+      await page.keyboard.press('Tab');
+      const focusCheck = await page.evaluate(() => {
+        const active = document.activeElement;
+        if (!active || active === document.body) return null;
+        const style = getComputedStyle(active);
+        return {
+          tag: active.tagName,
+          className: active.className || null,
+          text: active.textContent?.trim().slice(0, 80) || active.getAttribute('aria-label') || null,
+          outlineStyle: style.outlineStyle,
+          outlineWidth: style.outlineWidth,
+          boxShadow: style.boxShadow,
+        };
+      });
+
+      let mobileMenu = null;
       if (viewport.name === 'mobile' && route === options.routes[0]) {
-        const burger = page.locator('.burger');
-        if (await burger.count()) {
-          await burger.click();
+        const menuButton = page.locator('.menu-btn');
+        if (await menuButton.count() && await menuButton.isVisible()) {
+          const ariaExpandedBefore = await menuButton.getAttribute('aria-expanded');
+          await menuButton.click();
+          const nav = page.locator('.nav');
+          mobileMenu = {
+            ariaExpandedBefore,
+            ariaExpandedAfter: await menuButton.getAttribute('aria-expanded'),
+            navVisibleAfterClick: await nav.count() ? await nav.isVisible() : false,
+            navClassAfterClick: await nav.count() ? await nav.getAttribute('class') : null,
+          };
           await page.screenshot({
             path: path.join(viewportFolder, `${slug(route)}--menu-open.png`),
             fullPage: false,
-            animations: 'disabled'
+            animations: 'disabled',
           });
         }
       }
 
-      report.pages.push({
+      const httpStatus = response?.status() ?? null;
+      const pageReport = {
         route,
         viewport: viewport.name,
-        httpStatus: response?.status() ?? null,
+        httpStatus,
         screenshot: path.relative(process.cwd(), screenshot),
         consoleErrors,
         pageErrors,
-        ...measurements
-      });
+        focusCheck,
+        mobileMenu,
+        ...measurements,
+      };
+      report.pages.push(pageReport);
+
+      if (httpStatus !== null && httpStatus >= 400) {
+        report.technicalFailures.push(`${viewport.name} ${route}: HTTP ${httpStatus}`);
+      }
+      if (pageErrors.length) {
+        report.technicalFailures.push(`${viewport.name} ${route}: ${pageErrors.length} erreur(s) JavaScript de page`);
+      }
+      if (measurements.horizontalOverflow) {
+        report.technicalFailures.push(`${viewport.name} ${route}: débordement horizontal global (${measurements.scrollWidth}px > ${measurements.clientWidth}px)`);
+      }
+
       await page.close();
     }
     await context.close();
@@ -244,3 +336,9 @@ try {
 await writeFile(path.join(outputRoot, 'report.json'), `${JSON.stringify(report, null, 2)}\n`);
 console.log(`Captures créées : ${report.pages.length}`);
 console.log(`Rapport : ${path.join(outputRoot, 'report.json')}`);
+
+if (report.technicalFailures.length) {
+  console.error('Échecs techniques détectés :');
+  for (const failure of report.technicalFailures) console.error(`- ${failure}`);
+  process.exitCode = 1;
+}
