@@ -4,7 +4,7 @@
 - Date : 14 septembre 2026
 - Mode : `AUDIT` → `DEEP_REWRITE` → strict skill-by-skill review
 - Décision d’origine : `DEEP_REWRITE`
-- État après correction : `PUBLISH_REVIEW_IN_PROGRESS`
+- État après correction : `PASS — READY_FOR_HUMAN_VALIDATION`
 - Confiance éditoriale : élevée
 - Robots : `noindex,follow` conservé
 - Source de vérité : `scripts/guide-content.mjs`
@@ -142,16 +142,22 @@ Pas de duplication de H2 ni de tableau identique imposé par template.
 
 ## 8. Technique
 
-Attendus après CI :
+Résultat confirmé :
 
 - canonical : `https://cafetiere-italienne.be/guides/comment-choisir-cafetiere-italienne/` ;
 - robots : `noindex,follow` ;
-- HTML généré depuis `scripts/guide-content.mjs` ;
-- liens internes valides ;
-- blockers Guide machine passants ;
-- reproductibilité du HTML ;
-- rendu visuel Guides valide ;
+- HTML régénéré depuis `scripts/guide-content.mjs` ;
+- liens internes contrôlés ;
+- blockers Guide machine contrôlés ;
+- reproductibilité du HTML généré contrôlée ;
+- rendu visuel Guides contrôlé ;
 - aucun nouvel asset BFL.
+
+Gates exécutés sur cette version :
+
+- `Regenerate and quality-check Guide cluster` #37 — success ;
+- `Validate Guide workflow` #38 — success ;
+- `Visual design review` #128, job `visual-pages (guides)` — success.
 
 ## 9. Trace skill par skill — parité `bloc-notes-numerique`
 
@@ -166,18 +172,18 @@ Attendus après CI :
 | `affiliate-value` | PASS | page entièrement utile sans lien marchand |
 | `content-brief-authoring` | PASS | brief actualisé avec preuves, correction de donnée, frontières et image decision |
 | `content-and-copy` | PASS | correction effectuée dans la source JS |
-| `fact-check` post-rédaction | PASS éditorial | nouveaux claims reliés aux sources Bialetti / Alessi ; CI à confirmer |
-| `internal-linking-audit` | PASS éditorial | liens positionnés selon la prochaine question logique |
+| `fact-check` post-rédaction | PASS | nouveaux claims reliés aux sources Bialetti / Alessi et rendu validé |
+| `internal-linking-audit` | PASS | liens positionnés selon la prochaine question logique et contrôlés par CI |
 | `humanizer` | PASS | lecture continue, phrases fonctionnelles, pas de méta-discours artificiel |
 | `general-writing` | PASS | formulation resserrée tout en conservant les nuances de preuve |
 | `anti-ai-slop` | PASS | structure décisionnelle non clonée, pas de FAQ générique ni de conclusion vide |
 | comparaison cluster | PASS | rôles distincts des pages induction, matériau, capacités et comparatif |
-| `seo-onpage` | PASS éditorial | title/meta/H1/intention cohérents ; rendu final à confirmer |
-| `seo-technical` | PENDING CI | canonical, robots, liens, blockers et reproductibilité à confirmer |
+| `seo-onpage` | PASS | title/meta/H1/intention cohérents et HTML généré validé |
+| `seo-technical` | PASS | canonical, robots, liens, blockers et reproductibilité validés |
 | `seo-best-practices` | PASS / applicable limité | aucune règle additionnelle imposant une modification |
 | `seo-drift` | N/A | aucune baseline exploitable avant/après |
 | `editorial-image-planner` | PASS — NO_NEW_IMAGE | intention décisionnelle mieux servie par tableaux et liens ; aucun appel BFL requis |
-| `editorial-qa` | PASS éditorial | intention, valeur, factualité, naturel et frontières validés ; machine/visuel à confirmer |
+| `editorial-qa` | PASS | intention, valeur, factualité, naturel, frontières, machine gates et rendu Guides validés |
 
 ## 10. Blockers et corrections requises
 
@@ -189,17 +195,19 @@ Blockers éditoriaux corrigés :
 - guide général partiellement désynchronisé des nouvelles pages induction / aluminium-inox → corrigé ;
 - pièces pas assez rattachées à taille / génération → corrigé.
 
-Blocker restant avant verdict final :
-
-- confirmer les gates GitHub réels de régénération, liens, blockers, reproductibilité et rendu avant de convertir les PASS éditoriaux en PASS technique.
+Blocker restant : aucun blocker éditorial, machine ou visuel identifié dans cette passe.
 
 ## 11. Verdict et prochaine étape
 
-État actuel : `PUBLISH_REVIEW_IN_PROGRESS`.
+`PASS — READY_FOR_HUMAN_VALIDATION`
 
-Verdict final à inscrire uniquement après confirmation des gates :
+La page atteint le niveau de profondeur retenu pour les Guides, avec une trace skill par skill comparable à `bloc-notes-numerique`.
 
-- `PASS — READY_FOR_HUMAN_VALIDATION`, ou
-- `FAIL — KEEP_NOINDEX`.
+Deux gates restent volontairement `N/A` :
 
-Ne pas indexer automatiquement.
+- `evidence-based-reviews`, car aucun jugement expérientiel n’est revendiqué ;
+- `seo-drift`, car aucun baseline avant/après exploitable n’est disponible.
+
+Le `seo-keyword` reste limité à une validation qualitative faute de données GSC / volume propres au site.
+
+Ne pas indexer automatiquement. Conserver `noindex,follow` jusqu’à validation humaine explicite.
