@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "node scripts/build.mjs && node scripts/apply-capacity-hub-reviewed.mjs && node scripts/apply-capacity-10-tasses-reviewed.mjs && node scripts/apply-capacity-size-pages-reviewed.mjs && node scripts/apply-capacity-2-tasses-exact-reviewed.mjs && node scripts/apply-capacity-exact-reviewed.mjs && node scripts/sanitize-reviewed-page-typography.mjs capacites/cafetiere-italienne-6-tasses/index.html capacites/cafetiere-italienne-12-tasses/index.html && node scripts/apply-navigation.mjs && python3 scripts/generate_bfl_images.py --reinsert-only",
+    "build": "node scripts/build.mjs && node scripts/apply-capacity-hub-reviewed.mjs && node scripts/apply-capacity-10-tasses-reviewed.mjs && node scripts/apply-capacity-size-pages-reviewed.mjs && node scripts/apply-capacity-2-tasses-exact-reviewed.mjs && node scripts/apply-capacity-exact-reviewed.mjs && node scripts/sanitize-reviewed-page-typography.mjs capacites/cafetiere-italienne-6-tasses/index.html capacites/cafetiere-italienne-12-tasses/index.html && node scripts/apply-navigation.mjs && node scripts/apply-editorial-image-markers.mjs && python3 scripts/generate_bfl_images.py --reinsert-only",
     "check": "node scripts/check.mjs",
     "visual:install": "playwright install chromium",
     "visual:prepare": "npm run build && npm run check",
