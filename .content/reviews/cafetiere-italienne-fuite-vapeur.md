@@ -5,9 +5,9 @@
 - Date : 14 septembre 2026
 - Mode : `AUDIT` → `DEEP_REWRITE` → strict skill-by-skill review
 - Décision actuelle : `DEEP_REWRITE`
-- État après correction : `PUBLISH_REVIEW_IN_PROGRESS`
+- État après correction : `PASS — READY_FOR_HUMAN_VALIDATION`
 - Confiance éditoriale : élevée
-- Robots : `noindex,follow` à conserver
+- Robots : `noindex,follow` conservé
 - Source de vérité finale pour cette URL : `scripts/apply-guide-fuite-vapeur-reviewed.mjs`
 - Publication : validation humaine requise avant toute décision d’indexation
 
@@ -41,7 +41,7 @@ Renforcé :
 
 ## 4. Evidence / factualité
 
-PASS éditorial avant gates machine.
+PASS.
 
 Claims principaux :
 - fuite latérale → ring/joint + surfaces propres + assemblage + possibilité de blocage : Bialetti NZ troubleshooting ;
@@ -73,7 +73,7 @@ Valeur ajoutée :
 
 ## 6. Naturalité / humanizer / general-writing
 
-PASS éditorial.
+PASS.
 
 Progression : arrêter → refroidir → localiser → contrôler le bon sous-système → réessayer seulement si autorisé → arrêter définitivement si la soupape persiste.
 
@@ -81,7 +81,7 @@ Le ton reste pratique et prudent, sans dramatisation ni faux vécu hands-on.
 
 ## 7. Anti-AI / comparaison cluster
 
-PASS éditorial.
+PASS.
 
 La page n’est pas une copie du guide joint : elle traite le joint comme une branche de diagnostic, pas comme la solution par défaut.
 
@@ -100,16 +100,23 @@ Structure propre au risque mécanique : stop, localisation, circuit, soupape, es
 
 ## 9. Technique
 
-Attendus après CI :
+Résultat confirmé :
 - canonical : `https://cafetiere-italienne.be/guides/cafetiere-italienne-fuite-vapeur/` ;
 - robots : `noindex,follow` ;
 - build exécute `scripts/apply-guide-fuite-vapeur-reviewed.mjs` ;
-- HTML final contient la nouvelle meta et le nouveau diagnostic ;
+- HTML final contient la nouvelle meta et le diagnostic réécrit ;
 - aucun nouveau visuel BFL ;
-- liens internes valides ;
-- blockers Guide machine passants ;
-- reproductibilité HTML passante ;
-- rendu visuel Guides valide.
+- liens internes contrôlés ;
+- blockers Guide machine contrôlés ;
+- reproductibilité du HTML généré contrôlée ;
+- rendu visuel Guides contrôlé.
+
+Gates exécutés sur la version finale :
+- `Regenerate and quality-check Guide cluster` #86 — run `34877819604` — success ;
+- `Validate Guide workflow` #87 — run `34877868353` — success, reproductibilité HTML comprise ;
+- `Visual design review` #207 — run `34877868384`, job `visual-pages (guides)` `104089451958` — success.
+
+Le HTML final conserve la nouvelle meta, `noindex,follow`, le canonical attendu, le stop avant démontage, la matrice de diagnostic, le scoping du contrôle de soupape et le seuil d’arrêt d’utilisation.
 
 ## 10. Trace skill par skill — parité `bloc-notes-numerique`
 
@@ -124,18 +131,18 @@ Attendus après CI :
 | `affiliate-value` | PASS | utile avant toute logique d’achat de pièce |
 | `content-brief-authoring` | PASS | evidence register + guardrails + seuil d’arrêt |
 | `content-and-copy` | PASS | source JS reproductible dédiée |
-| `fact-check` post-rédaction | PASS éditorial | claims bornés ; gates à confirmer |
-| `internal-linking-audit` | PASS éditorial | joint / mouture / détartrage / utilisation |
+| `fact-check` post-rédaction | PASS | claims bornés et rendu final contrôlé |
+| `internal-linking-audit` | PASS | joint / mouture / détartrage / utilisation ; liens CI validés |
 | `humanizer` | PASS | ton concret, pas de pseudo-expertise |
 | `general-writing` | PASS | ordre de diagnostic clair |
 | `anti-ai-slop` | PASS | pas de FAQ artificielle ni remplissage |
 | comparaison cluster | PASS | distinct du joint, détartrage et préparation |
-| `seo-onpage` | PASS éditorial | title/meta/H1 cohérents ; HTML final à confirmer |
-| `seo-technical` | PENDING CI | canonical, robots, liens, blockers, reproductibilité |
+| `seo-onpage` | PASS | title/meta/H1 cohérents et HTML final vérifié |
+| `seo-technical` | PASS | canonical, robots, liens, blockers et reproductibilité validés |
 | `seo-best-practices` | PASS / applicable limité | structure naturelle et maillage contextuel |
 | `seo-drift` | N/A | aucune baseline exploitable |
 | `editorial-image-planner` | PASS — NO_NEW_IMAGE | visuel générique non probatoire sur sujet sécurité |
-| `editorial-qa` | PASS éditorial | contenu et frontières validés ; gates à confirmer |
+| `editorial-qa` | PASS | contenu, frontières, machine gates et rendu visuel validés |
 
 ## 11. Blockers / corrections
 
@@ -148,14 +155,18 @@ Corrigés :
 - seuil d’arrêt insuffisamment opératoire → critères explicites ;
 - review précédente trop superficielle → trace skill par skill complète.
 
-Blocker restant avant verdict final : confirmer les gates GitHub réels de régénération, liens, blockers, reproductibilité et rendu Guides.
+Blocker restant : aucun blocker éditorial, machine ou visuel identifié dans cette passe.
 
 ## 12. Verdict
 
-État actuel : `PUBLISH_REVIEW_IN_PROGRESS`.
+`PASS — READY_FOR_HUMAN_VALIDATION`
 
-Verdict final à inscrire uniquement après confirmation des gates :
-- `PASS — READY_FOR_HUMAN_VALIDATION`, ou
-- `FAIL — KEEP_NOINDEX`.
+La page atteint le niveau de profondeur retenu pour les Guides, avec une trace skill par skill comparable aux autres URLs validées du cluster.
 
-Ne pas indexer automatiquement.
+Deux gates restent volontairement `N/A` :
+- `evidence-based-reviews`, car aucun jugement expérientiel n’est revendiqué ;
+- `seo-drift`, car aucune baseline avant/après exploitable n’est disponible.
+
+Le `seo-keyword` reste limité à une validation qualitative faute de données GSC / volume propres au site.
+
+Ne pas indexer automatiquement. Conserver `noindex,follow` jusqu’à validation humaine explicite.
