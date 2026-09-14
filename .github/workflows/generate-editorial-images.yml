@@ -6,12 +6,18 @@ on:
       - main
     paths:
       - '.content/image-requests/**'
+      - 'scripts/generate_bfl_images.py'
+      - 'scripts/guide-content-*.mjs'
+      - 'scripts/cafe-moka-content.mjs'
+      - 'scripts/build.mjs'
       - 'guides/**/index.html'
-      - 'usages/**/index.html'
       - 'comparatifs/**/index.html'
       - 'marques/**/index.html'
-      - 'bons-plans/**/index.html'
-      - 'scripts/generate_bfl_images.py'
+      - 'modeles/**/index.html'
+      - 'capacites/**/index.html'
+      - 'accessoires/**/index.html'
+      - 'cafe-moka/**/index.html'
+      - 'package.json'
       - '.github/workflows/generate-editorial-images.yml'
   workflow_dispatch:
 
@@ -36,16 +42,28 @@ jobs:
           ref: ${{ github.ref_name }}
           fetch-depth: 0
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build current static pages
+        run: npm run build
+
       - name: Validate image requests and detect work
         id: inspect
         shell: bash
         run: |
-          python scripts/generate_bfl_images.py \
+          python3 scripts/generate_bfl_images.py \
             --check-only \
             --github-output "$GITHUB_OUTPUT"
 
@@ -68,10 +86,22 @@ jobs:
           fetch-depth: 0
           clean: true
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build current static pages
+        run: npm run build
 
       - name: Generate or restore approved images
         env:
@@ -79,7 +109,10 @@ jobs:
           BFL_API_URL: https://api.bfl.ai/v1/flux-2-pro-preview
           BFL_TIMEOUT: '600'
           BFL_POLL_INTERVAL: '1'
-        run: python scripts/generate_bfl_images.py
+        run: python3 scripts/generate_bfl_images.py
+
+      - name: Validate internal links
+        run: npm run check
 
       - name: Commit generated assets and page integration
         shell: bash
