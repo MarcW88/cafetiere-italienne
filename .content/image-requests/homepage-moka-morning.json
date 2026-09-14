@@ -1,0 +1,21 @@
+{
+  "id": "homepage-moka-morning",
+  "page": "index.html",
+  "slot": "hero",
+  "required": true,
+  "reason": "Donner à la homepage une identité photographique forte en remplaçant l’illustration CSS par une scène moka crédible et générique, sans représenter une marque ou un test produit.",
+  "allow_ai_generation": true,
+  "truth_risk": "LOW",
+  "status": "PENDING",
+  "marker": "<!-- EDITORIAL_IMAGE:homepage-moka-morning -->",
+  "placement": "replace",
+  "output_path": "assets/generated/homepage-moka-morning.webp",
+  "prompt": "Warm documentary editorial morning scene in a lived-in European kitchen. An adult hand carries a generic unbranded stovetop moka coffee maker from the stove toward a small breakfast table with two simple ceramic cups, one cup already holding dark coffee. Natural side window light, cream plaster, muted terracotta, warm wood and stone, subtle steam, realistic metal patina, ordinary household imperfections, candid human moment, restrained premium editorial photography rather than advertising. Horizontal composition suitable for a website hero, with the main moka action concentrated in the center-right of frame and calm uncluttered negative space around it. The moka must have plausible generic proportions but must not reproduce any recognizable Bialetti, Alessi or other branded model. No logo, no brand marks, no packaging, no readable text, no watermark, no exaggerated steam, no glossy product-shot lighting and no implication that this is a hands-on product test.",
+  "alt": "Cafetière moka générique apportée vers une table de petit-déjeuner",
+  "caption": "",
+  "width": 1024,
+  "height": 672,
+  "prompt_upsampling": true,
+  "seed": null,
+  "generated_at": null
+}

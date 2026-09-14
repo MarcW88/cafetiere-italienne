@@ -1,0 +1,36 @@
+/* Image coverage additions: homepage hero media + generated editorial figures. */
+.hero-visual:has(.editorial-media){
+  min-height:420px;
+  border-left:0;
+  position:relative;
+  overflow:hidden;
+  background:var(--sand);
+}
+.hero-visual:has(.editorial-media)>.sun,
+.hero-visual:has(.editorial-media)>.moka-illustration,
+.hero-visual:has(.editorial-media)>.hero-badge{
+  display:none!important;
+}
+.hero-visual>.editorial-media{
+  width:100%!important;
+  height:420px;
+  margin:0!important;
+  overflow:hidden;
+  background:var(--sand);
+}
+.hero-visual>.editorial-media img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center 48%;
+  display:block;
+}
+
+@media (max-width:760px){
+  .hero-visual:has(.editorial-media){
+    display:block!important;
+    min-height:250px;
+    margin-top:14px;
+  }
+  .hero-visual>.editorial-media{height:250px}
+}

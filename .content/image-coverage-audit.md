@@ -6,7 +6,7 @@ Audit piloté par `.agents/skills/editorial-image-planner/SKILL.md`. Une image g
 
 ## Couverture actuelle
 
-49 pages HTML dans le site. 6 pages disposent déjà d'une image éditoriale BFL générée et persistante après rebuild :
+49 pages HTML dans le site. 9 pages disposent déjà d'une image éditoriale BFL générée et persistante après rebuild :
 
 - `/guides/comment-utiliser-cafetiere-italienne/` — remplissage du filtre sans tassage
 - `/guides/premiere-utilisation-cafetiere-italienne/` — rinçage initial
@@ -14,20 +14,25 @@ Audit piloté par `.agents/skills/editorial-image-planner/SKILL.md`. Une image g
 - `/guides/mouture-cafetiere-italienne/` — réglage du moulin
 - `/guides/nettoyer-cafetiere-italienne/` — séchage des pièces
 - `/cafe-moka/comment-preparer-un-cafe-moka/` — chauffe modérée
+- `/guides/quel-cafe-pour-cafetiere-italienne/` — grains vs café moulu
+- `/guides/cafetiere-italienne-aluminium-ou-inox/` — finitions aluminium et inox génériques
+- `/cafe-moka/quest-ce-que-le-cafe-moka/` — café servi depuis une moka générique
 
-## Première vague issue de l'audit
+## Deuxième vague
 
-Trois nouvelles pages ont un besoin éditorial clair et un risque faible. Elles sont ouvertes en `PENDING` dans `.content/image-requests/` et doivent être générées uniquement par le workflow BFL :
+Trois besoins supplémentaires sont suffisamment utiles et à faible risque pour passer par BFL :
 
-- `/guides/quel-cafe-pour-cafetiere-italienne/` — visualiser grains vs café moulu sans prétendre représenter Arabica/Robusta
-- `/guides/cafetiere-italienne-aluminium-ou-inox/` — distinguer visuellement deux finitions de matériau génériques sans représenter un modèle réel
-- `/cafe-moka/quest-ce-que-le-cafe-moka/` — contextualiser le café servi depuis une moka générique
+- `/` — hero photographique identitaire ; le média généré remplace visuellement l'ancienne illustration CSS lorsque disponible
+- `/guides/detartrer-cafetiere-italienne/` — dépôts minéraux légers et contexte de rinçage, sans dosage précis ni géométrie fabricant
+- `/guides/cafetiere-italienne-cafe-amer-brule/` — petite flamme maîtrisée et retrait de la moka, sans simuler un test
+
+`/guides/comment-choisir-cafetiere-italienne/` reste sans génération : les critères, tableaux et liens accomplissent déjà la tâche, et un visuel supplémentaire serait surtout décoratif.
 
 ## Décisions par famille
 
 ### Homepage
 
-Candidate forte pour un vrai visuel identitaire, mais à traiter dans une vague dédiée car le visuel doit s'intégrer au hero et remplacer/compléter l'illustration CSS plutôt qu'ajouter une image éditoriale standard au fil de page.
+Deuxième vague BFL : scène générique de moka en cuisine, conçue pour remplacer l'illustration CSS du hero une fois générée. Aucune marque ou référence produit identifiable.
 
 ### Marques
 
@@ -49,15 +54,15 @@ Les six comparatifs détaillés concernent des produits et caractéristiques ré
 
 ### Capacités
 
-Le système visuel de mesure remplit déjà la fonction de compréhension. Pas de génération BFL ajoutée lors de cette passe pour `/capacites/` ni les pages 2, 4, 6, 10 et 12 tasses. Une scène de contexte pourrait être envisagée plus tard uniquement si elle n'implique aucun volume exact.
+Le système visuel de mesure remplit déjà la fonction de compréhension. Pas de génération BFL ajoutée pour `/capacites/` ni les pages 2, 4, 6, 10 et 12 tasses.
 
 ### Guides
 
-Déjà couverts : utilisation, première utilisation, dosage, mouture, nettoyage.
+Couverts : utilisation, première utilisation, dosage, mouture, nettoyage, choix du café, aluminium/inox.
 
-Première vague : choix du café et aluminium/inox.
+Deuxième vague : détartrage et café amer/brûlé.
 
-À laisser sans génération pour l'instant : `comment-choisir`, `detartrer`, `cafe-amer-brule`, `moka-vs-espresso` — le texte/tableaux remplissent déjà la fonction ou une image risquerait d'être surtout décorative.
+À laisser sans génération : `comment-choisir` et `moka-vs-espresso` — le texte et les structures comparatives remplissent déjà la fonction.
 
 **BLOCKED pour BFL** : `cafetiere-italienne-induction-compatibilite`, `cafetiere-italienne-fuite-vapeur`, `changer-joint-cafetiere-italienne` lorsque l'image doit montrer une compatibilité, un défaut ou une pièce exacte.
 
@@ -71,14 +76,12 @@ Première vague : choix du café et aluminium/inox.
 
 `/cafe-moka/` : pas de génération nécessaire au niveau hub.
 
-`/cafe-moka/comment-preparer-un-cafe-moka/` : déjà couvert.
-
-`/cafe-moka/quest-ce-que-le-cafe-moka/` : première vague `PENDING`.
+`/cafe-moka/comment-preparer-un-cafe-moka/` et `/cafe-moka/quest-ce-que-le-cafe-moka/` sont couverts.
 
 ### Trust
 
-`/a-propos/`, `/notre-methode/`, `/affiliation/`, `/contact/` : aucune image BFL nécessaire pour le moment. Le contenu de confiance doit rester sobre et ne pas fabriquer d'illustration pseudo-documentaire.
+`/a-propos/`, `/notre-methode/`, `/affiliation/`, `/contact/` : aucune image BFL nécessaire. Le contenu de confiance reste volontairement sobre.
 
-## Principe pour les vagues suivantes
+## Principe pour la suite
 
-Après chaque lot : génération via BFL, réinsertion par le build, check des liens, revue Playwright desktop/mobile, puis seulement ouverture du lot suivant. Aucun visuel produit identifiable n'est généré par IA.
+Après chaque lot : génération via BFL, réinsertion par le build, check des liens, revue Playwright desktop/mobile. Aucun visuel produit identifiable n'est généré par IA. Après cette deuxième vague, ne pas ouvrir de nouveau lot sans besoin éditorial explicite.
