@@ -12,7 +12,7 @@
   "output_path": "assets/generated/mouture-reglage-moulin.webp",
   "prompt": "Photorealistic documentary kitchen photograph of an adult hand making a small adjustment on the grind collar of a simple generic manual burr coffee grinder beside a loose moka funnel basket containing medium-fine ground coffee. The grinder has no brand, no labels and no readable setting numbers. A few coffee particles on a neutral counter show a slightly granular texture rather than espresso powder, but the scene does not claim an exact micron size. Natural side light, realistic brushed metal and wood textures, restrained warm palette, candid editorial framing, practical rather than advertising. Generic equipment only, no recognizable commercial grinder or moka model, no logo, no packaging, no readable text, no watermark, no product-test claim.",
   "alt": "Réglage progressif d’un moulin à café à côté du panier d’une moka générique",
-  "caption": "",
+  "caption": "Illustration éditoriale d’un réglage progressif sur un moulin générique — aucun numéro n’est lisible et le visuel ne définit ni cran universel ni granulométrie mesurée.",
   "width": 1024,
   "height": 672,
   "prompt_upsampling": true,
