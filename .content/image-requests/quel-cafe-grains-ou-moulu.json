@@ -12,7 +12,7 @@
   "output_path": "assets/generated/quel-cafe-grains-ou-moulu.webp",
   "prompt": "Documentary editorial close-up in a warm real home kitchen. On a natural wood or stone counter, two small ceramic dishes sit side by side: one contains ordinary whole roasted coffee beans, the other contains medium-fine ground coffee suitable as a generic visual reference for moka preparation. A simple unbranded hand grinder and a generic unbranded stovetop moka coffee maker are softly present in the background. An adult hand lightly pinches a small amount of ground coffee to show texture. Natural side window light, realistic crumbs and imperfections, restrained warm European kitchen palette, shallow depth of field, candid editorial food photography rather than advertising. Do not imply that either bowl represents Arabica, Robusta, a specific roast or a specific brand. No packaging, no labels, no logo, no readable text, no watermark, no staged product-test claim.",
   "alt": "Café en grains et café moulu disposés près d’une moka générique",
-  "caption": "",
+  "caption": "Illustration éditoriale générique de café en grains et moulu — le visuel ne représente ni une origine, ni une espèce, ni une torréfaction précise et ne constitue pas un test produit.",
   "width": 1024,
   "height": 672,
   "prompt_upsampling": true,
