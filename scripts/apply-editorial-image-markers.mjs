@@ -42,7 +42,7 @@ const placements=[
   },
   {
     page:'guides/quel-cafe-pour-cafetiere-italienne/index.html',
-    heading:'<h2>Grains ou café déjà moulu ?</h2>',
+    heading:'<h2>2. Café en grains ou déjà moulu ?</h2>',
     marker:'<!-- EDITORIAL_IMAGE:quel-cafe-grains-ou-moulu -->',
   },
   {
