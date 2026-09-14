@@ -142,6 +142,45 @@ async function waitForServer(url) {
   throw new Error(`Le serveur local ne répond pas : ${url}`);
 }
 
+async function prepareFullPageCapture(page, viewportHeight) {
+  await page.evaluate(async viewportHeightValue => {
+    const sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
+    const step = Math.max(320, Math.round(viewportHeightValue * 0.72));
+    const pageHeight = Math.max(
+      document.body?.scrollHeight || 0,
+      document.documentElement?.scrollHeight || 0,
+    );
+
+    for (let position = 0; position < pageHeight; position += step) {
+      window.scrollTo(0, position);
+      await sleep(25);
+    }
+    window.scrollTo(0, pageHeight);
+    await sleep(80);
+
+    const images = [...document.images];
+    await Promise.all(images.map(async image => {
+      if (!image.complete) {
+        await Promise.race([
+          new Promise(resolve => {
+            image.addEventListener('load', resolve, { once: true });
+            image.addEventListener('error', resolve, { once: true });
+          }),
+          sleep(1500),
+        ]);
+      }
+      if (typeof image.decode === 'function') {
+        try {
+          await image.decode();
+        } catch {}
+      }
+    }));
+
+    window.scrollTo(0, 0);
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  }, viewportHeight);
+}
+
 const options = parseArgs(process.argv.slice(2));
 if (options.help) {
   console.log(`Usage: run-visual-review.mjs [--scope ${Object.keys(SCOPES).join('|')}] [--route /chemin/] [--base-url URL] [--output dossier] [--port 4173]`);
@@ -193,6 +232,7 @@ try {
 
       const response = await page.goto(`${baseUrl}${route}`, { waitUntil: 'networkidle' });
       await page.evaluate(() => document.fonts?.ready);
+      await prepareFullPageCapture(page, viewport.height);
 
       const measurements = await page.evaluate(() => {
         const main = document.querySelector('.content-main, .guide-article, article, main');
@@ -218,6 +258,14 @@ try {
         const tablesWithoutResponsiveWrapper = tables
           .filter(table => !table.closest('.table-wrapper, .table-wrap'))
           .map(table => table.className || '(table sans classe)');
+        const generatedImages = [...document.querySelectorAll('[data-generated-image] img')]
+          .map(image => ({
+            id: image.closest('[data-generated-image]')?.getAttribute('data-generated-image') || null,
+            src: image.getAttribute('src'),
+            complete: image.complete,
+            naturalWidth: image.naturalWidth,
+            naturalHeight: image.naturalHeight,
+          }));
 
         return {
           title: document.title,
@@ -238,6 +286,7 @@ try {
             .map(table => table.closest('.table-wrapper, .table-wrap') || table)
             .filter(element => element.scrollWidth > element.clientWidth)
             .map(element => ({ scrollWidth: element.scrollWidth, clientWidth: element.clientWidth })),
+          generatedImages,
           articleAnswer: articleAnswer ? {
             height: Math.round(articleAnswer.getBoundingClientRect().height),
             background: getComputedStyle(articleAnswer).backgroundColor,
@@ -322,6 +371,12 @@ try {
       }
       if (measurements.horizontalOverflow) {
         report.technicalFailures.push(`${viewport.name} ${route}: débordement horizontal global (${measurements.scrollWidth}px > ${measurements.clientWidth}px)`);
+      }
+      const unloadedGeneratedImages = measurements.generatedImages.filter(image => !image.complete || image.naturalWidth === 0);
+      if (unloadedGeneratedImages.length) {
+        report.technicalFailures.push(
+          `${viewport.name} ${route}: ${unloadedGeneratedImages.length} image(s) éditoriale(s) générée(s) non décodée(s): ${unloadedGeneratedImages.map(image => image.id || image.src).join(', ')}`,
+        );
       }
 
       await page.close();
