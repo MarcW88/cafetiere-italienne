@@ -19,6 +19,21 @@ const placements=[
     heading:'<h2>3. Chauffez sans chercher la vitesse maximale</h2>',
     marker:'<!-- EDITORIAL_IMAGE:preparer-moka-chauffe -->',
   },
+  {
+    page:'guides/dosage-cafe-cafetiere-italienne/index.html',
+    heading:'<h2>Comment doser votre moka en pratique</h2>',
+    marker:'<!-- EDITORIAL_IMAGE:dosage-peser-panier -->',
+  },
+  {
+    page:'guides/mouture-cafetiere-italienne/index.html',
+    heading:'<h2>Si vous utilisez un moulin réglable</h2>',
+    marker:'<!-- EDITORIAL_IMAGE:mouture-reglage-moulin -->',
+  },
+  {
+    page:'guides/nettoyer-cafetiere-italienne/index.html',
+    heading:'<h2>La Moka Express : lavage à la main</h2>',
+    marker:'<!-- EDITORIAL_IMAGE:nettoyage-sechage-pieces -->',
+  },
 ];
 
 let changed=0;

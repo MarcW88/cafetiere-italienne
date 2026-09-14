@@ -1,0 +1,21 @@
+{
+  "id": "dosage-peser-panier",
+  "page": "guides/dosage-cafe-cafetiere-italienne/index.html",
+  "slot": "editorial",
+  "required": true,
+  "reason": "Illustrer la pesée de la dose réellement contenue dans le panier de sa propre moka, sans présenter un grammage universel.",
+  "allow_ai_generation": true,
+  "truth_risk": "LOW",
+  "status": "PENDING",
+  "marker": "<!-- EDITORIAL_IMAGE:dosage-peser-panier -->",
+  "placement": "replace",
+  "output_path": "assets/generated/dosage-peser-panier.webp",
+  "prompt": "Documentary editorial photograph in a real home kitchen showing a generic unbranded moka funnel basket filled level with loose ground coffee and placed on a small digital kitchen scale to record a personal repeatable dose. The coffee is not tamped or compressed. A disassembled generic moka base sits nearby, softly out of focus. The scale display is intentionally out of focus or not readable so the image does not imply any universal gram value. Natural window light, warm stone or wood counter, realistic metal and coffee textures, subtle everyday imperfections, calm practical composition, European kitchen atmosphere, not advertising. No logo, no identifiable commercial moka model, no packaging, no readable numbers or text, no watermark, no claim of product testing.",
+  "alt": "Panier de cafetière moka rempli de café et posé sur une balance pour mémoriser sa dose",
+  "caption": "",
+  "width": 1024,
+  "height": 672,
+  "prompt_upsampling": true,
+  "seed": null,
+  "generated_at": null
+}

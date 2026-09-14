@@ -1,0 +1,21 @@
+{
+  "id": "nettoyage-sechage-pieces",
+  "page": "guides/nettoyer-cafetiere-italienne/index.html",
+  "slot": "editorial",
+  "required": true,
+  "reason": "Montrer une routine d’entretien sobre : pièces démontées, rincées puis laissées sécher, sans imposer un produit ou une méthode propre à un modèle précis.",
+  "allow_ai_generation": true,
+  "truth_risk": "LOW",
+  "status": "PENDING",
+  "marker": "<!-- EDITORIAL_IMAGE:nettoyage-sechage-pieces -->",
+  "placement": "replace",
+  "output_path": "assets/generated/nettoyage-sechage-pieces.webp",
+  "prompt": "Natural documentary photograph in a real kitchen of the separate parts of a generic unbranded stovetop moka coffee maker resting open on a clean cotton kitchen towel after rinsing, left to air-dry before reassembly. Show a lower water chamber, funnel basket and upper collector with realistic water droplets and ordinary brushed metal surfaces. No detergent, no soap foam, no abrasive pad, no dishwasher, no chemical bottle. Soft daylight, restrained warm neutral palette, believable domestic counter, subtle everyday wear, practical candid editorial photography rather than advertising. Generic moka parts only, no identifiable brand design, no logo, no packaging, no readable text, no watermark, no product-test claim.",
+  "alt": "Pièces d’une cafetière moka générique démontées et laissées sécher après rinçage",
+  "caption": "",
+  "width": 1024,
+  "height": 672,
+  "prompt_upsampling": true,
+  "seed": null,
+  "generated_at": null
+}
