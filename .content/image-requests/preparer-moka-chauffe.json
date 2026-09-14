@@ -6,7 +6,7 @@
   "reason": "Montrer la notion de chauffe modérée dans un contexte domestique réel, sans dépendre d’un modèle ou d’une marque précise.",
   "allow_ai_generation": true,
   "truth_risk": "LOW",
-  "status": "PENDING",
+  "status": "GENERATED",
   "marker": "<!-- EDITORIAL_IMAGE:preparer-moka-chauffe -->",
   "placement": "replace",
   "output_path": "assets/generated/preparer-moka-chauffe.webp",
@@ -17,5 +17,8 @@
   "height": 672,
   "prompt_upsampling": true,
   "seed": null,
-  "generated_at": null
+  "generated_at": "2026-09-14T08:44:04.489340+00:00",
+  "bfl_request_id": "07b4ef92-30da-4b3e-a1ad-6ee509c1caa1",
+  "bfl_endpoint": "https://api.bfl.ai/v1/flux-2-pro-preview",
+  "bfl_cost": 3.0
 }

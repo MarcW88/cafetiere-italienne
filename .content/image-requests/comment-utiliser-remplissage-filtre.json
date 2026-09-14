@@ -6,7 +6,7 @@
   "reason": "Montrer le geste de remplissage du filtre sans tassage, difficile à rendre aussi immédiatement par le texte seul.",
   "allow_ai_generation": true,
   "truth_risk": "LOW",
-  "status": "PENDING",
+  "status": "GENERATED",
   "marker": "<!-- EDITORIAL_IMAGE:comment-utiliser-remplissage-filtre -->",
   "placement": "replace",
   "output_path": "assets/generated/comment-utiliser-remplissage-filtre.webp",
@@ -17,5 +17,8 @@
   "height": 672,
   "prompt_upsampling": true,
   "seed": null,
-  "generated_at": null
+  "generated_at": "2026-09-14T08:43:45.476282+00:00",
+  "bfl_request_id": "0b267a07-7eab-44c5-88cf-dafed647254a",
+  "bfl_endpoint": "https://api.bfl.ai/v1/flux-2-pro-preview",
+  "bfl_cost": 3.0
 }
