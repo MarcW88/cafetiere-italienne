@@ -4,9 +4,9 @@
 - Date : 14 septembre 2026
 - Mode : `AUDIT` → `DEEP_REWRITE` → strict skill-by-skill review
 - Décision actuelle : `DEEP_REWRITE`
-- État après correction : `PUBLISH_REVIEW_IN_PROGRESS`
+- État après correction : `PASS — READY_FOR_HUMAN_VALIDATION`
 - Confiance éditoriale : élevée
-- Robots : `noindex,follow` à conserver
+- Robots : `noindex,follow` conservé
 - Source de vérité : `scripts/guide-content-troubleshooting.mjs`
 - Publication : validation humaine requise avant toute décision d’indexation
 
@@ -95,7 +95,7 @@ Renforcé :
 
 ## 5. Naturalité / humanizer / general-writing
 
-PASS éditorial.
+PASS.
 
 Le texte reste pratique et évite les formules de type « secret italien », « extraction parfaite » ou « cette astuce change tout ». Il ne prétend pas que le site a dégusté les cafés ou mesuré une extraction.
 
@@ -103,7 +103,7 @@ La progression suit une logique de dépannage domestique : observer → corriger
 
 ## 6. Anti-AI / comparaison cluster
 
-PASS éditorial.
+PASS.
 
 La structure est propre au symptôme « amer / brûlé » : elle ne copie ni la page mouture, ni la page dosage, ni le guide d’utilisation.
 
@@ -127,17 +127,24 @@ Le tableau de diagnostic et la méthode en deux préparations ont une fonction p
 
 ## 8. Technique
 
-Attendus après CI :
+Résultat confirmé :
 - canonical : `https://cafetiere-italienne.be/guides/cafetiere-italienne-cafe-amer-brule/` ;
 - robots : `noindex,follow` ;
 - HTML régénéré depuis `scripts/guide-content-troubleshooting.mjs` ;
 - image BFL existante conservée, aucun nouvel appel ;
 - caption du visuel explicitement non probatoire ;
 - marker image toujours lié au H2 `2. Une chauffe trop forte accélère mal l’extraction` ;
-- liens internes valides ;
-- blockers Guide machine passants ;
-- reproductibilité du HTML ;
-- rendu visuel Guides valide.
+- liens internes contrôlés ;
+- blockers Guide machine contrôlés ;
+- reproductibilité du HTML généré contrôlée ;
+- rendu visuel Guides contrôlé.
+
+Gates exécutés sur la version finale :
+- `Regenerate and quality-check Guide cluster` #73 — success ;
+- `Validate Guide workflow` #74 — success, reproductibilité HTML comprise ;
+- `Visual design review` #186, job `visual-pages (guides)` — success.
+
+Le HTML final conserve la nouvelle meta, `noindex,follow`, le canonical attendu, le tableau de diagnostic, la frontière sécurité et le visuel BFL qualifié.
 
 ## 9. Trace skill par skill — parité `bloc-notes-numerique`
 
@@ -152,18 +159,18 @@ Attendus après CI :
 | `affiliate-value` | PASS | réponse entièrement utile sans lien marchand |
 | `content-brief-authoring` | PASS | brief avec claims, exclusions, sources, frontières et image decision |
 | `content-and-copy` | PASS | corrections dans la source JS, pas uniquement le HTML généré |
-| `fact-check` post-rédaction | PASS éditorial | nouveaux claims bornés aux sources ; machine gates à confirmer |
-| `internal-linking-audit` | PASS éditorial | dosage, utilisation, mouture, café et fuite sont les suites logiques |
+| `fact-check` post-rédaction | PASS | nouveaux claims bornés aux sources et rendu final contrôlé |
+| `internal-linking-audit` | PASS | dosage, utilisation, mouture, café et fuite sont les suites logiques ; liens contrôlés par CI |
 | `humanizer` | PASS | ton concret, pas de pseudo-expertise ni de faux vécu |
 | `general-writing` | PASS | hiérarchie de diagnostic claire, jargon limité |
 | `anti-ai-slop` | PASS | pas de FAQ générique ni de remplissage artificiel |
 | comparaison cluster | PASS | rôle distinct des Guides dosage / mouture / café / fuite |
-| `seo-onpage` | PASS éditorial | title/meta/H1 cohérents ; HTML final à confirmer |
-| `seo-technical` | PENDING CI | canonical, robots, liens, blockers et reproductibilité à confirmer |
+| `seo-onpage` | PASS | title/meta/H1 cohérents et HTML final vérifié |
+| `seo-technical` | PASS | canonical, robots, liens, blockers et reproductibilité validés |
 | `seo-best-practices` | PASS / applicable limité | aucune structure SEO artificielle ajoutée |
 | `seo-drift` | N/A | aucune baseline avant/après exploitable |
 | `editorial-image-planner` | PASS — EXISTING_IMAGE | visuel existant réutilisé ; caption qualifiée ; aucun nouvel appel BFL |
-| `editorial-qa` | PASS éditorial | intention, valeur, factualité, naturel et frontières validés ; machine/visuel à confirmer |
+| `editorial-qa` | PASS | intention, valeur, factualité, naturel, frontières, machine gates et rendu visuel validés |
 
 ## 10. Blockers et corrections requises
 
@@ -175,17 +182,20 @@ Manques corrigés :
 - profil du café peu sourcé → sources scientifiques ajoutées avec portée limitée ;
 - aucune méthode de test reproductible → protocole en deux préparations ;
 - aucune frontière de sécurité → handoff fuite / soupape ;
-- visuel BFL sans qualification → caption explicite ajoutée.
+- visuel BFL sans qualification → caption explicite ajoutée et vérifiée dans le HTML final.
 
-Blocker restant avant verdict final :
-- confirmer les gates GitHub réels de régénération, liens, blockers, reproductibilité et rendu Guides.
+Blocker restant : aucun blocker éditorial, machine ou visuel identifié dans cette passe.
 
 ## 11. Verdict et prochaine étape
 
-État actuel : `PUBLISH_REVIEW_IN_PROGRESS`.
+`PASS — READY_FOR_HUMAN_VALIDATION`
 
-Verdict final à inscrire uniquement après confirmation des gates :
-- `PASS — READY_FOR_HUMAN_VALIDATION`, ou
-- `FAIL — KEEP_NOINDEX`.
+La page atteint le niveau de profondeur retenu pour les Guides avec une trace skill par skill comparable aux URLs déjà validées.
 
-Ne pas indexer automatiquement.
+Deux gates restent volontairement `N/A` :
+- `evidence-based-reviews`, car aucun jugement expérientiel n’est revendiqué ;
+- `seo-drift`, car aucune baseline avant/après exploitable n’est disponible.
+
+Le `seo-keyword` reste limité à une validation qualitative faute de données GSC / volume propres au site.
+
+Ne pas indexer automatiquement. Conserver `noindex,follow` jusqu’à validation humaine explicite.
