@@ -1,0 +1,445 @@
+/* ============================================================
+   CAFETIERE ITALIENNE — family-specific editorial treatments
+   Loaded after editorial.css. All rules are scoped by page-family classes
+   set in assets/app.js; shared tokens/components remain in styles.css and
+   editorial.css.
+   ============================================================ */
+
+/* ============================================================
+   CAPACITIES — measurement, volume and scale.
+   ============================================================ */
+html.capacity-page .page-hero{
+  background:transparent;
+  border-bottom:1px solid var(--line);
+}
+html.capacity-page .page-hero p{max-width:760px}
+
+.capacity-layout{
+  grid-template-columns:minmax(0,1fr) 245px;
+  gap:68px;
+}
+.capacity-layout .guide-answer{
+  margin-bottom:0;
+  padding:23px 0 27px!important;
+  background:transparent;
+  border:0!important;
+  border-top:3px solid var(--terra)!important;
+  border-bottom:1px solid var(--line)!important;
+  border-radius:0;
+}
+.capacity-layout .guide-answer h2{max-width:680px}
+.capacity-layout .content-main>section{padding:38px 0}
+.capacity-layout .sidebar-card{
+  position:sticky;
+  top:112px;
+  padding:18px 0 16px;
+  background:transparent;
+  color:var(--ink);
+  border:0;
+  border-top:2px solid var(--moka);
+  border-bottom:1px solid var(--line);
+  border-radius:0;
+}
+.capacity-layout .sidebar-card p{color:var(--muted)}
+.capacity-layout .sidebar-card hr{
+  border:0;
+  border-top:1px solid var(--line);
+  margin:14px 0;
+}
+.capacity-layout .sidebar-card .pill{
+  display:block;
+  width:max-content;
+  max-width:100%;
+  margin:0;
+  padding:5px 0;
+  background:transparent;
+  color:var(--moka);
+  border:0;
+  border-bottom:1px solid var(--line);
+  border-radius:0;
+  font-variant-numeric:tabular-nums;
+}
+
+/* Two volume zones read as a scale, not two cards. */
+.capacity-layout .comparison-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  margin:22px 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.capacity-layout .comparison-card,
+.capacity-layout .comparison-card.featured{
+  padding:22px 28px 22px 0;
+  background:transparent;
+  border:0;
+  border-right:1px solid var(--line);
+  border-radius:0;
+  box-shadow:none;
+}
+.capacity-layout .comparison-card+ .comparison-card{
+  padding-left:28px;
+  padding-right:0;
+  border-right:0;
+}
+.capacity-layout .comparison-card h3{
+  margin:4px 0 10px;
+  font-variant-numeric:tabular-nums;
+}
+
+/* Capacity decision blocks become measurement bands. */
+.capacity-layout .decision-list{
+  display:block;
+  border-top:1px solid var(--line);
+}
+.capacity-layout .decision-list>div{
+  position:relative;
+  margin:0;
+  padding:18px 0 18px 72px;
+  border-bottom:1px solid var(--line);
+}
+.capacity-layout .decision-list>div::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:48px;
+  background:
+    linear-gradient(var(--line),var(--line)) 0 50% / 48px 1px no-repeat,
+    repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 12px) 0 50% / 48px 8px no-repeat;
+}
+.capacity-layout .decision-list>div strong{display:block;margin-bottom:4px}
+.capacity-layout .decision-list>div p{margin:0;color:var(--muted)}
+.capacity-layout .table-wrap{
+  border-radius:0;
+  border-left:0;
+  border-right:0;
+}
+.capacity-layout .guide-table th{
+  background:transparent;
+  border-bottom:2px solid var(--moka);
+}
+.capacity-layout .guide-table td:first-child,
+.capacity-layout .guide-table th:first-child{
+  font-variant-numeric:tabular-nums;
+}
+
+/* Capacity hub: editorial scale from small to large volumes. */
+html.capacity-hub-page .section{padding:64px 0}
+html.capacity-hub-page .section+.section{border-top:1px solid color-mix(in srgb,var(--line) 72%,transparent)}
+html.capacity-hub-page .table-wrap{
+  border-radius:0;
+  border-left:0;
+  border-right:0;
+}
+html.capacity-hub-page .guide-table th{
+  background:transparent;
+  border-bottom:2px solid var(--moka);
+}
+html.capacity-hub-page .decision-list li::before{
+  background:transparent;
+  color:var(--terra);
+  font-family:"DM Serif Display",serif;
+  font-size:1.15rem;
+}
+html.capacity-hub-page .directory{
+  display:block;
+  max-width:900px;
+  border-top:2px solid var(--moka);
+  counter-reset:capacity-index;
+}
+html.capacity-hub-page .directory a{
+  counter-increment:capacity-index;
+  display:grid;
+  grid-template-columns:74px minmax(0,1fr) auto;
+  gap:20px;
+  align-items:baseline;
+  padding:20px 0;
+}
+html.capacity-hub-page .directory a::before{
+  content:counter(capacity-index,decimal-leading-zero);
+  color:var(--terra);
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+html.capacity-hub-page .directory a strong{
+  font-family:"DM Serif Display",serif;
+  font-size:1.45rem;
+  font-weight:400;
+}
+html.capacity-hub-page .directory a span{color:var(--terra)}
+
+/* ============================================================
+   ACCESSORIES — compatibility / maintenance sheet.
+   ============================================================ */
+html.accessory-page .page-hero{
+  background:var(--paper);
+  border-bottom:1px solid var(--line);
+}
+html.accessory-page .page-hero p{max-width:700px}
+
+.accessory-layout{
+  grid-template-columns:minmax(0,1fr) 250px;
+  gap:66px;
+}
+.accessory-layout .guide-answer{
+  margin-bottom:0;
+  padding:22px 0 28px!important;
+  background:transparent;
+  border:0!important;
+  border-top:3px solid var(--olive)!important;
+  border-bottom:1px solid var(--line)!important;
+  border-radius:0;
+}
+.accessory-layout .content-main>section{padding:38px 0}
+.accessory-layout .sidebar-card{
+  position:sticky;
+  top:112px;
+  padding:18px 0 16px;
+  background:transparent;
+  color:var(--ink);
+  border:0;
+  border-top:2px solid var(--olive);
+  border-bottom:1px solid var(--line);
+  border-radius:0;
+}
+.accessory-layout .sidebar-card p{color:var(--muted)}
+.accessory-layout .sidebar-card .pill{
+  display:inline-block;
+  margin:0 12px 0 0;
+  padding:3px 0;
+  background:transparent;
+  color:var(--olive);
+  border:0;
+  border-bottom:1px solid color-mix(in srgb,var(--olive) 36%,transparent);
+  border-radius:0;
+}
+
+/* Procedural steps keep numbering because the sequence is functional. */
+.accessory-layout .decision-list{
+  margin-top:20px;
+  border-top:1px solid var(--line);
+}
+.accessory-layout .decision-list li{
+  padding:15px 0 15px 46px;
+  background:transparent;
+  border-bottom:1px solid var(--line);
+  border-radius:0;
+}
+.accessory-layout .decision-list li::before{
+  left:0;
+  top:13px;
+  width:27px;
+  height:27px;
+  border-radius:2px;
+  background:var(--olive);
+  color:white;
+  font-size:.72rem;
+}
+.accessory-layout .guide-callout{
+  padding:12px 0 12px 18px;
+  background:transparent;
+  border-left:2px solid var(--terra);
+  border-radius:0;
+}
+.accessory-layout .guide-split{
+  gap:0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.accessory-layout .guide-split>div{
+  padding:22px 28px 22px 0;
+  background:transparent;
+  border:0;
+  border-right:1px solid var(--line);
+  border-radius:0;
+}
+.accessory-layout .guide-split>div+div{
+  padding-left:28px;
+  padding-right:0;
+  border-right:0;
+}
+
+/* Accessory hub: parts index, compact and diagnostic. */
+html.accessory-hub-page .directory{
+  grid-template-columns:1fr;
+  max-width:820px;
+  border-top:2px solid var(--olive);
+  counter-reset:part-index;
+}
+html.accessory-hub-page .directory a{
+  counter-increment:part-index;
+  display:grid;
+  grid-template-columns:54px minmax(0,1fr) auto;
+  align-items:baseline;
+  gap:18px;
+  padding:21px 0;
+}
+html.accessory-hub-page .directory a::before{
+  content:counter(part-index,decimal-leading-zero);
+  color:var(--olive);
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+html.accessory-hub-page .directory a span{color:var(--terra)}
+
+/* ============================================================
+   CAFE MOKA — magazine / culture / preparation.
+   ============================================================ */
+html.cafe-moka-page .page-hero{
+  background:transparent;
+  border-bottom:1px solid var(--line);
+}
+html.cafe-moka-page .page-hero h1{max-width:850px}
+html.cafe-moka-page .page-hero p{max-width:720px;line-height:1.75}
+
+.cafe-moka-layout{
+  grid-template-columns:minmax(0,760px) 230px;
+  justify-content:space-between;
+  gap:72px;
+}
+.cafe-moka-layout .content-main{font-size:1.01rem;line-height:1.75}
+.cafe-moka-layout .content-main>section{padding:40px 0}
+.cafe-moka-layout .guide-answer{
+  margin-bottom:0;
+  padding:24px 0 30px!important;
+  background:transparent;
+  border:0!important;
+  border-top:3px solid var(--moka)!important;
+  border-bottom:1px solid var(--line)!important;
+  border-radius:0;
+}
+.cafe-moka-layout .guide-answer h2{max-width:650px}
+.cafe-moka-layout .sidebar-card{
+  position:sticky;
+  top:112px;
+  padding:18px 0 17px;
+  background:transparent;
+  color:var(--ink);
+  border:0;
+  border-top:2px solid var(--moka);
+  border-bottom:1px solid var(--line);
+  border-radius:0;
+}
+.cafe-moka-layout .sidebar-card p{color:var(--muted)}
+.cafe-moka-layout .sidebar-card .pill{
+  display:inline;
+  margin:0 12px 0 0;
+  padding:0;
+  background:transparent;
+  color:var(--moka);
+  border:0;
+  border-bottom:1px solid var(--line);
+  border-radius:0;
+  line-height:1.9;
+}
+.cafe-moka-layout .table-wrap{
+  border-radius:0;
+  border-left:0;
+  border-right:0;
+}
+.cafe-moka-layout .guide-table th{
+  background:transparent;
+  border-bottom:2px solid var(--moka);
+}
+.cafe-moka-layout .source-list{font-size:.92rem;color:var(--muted)}
+
+/* Cafe moka hub: two editorial doors form a spread, not two cards. */
+html.cafe-moka-hub-page .brand-directory{
+  grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+  gap:0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+html.cafe-moka-hub-page .brand-choice{
+  min-height:250px;
+  padding:34px 42px 32px 0;
+  background:transparent;
+  border:0;
+  border-right:1px solid var(--line);
+  border-radius:0!important;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+html.cafe-moka-hub-page .brand-choice+ .brand-choice{
+  padding-left:42px;
+  padding-right:0;
+  border-right:0;
+}
+html.cafe-moka-hub-page .brand-choice h2{
+  margin:12px 0 14px;
+  max-width:480px;
+  font-size:clamp(2rem,3.6vw,3.2rem);
+}
+html.cafe-moka-hub-page .brand-choice p{
+  max-width:480px;
+  margin:0 0 26px;
+  color:var(--muted);
+}
+html.cafe-moka-hub-page .brand-choice .card-link{margin-top:auto}
+html.cafe-moka-hub-page .brand-choice:hover h2{color:var(--moka)}
+
+@media(max-width:900px){
+  .capacity-layout,
+  .accessory-layout,
+  .cafe-moka-layout{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+  .capacity-layout aside,
+  .accessory-layout aside,
+  .cafe-moka-layout aside{order:-1}
+  .capacity-layout .sidebar-card,
+  .accessory-layout .sidebar-card,
+  .cafe-moka-layout .sidebar-card{position:static}
+}
+
+@media(max-width:600px){
+  .capacity-layout .comparison-grid{grid-template-columns:1fr}
+  .capacity-layout .comparison-card,
+  .capacity-layout .comparison-card.featured,
+  .capacity-layout .comparison-card+ .comparison-card{
+    padding:18px 0;
+    border-right:0;
+    border-bottom:1px solid var(--line);
+  }
+  .capacity-layout .comparison-card:last-child{border-bottom:0}
+  .capacity-layout .decision-list>div{padding-left:48px}
+  .capacity-layout .decision-list>div::before{width:32px;background-size:32px 1px,32px 8px}
+  html.capacity-hub-page .directory a{
+    grid-template-columns:42px minmax(0,1fr) auto;
+    gap:12px;
+  }
+  html.capacity-hub-page .directory a strong{font-size:1.28rem}
+
+  .accessory-layout .guide-split{grid-template-columns:1fr}
+  .accessory-layout .guide-split>div,
+  .accessory-layout .guide-split>div+div{
+    padding:18px 0;
+    border-right:0;
+    border-bottom:1px solid var(--line);
+  }
+  .accessory-layout .guide-split>div:last-child{border-bottom:0}
+  html.accessory-hub-page .directory a{
+    grid-template-columns:38px minmax(0,1fr) auto;
+    gap:10px;
+  }
+
+  html.cafe-moka-hub-page .brand-directory{
+    grid-template-columns:1fr;
+  }
+  html.cafe-moka-hub-page .brand-choice,
+  html.cafe-moka-hub-page .brand-choice+ .brand-choice{
+    min-height:0;
+    padding:26px 0;
+    border-right:0;
+    border-bottom:1px solid var(--line);
+  }
+  html.cafe-moka-hub-page .brand-choice:last-child{border-bottom:0}
+  html.cafe-moka-hub-page .brand-choice h2{font-size:2rem}
+}
