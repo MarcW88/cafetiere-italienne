@@ -8,12 +8,16 @@ function loadStylesheet(href,key){
 }
 
 loadStylesheet('assets/editorial.css','editorial');
+loadStylesheet('assets/families.css','families');
 
 const currentPath=window.location.pathname.replace(/\/+$/,'')||'/';
 const isComparison=currentPath==='/comparatifs'||currentPath.startsWith('/comparatifs/');
 const isBrand=currentPath==='/marques'||currentPath.startsWith('/marques/');
 const isModel=currentPath==='/modeles'||currentPath.startsWith('/modeles/');
 const isGuide=currentPath==='/guides'||currentPath.startsWith('/guides/');
+const isCapacity=currentPath==='/capacites'||currentPath.startsWith('/capacites/');
+const isAccessory=currentPath==='/accessoires'||currentPath.startsWith('/accessoires/');
+const isCafeMoka=currentPath==='/cafe-moka'||currentPath.startsWith('/cafe-moka/');
 
 if(isComparison){
   document.documentElement.classList.add('comparison-page');
@@ -31,6 +35,18 @@ if(isModel){
 if(isGuide){
   document.documentElement.classList.add('guide-page');
   if(currentPath==='/guides')document.documentElement.classList.add('guide-hub-page');
+}
+if(isCapacity){
+  document.documentElement.classList.add('capacity-page');
+  if(currentPath==='/capacites')document.documentElement.classList.add('capacity-hub-page');
+}
+if(isAccessory){
+  document.documentElement.classList.add('accessory-page');
+  if(currentPath==='/accessoires')document.documentElement.classList.add('accessory-hub-page');
+}
+if(isCafeMoka){
+  document.documentElement.classList.add('cafe-moka-page');
+  if(currentPath==='/cafe-moka')document.documentElement.classList.add('cafe-moka-hub-page');
 }
 
 const menu=document.querySelector('.menu-btn');
