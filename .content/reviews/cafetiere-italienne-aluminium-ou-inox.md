@@ -4,7 +4,7 @@
 - Date: 14 septembre 2026
 - Mode: `AUDIT` → `DEEP_REWRITE` → strict skill-by-skill review
 - Décision d’origine: `DEEP_REWRITE`
-- État après correction: `PUBLISH_REVIEW_IN_PROGRESS`
+- État après correction: `PASS — READY_FOR_HUMAN_VALIDATION`
 - Confiance éditoriale: élevée
 - Robots: `noindex,follow` conservé
 - Source de vérité: `scripts/guide-content-materials-care.mjs`
@@ -138,7 +138,7 @@ Pas de même suite de H2, même nombre d’étapes, même tableau ou même CTA i
 - H1: `Cafetière italienne aluminium ou inox : que choisir ?` ;
 - topic principal présent immédiatement ;
 - meta description élargie aux dimensions réellement couvertes : induction, chauffe, entretien, santé ;
-- réponse initiale claire et citables ;
+- réponse initiale claire et citable ;
 - entités principales: Moka Express, Venus, Alessi 9090, aluminium alimentaire, inox 18/10, induction, conductivité thermique, BfR ;
 - lien vers induction lorsque la compatibilité devient la prochaine question ;
 - lien vers nettoyage lorsque l’entretien devient la prochaine question ;
@@ -150,17 +150,23 @@ La page produit des unités de réponse distinctes: `inox ≠ induction`, `maté
 
 ## 8. Technique
 
-Attendus:
+Résultat confirmé:
 
-- canonical: `https://cafetiere-italienne.be/guides/cafetiere-italienne-aluminium-ou-inox/` ;
+- canonical attendu: `https://cafetiere-italienne.be/guides/cafetiere-italienne-aluminium-ou-inox/` ;
 - robots: `noindex,follow` ;
 - source: `scripts/guide-content-materials-care.mjs` ;
 - HTML régénéré depuis la source de vérité ;
-- liens internes existants ;
-- sources externes HTTPS ;
+- liens internes contrôlés ;
+- blockers Guide machine contrôlés ;
+- reproductibilité du HTML généré contrôlée ;
+- rendu visuel contrôlé ;
 - image BFL existante conservée comme illustration, jamais comme preuve.
 
-Les gates machine finaux sont consignés après les workflows GitHub déclenchés par la correction.
+Gates exécutés sur la review stricte:
+
+- `Regenerate and quality-check Guide cluster` #29 — success ;
+- `Validate Guide workflow` #30 — success ;
+- `Visual design review` #117 — success.
 
 ## 9. Trace skill par skill — parité `bloc-notes-numerique`
 
@@ -175,18 +181,18 @@ Les gates machine finaux sont consignés après les workflows GitHub déclenché
 | `affiliate-value` | PASS | page utile sans aucun lien marchand ; raisonnement décisionnel autonome |
 | `content-brief-authoring` | PASS | brief réécrit avec intention, thèse, valeur propre, preuves, risques, frontières et structure dérivée de la recherche |
 | `content-and-copy` | PASS | correction portée dans la source JS, pas uniquement dans le HTML généré |
-| `fact-check` post-rédaction | PASS éditorial | chaque nouveau claim conductivité/densité/santé est relié aux sources du registre ; machine gate encore à confirmer |
-| `internal-linking-audit` | PASS | induction + nettoyage + comparatifs correspondent aux prochaines questions logiques |
+| `fact-check` post-rédaction | PASS | chaque nouveau claim conductivité/densité/santé est relié aux sources du registre ; gates machine passés |
+| `internal-linking-audit` | PASS | induction + nettoyage + comparatifs correspondent aux prochaines questions logiques ; liens contrôlés par CI |
 | `humanizer` | PASS | prose continue, non mécanique, pas de première personne artificielle ni remplissage |
 | `general-writing` | PASS | simplification sans suppression des nuances factuelles |
 | `anti-ai-slop` | PASS | structure non clonée, pas de blocs avantages/inconvénients symétriques, pas de conclusion générique |
 | comparaison cluster | PASS | rôle distinct du guide général, induction et nettoyage |
-| `seo-onpage` | PASS éditorial | title/meta/H1/intention/maillage cohérents ; machine gate encore à confirmer |
-| `seo-technical` | PENDING CI | canonical, robots, HTML et liens à confirmer par build/validate |
+| `seo-onpage` | PASS | title/meta/H1/intention/maillage cohérents et rendu généré validé |
+| `seo-technical` | PASS | canonical, robots, HTML, liens et reproductibilité confirmés par les workflows Guide |
 | `seo-best-practices` | PASS / applicable limité | pas de règle additionnelle pertinente nécessitant une modification |
 | `seo-drift` | N/A | aucun baseline avant/après disponible |
-| `editorial-image-planner` | PASS — NO_NEW_IMAGE | image existante suffisante ; aucun nouvel appel BFL ; image non utilisée comme preuve |
-| `editorial-qa` | PASS éditorial | intention, valeur originale, factualité, naturel, utilité et frontières validés ; machine gate encore à confirmer |
+| `editorial-image-planner` | PASS — NO_NEW_IMAGE | image existante suffisante ; aucun nouvel appel BFL nécessaire ; image non utilisée comme preuve |
+| `editorial-qa` | PASS | intention, valeur originale, factualité, naturel, utilité, frontières, machine gates et rendu validés |
 
 ## 10. Blockers et corrections requises
 
@@ -199,19 +205,19 @@ Blockers éditoriaux précédents corrigés:
 - maillage entretien manquant → corrigé ;
 - brief trop court pour prouver la méthode → corrigé.
 
-Blocker restant avant verdict final:
-
-- attendre le résultat réel des gates GitHub de régénération / validation / rendu ; ne pas convertir un contrôle éditorial en PASS technique par anticipation.
+Blocker restant: aucun blocker éditorial, machine ou visuel identifié dans cette passe.
 
 ## 11. Verdict et prochaine étape
 
-État actuel: `PUBLISH_REVIEW_IN_PROGRESS`.
+`PASS — READY_FOR_HUMAN_VALIDATION`
 
-La page est éditorialement au niveau requis et la trace skill par skill est désormais comparable à `bloc-notes-numerique`.
+La page atteint le niveau requis pour cette URL avec une trace skill par skill comparable à `bloc-notes-numerique`.
 
-Verdict final à inscrire uniquement après confirmation des gates machine et visuels:
+Deux gates sont volontairement `N/A`, et non artificiellement marqués PASS:
 
-- `PASS — READY_FOR_HUMAN_VALIDATION`, ou
-- `FAIL — KEEP_NOINDEX`.
+- `evidence-based-reviews`, car aucun jugement expérientiel n’est revendiqué ;
+- `seo-drift`, car aucun baseline avant/après exploitable n’est disponible.
 
-Ne pas indexer automatiquement.
+Le `seo-keyword` reste limité à une validation qualitative faute de données GSC / volume propres au site.
+
+Ne pas indexer automatiquement. Conserver `noindex,follow` jusqu’à validation humaine explicite.
