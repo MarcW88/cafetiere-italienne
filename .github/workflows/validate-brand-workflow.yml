@@ -1,0 +1,56 @@
+name: Validate Brand workflow
+
+on:
+  workflow_run:
+    workflows: ["Regenerate and quality-check Brand cluster"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-brands:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout regenerated main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Rebuild from Brand source of truth
+        run: npm run build
+
+      - name: Validate repository links
+        run: npm run check
+
+      - name: Validate machine-detectable Brand blockers
+        run: python3 validate_brand_quality.py
+
+      - name: Verify generated Brand HTML is reproducible
+        shell: bash
+        run: |
+          if ! git diff --quiet -- marques/; then
+            echo 'Generated Brand HTML differs from committed output.'
+            git diff -- marques/
+            exit 1
+          fi
+          echo 'PASS: committed Brand HTML matches current source modules.'
