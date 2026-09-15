@@ -42,7 +42,10 @@ jobs:
       - name: Validate repository links
         run: npm run check
 
-      - name: Validate machine-detectable Brand blockers
+      - name: Validate Brand publication state and legacy blockers
+        run: python3 validate_brands.py
+
+      - name: Validate Brand JS-site quality blockers
         run: python3 validate_brand_quality.py
 
       - name: Verify generated Brand HTML is reproducible
