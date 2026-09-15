@@ -64,6 +64,17 @@ def visible_text(html: str) -> str:
     return clean(main.group(1) if main else html).lower().replace("’", "'")
 
 
+def has_class(html: str, class_name: str) -> bool:
+    """Match a CSS class token even when the element has multiple classes."""
+    return bool(
+        re.search(
+            rf'class="[^"]*(?:^|\s){re.escape(class_name)}(?:\s|$)[^"]*"',
+            html,
+            re.I,
+        )
+    )
+
+
 def validate(route: str, spec: dict[str, str]) -> list[str]:
     failures: list[str] = []
     page = page_for_route(route)
@@ -96,7 +107,7 @@ def validate(route: str, spec: dict[str, str]) -> list[str]:
     elif spec["brand"].lower() not in h1s[0].lower():
         failures.append("H1 does not identify the brand")
 
-    if 'class="brand-layout"' not in html or 'class="content-main"' not in html:
+    if not has_class(html, "brand-layout") or not has_class(html, "content-main"):
         failures.append("brand-layout/content-main structure missing")
 
     ids = ID_RE.findall(html)
