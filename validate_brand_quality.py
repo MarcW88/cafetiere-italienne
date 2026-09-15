@@ -27,6 +27,7 @@ ROBOTS_RE = re.compile(r'<meta\b[^>]*name="robots"[^>]*content="([^"]*)"', re.I)
 CANONICAL_RE = re.compile(r'<link\b[^>]*rel="canonical"[^>]*href="([^"]+)"', re.I)
 H1_RE = re.compile(r"<h1\b[^>]*>(.*?)</h1>", re.S | re.I)
 ID_RE = re.compile(r'\bid="([^"]+)"', re.I)
+CLASS_RE = re.compile(r'class="([^"]*)"', re.I)
 EXTERNAL_LINK_RE = re.compile(r'<a\b[^>]*href="https?://', re.I)
 
 BLOCKED_VISIBLE_PATTERNS = {
@@ -65,14 +66,8 @@ def visible_text(html: str) -> str:
 
 
 def has_class(html: str, class_name: str) -> bool:
-    """Match a CSS class token even when the element has multiple classes."""
-    return bool(
-        re.search(
-            rf'class="[^"]*(?:^|\s){re.escape(class_name)}(?:\s|$)[^"]*"',
-            html,
-            re.I,
-        )
-    )
+    """Match a CSS class token even when an element has multiple classes."""
+    return any(class_name in classes.split() for classes in CLASS_RE.findall(html))
 
 
 def validate(route: str, spec: dict[str, str]) -> list[str]:
