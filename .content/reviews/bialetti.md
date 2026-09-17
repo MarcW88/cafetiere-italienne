@@ -3,11 +3,11 @@
 Date : 17 septembre 2026  
 Mode : `brand-analysis-workflow` → `PUBLISH_REVIEW`
 
-Status: `FAIL — KEEP_NOINDEX`
+Status: `PASS — READY_FOR_HUMAN_VALIDATION`
 
 ## 1. Machine gate
 
-PASS sur le dernier workflow Brand : build, liens internes, `validate_brands.py` et `validate_brand_quality.py` n'ont signalé aucun blocker machine.
+PASS sur le workflow Brand après correction : build, liens internes, `validate_brands.py` et `validate_brand_quality.py` n'ont signalé aucun blocker machine.
 
 La page conserve correctement `noindex,follow` et un canonical self-referential.
 
@@ -31,45 +31,33 @@ La page remplit son rôle de `BRAND_HUB` : elle aide à choisir une logique Bial
 | Variante esthétique vs variante fonctionnelle | `USED` | Black / Italia / collaborations sont séparées des changements de construction ou de plaque. |
 | Taille / volume avant finition | `USED` | Section dédiée avec handoff vers `/capacites/`. |
 | Diamètre détectable par la plaque induction | `USED` | Deuxième hard gate explicitement indiqué. |
+| Adaptateur induction comme troisième voie pour certains modèles aluminium | `USED` | La section induction distingue désormais explicitement l'adaptateur d'une moka directement compatible et route vers le guide dédié. |
 | Pièces détachées : famille + taille + génération | `USED` | Moka Induction pré-2020 et Brikka 2016–2023 vs 2024 sont repris. |
 | Handoff vers fiches modèles | `USED` | Moka Express, Venus et Moka Induction ont une route dédiée. |
 | Handoff vers comparatifs | `USED` | Présent lorsque le lecteur hésite encore entre marques / solutions. |
 | Handoff vers guide induction | `USED` | Présent dans la section induction. |
-| Adaptateur induction comme troisième voie pour certains modèles aluminium | `MISSING` | Le research brief prévoit explicitement cette branche et documente notamment l'adaptateur possible pour Moka Exclusive classique, mais la page n'explique pas quand l'adaptateur constitue une alternative à une moka directement compatible induction. |
 | Histoire Moka Express 1933 | `EXCLUDED` | Non nécessaire à la décision ; la source reste listée mais le contenu ne devient pas une histoire corporate. |
 | Disponibilité retailer belge | `EXCLUDED` | Signal channel-sensitive, non nécessaire au rôle du hub et susceptible de varier. |
 
-## 4. Blocker
+Aucun élément décisionnel du research brief n'est désormais en statut `MISSING`.
 
-### `MISSING` — adaptateur induction
-
-Le brief de recherche définit l'induction comme un arbitrage entre plusieurs voies, dont l'adaptateur pour certains modèles aluminium. La page explique correctement les variantes directement compatibles induction, mais elle ne dit pas qu'un lecteur souhaitant conserver certaines moka aluminium peut passer par un adaptateur compatible, ni les limites de cette voie.
-
-Ce manque peut changer la décision du lecteur. Il est donc bloquant selon le gate `research-to-draft coverage`.
-
-Correction attendue : ajout ciblé dans la section induction, sans nouvelle architecture globale et sans `DEEP_REWRITE`. Le contenu doit distinguer clairement :
-
-- moka directement compatible induction ;
-- modèle aluminium non compatible directement ;
-- usage éventuel d'un adaptateur lorsque le fabricant / la documentation le permet ;
-- nécessité de vérifier la compatibilité réelle de la plaque et de l'adaptateur.
-
-Route recommandée : `content-refresh` → `fact-check` → `PUBLISH_REVIEW`.
-
-## 5. Autres gates substantiels
+## 4. Gates substantiels
 
 - Intention : PASS.
+- Research-to-draft coverage : PASS ; aucun `MISSING` décisionnel.
 - Valeur affiliée originale : PASS ; la page reste utile sans lien marchand.
-- Claims importants : PASS sur les éléments actuellement publiés.
+- Claims importants : PASS sur les éléments publiés et reliés aux sources du brief.
+- Niveau de preuve : PASS ; aucune extrapolation gustative ou ergonomique non sourcée.
 - Hands-on : PASS ; aucun faux test revendiqué.
 - AI-slop / industrialisation : PASS ; structure distincte d'Alessi et dictée par la logique de gamme Bialetti.
 - Cannibalisation : aucun blocker identifié avec les fiches modèles, capacités, guides ou comparatifs.
-- SEO / technique : PASS au niveau du review ; title, H1, meta, canonical, robots, liens internes et sources sont cohérents.
+- SEO / technique : PASS ; title, H1, meta, canonical, robots, liens internes et sources sont cohérents.
+- Machine validation : PASS après la correction locale.
 
-## 6. Verdict
+## 5. Verdict
 
-`FAIL — KEEP_NOINDEX`
+`PASS — READY_FOR_HUMAN_VALIDATION`
 
-Un seul blocker substantiel identifié : `MISSING` décisionnel sur la voie adaptateur induction.
+La correction locale sur la voie adaptateur induction résout le seul blocker identifié lors du test du nouveau gate `research-to-draft coverage`.
 
-Ne pas déclencher de réécriture complète. Une correction locale suivie d'un nouveau `PUBLISH_REVIEW` suffit.
+La page doit rester `noindex,follow` jusqu'à validation humaine explicite puis instruction explicite de la rendre indexable.
