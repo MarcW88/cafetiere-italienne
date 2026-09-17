@@ -37,6 +37,7 @@ content:
     - "scripts/apply-model-bialetti-moka-induction-v2-reviewed.mjs"
     - "scripts/apply-model-alessi-9090-v2-reviewed.mjs"
     - "scripts/apply-model-bialetti-brikka-reviewed.mjs"
+    - "scripts/apply-model-bialetti-mini-express-reviewed.mjs"
   mode: "recovery"
 
 artifacts:
