@@ -46,13 +46,16 @@ Construire `.content/models/evidence/<slug>-YYYY-MM-DD.md` depuis sources actuel
 
 - version/génération/variante ;
 - construction ;
-- tailles et volumes ;
+- tailles, capacités nominales et volumes ;
+- **réducteur, demi-capacité ou autre multi-rendement documenté**, lorsqu'il peut changer la taille rationnelle à acheter ;
 - plaque et diamètre de détection ;
 - entretien ;
 - pièces ;
 - différences avec modèles frères ;
 - contradictions ;
 - limites capables d'écarter le produit.
+
+Pour tout mode de capacité flexible, vérifier séparément : rendement exact, pièce/mécanisme exact, source du mode d'emploi et limites. Ne jamais extrapoler un rendement non documenté.
 
 Hiérarchie : fabricant/manual/support > distributeur officiel > retailer fiable > test indépendant nommé > patterns utilisateurs.
 
@@ -84,6 +87,7 @@ Créer `.content/models/decisions/<slug>-YYYY-MM-DD.md` avec :
 - hard gates ;
 - contraindications ;
 - alternatives / modèles frères ;
+- flexibilité de capacité documentée lorsqu'elle change le choix ;
 - ce qui doit être `USED`, `HANDOFF` ou `EXCLUDED` ;
 - angle éditorial et thèse.
 
