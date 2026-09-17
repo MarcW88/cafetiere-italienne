@@ -42,7 +42,7 @@ if(!hub.includes('/marques/giannini/')&&!hub.includes('marques/giannini/')){
   const marker='</a></div></section></main>';
   const card='<a class="brand-choice" href="/marques/giannini/"><span class="eyebrow">Inox & mécanique</span><h2>Giannini</h2><p>Giannina ou Tua : comparez fermeture, taille réductible et compatibilité induction réelle.</p><span class="card-link">Explorer Giannini →</span></a>';
   if(!hub.includes(marker))throw new Error('Brand hub insertion point not found for Giannini.');
-  hub=hub.replace(marker,`${card}</div></section></main>`);
+  hub=hub.replace(marker,`</a>${card}</div></section></main>`);
 }
 
 fs.writeFileSync(hubPath,hub);
