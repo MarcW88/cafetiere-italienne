@@ -96,6 +96,7 @@ jobs:
             echo "No generated Model changes to commit"
           else
             git commit -m "content: regenerate models from reviewed sources"
+            git reset --hard HEAD
             git pull --rebase origin "${{ github.ref_name }}"
             git push origin HEAD:${{ github.ref_name }}
           fi
