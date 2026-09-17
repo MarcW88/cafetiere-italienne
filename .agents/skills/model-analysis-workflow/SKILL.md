@@ -71,12 +71,20 @@ Vérifier uniquement ce qui change réellement la décision :
 - référence, génération et variante exacte ;
 - matériau/construction sans promesse gustative induite ;
 - taille, capacité nominale et volume documenté ;
+- **flexibilité de capacité documentée** : filtre réducteur, mode demi-capacité ou multi-rendement lorsqu'il peut changer le choix de taille ;
 - compatibilité plaque par taille + diamètre de détection lorsqu'il compte ;
 - pièces par famille/taille/génération ;
 - entretien et première utilisation ;
 - différence avec modèle frère ;
 - raisons rationnelles de choisir **ou d'écarter** le modèle ;
 - écart éventuel entre claim fabricant et friction utilisateur à clarifier.
+
+Lorsqu'un réducteur ou mode multi-rendement est pertinent, vérifier séparément :
+
+- le rendement exact documenté ;
+- la référence de pièce ou le mécanisme exact ;
+- les limites — ne jamais inventer d'autres rendements par symétrie ;
+- l'impact réel sur le JTBD et le choix de taille.
 
 Aucun de ces blocs n'est un quota. Il devient requis uniquement si l'analyse le rend décisionnel.
 
