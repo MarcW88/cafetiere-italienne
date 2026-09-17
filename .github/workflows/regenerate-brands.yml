@@ -7,6 +7,7 @@ on:
     paths:
       - 'scripts/brand-content.mjs'
       - 'scripts/apply-brand-alessi-reviewed.mjs'
+      - 'scripts/apply-brand-bialetti-reviewed.mjs'
       - 'scripts/build.mjs'
       - '.content/brands/**'
       - '.content/reviews/brand-analysis-**'
