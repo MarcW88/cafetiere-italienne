@@ -1,116 +1,143 @@
 ---
 name: model-content-workflow
-description: Workflow de création et refonte des pages /modeles/ de cafetiere-italienne.be, adapté de la branche PRODUCT du workflow bloc-notes-numerique. Produit une fiche produit décisionnelle, sourcée, fact-checkée, non templatisée et sans faux hands-on.
+description: Workflow v2 de création/refonte des pages /modeles/ de cafetiere-italienne.be, aligné sur la profondeur PRODUCT de bloc-notes-numerique. Produit d'abord des artefacts JTBD, décision et preuve persistants, puis seulement une page décisionnelle sourcée et non templatisée.
 metadata:
   adapted_for: cafetiere-italienne.be
   based_on: bloc-notes-numerique PRODUCT workflow
+  workflow_version: 2
 ---
 
-# Model Content Workflow
+# Model Content Workflow v2
 
 ## Principe
 
-> Pas de plan avant l'intention et les preuves. Pas de claim important sans source. Pas de structure fixe entre deux modèles.
+> Pas de brief sans décision. Pas de décision sans JTBD et preuves. Pas de rédaction sans evidence ledger. Pas de PASS fondé uniquement sur le HTML final.
 
-Pour une page existante, commencer par `model-analysis-workflow / AUDIT`.
+Pour une page existante, commencer par `model-analysis-workflow / PAGE_AUDIT`.
 
-## 1. Intention
+## 1. Cluster, SEO et intention
 
-Avec `search-intent`, établir : topic principal, décision du lecteur, rôle de l'URL, modèle(s) frère(s) à distinguer, prochaine question logique et risque de cannibalisation.
+Utiliser `content-audit`, `seo-content-audit`, `seo-keyword` et `search-intent` pour établir : rôle de l'URL, requête centrale, décisions du lecteur, modèle(s) frère(s), SERP/intention, chevauchements et handoffs.
 
-## 2. Audit et récupération
+Persist : `.content/models/audits/<slug>-YYYY-MM-DD.md`.
 
-Utiliser `content-audit`, puis `content-refresh` si nécessaire. Conserver les faits, tableaux ou liens encore utiles ; ne pas remplacer une information précise par une prose plus générique.
+## 2. JTBD avant produit
 
-## 3. Research / evidence brief
+Utiliser `jobs-to-be-done`. Formuler le progrès recherché sans nommer d'abord le produit. Documenter :
 
-Avec `fact-check`, construire avant le plan un registre :
+- circonstances ;
+- Push / Pull / Anxiety / Habit ;
+- Big Hire / Little Hire ;
+- alternatives réelles ;
+- critères `MUST_HAVE`, `HIGH`, `CONDITIONAL`, `CONTRAINDICATION` ;
+- niveau de preuve des besoins (`OBSERVED`, `SUPPORTED`, `INFERRED`, `HYPOTHESIS`, `UNKNOWN`).
 
-| Claim / question | Source | Date | Status | Impact décisionnel |
+Les forums et avis peuvent révéler une friction ou une question ; ils ne remplacent pas une preuve produit.
+
+## 3. Record produit / variante
+
+Créer `.content/models/records/<slug>.json` avec identité canonique, URL, `PRODUCT`, marque, variante/génération importante, état `noindex,follow`, registry key et chemins des artefacts. Aligner ce record avec `.content/products/registry.json`.
+
+Ne jamais inventer ASIN, prix, affiliation ou image.
+
+## 4. Evidence packet
+
+Construire `.content/models/evidence/<slug>-YYYY-MM-DD.md` depuis sources actuelles. Rechercher seulement ce qui peut changer le choix :
+
+- version/génération/variante ;
+- construction ;
+- tailles et volumes ;
+- plaque et diamètre de détection ;
+- entretien ;
+- pièces ;
+- différences avec modèles frères ;
+- contradictions ;
+- limites capables d'écarter le produit.
+
+Hiérarchie : fabricant/manual/support > distributeur officiel > retailer fiable > test indépendant nommé > patterns utilisateurs.
+
+## 5. Evidence ledger / fact-check
+
+Créer `.content/models/evidence-ledgers/<slug>-YYYY-MM-DD.md` avec au minimum :
+
+| Claim | Evidence | Status | Source | Decision impact |
 |---|---|---|---|---|
 
-Hiérarchie : fabricant/manual/support > distributeur officiel > retailer fiable > test indépendant nommé > patterns utilisateurs multi-sources.
+Statuts produit : `VERIFIED`, `SUPPORTED`, `INFERRED`, `UNKNOWN`, `OUTDATED`, `CONTRADICTED`.
 
-Statuts : `VERIFIED`, `SUPPORTED`, `INFERRED`, `UNKNOWN`, `OUTDATED`, `CONTRADICTED`.
+Toute contradiction importante doit être arbitrée explicitement. `UNKNOWN` ne devient pas une certitude par besoin rédactionnel.
 
-Pour une fiche modèle, rechercher en priorité **si pertinent** :
+## 6. Signaux d'usage / review layer
 
-- référence/version/génération actuelle ;
-- matériau et construction ;
-- tailles et volumes réellement préparés ;
-- plaques compatibles par taille ;
-- diamètre/base induction et contraintes de détection ;
-- entretien et première utilisation ;
-- pièces, joints, filtres ou entonnoirs compatibles ;
-- différence fonctionnelle avec le ou les modèles frères ;
-- limitation qui suffit à écarter le produit pour un profil donné.
+Utiliser `evidence-based-reviews` lorsqu'un jugement d'ergonomie, fiabilité, expérience ou performance apparaît. Sans hands-on réel, ne jamais écrire “nous avons testé/mesuré/constaté”.
 
-Ne pas forcer un champ absent ou non décisionnel.
+Les signaux communautaires servent à : détecter questions, objections, confusion et edge cases ; ils restent attribués et ne deviennent pas une spec.
 
-## 4. Jugements
+## 7. Decision artifact — obligatoire avant le brief
 
-Utiliser `evidence-based-reviews` dès qu'un jugement de qualité, ergonomie, fiabilité ou expérience apparaît. Une observation d'un tiers reste attribuée au tiers. Sans vrai hands-on, ne jamais écrire “nous avons testé/constaté”.
+Créer `.content/models/decisions/<slug>-YYYY-MM-DD.md` avec :
 
-## 5. Valeur originale
+- JTBD ;
+- Push / Pull / Anxiety / Habit ;
+- Big Hire / Little Hire ;
+- critères de décision ;
+- hard gates ;
+- contraindications ;
+- alternatives / modèles frères ;
+- ce qui doit être `USED`, `HANDOFF` ou `EXCLUDED` ;
+- angle éditorial et thèse.
 
-Avec `affiliate-value`, identifier ce que la page explique mieux qu'une fiche fabricant : erreur d'achat probable, conséquence d'une taille, compatibilité partielle, coût/contrainte, pièce particulière, alternative rationnelle ou raison de ne pas acheter.
+Sans cet artefact, **interdiction de rédiger le content brief**.
 
-Test : la page reste-t-elle utile sans lien affilié ?
+## 8. Valeur originale
 
-## 6. Architecture
+Avec `affiliate-value`, définir ce que la page apporte au-delà d'une fiche fabricant : erreur d'achat probable, conséquence pratique, incompatibilité partielle, pièce/génération, compromis, alternative rationnelle ou raison de ne pas acheter.
 
-Construire le plan seulement après les étapes précédentes. Chaque section doit répondre à :
+Test : la page reste-t-elle utile si tous les liens affiliés disparaissent ?
 
-1. quelle question réelle ?
-2. quelles preuves ?
-3. quelle décision change-t-elle ?
-4. pourquoi mérite-t-elle une section ?
+## 9. Content brief
 
-Interdits : nombre fixe de H2, tableau obligatoire, FAQ automatique, “pour/contre” obligatoire, conclusion automatique, minimum de mots, clonage de la page sœur.
+Utiliser `content-brief-authoring`. Le brief consomme le decision artifact et l'evidence ledger : reader/JTBD, décision, critères, faits requis, trade-offs, contraindications, handoffs, anti-patterns, succès et outline bespoke.
 
-## 7. Rédaction
+Le modèle `PRODUCT` ne définit jamais une structure fixe.
 
-Écrire uniquement depuis l'evidence brief. Expliquer les conséquences pratiques, les limites et les cas où un modèle frère est plus rationnel. Ne pas transformer “inox”, “aluminium”, “premium”, “design” ou “induction” en promesse de goût/performance sans preuve.
+## 10. Rédaction
 
-## 8. Fact-check post-draft
+Utiliser `content-and-copy`. Chaque section doit avoir une raison décisionnelle. Préserver les faits forts existants, corriger la structure avant d'ajouter de la prose, et ne jamais utiliser la longueur comme proxy de profondeur.
 
-Réextraire les claims, comparer au brief, corriger `OUTDATED`/`CONTRADICTED`, qualifier ou supprimer `UNKNOWN`, vérifier que les variantes/tailles ne sont pas généralisées abusivement.
+## 11. Post-draft fact-check persistant
 
-## 9. Research-to-draft coverage
+Réextraire les claims du draft et enregistrer `.content/models/post-draft/<slug>-YYYY-MM-DD.md` avec verdict `PASS` ou `FAIL`, corrections, contradictions résolues, généralisations supprimées et contrôle des variantes.
 
-Avant finition, attribuer à chaque élément décisionnel du brief : `USED`, `HANDOFF`, `EXCLUDED`, `MISSING`.
+## 12. Research-to-draft coverage
 
-Un `MISSING` doit être corrigé ou justifié avant le PUBLISH_REVIEW. Il ne s'agit pas d'un quota de specs.
+Pour chaque élément décisionnel du decision artifact/evidence ledger : `USED`, `HANDOFF`, `EXCLUDED`, `MISSING`. Tout `MISSING` décisionnel bloque le PUBLISH_REVIEW.
 
-## 10. Finition et maillage
+## 13. Finition rédactionnelle
 
-Ordre : `humanizer` → `general-writing` → `anti-ai-slop`, puis `internal-linking-audit`.
+Ordre : `humanizer` puis `general-writing`, en laissant leurs sous-passes internes jouer leur rôle ; ne pas relancer artificiellement les mêmes transformations. Ensuite `anti-ai-slop`.
 
-Les liens internes répondent seulement aux prochaines questions logiques : capacité, induction, inox/aluminium, usage, accessoire, comparatif ou modèle frère.
+Le skill `natural-writing` local est adapté au néerlandais et n'est donc pas imposé aux pages FR.
 
-## 11. SEO et QA
+## 14. Maillage, SEO, visuel, QA
 
-Utiliser `seo-technical`, `seo-best-practices` lorsque applicable puis `editorial-qa`. Contrôler title, H1, canonical, robots, breadcrumbs, crawlabilité et schema honnête.
+Appliquer :
 
-## 12. Gate final
+- `internal-linking-audit` ;
+- `seo-onpage` + `seo-technical` + `seo-best-practices` ;
+- `editorial-image-planner` seulement si une image apporte une preuve/clarification réelle ;
+- `site-design-review` si la structure visuelle a significativement changé ;
+- `editorial-qa`.
 
-Appeler `model-analysis-workflow / PUBLISH_REVIEW` :
+## 15. Gate final
+
+Appeler `model-analysis-workflow / PUBLISH_REVIEW` puis exécuter :
 
 - `python3 validate_models.py` ;
-- coverage sans `MISSING` décisionnel ;
-- preuves, intention, structure, maillage et valeur ;
-- comparaison avec pages modèles sœurs pour détecter le clonage.
+- `python3 validate_model_workflow.py`.
 
-Résultat requis : `PASS — READY_FOR_HUMAN_VALIDATION`.
+Le résultat requis est `PASS — READY_FOR_HUMAN_VALIDATION`, `Workflow version : 2`, avec artefact gate et zéro `MISSING` décisionnel.
 
-## 13. Persistance
+## 16. Publication
 
-Conserver dans `.content/models/<slug>.md` : intention, evidence brief, sources/date, claims, valeur originale, architecture et décisions de scope.
-
-Conserver dans `.content/reviews/<slug>.md` : audit/PUBLISH_REVIEW et tableau `USED / HANDOFF / EXCLUDED / MISSING`.
-
-Le HTML ne doit jamais être le seul endroit où la preuve est documentée.
-
-## 14. Publication
-
-Toujours `noindex,follow` tant que machine validation + PUBLISH_REVIEW PASS + validation humaine + instruction explicite d'indexer ne sont pas réunis.
+Toujours `noindex,follow` tant que machine validation + PUBLISH_REVIEW v2 + validation humaine + instruction explicite d'indexer ne sont pas réunis.
