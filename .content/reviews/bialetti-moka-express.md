@@ -22,7 +22,7 @@ PASS — the specific induction-plate product constraint takes precedence over b
 
 ## Flexible-capacity gate
 
-PASS / not decision-relevant — the verified Moka Express evidence set does not document a reducer or manufacturer-supported multi-yield mode comparable to the 9090. The workflow therefore does not invent one from accessory compatibility or from generic moka practice.
+PASS / not decision-relevant — the verified Moka Express evidence set does not document a reducer or manufacturer-supported multi-yield mode comparable to the 9090. The workflow therefore does not invent one from accessory compatibility or generic moka practice.
 
 ## Research-to-draft coverage
 
@@ -43,4 +43,4 @@ No decision-relevant coverage blocker remains.
 
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
-Freshness note: review refreshed after the MODEL workflow added explicit reducer / multi-yield coverage. No Moka Express-specific source or decision changed; no documented reducer mode is currently part of the evidence set.
+Freshness note: review refreshed after the PRODUCT registry and MODEL source-of-truth added Bialetti Brikka. Moka Express evidence and decisions remain unchanged; Brikka is a new sibling handoff, not a missing Moka Express requirement.
