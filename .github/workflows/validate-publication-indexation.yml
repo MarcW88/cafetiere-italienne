@@ -6,31 +6,55 @@ on:
     paths:
       - 'comparatifs/**'
       - 'marques/**'
-      - 'usages/**'
+      - 'modeles/**'
+      - 'capacites/**'
       - 'guides/**'
-      - 'bons-plans/**'
+      - 'accessoires/**'
+      - 'cafe-moka/**'
+      - 'a-propos/**'
+      - 'notre-methode/**'
+      - 'affiliation/**'
+      - 'contact/**'
+      - 'index.html'
       - 'comparison_publication.py'
       - 'brand_publication.py'
+      - 'model_publication.py'
+      - 'capacity_publication.py'
+      - 'accessory_publication.py'
+      - 'cafe_moka_publication.py'
       - 'publication_indexation.py'
-      - 'apply_section_indexation.py'
+      - 'scripts/apply_site_indexation.py'
       - 'validate_publication_indexation.py'
       - 'sitemap.xml'
       - 'robots.txt'
+      - 'package.json'
       - '.github/workflows/validate-publication-indexation.yml'
   pull_request:
     paths:
       - 'comparatifs/**'
       - 'marques/**'
-      - 'usages/**'
+      - 'modeles/**'
+      - 'capacites/**'
       - 'guides/**'
-      - 'bons-plans/**'
+      - 'accessoires/**'
+      - 'cafe-moka/**'
+      - 'a-propos/**'
+      - 'notre-methode/**'
+      - 'affiliation/**'
+      - 'contact/**'
+      - 'index.html'
       - 'comparison_publication.py'
       - 'brand_publication.py'
+      - 'model_publication.py'
+      - 'capacity_publication.py'
+      - 'accessory_publication.py'
+      - 'cafe_moka_publication.py'
       - 'publication_indexation.py'
-      - 'apply_section_indexation.py'
+      - 'scripts/apply_site_indexation.py'
       - 'validate_publication_indexation.py'
       - 'sitemap.xml'
       - 'robots.txt'
+      - 'package.json'
       - '.github/workflows/validate-publication-indexation.yml'
   workflow_dispatch:
 
@@ -41,10 +65,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build current publication state
+        run: npm run build
+
       - name: Validate all approved publication routes
-        run: python validate_publication_indexation.py
+        run: python3 validate_publication_indexation.py
