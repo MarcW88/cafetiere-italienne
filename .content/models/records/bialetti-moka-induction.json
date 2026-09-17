@@ -10,9 +10,10 @@
   "verified_at": "2026-09-17",
   "robots": "noindex,follow",
   "indexable": false,
-  "variant_scope": "Bi-Layer actuelle + génération pré-2020 quand pertinente pour les pièces",
+  "variant_scope": "Bi-Layer actuelle qualifiée par référence/marché + génération pré-2020 pour les pièces",
   "source_files": [
-    "scripts/apply-model-core-reviewed.mjs"
+    "scripts/apply-model-core-reviewed.mjs",
+    "scripts/apply-model-bialetti-moka-induction-v2-reviewed.mjs"
   ],
   "artifacts": {
     "research": ".content/models/bialetti-moka-induction.md",
