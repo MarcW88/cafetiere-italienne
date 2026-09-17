@@ -11,7 +11,7 @@ metadata:
 
 ## Principe
 
-> Pas de brief sans décision. Pas de décision sans JTBD et preuves. Pas de rédaction sans evidence ledger. Pas de PASS fondé uniquement sur le HTML final.
+> Pas de brief sans décision. Pas de décision sans JTBD et preuves. Pas de rédaction sans evidence ledger. Pas de PASS fondé uniquement sur le HTML final. Pas de PASS plus ancien que ses inputs.
 
 Pour une page existante, commencer par `model-analysis-workflow / PAGE_AUDIT`.
 
@@ -36,7 +36,7 @@ Les forums et avis peuvent révéler une friction ou une question ; ils ne rempl
 
 ## 3. Record produit / variante
 
-Créer `.content/models/records/<slug>.json` avec identité canonique, URL, `PRODUCT`, marque, variante/génération importante, état `noindex,follow`, registry key et chemins des artefacts. Aligner ce record avec `.content/products/registry.json`.
+Créer `.content/models/records/<slug>.json` avec identité canonique, URL, `PRODUCT`, marque, variante/génération importante, état `noindex,follow`, registry key, fichiers source et chemins de **tous** les artefacts v2 : research, audit, evidence, ledger, decision, brief, post-draft et review. Aligner ce record avec `.content/products/registry.json`.
 
 Ne jamais inventer ASIN, prix, affiliation ou image.
 
@@ -71,7 +71,7 @@ Toute contradiction importante doit être arbitrée explicitement. `UNKNOWN` ne 
 
 Utiliser `evidence-based-reviews` lorsqu'un jugement d'ergonomie, fiabilité, expérience ou performance apparaît. Sans hands-on réel, ne jamais écrire “nous avons testé/mesuré/constaté”.
 
-Les signaux communautaires servent à : détecter questions, objections, confusion et edge cases ; ils restent attribués et ne deviennent pas une spec.
+Les signaux communautaires servent à détecter questions, objections, confusion et edge cases ; ils restent attribués et ne deviennent pas une spec.
 
 ## 7. Decision artifact — obligatoire avant le brief
 
@@ -95,9 +95,25 @@ Avec `affiliate-value`, définir ce que la page apporte au-delà d'une fiche fab
 
 Test : la page reste-t-elle utile si tous les liens affiliés disparaissent ?
 
-## 9. Content brief
+## 9. Content brief persistant
 
-Utiliser `content-brief-authoring`. Le brief consomme le decision artifact et l'evidence ledger : reader/JTBD, décision, critères, faits requis, trade-offs, contraindications, handoffs, anti-patterns, succès et outline bespoke.
+Utiliser `content-brief-authoring` et enregistrer `.content/models/briefs/<slug>-YYYY-MM-DD.md`.
+
+Le brief consomme le decision artifact et l'evidence ledger. Il doit contenir au minimum :
+
+- target query / cluster ;
+- search intent ;
+- reader / JTBD ;
+- décision à résoudre ;
+- scope et hors-scope ;
+- critères de décision ;
+- preuves / entities requises ;
+- trade-offs / contradictions ;
+- handoffs internes ;
+- anti-patterns ;
+- angle éditorial ;
+- success criteria ;
+- outline bespoke avec raison de chaque section.
 
 Le modèle `PRODUCT` ne définit jamais une structure fixe.
 
@@ -136,7 +152,14 @@ Appeler `model-analysis-workflow / PUBLISH_REVIEW` puis exécuter :
 - `python3 validate_models.py` ;
 - `python3 validate_model_workflow.py`.
 
-Le résultat requis est `PASS — READY_FOR_HUMAN_VALIDATION`, `Workflow version : 2`, avec artefact gate et zéro `MISSING` décisionnel.
+Le résultat requis est `PASS — READY_FOR_HUMAN_VALIDATION`, `Workflow version : 2`, avec :
+
+- artefact gate complet ;
+- brief gate complet ;
+- zéro `MISSING` décisionnel ;
+- **freshness gate** : le commit de review doit être postérieur au record, aux artefacts, aux fichiers source du modèle, au registry et aux inputs méthodologiques déclarés.
+
+Toute modification ultérieure d'un de ces inputs rend le PASS stale jusqu'à un nouveau PUBLISH_REVIEW.
 
 ## 16. Publication
 
