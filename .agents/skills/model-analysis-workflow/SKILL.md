@@ -1,121 +1,146 @@
 ---
 name: model-analysis-workflow
-description: Workflow unique d'analyse des pages /modeles/ de cafetiere-italienne.be. Audite une fiche produit, contrôle intention, preuves, variantes, compatibilités, tailles, pièces, entretien, valeur affiliée et SEO, puis décide KEEP, LIGHT_UPDATE, DEEP_REWRITE, MERGE ou NOINDEX. En mode PUBLISH_REVIEW, bloque toute recherche décisionnelle non consommée.
+description: Workflow d'analyse v2 des pages /modeles/ de cafetiere-italienne.be, aligné sur la profondeur PRODUCT de bloc-notes-numerique. Audite rôle, intent, JTBD, preuve, variantes, compatibilités, pièces, valeur originale, SEO et chaîne d'artefacts avant tout PASS.
 metadata:
   adapted_for: cafetiere-italienne.be
   based_on: bloc-notes-numerique PRODUCT workflow
+  workflow_version: 2
 ---
 
-# Model Analysis Workflow
+# Model Analysis Workflow v2
 
 ## Rôle
 
-C'est le workflow d'analyse de référence pour les URLs sous `/modeles/`. Une page modèle est une fiche `PRODUCT`, pas un faux test : elle aide à décider si une référence précise convient, à quelle taille/variante, et avec quelles contraintes.
+Une URL `/modeles/` est une fiche `PRODUCT` documentaire et décisionnelle, pas un faux test. Le workflow doit montrer non seulement que la page finale est correcte, mais aussi **comment la décision éditoriale a été construite**.
 
-Modes : `AUDIT`, `CLUSTER_AUDIT`, `PUBLISH_REVIEW`.
+Modes : `PARITY_AUDIT`, `CLUSTER_AUDIT`, `PAGE_AUDIT`, `PUBLISH_REVIEW`.
 
-Un `PASS — READY_FOR_HUMAN_VALIDATION` ne retire jamais `noindex,follow` automatiquement.
+Un ancien `PASS — READY_FOR_HUMAN_VALIDATION` produit avec le workflow v1 est considéré comme **stale** tant que les artefacts v2 ne sont pas présents et cohérents.
 
-## Entrées
+## Référence méthodologique
 
-Lire avant analyse :
+La référence est la branche PRODUCT du workflow de `MarcW88/bloc-notes-numerique` au commit déclaré dans `model-workflow.config.yaml`. Réutiliser les skills existants ; la couche custom MODEL ne doit porter que l'orchestration et les particularités moka.
 
-- `AGENTS.md` ;
-- `model-workflow.config.yaml` ;
-- page cible et modèles frères pertinents ;
-- `.content/models/` et `.content/reviews/` ;
-- données historiques disponibles ;
+## Entrées obligatoires
+
+Lire :
+
+- `AGENTS.md` et `model-workflow.config.yaml` ;
+- page cible, hub `/modeles/` et modèles frères pertinents ;
+- research brief `.content/models/<slug>.md` ;
+- product registry `.content/products/registry.json` ;
+- record, audit, evidence packet, evidence ledger, decision artifact et post-draft du modèle ;
+- review existante ;
 - sources actuelles lorsque les caractéristiques peuvent évoluer.
 
-## Chaîne obligatoire
+## Chaîne d'analyse obligatoire
 
-Orchestrer les skills existants plutôt que recopier leurs checklists :
+Orchestrer les skills existants :
 
-1. `content-audit` — rôle autonome, valeur existante, obsolescence, duplication ;
-2. `search-intent` — requête, intention, décision du lecteur, chevauchements ;
-3. `content-refresh` si UPDATE — correction locale, révision majeure ou reconstruction ;
-4. `affiliate-value` — utilité sans affiliation, limites, alternatives et raisons de ne pas acheter ;
-5. `fact-check` — registre des claims et hiérarchie des preuves ;
-6. `evidence-based-reviews` si un jugement d'usage/qualité/fiabilité est formulé ;
-7. `internal-linking-audit` — handoff vers capacité, comparatif, guide, accessoire ou modèle frère ;
-8. `anti-ai-slop` — architecture réellement propre au produit ;
-9. `seo-technical` + `seo-best-practices` lorsque pertinents ;
-10. `editorial-qa`.
+1. `content-audit` + `seo-content-audit` — rôle autonome, récupération, obsolescence, duplication, cannibalisation ;
+2. `seo-keyword` + `search-intent` — requête, SERP/intention, décision et handoffs ;
+3. `jobs-to-be-done` — circonstances, progrès recherché, Push/Pull/Anxiety/Habit, Big Hire/Little Hire, critères de décision ;
+4. record produit/variante — identité canonique, taille/génération pertinente, URL et état de publication ;
+5. `fact-check` — evidence packet et claim ledger ;
+6. signaux indépendants/communautaires lorsque nécessaires pour révéler questions, frictions ou objections ;
+7. résolution des contradictions ;
+8. decision artifact avant tout content brief ;
+9. `affiliate-value` — valeur sans lien affilié et raisons de ne pas acheter ;
+10. `content-brief-authoring` — brief alimenté par JTBD + décision + preuve ;
+11. contrôle post-draft puis `USED / HANDOFF / EXCLUDED / MISSING` ;
+12. `internal-linking-audit`, `seo-onpage`, `seo-technical`, `seo-best-practices`, `editorial-qa` ;
+13. `site-design-review` si l'architecture visuelle change significativement.
 
-## Contrôles spécifiques MODEL
+## Signaux utilisateurs : règle stricte
 
-Le modèle sert de grille de risque, pas de template. Vérifier uniquement ce qui change la décision :
+Un témoignage, forum, Reddit, commentaire retailer ou avis sert d'abord à détecter :
 
-- **statut et variante exacte** : version actuelle, génération ou finition seulement si cela change specs/compatibilité/pièces ;
-- **construction** : matériaux utiles, sans transformer un matériau en promesse gustative non prouvée ;
-- **tailles et volume préparé** : ne pas confondre “tasses” moka et mugs ; donner les volumes lorsque la source les documente et qu'ils changent le choix ;
-- **compatibilité plaque** : par taille/variante, avec seuil ou diamètre de détection induction lorsque documenté ;
-- **pièces et consommables** : compatibilité par famille/taille/génération, sans supposer l'universalité ;
-- **entretien** : lave-vaisselle, lavage, première utilisation ou précautions seulement si la source est explicite ;
-- **modèles frères** : expliquer la différence qui change le choix, sans refaire un comparatif général ;
-- **usage** : ne reprendre les conseils génériques moka que lorsqu'une particularité du modèle l'exige ;
-- **jugements** : aucune expérience propre sans vrai hands-on documenté.
+- une question récurrente ;
+- une confusion de nomenclature ;
+- une anxiété avant achat ;
+- un cas limite à vérifier ;
+- un sujet d'usage qui mérite une source plus forte.
 
-Une page peut être excellente sans traiter tous ces points. Un point devient requis seulement si la recherche montre qu'il est décisionnel pour ce modèle.
+Il ne devient **jamais** automatiquement un fait produit. Toute caractéristique, compatibilité, mesure ou verdict expérientiel important suit la hiérarchie de preuve. Un cas isolé peut être `OBSERVED` comme signal de demande sans être une vérité généralisable.
 
-## Preuves
+## Contrôles MODEL
 
-Hiérarchie :
+Vérifier uniquement ce qui change réellement la décision :
 
-1. fabricant / manuel / support officiel ;
-2. distributeur officiel ;
-3. retailer fiable pour disponibilité ou information commerciale complémentaire ;
-4. tests indépendants nommés ;
-5. plusieurs sources utilisateurs pour un pattern d'expérience.
+- référence, génération et variante exacte ;
+- matériau/construction sans promesse gustative induite ;
+- taille, capacité nominale et volume documenté ;
+- compatibilité plaque par taille + diamètre de détection lorsqu'il compte ;
+- pièces par famille/taille/génération ;
+- entretien et première utilisation ;
+- différence avec modèle frère ;
+- raisons rationnelles de choisir **ou d'écarter** le modèle ;
+- écart éventuel entre claim fabricant et friction utilisateur à clarifier.
 
-Statuts : `VERIFIED`, `SUPPORTED`, `INFERRED`, `UNKNOWN`, `OUTDATED`, `CONTRADICTED`.
+Aucun de ces blocs n'est un quota. Il devient requis uniquement si l'analyse le rend décisionnel.
 
-`UNKNOWN` et `CONTRADICTED` ne deviennent jamais des certitudes rédactionnelles.
+## Artefacts v2 requis
 
-## Décision AUDIT
+Pour chaque modèle migré :
 
-Retourner `KEEP`, `LIGHT_UPDATE`, `DEEP_REWRITE`, `MERGE` ou `NOINDEX` avec : confiance, preuves, unknowns, blockers, valeur existante, actions et prochaine étape.
+- `.content/models/records/<slug>.json` ;
+- `.content/models/audits/<slug>-2026-09-17.md` ;
+- `.content/models/evidence/<slug>-2026-09-17.md` ;
+- `.content/models/evidence-ledgers/<slug>-2026-09-17.md` ;
+- `.content/models/decisions/<slug>-2026-09-17.md` ;
+- `.content/models/post-draft/<slug>-2026-09-17.md` ;
+- `.content/reviews/<slug>.md`.
 
-`DEEP_REWRITE` route vers `model-content-workflow`.
+Le HTML ou le seul research brief ne suffit plus à prouver la profondeur du workflow.
+
+## PAGE_AUDIT
+
+Retourner `KEEP`, `LIGHT_UPDATE`, `DEEP_REWRITE`, `MERGE` ou `NOINDEX` avec : confiance, JTBD, critères, preuves, unknowns/contradictions, valeur existante, blockers et prochaine étape.
 
 ## PUBLISH_REVIEW
 
 ### A — machine
 
-Exécuter `python3 validate_models.py` après build. Le PASS machine est un plancher, pas un verdict éditorial.
+Exécuter après build :
 
-### B — research-to-draft coverage
+- `python3 validate_models.py` ;
+- `python3 validate_model_workflow.py`.
 
-Relire le research/evidence brief. Pour chaque élément **décisionnel** attribuer exactement :
+Le machine PASS vérifie la présence/cohérence déclarative ; il ne juge pas la pertinence sémantique des preuves ou du JTBD.
 
-- `USED` — exploité correctement ;
-- `HANDOFF` — volontairement routé vers une URL plus adaptée ;
-- `EXCLUDED` — hors scope avec raison cohérente ;
-- `MISSING` — important dans la recherche mais disparu sans justification.
+### B — artifact gate
 
-Un `MISSING` décisionnel bloque la publication. Le nombre de sources, de mots ou de sections ne compense jamais un `MISSING`.
+Avant PASS, vérifier que le record, audit, evidence packet, evidence ledger, decision artifact, post-draft et registry sont cohérents avec l'URL réellement produite.
 
-Tracer en priorité, lorsqu'ils sont décisionnels : variante/génération, tailles/volumes, compatibilité plaque, diamètre induction, entretien, pièces, différence avec modèle frère, limite ou raison de ne pas acheter.
+### C — decision gate
 
-### C — gates substantiels
+Vérifier que le decision artifact contient un vrai JTBD, les forces de changement, Big Hire/Little Hire, critères `MUST_HAVE / HIGH / CONDITIONAL / CONTRAINDICATION` et les handoffs. Les critères doivent découler de la situation et de la preuve, pas d'une liste de specs.
 
-Vérifier : intention, valeur originale, factualité, niveau de preuve, zéro `MISSING` décisionnel, aucun faux hands-on, pas de merchant rewrite, pas de cannibalisation non résolue, architecture justifiée par le research brief, title/H1/canonical/robots cohérents, maillage logique, page utile sans affiliation.
+### D — research-to-draft coverage
 
-### D — résultat
+Pour chaque élément décisionnel :
 
-PASS : `PASS — READY_FOR_HUMAN_VALIDATION` avec tableau de coverage.
+- `USED` ;
+- `HANDOFF` ;
+- `EXCLUDED` avec justification ;
+- `MISSING`.
 
-FAIL : `FAIL — KEEP_NOINDEX` avec gate en échec et correction locale ou profonde adaptée.
+Un `MISSING` décisionnel bloque le PASS. Le volume de texte, le nombre de sources ou de sections ne compense jamais un manque.
+
+### E — trust / value / cluster
+
+Vérifier factualité, contradictions, absence de faux hands-on, utilité sans affiliation, raison de ne pas acheter, distinction face aux pages sœurs, architecture non clonée, title/H1/canonical/robots et maillage logique.
+
+### F — résultat
+
+PASS : `PASS — READY_FOR_HUMAN_VALIDATION` + `Workflow version : 2` + artefact gate + tableau de coverage.
+
+FAIL : `FAIL — KEEP_NOINDEX` avec la correction ciblée nécessaire.
 
 ## Indexation
 
-Conserver `noindex,follow` par défaut. Indexation seulement après :
-
-1. `validate_models.py` sans blocker ;
-2. PUBLISH_REVIEW PASS ;
-3. validation humaine explicite ;
-4. instruction explicite de rendre la page indexable.
+Toujours `noindex,follow` par défaut. Indexation seulement après les deux validateurs, PUBLISH_REVIEW v2, validation humaine explicite et instruction explicite d'indexer.
 
 ## Anti-patterns
 
-Ne pas ajouter de quotas de mots/headings/liens, score artificiel, plan fixe “caractéristiques → avantages → avis → FAQ”, conclusion automatique ni faux verdict d'essai. La structure doit venir de l'intention, des preuves et des risques propres au modèle.
+Pas de quotas de mots/H2/liens, scoring artificiel, FAQ obligatoire, plan PRODUCT fixe, synthèse d'avis décorative, faux verdict d'essai, promotion d'un signal communautaire en fait, ni PASS éditorial fondé uniquement sur la page rendue.
