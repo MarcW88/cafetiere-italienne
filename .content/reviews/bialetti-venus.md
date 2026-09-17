@@ -99,7 +99,7 @@ PASS éditorial — aucun faux hands-on, pas de prix figé, pas de raccourci mat
 
 ## Freshness gate
 
-Cette review v2 est volontairement commitée après ses artefacts, ses deux fichiers source, le registry et les inputs méthodologiques MODEL v2. Toute modification ultérieure d'un de ces inputs doit rendre ce PASS stale via `validate_model_workflow.py`.
+Review rafraîchie après la mise à jour de `model-workflow.config.yaml` enregistrant le nouvel override Moka Express. Aucun input spécifique à Venus n'a changé ; les conclusions et le coverage restent identiques.
 
 ## Verdict
 
