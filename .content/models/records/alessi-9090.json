@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "workflow_version": 2,
+  "slug": "alessi-9090",
+  "product_key": "alessi-9090",
+  "name": "Alessi 9090",
+  "brand": "Alessi",
+  "page_type": "PRODUCT",
+  "url": "/modeles/alessi-9090/",
+  "verified_at": "2026-09-17",
+  "robots": "noindex,follow",
+  "indexable": false,
+  "variant_scope": "9090 standard 1/3/6/10 ; édition 9090/3 CP distinguée lorsque pertinente",
+  "artifacts": {
+    "audit": ".content/models/audits/alessi-9090-2026-09-17.md",
+    "evidence": ".content/models/evidence/alessi-9090-2026-09-17.md",
+    "ledger": ".content/models/evidence-ledgers/alessi-9090-2026-09-17.md",
+    "decision": ".content/models/decisions/alessi-9090-2026-09-17.md",
+    "post_draft": ".content/models/post-draft/alessi-9090-2026-09-17.md",
+    "review": ".content/reviews/alessi-9090.md"
+  }
+}
