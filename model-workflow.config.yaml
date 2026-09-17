@@ -1,0 +1,79 @@
+project:
+  name: "cafetiere-italienne.be"
+  domain: "https://cafetiere-italienne.be"
+  language: "fr"
+
+content:
+  scope:
+    - "/modeles/"
+  source_of_truth:
+    - "scripts/model-content.mjs"
+    - "scripts/apply-model-bialetti-venus-reviewed.mjs"
+  mode: "recovery"
+
+quality:
+  draft_robots: "noindex,follow"
+  prohibit_word_count_quotas: true
+  prohibit_heading_count_quotas: true
+  prohibit_internal_link_quotas: true
+  prohibit_page_type_templates: true
+  require_cluster_structure_review: true
+
+evidence:
+  prefer_primary_sources: true
+  statuses: [VERIFIED, SUPPORTED, INFERRED, UNKNOWN, OUTDATED, CONTRADICTED]
+  prohibit_model_memory_gap_filling: true
+  prohibit_fake_hands_on: true
+
+model_decision_layer:
+  require_exact_variant_when_relevant: true
+  require_capacity_and_brewed_volume_when_relevant: true
+  require_size_specific_hob_compatibility_when_relevant: true
+  require_induction_detection_constraint_when_relevant: true
+  require_parts_compatibility_when_relevant: true
+  require_care_constraints_when_relevant: true
+  require_sibling_model_difference_when_relevant: true
+  prohibit_material_equals_taste_claim_without_evidence: true
+
+workflow:
+  models_dir: ".content/models"
+  reviews_dir: ".content/reviews"
+  content_workflow: ".agents/skills/model-content-workflow/SKILL.md"
+  analysis_workflow: ".agents/skills/model-analysis-workflow/SKILL.md"
+  final_review_mode: "PUBLISH_REVIEW"
+  machine_validator: "validate_models.py"
+  require_analysis_pass_before_human_validation: true
+  require_human_validation_before_publish: true
+  allow_automatic_indexation: false
+
+editorial_chain:
+  - model_analysis_audit_for_existing_page
+  - search_intent
+  - content_audit_and_refresh_when_needed
+  - evidence_brief_and_fact_check
+  - evidence_based_reviews_when_needed
+  - original_affiliate_value
+  - bespoke_outline_from_intent_and_evidence
+  - evidence_bound_writing
+  - post_draft_fact_check
+  - research_to_draft_coverage
+  - humanizer_and_general_writing
+  - anti_ai_slop
+  - internal_linking_audit
+  - seo_editorial_and_technical
+  - editorial_qa
+  - machine_validation
+  - model_analysis_publish_review
+  - human_validation
+
+quality_gate:
+  require_sources_for_factual_claims: true
+  require_limitations_when_decision_relevant: true
+  require_noindex_in_draft: true
+  require_research_to_draft_coverage: true
+  prohibit_fake_test_language: true
+  prohibit_editor_facing_metadiscourse: true
+  prohibit_merchant_rewrite_without_original_value: true
+  prohibit_high_severity_ai_slop: true
+  prohibit_unresolved_cannibalization: true
+  prohibit_unjustified_structural_cloning: true
