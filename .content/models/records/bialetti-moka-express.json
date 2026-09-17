@@ -10,9 +10,10 @@
   "verified_at": "2026-09-17",
   "robots": "noindex,follow",
   "indexable": false,
-  "variant_scope": "Moka Express aluminium classique ; tailles 1 à 18 documentées",
+  "variant_scope": "Moka Express aluminium classique ; tailles 1 à 18 documentées ; adaptateur officiel induction documenté jusqu'à 6 tasses",
   "source_files": [
-    "scripts/apply-model-core-reviewed.mjs"
+    "scripts/apply-model-core-reviewed.mjs",
+    "scripts/apply-model-bialetti-moka-express-v2-reviewed.mjs"
   ],
   "artifacts": {
     "research": ".content/models/bialetti-moka-express.md",
