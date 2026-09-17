@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "workflow_version": 2,
+  "slug": "bialetti-venus",
+  "product_key": "bialetti-venus",
+  "name": "Bialetti Venus",
+  "brand": "Bialetti",
+  "page_type": "PRODUCT",
+  "url": "/modeles/bialetti-venus/",
+  "verified_at": "2026-09-17",
+  "robots": "noindex,follow",
+  "indexable": false,
+  "variant_scope": "Venus 2/4/6 ; 10 tasses qualifiée selon marché",
+  "artifacts": {
+    "audit": ".content/models/audits/bialetti-venus-2026-09-17.md",
+    "evidence": ".content/models/evidence/bialetti-venus-2026-09-17.md",
+    "ledger": ".content/models/evidence-ledgers/bialetti-venus-2026-09-17.md",
+    "decision": ".content/models/decisions/bialetti-venus-2026-09-17.md",
+    "post_draft": ".content/models/post-draft/bialetti-venus-2026-09-17.md",
+    "review": ".content/reviews/bialetti-venus.md"
+  }
+}
