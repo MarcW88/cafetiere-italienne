@@ -9,6 +9,7 @@ ROUTES=[
     '/modeles/bialetti-moka-express/',
     '/modeles/bialetti-venus/',
     '/modeles/bialetti-moka-induction/',
+    '/modeles/bialetti-brikka/',
     '/modeles/alessi-9090/',
 ]
 FAIL=[]
