@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "workflow_version": 2,
+  "slug": "bialetti-mini-express",
+  "product_key": "bialetti-mini-express",
+  "name": "Bialetti Mini Express",
+  "brand": "Bialetti",
+  "page_type": "PRODUCT",
+  "url": "/modeles/bialetti-mini-express/",
+  "verified_at": "2026-09-17",
+  "robots": "noindex,follow",
+  "indexable": false,
+  "variant_scope": "Mini Express classique 2 tasses ≈90 ml ; Mini Express Induction 2 tasses ≈90 ml ; contenu du set selon référence ; pièces classiques 2 tasses seulement quand documentées",
+  "source_files": [
+    "scripts/apply-model-bialetti-mini-express-reviewed.mjs"
+  ],
+  "artifacts": {
+    "research": ".content/models/bialetti-mini-express.md",
+    "audit": ".content/models/audits/bialetti-mini-express-2026-09-17.md",
+    "evidence": ".content/models/evidence/bialetti-mini-express-2026-09-17.md",
+    "ledger": ".content/models/evidence-ledgers/bialetti-mini-express-2026-09-17.md",
+    "decision": ".content/models/decisions/bialetti-mini-express-2026-09-17.md",
+    "brief": ".content/models/briefs/bialetti-mini-express-2026-09-17.md",
+    "post_draft": ".content/models/post-draft/bialetti-mini-express-2026-09-17.md",
+    "review": ".content/reviews/bialetti-mini-express.md"
+  }
+}
