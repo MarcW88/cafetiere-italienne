@@ -77,7 +77,7 @@ PASS éditorial — aucun faux test, aucun prestige transformé en qualité caf�
 
 ## Freshness gate
 
-Cette review est commitée après ses artefacts v2, son record, son fichier source, le registry et les inputs méthodologiques MODEL v2. Toute modification ultérieure doit rendre le PASS stale via `validate_model_workflow.py`.
+Review rafraîchie après la mise à jour de `model-workflow.config.yaml` enregistrant le nouvel override Moka Express. Aucun input spécifique à la 9090 n'a changé ; les conclusions et le coverage restent identiques.
 
 ## Verdict
 
