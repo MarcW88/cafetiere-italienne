@@ -35,6 +35,7 @@ content:
     - "scripts/apply-model-core-reviewed.mjs"
     - "scripts/apply-model-bialetti-moka-express-v2-reviewed.mjs"
     - "scripts/apply-model-bialetti-moka-induction-v2-reviewed.mjs"
+    - "scripts/apply-model-alessi-9090-v2-reviewed.mjs"
   mode: "recovery"
 
 artifacts:
@@ -79,6 +80,7 @@ model_decision_layer:
   require_decision_criteria: true
   require_exact_variant_when_relevant: true
   require_capacity_and_brewed_volume_when_relevant: true
+  require_capacity_reducer_or_multi_yield_when_relevant: true
   require_size_specific_hob_compatibility_when_relevant: true
   require_induction_detection_constraint_when_relevant: true
   require_parts_compatibility_when_relevant: true
