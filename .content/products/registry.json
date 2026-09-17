@@ -43,6 +43,20 @@
       ],
       "best_for": "Cas d’usage éditorial : passer à l’induction tout en restant proche de l’architecture Moka Express"
     },
+    "bialetti-brikka": {
+      "name": "Bialetti Brikka",
+      "brand": "Bialetti",
+      "page_type": "PRODUCT",
+      "internal_url": "/modeles/bialetti-brikka/",
+      "image": {"url": "", "source_type": "UNSET", "rights_checked": false, "source_page": ""},
+      "amazon": {"asin": "", "affiliate_url": "", "marketplace": "amazon.fr"},
+      "specs": [
+        {"label": "Classique", "value": "2 et 4 tasses, aluminium, hors induction directe"},
+        {"label": "Induction vérifiée", "value": "4 tasses, base bi-layer"},
+        {"label": "Point de vigilance", "value": "Quantité d’eau mesurée et génération des pièces"}
+      ],
+      "best_for": "Cas d’usage éditorial : choisir une Brikka pour sa valve et son café plus concentré en acceptant un protocole plus spécifique"
+    },
     "alessi-9090": {
       "name": "Alessi 9090",
       "brand": "Alessi",
