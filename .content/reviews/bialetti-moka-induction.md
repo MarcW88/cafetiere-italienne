@@ -45,4 +45,4 @@ No decision-relevant coverage blocker remains.
 
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
-Freshness note: review refreshed after the PRODUCT registry and MODEL source-of-truth added Bialetti Brikka. Moka Induction-specific evidence and decisions remain unchanged; Brikka Induction is a sibling product with a different valve/JTBD and does not invalidate this page.
+Freshness note: review refreshed after the PRODUCT registry and MODEL source-of-truth added Bialetti Mini Express. Moka Induction-specific evidence and decisions remain unchanged; Mini Express Induction is a sibling with a direct-to-cups JTBD and does not invalidate this page.
