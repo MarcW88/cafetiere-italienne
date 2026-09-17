@@ -9,10 +9,13 @@ Workflow version : 2
 | Upper body is aluminium | current product page | VERIFIED | Bialetti Bi-Layer | distinguishes from Venus |
 | Compatible with induction/gas/electric/ceramic | current product page | VERIFIED | Bialetti Bi-Layer | hob choice |
 | Hob must detect actual base diameter | current product page | VERIFIED | Bialetti Bi-Layer | hard gate |
-| Current sizes 2/4/6 cups | current product page | VERIFIED | Bialetti Bi-Layer | variant scope |
-| Current volumes ≈ 100/150/280 ml | current product page | VERIFIED | Bialetti Bi-Layer | size decision |
-| Current bases ≈ 9.5/10/11.5 cm | current product page | VERIFIED | Bialetti Bi-Layer | induction detection |
-| D&G consulted references expose different documented volumes | exact edition pages | VERIFIED | Bialetti D&G | do not generalise family figures |
+| Current sizes 2/4/6 cups | current product pages | VERIFIED | Bialetti | variant scope |
+| Standard 2-cup brewed volume is universally 100 ml | NZ says ≈100 ml; official Bialetti Russia + Belgian retailer say ≈90 ml | CONTRADICTED | Bialetti NZ / Bialetti RU / Interismo BE | must qualify by market/reference |
+| Standard 2-cup volume is ≈90–100 ml depending on checked reference/market | cross-market evidence | SUPPORTED | Bialetti NZ / Bialetti RU / Interismo BE | size decision |
+| Standard 4/6-cup volumes ≈150/280 ml on checked standard references | cross-market product pages | VERIFIED | Bialetti NZ / Bialetti RU / Interismo BE | size decision |
+| NZ base widths ≈9.5/10/11.5 cm | NZ product page | VERIFIED_FOR_REFERENCE | Bialetti NZ | induction detection |
+| D&G 4-cup volumes can be ≈150 or ≈190 ml depending on edition | exact edition pages | VERIFIED | Bialetti D&G | exact reference matters |
+| Blu Mediterraneo 6-cup is ≈225 ml | exact edition page | VERIFIED | Bialetti D&G | do not generalise 280 ml to all editions |
 | Current Bi-Layer funnel is size-specific | spare-parts page | VERIFIED | Bialetti | parts |
 | Pre-2020 funnel is a distinct part for older 3/6 models | legacy spare-parts page | VERIFIED | Bialetti | generation blocker |
 | Pre-2020 model can be identified by black silicone band | legacy spare-parts page | VERIFIED | Bialetti | generation diagnosis |
@@ -22,10 +25,12 @@ Workflow version : 2
 
 ## Contradictions resolved
 
+- 2-cup current standard volume: do not select one market figure as universal; publish ≈90–100 ml with reference/market qualification.
+- D&G volumes: keep each figure tied to the exact edition; D&G is not one fixed capacity matrix.
 - Current and pre-2020 funnels are not merged into one compatibility claim.
-- Edition-specific volumes stay attached to their exact references instead of being averaged into a family number.
 
 ## Unknowns kept out of factual copy
 
 - taste equivalence to Moka Express ;
-- universal heat-performance advantage from the bi-layer construction.
+- universal heat-performance advantage from the bi-layer construction ;
+- a single worldwide 2-cup brewed-volume specification.
