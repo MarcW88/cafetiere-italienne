@@ -1,7 +1,29 @@
+version: 2
+
 project:
   name: "cafetiere-italienne.be"
   domain: "https://cafetiere-italienne.be"
   language: "fr"
+
+methodology_reference:
+  repository: "MarcW88/bloc-notes-numerique"
+  commit: "534e9fd7e0fc2f7bd83da5b053987ac327c4e9fe"
+  branch: "PRODUCT"
+  workflow: "brand-analysis-workflow + brand-content-workflow"
+
+reuse_policy:
+  existing_skill_share_target: ">=80%"
+  custom_layer_target: "<=20%"
+  custom_layer_allowed_for:
+    - "MODEL orchestration"
+    - "moka-specific variant, capacity, hob and spare-parts decision map"
+    - "publication state and workflow artifact validation"
+  custom_layer_forbidden_for:
+    - "generic JTBD methodology"
+    - "generic evidence and fact-check methodology"
+    - "generic SEO methodology"
+    - "generic writing methodology"
+    - "generic editorial QA methodology"
 
 content:
   scope:
@@ -12,6 +34,19 @@ content:
     - "scripts/apply-model-core-reviewed.mjs"
   mode: "recovery"
 
+artifacts:
+  research_dir: ".content/models"
+  records_dir: ".content/models/records"
+  audits_dir: ".content/models/audits"
+  evidence_dir: ".content/models/evidence"
+  evidence_ledgers_dir: ".content/models/evidence-ledgers"
+  decisions_dir: ".content/models/decisions"
+  post_draft_dir: ".content/models/post-draft"
+  reviews_dir: ".content/reviews"
+  product_registry: ".content/products/registry.json"
+  parity_report: ".content/models/workflow-parity-2026-09-17.md"
+  skills_inventory: ".content/models/workflow-skills-inventory-2026-09-17.md"
+
 quality:
   draft_robots: "noindex,follow"
   prohibit_word_count_quotas: true
@@ -19,14 +54,24 @@ quality:
   prohibit_internal_link_quotas: true
   prohibit_page_type_templates: true
   require_cluster_structure_review: true
+  require_persisted_decision_artifact: true
+  require_persisted_evidence_ledger: true
+  require_persisted_post_draft_check: true
 
 evidence:
   prefer_primary_sources: true
   statuses: [VERIFIED, SUPPORTED, INFERRED, UNKNOWN, OUTDATED, CONTRADICTED]
+  user_signal_statuses: [OBSERVED, SUPPORTED, INFERRED, HYPOTHESIS, UNKNOWN]
   prohibit_model_memory_gap_filling: true
   prohibit_fake_hands_on: true
+  community_signals_are_not_product_facts: true
+  require_contradiction_resolution_when_relevant: true
 
 model_decision_layer:
+  require_jtbd: true
+  require_push_pull_anxiety_habit: true
+  require_big_hire_little_hire: true
+  require_decision_criteria: true
   require_exact_variant_when_relevant: true
   require_capacity_and_brewed_volume_when_relevant: true
   require_size_specific_hob_compatibility_when_relevant: true
@@ -42,26 +87,60 @@ workflow:
   content_workflow: ".agents/skills/model-content-workflow/SKILL.md"
   analysis_workflow: ".agents/skills/model-analysis-workflow/SKILL.md"
   final_review_mode: "PUBLISH_REVIEW"
-  machine_validator: "validate_models.py"
+  machine_validators:
+    - "validate_models.py"
+    - "validate_model_workflow.py"
   require_analysis_pass_before_human_validation: true
   require_human_validation_before_publish: true
   allow_automatic_indexation: false
+  legacy_v1_pass_is_stale_without_v2_artifacts: true
+
+reused_skills:
+  - content-audit
+  - seo-content-audit
+  - seo-keyword
+  - search-intent
+  - jobs-to-be-done
+  - fact-check
+  - evidence-based-reviews
+  - affiliate-value
+  - content-brief-authoring
+  - content-and-copy
+  - content-refresh
+  - humanizer
+  - general-writing
+  - anti-ai-slop
+  - internal-linking-audit
+  - seo-onpage
+  - seo-technical
+  - seo-best-practices
+  - editorial-image-planner
+  - site-design-review
+  - editorial-qa
 
 editorial_chain:
-  - model_analysis_audit_for_existing_page
-  - search_intent
-  - content_audit_and_refresh_when_needed
-  - evidence_brief_and_fact_check
-  - evidence_based_reviews_when_needed
+  - cluster_and_page_audit
+  - seo_content_audit
+  - seo_keyword_and_search_intent
+  - jobs_to_be_done
+  - product_and_variant_record
+  - evidence_packet
+  - evidence_ledger_and_fact_check
+  - independent_or_community_signal_scan_when_decision_relevant
+  - contradiction_resolution
+  - decision_artifact
   - original_affiliate_value
-  - bespoke_outline_from_intent_and_evidence
-  - evidence_bound_writing
+  - content_brief_authoring
+  - bespoke_outline_from_decision_and_evidence
+  - content_and_copy
   - post_draft_fact_check
   - research_to_draft_coverage
   - humanizer_and_general_writing
   - anti_ai_slop
   - internal_linking_audit
-  - seo_editorial_and_technical
+  - seo_onpage_editorial_and_technical
+  - editorial_image_decision
+  - design_review_when_visual_structure_changes
   - editorial_qa
   - machine_validation
   - model_analysis_publish_review
@@ -69,9 +148,16 @@ editorial_chain:
 
 quality_gate:
   require_sources_for_factual_claims: true
+  require_product_registry_identity: true
+  require_structured_model_record: true
+  require_evidence_packet: true
+  require_evidence_ledger: true
+  require_decision_artifact_before_content_brief: true
+  require_post_draft_fact_check: true
   require_limitations_when_decision_relevant: true
   require_noindex_in_draft: true
   require_research_to_draft_coverage: true
+  prohibit_community_signal_as_fact_without_evidence: true
   prohibit_fake_test_language: true
   prohibit_editor_facing_metadiscourse: true
   prohibit_merchant_rewrite_without_original_value: true
