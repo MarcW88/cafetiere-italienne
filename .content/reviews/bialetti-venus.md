@@ -43,4 +43,4 @@ No decision-relevant coverage blocker remains.
 
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
-Freshness note: review refreshed after the MODEL workflow added explicit reducer / multi-yield coverage. No Venus-specific source or decision changed; the new criterion is not applicable on the evidence currently documented.
+Freshness note: review refreshed after the PRODUCT registry and MODEL source-of-truth added Bialetti Brikka. No Venus-specific source, claim or decision changed; the new sibling route does not create a missing Venus decision element.
