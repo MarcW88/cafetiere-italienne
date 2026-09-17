@@ -1,44 +1,62 @@
 # Product cluster — /modeles/
 
-Date: 2026-09-13
+Date: 2026-09-17
 
 ## Audit
 
-Les quatre URLs sont des placeholders. Décision : `DEEP_REWRITE` avec confiance élevée. Elles servent chacune une requête produit précise et ne doivent pas être fusionnées.
+Le cluster contient désormais six fiches PRODUCT distinctes. Elles ne doivent pas être fusionnées ni réécrites comme six variantes d'un même template : chacune doit résoudre un risque décisionnel propre. Toutes restent `noindex,follow` jusqu'à validation humaine et instruction d'indexation explicite.
 
 ## Méthode
 
-Faute de workflow `/modeles/` distinct dans le repo, appliquer la chaîne PRODUCT de `brand-analysis-workflow` + `brand-content-workflow` : intention, sources fabricant, conséquence pratique, limites, maillage, QA, aucun faux hands-on. Conserver `noindex,follow`.
+Appliquer le Model Workflow v2 : intention, JTBD, sources fabricant, variantes exactes, volume préparé, plaque, pièces, limites, maillage, post-draft, couverture recherche→draft et PUBLISH_REVIEW. Aucun faux hands-on, aucune préférence gustative attribuée au matériau sans preuve.
 
 ## Bialetti Moka Express
 
 - Rôle : fiche produit de la moka classique Bialetti.
-- `VERIFIED` : corps en aluminium alimentaire, poignée/pommeau thermoplastiques, soupape de sécurité ; gaz/électrique/céramique, pas induction directe. Source : https://www.bialetti.co.nz/products/moka-express
-- `VERIFIED` : pièces identifiables (joints/filtres, entonnoirs) et tailles distinctes. Sources : https://www.bialetti.co.nz/collections/spare-parts et https://www.bialetti.co.nz/products/moka-express-dama-mini-express-break-funnels
-- Valeur : expliquer quand la simplicité est un avantage et quand l’absence d’induction suffit à l’écarter.
+- Décision centrale : simplicité / tailles / plaque, avec absence d'induction directe.
+- Valeur : référence de comparaison pour les autres architectures Bialetti.
 
 ## Bialetti Venus
 
-- Rôle : fiche produit inox, avec le piège critique de la taille sur induction.
-- `VERIFIED` : inox 18/10, bec verseur pratique, poignée résistante à la chaleur, soupape Bialetti. Source : https://www.bialetti.co.nz/products/bialetti-venus-induction-copper
-- `VERIFIED` : 4 et 6 tasses compatibles induction ; 2 tasses non compatible induction. Même source.
-- Valeur : la compatibilité doit être donnée par taille, pas par nom de gamme.
+- Rôle : fiche produit inox où la taille influence la compatibilité induction.
+- Décision centrale : inox + taille exacte + détection de plaque.
+- Valeur : éviter le raccourci « Venus = induction dans toutes les tailles ».
 
 ## Bialetti Moka Induction
 
-- Rôle : fiche produit hybride destinée à conserver la logique de la moka classique sur induction.
-- `VERIFIED` : base bi-layer inox + aluminium, partie supérieure aluminium, silicone, compatible tous feux incluant induction. Source : https://www.bialetti.co.nz/products/bialetti-moka-induction-bi-layer-black
-- `VERIFIED` : tailles documentées 2/4/6 avec volumes approximatifs 100/150/280 ml pour la référence actuelle ; vérifier le diamètre accepté par la plaque. Même source.
-- Valeur : expliquer la différence avec Venus : architecture/materialité hybride vs tout inox.
+- Rôle : fiche produit hybride destinée à conserver la logique Moka Express sur induction.
+- Décision centrale : architecture bi-layer, taille, diamètre de détection et génération.
+- Valeur : distinguer l'hybride aluminium/inox d'une moka tout inox.
+
+## Bialetti Brikka
+
+- Rôle : fiche produit centrée sur la valve et le protocole spécifique.
+- Décision centrale : plaque → volume → quantité d'eau → génération des pièces, puis intérêt réel pour la valve.
+- Valeur : éviter d'acheter uniquement pour la promesse de « crema » et documenter les pièces contre-intuitives.
+
+## Bialetti Mini Express
+
+- Rôle : fiche produit centrée sur le service direct dans deux petites tasses.
+- `VERIFIED` : classique aluminium, 2 tasses ≈90 ml, base ≈8,0 cm, hors induction directe. Source : https://www.bialetti.co.nz/products/bialetti-mini-express-black
+- `VERIFIED` : Mini Express Induction 2 tasses ≈90 ml, base bi-layer inox/aluminium, induction directe, base ≈9,5 cm sur la fiche Bialetti NZ. Source : https://www.bialetti.co.nz/products/bialetti-mini-express-induction-2-cup-set
+- `SUPPORTED` : distributeur européen spécialisé annonce une base ≈9,2 cm ; la page conserve donc une plage approximative et renvoie au seuil de détection de la plaque. Source : https://bialetti-shop.de/Espressokocher-Edelstahl-Induktion/mini-espress-induktion.html
+- Valeur : expliquer que le double bec est un bénéfice de rituel/service, pas une preuve de meilleur goût ; distinguer set avec/sans tasses et pièces classique vs Induction.
 
 ## Alessi 9090
 
-- Rôle : fiche produit premium/design où les choix fonctionnels sont aussi importants que le statut d’icône.
-- `VERIFIED` : design Richard Sapper, production depuis 1980, inox 18/10, base élargie, bec anti-goutte, fermeture à levier. Sources : https://alessi.com/products/9090-espresso-coffee-maker et https://ch.alessi.com/fr/products/9090-espresso-coffee-maker
-- `VERIFIED` : fond acier magnétique adapté induction ; version 1 tasse 7 cl, diamètre 9,5 cm ; Alessi demande de vérifier qu’une plaque s’active avec un objet d’au moins 90 mm de diamètre. Source : https://alessi.com/products/9090-espresso-coffee-maker
-- `VERIFIED` : tailles 1, 3, 6 et 10 affichées dans la gamme actuelle. Même source.
-- Valeur : ne pas vendre le prestige comme performance gustative ; justifier le surcoût par conception, matériau et mécanisme.
+- Rôle : fiche produit premium/design où les choix fonctionnels sont aussi importants que le statut d'icône.
+- Décision centrale : mécanisme à levier, fond magnétique, tailles et valeur réelle de la conception premium.
+- Valeur : ne pas vendre le prestige comme performance gustative.
+
+## Différenciation structurelle
+
+- **Moka Express** : référence classique / simplicité.
+- **Venus** : inox / compatibilité selon taille.
+- **Moka Induction** : architecture hybride pour induction.
+- **Brikka** : valve / protocole d'eau / pièces par génération.
+- **Mini Express** : double service direct / petit volume / set exact.
+- **Alessi 9090** : conception premium / fermeture à levier.
 
 ## Garde-fous communs
 
-Aucun prix figé dans le verdict. Aucun meilleur goût attribué à l’aluminium ou à l’inox. Aucun test vécu. Les pages ne doivent pas être quatre variantes du même squelette : chaque architecture part du risque décisionnel propre au modèle.
+Aucun prix figé dans le verdict. Aucun meilleur goût attribué à l'aluminium ou à l'inox. Aucun test vécu. Les signaux communautaires restent des signaux d'anxiété ou d'usage et ne deviennent pas des specs. Les pages doivent conserver une architecture éditoriale guidée par leur décision propre plutôt qu'un gabarit imposé.
