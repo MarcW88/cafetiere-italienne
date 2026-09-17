@@ -18,7 +18,11 @@ PASS — research, audit, evidence packet, ledger, decision artifact, brief, pos
 
 ## Evidence / contradiction gate
 
-PASS — current Bialetti care guidance overrides older dishwasher claims; anecdotal detection of a 2-cup Venus on isolated induction hobs remains a user signal, not official compatibility. No Venus-specific evidence changed during the Moka Induction retest.
+PASS — current Bialetti care guidance overrides older dishwasher claims; anecdotal detection of a 2-cup Venus on isolated induction hobs remains a user signal, not official compatibility.
+
+## Flexible-capacity gate
+
+PASS / not decision-relevant — the current Venus evidence set does not document a reducer, half-capacity mode or other multi-yield mechanism comparable to the 9090. The new workflow rule therefore creates no missing decision element for this model; no capacity flexibility is invented by analogy.
 
 ## Research-to-draft coverage
 
@@ -39,4 +43,4 @@ No decision-relevant coverage blocker remains.
 
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
-Freshness note: review refreshed after `model-workflow.config.yaml` registered the Moka Induction v2 reviewed override. No Venus-specific input changed.
+Freshness note: review refreshed after the MODEL workflow added explicit reducer / multi-yield coverage. No Venus-specific source or decision changed; the new criterion is not applicable on the evidence currently documented.
