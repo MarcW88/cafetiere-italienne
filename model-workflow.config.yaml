@@ -9,6 +9,7 @@ content:
   source_of_truth:
     - "scripts/model-content.mjs"
     - "scripts/apply-model-bialetti-venus-reviewed.mjs"
+    - "scripts/apply-model-core-reviewed.mjs"
   mode: "recovery"
 
 quality:
