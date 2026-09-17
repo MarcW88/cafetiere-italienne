@@ -31,6 +31,7 @@ content:
   source_of_truth:
     - "scripts/model-content.mjs"
     - "scripts/apply-model-bialetti-venus-reviewed.mjs"
+    - "scripts/apply-model-bialetti-venus-v2-reviewed.mjs"
     - "scripts/apply-model-core-reviewed.mjs"
   mode: "recovery"
 
@@ -41,6 +42,7 @@ artifacts:
   evidence_dir: ".content/models/evidence"
   evidence_ledgers_dir: ".content/models/evidence-ledgers"
   decisions_dir: ".content/models/decisions"
+  briefs_dir: ".content/models/briefs"
   post_draft_dir: ".content/models/post-draft"
   reviews_dir: ".content/reviews"
   product_registry: ".content/products/registry.json"
@@ -56,6 +58,7 @@ quality:
   require_cluster_structure_review: true
   require_persisted_decision_artifact: true
   require_persisted_evidence_ledger: true
+  require_persisted_content_brief: true
   require_persisted_post_draft_check: true
 
 evidence:
@@ -94,6 +97,15 @@ workflow:
   require_human_validation_before_publish: true
   allow_automatic_indexation: false
   legacy_v1_pass_is_stale_without_v2_artifacts: true
+
+review_freshness:
+  enabled: true
+  policy: "the PUBLISH_REVIEW commit must be newer than every persisted artifact, tracked content source and methodology input"
+  methodology_inputs:
+    - "model-workflow.config.yaml"
+    - ".agents/skills/model-analysis-workflow/SKILL.md"
+    - ".agents/skills/model-content-workflow/SKILL.md"
+  tracked_per_model_from_record: true
 
 reused_skills:
   - content-audit
@@ -153,7 +165,9 @@ quality_gate:
   require_evidence_packet: true
   require_evidence_ledger: true
   require_decision_artifact_before_content_brief: true
+  require_content_brief: true
   require_post_draft_fact_check: true
+  require_review_freshness: true
   require_limitations_when_decision_relevant: true
   require_noindex_in_draft: true
   require_research_to_draft_coverage: true
