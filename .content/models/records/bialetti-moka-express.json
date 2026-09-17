@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "workflow_version": 2,
+  "slug": "bialetti-moka-express",
+  "product_key": "bialetti-moka-express",
+  "name": "Bialetti Moka Express",
+  "brand": "Bialetti",
+  "page_type": "PRODUCT",
+  "url": "/modeles/bialetti-moka-express/",
+  "verified_at": "2026-09-17",
+  "robots": "noindex,follow",
+  "indexable": false,
+  "variant_scope": "Moka Express aluminium classique ; tailles 1 à 18 documentées",
+  "artifacts": {
+    "audit": ".content/models/audits/bialetti-moka-express-2026-09-17.md",
+    "evidence": ".content/models/evidence/bialetti-moka-express-2026-09-17.md",
+    "ledger": ".content/models/evidence-ledgers/bialetti-moka-express-2026-09-17.md",
+    "decision": ".content/models/decisions/bialetti-moka-express-2026-09-17.md",
+    "post_draft": ".content/models/post-draft/bialetti-moka-express-2026-09-17.md",
+    "review": ".content/reviews/bialetti-moka-express.md"
+  }
+}
