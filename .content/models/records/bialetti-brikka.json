@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "workflow_version": 2,
+  "slug": "bialetti-brikka",
+  "product_key": "bialetti-brikka",
+  "name": "Bialetti Brikka",
+  "brand": "Bialetti",
+  "page_type": "PRODUCT",
+  "url": "/modeles/bialetti-brikka/",
+  "verified_at": "2026-09-17",
+  "robots": "noindex,follow",
+  "indexable": false,
+  "variant_scope": "Brikka classique actuelle 2/4 tasses ; Brikka Induction 4 tasses vérifiée ; génération funnel 2016–2023 vs modèle actuel 2024",
+  "source_files": [
+    "scripts/apply-model-bialetti-brikka-reviewed.mjs"
+  ],
+  "artifacts": {
+    "research": ".content/models/bialetti-brikka.md",
+    "audit": ".content/models/audits/bialetti-brikka-2026-09-17.md",
+    "evidence": ".content/models/evidence/bialetti-brikka-2026-09-17.md",
+    "ledger": ".content/models/evidence-ledgers/bialetti-brikka-2026-09-17.md",
+    "decision": ".content/models/decisions/bialetti-brikka-2026-09-17.md",
+    "brief": ".content/models/briefs/bialetti-brikka-2026-09-17.md",
+    "post_draft": ".content/models/post-draft/bialetti-brikka-2026-09-17.md",
+    "review": ".content/reviews/bialetti-brikka.md"
+  }
+}
