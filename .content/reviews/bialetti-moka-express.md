@@ -18,7 +18,11 @@ PASS — research, audit, evidence packet, ledger, decision artifact, brief, pos
 
 ## Evidence / contradiction gate
 
-PASS — the specific induction-plate product constraint takes precedence over broader FAQ wording. No Moka Express-specific evidence changed during the Moka Induction retest.
+PASS — the specific induction-plate product constraint takes precedence over broader FAQ wording.
+
+## Flexible-capacity gate
+
+PASS / not decision-relevant — the verified Moka Express evidence set does not document a reducer or manufacturer-supported multi-yield mode comparable to the 9090. The workflow therefore does not invent one from accessory compatibility or from generic moka practice.
 
 ## Research-to-draft coverage
 
@@ -39,4 +43,4 @@ No decision-relevant coverage blocker remains.
 
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
-Freshness note: review refreshed after `model-workflow.config.yaml` registered the Moka Induction v2 reviewed override. No Moka Express-specific input changed.
+Freshness note: review refreshed after the MODEL workflow added explicit reducer / multi-yield coverage. No Moka Express-specific source or decision changed; no documented reducer mode is currently part of the evidence set.
