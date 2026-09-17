@@ -5,7 +5,7 @@ import sys
 from brand_publication import INDEXABLE_BRAND_ROUTES
 
 ROOT=Path(__file__).resolve().parent
-ROUTES=['/marques/bialetti/','/marques/alessi/']
+ROUTES=['/marques/bialetti/','/marques/alessi/','/marques/giannini/']
 FAIL=[]
 
 
