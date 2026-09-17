@@ -44,4 +44,4 @@ No decision-relevant coverage blocker remains.
 
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
-Freshness note: review refreshed after the PRODUCT registry and MODEL source-of-truth added Bialetti Brikka. No Alessi 9090-specific source, decision or rendered content changed.
+Freshness note: review refreshed after the PRODUCT registry and MODEL source-of-truth added Bialetti Mini Express. No Alessi 9090-specific source, decision or rendered content changed.
