@@ -15,7 +15,7 @@ Une URL `/modeles/` est une fiche `PRODUCT` documentaire et décisionnelle, pas 
 
 Modes : `PARITY_AUDIT`, `CLUSTER_AUDIT`, `PAGE_AUDIT`, `PUBLISH_REVIEW`.
 
-Un ancien `PASS — READY_FOR_HUMAN_VALIDATION` produit avec le workflow v1 est considéré comme **stale** tant que les artefacts v2 ne sont pas présents et cohérents.
+Un ancien `PASS — READY_FOR_HUMAN_VALIDATION` produit avec le workflow v1 est considéré comme **stale** tant que les artefacts v2 ne sont pas présents, cohérents et plus anciens que la review qui les valide.
 
 ## Référence méthodologique
 
@@ -29,8 +29,9 @@ Lire :
 - page cible, hub `/modeles/` et modèles frères pertinents ;
 - research brief `.content/models/<slug>.md` ;
 - product registry `.content/products/registry.json` ;
-- record, audit, evidence packet, evidence ledger, decision artifact et post-draft du modèle ;
+- record, audit, evidence packet, evidence ledger, decision artifact, content brief et post-draft du modèle ;
 - review existante ;
+- fichiers source déclarés dans le record ;
 - sources actuelles lorsque les caractéristiques peuvent évoluer.
 
 ## Chaîne d'analyse obligatoire
@@ -40,13 +41,13 @@ Orchestrer les skills existants :
 1. `content-audit` + `seo-content-audit` — rôle autonome, récupération, obsolescence, duplication, cannibalisation ;
 2. `seo-keyword` + `search-intent` — requête, SERP/intention, décision et handoffs ;
 3. `jobs-to-be-done` — circonstances, progrès recherché, Push/Pull/Anxiety/Habit, Big Hire/Little Hire, critères de décision ;
-4. record produit/variante — identité canonique, taille/génération pertinente, URL et état de publication ;
+4. record produit/variante — identité canonique, taille/génération pertinente, URL, état de publication et fichiers source ;
 5. `fact-check` — evidence packet et claim ledger ;
 6. signaux indépendants/communautaires lorsque nécessaires pour révéler questions, frictions ou objections ;
 7. résolution des contradictions ;
 8. decision artifact avant tout content brief ;
 9. `affiliate-value` — valeur sans lien affilié et raisons de ne pas acheter ;
-10. `content-brief-authoring` — brief alimenté par JTBD + décision + preuve ;
+10. `content-brief-authoring` — brief persistant alimenté par JTBD + décision + preuve ;
 11. contrôle post-draft puis `USED / HANDOFF / EXCLUDED / MISSING` ;
 12. `internal-linking-audit`, `seo-onpage`, `seo-technical`, `seo-best-practices`, `editorial-qa` ;
 13. `site-design-review` si l'architecture visuelle change significativement.
@@ -84,11 +85,13 @@ Aucun de ces blocs n'est un quota. Il devient requis uniquement si l'analyse le 
 Pour chaque modèle migré :
 
 - `.content/models/records/<slug>.json` ;
-- `.content/models/audits/<slug>-2026-09-17.md` ;
-- `.content/models/evidence/<slug>-2026-09-17.md` ;
-- `.content/models/evidence-ledgers/<slug>-2026-09-17.md` ;
-- `.content/models/decisions/<slug>-2026-09-17.md` ;
-- `.content/models/post-draft/<slug>-2026-09-17.md` ;
+- `.content/models/<slug>.md` ;
+- `.content/models/audits/<slug>-YYYY-MM-DD.md` ;
+- `.content/models/evidence/<slug>-YYYY-MM-DD.md` ;
+- `.content/models/evidence-ledgers/<slug>-YYYY-MM-DD.md` ;
+- `.content/models/decisions/<slug>-YYYY-MM-DD.md` ;
+- `.content/models/briefs/<slug>-YYYY-MM-DD.md` ;
+- `.content/models/post-draft/<slug>-YYYY-MM-DD.md` ;
 - `.content/reviews/<slug>.md`.
 
 Le HTML ou le seul research brief ne suffit plus à prouver la profondeur du workflow.
@@ -110,13 +113,17 @@ Le machine PASS vérifie la présence/cohérence déclarative ; il ne juge pas l
 
 ### B — artifact gate
 
-Avant PASS, vérifier que le record, audit, evidence packet, evidence ledger, decision artifact, post-draft et registry sont cohérents avec l'URL réellement produite.
+Avant PASS, vérifier que le research, record, audit, evidence packet, evidence ledger, decision artifact, content brief, post-draft et registry sont cohérents avec l'URL réellement produite.
 
 ### C — decision gate
 
 Vérifier que le decision artifact contient un vrai JTBD, les forces de changement, Big Hire/Little Hire, critères `MUST_HAVE / HIGH / CONDITIONAL / CONTRAINDICATION` et les handoffs. Les critères doivent découler de la situation et de la preuve, pas d'une liste de specs.
 
-### D — research-to-draft coverage
+### D — brief gate
+
+Le content brief doit être postérieur au decision artifact dans la logique éditoriale et contenir : query/cluster, intent, reader/JTBD, décision, scope, critères, preuves/entities, trade-offs, handoffs, anti-patterns, angle, critères de succès et outline justifié. Il ne doit jamais devenir un template PRODUCT fixe.
+
+### E — research-to-draft coverage
 
 Pour chaque élément décisionnel :
 
@@ -127,13 +134,25 @@ Pour chaque élément décisionnel :
 
 Un `MISSING` décisionnel bloque le PASS. Le volume de texte, le nombre de sources ou de sections ne compense jamais un manque.
 
-### E — trust / value / cluster
+### F — freshness gate
+
+Un `PASS` n'est valide que si la review a été commitée **après** :
+
+- son record ;
+- tous les artefacts qu'il référence ;
+- les fichiers source déclarés pour le modèle ;
+- le registry produit ;
+- la configuration et les deux skills MODEL v2.
+
+`validate_model_workflow.py` contrôle cette relation via l'historique Git. Une modification ultérieure d'un input rend donc automatiquement la review stale jusqu'à un nouveau PUBLISH_REVIEW.
+
+### G — trust / value / cluster
 
 Vérifier factualité, contradictions, absence de faux hands-on, utilité sans affiliation, raison de ne pas acheter, distinction face aux pages sœurs, architecture non clonée, title/H1/canonical/robots et maillage logique.
 
-### F — résultat
+### H — résultat
 
-PASS : `PASS — READY_FOR_HUMAN_VALIDATION` + `Workflow version : 2` + artefact gate + tableau de coverage.
+PASS : `PASS — READY_FOR_HUMAN_VALIDATION` + `Workflow version : 2` + artefact/brief/freshness gates + tableau de coverage.
 
 FAIL : `FAIL — KEEP_NOINDEX` avec la correction ciblée nécessaire.
 
@@ -143,4 +162,4 @@ Toujours `noindex,follow` par défaut. Indexation seulement après les deux vali
 
 ## Anti-patterns
 
-Pas de quotas de mots/H2/liens, scoring artificiel, FAQ obligatoire, plan PRODUCT fixe, synthèse d'avis décorative, faux verdict d'essai, promotion d'un signal communautaire en fait, ni PASS éditorial fondé uniquement sur la page rendue.
+Pas de quotas de mots/H2/liens, scoring artificiel, FAQ obligatoire, plan PRODUCT fixe, synthèse d'avis décorative, faux verdict d'essai, promotion d'un signal communautaire en fait, ni PASS éditorial fondé uniquement sur la page rendue ou sur une review plus ancienne que ses inputs.
