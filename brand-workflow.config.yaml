@@ -9,6 +9,8 @@ content:
   source_of_truth:
     - "scripts/brand-content.mjs"
     - "scripts/apply-brand-alessi-reviewed.mjs"
+    - "scripts/apply-brand-bialetti-reviewed.mjs"
+    - "scripts/apply-brand-giannini-reviewed.mjs"
   mode: "recovery"
 
 quality:
