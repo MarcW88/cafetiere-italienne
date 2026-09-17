@@ -1,73 +1,87 @@
 # Model analysis — Bialetti Moka Induction
 
 Date : 2026-09-17
+Workflow version : 2
 Mode : `model-analysis-workflow` → `PUBLISH_REVIEW`
 Status : `PASS — READY_FOR_HUMAN_VALIDATION`
 
-## Machine gate
+## Machine gates
 
-PASS — le workflow Model cluster a régénéré le site, validé les liens internes et exécuté `validate_models.py` sans blocker. La page conserve `noindex,follow` et son canonical propre `/modeles/bialetti-moka-induction/`.
+La review est structurée pour les deux gates obligatoires :
 
-## Intent gate
+- `validate_models.py` — rendu, canonical, robots, sources, liens et blockers machine ;
+- `validate_model_workflow.py` — registry, record, artefacts v2, markers sémantiques et fraîcheur Git de la review.
 
-PASS — la page explique ce que la Moka Induction change réellement par rapport à Moka Express et Venus, puis traite les risques propres au modèle : détection induction, volume exact selon variante et génération des pièces.
+Le CI constitue l'autorité machine finale. La page reste `noindex,follow`.
+
+## Artifact gate
+
+PASS — le record v2 pointe vers research, PAGE_AUDIT, evidence packet, evidence ledger, decision artifact, content brief, post-draft fact-check et review. Le registry et l'URL sont alignés. Le fichier source suivi est `scripts/apply-model-core-reviewed.mjs`.
+
+## Intent / JTBD gate
+
+PASS — le JTBD est centré sur le passage à l'induction tout en restant proche de la logique Moka Express, avec deux risques réels : détection du diamètre et identification de la bonne génération pour les pièces. Push/Pull/Anxiety/Habit, Big Hire/Little Hire et critères de décision sont persistés.
+
+## Evidence / contradiction gate
+
+PASS — la Bi-Layer actuelle, les volumes/bases 2/4/6, les différences d'éditions documentées et la génération pré-2020 sont distingués. Aucun chiffre d'une variante n'est généralisé à toute la famille. La mention “induction” n'est jamais transformée en garantie universelle de détection.
+
+## Brief gate
+
+PASS — le brief v2 dérive du decision artifact et du ledger : query/cluster, intent, JTBD, décision, scope, critères, preuves/entities, trade-offs, handoffs, anti-patterns, angle, success criteria et outline propre sont persistés.
+
+## Post-draft fact-check
+
+PASS — le contrôle confirme la construction hybride, les tailles/volumes/bases de la référence actuelle, l'entretien, la distinction D&G et le diagnostic générationnel des pièces. Aucun faux hands-on ni claim gustatif.
 
 ## Research-to-draft coverage
 
-| Élément décisionnel du research brief | Statut | Consommation dans le draft |
+| Élément décisionnel | Statut | Consommation dans le draft |
 |---|---|---|
 | Base bi-layer inox + aluminium | `USED` | section construction |
-| Partie supérieure aluminium | `USED` | section construction + comparaison |
-| Compatible induction, gaz, électrique, céramique | `USED` | hard gate d'ouverture |
-| Vérifier le diamètre minimal de la plaque | `USED` | hard gate d'ouverture |
+| Partie supérieure aluminium | `USED` | construction + comparaison |
+| Compatible induction, gaz, électrique, céramique | `USED` | ouverture |
+| Vérifier le diamètre minimal détecté par la plaque | `USED` | hard gate induction |
 | Tailles actuelles 2 / 4 / 6 | `USED` | matrice tailles |
 | Volumes ≈ 100 / 150 / 280 ml | `USED` | matrice |
-| Bases ≈ 9,5 / 10 / 11,5 cm | `USED` | hard gate + matrice |
-| Lavage manuel | `USED` | section entretien |
-| Éviter pleine puissance / ébullition prolongée | `USED` | section entretien |
-| Éditions D&G avec volumes différents | `USED` | section variante exacte |
+| Bases ≈ 9,5 / 10 / 11,5 cm | `USED` | matrice + hard gate |
+| Lavage manuel | `USED` | entretien |
+| Éviter pleine puissance / ébullition prolongée | `USED` | entretien |
+| Éditions D&G avec volumes différents | `USED` | variante exacte |
 | 2 tasses D&G ≈ 90 ml | `USED` | exemple de variation |
 | 4 tasses D&G ≈ 190 ml | `USED` | exemple de variation |
-| Funnel actuel Bi-Layer 2 / 4 / 6 | `USED` | section pièces |
-| Funnel pré‑2020 distinct | `USED` | section pièces |
-| Ancien modèle identifiable par bande silicone noire | `USED` | section pièces |
-| Anciennes tailles pré‑2020 3 / 6 | `USED` | section pièces |
-| Joints / filtres par taille | `USED` | section pièces |
-| Venus = tout inox | `USED` | comparaison modèle frère |
-| Moka Express = aluminium hors induction directe | `USED` | comparaison modèle frère |
+| Funnel actuel Bi-Layer 2 / 4 / 6 | `USED` | pièces |
+| Funnel pré-2020 distinct | `USED` | pièces / génération |
+| Ancienne génération identifiable par bande silicone noire | `USED` | diagnostic génération |
+| Anciennes tailles pré-2020 3 / 6 | `USED` | pièces / génération |
+| Joints / filtres par taille | `USED` | pièces |
+| Venus = tout inox | `USED` | modèle frère |
+| Moka Express = aluminium hors induction directe | `USED` | modèle frère |
 | Capacités générales | `HANDOFF` | `/capacites/` |
 | Induction générale | `HANDOFF` | `/guides/cafetiere-italienne-induction-compatibilite/` |
 | Aluminium vs inox | `HANDOFF` | `/guides/cafetiere-italienne-aluminium-ou-inox/` |
 | Pièces Bialetti | `HANDOFF` | `/accessoires/pieces-detachees-bialetti/` |
 | Comparatif induction | `HANDOFF` | `/comparatifs/cafetiere-italienne-induction/` |
-| Prix figé | `EXCLUDED` | volatil et non nécessaire au rôle PRODUCT |
+| Prix figé | `EXCLUDED` | volatil |
 | Claim de goût supérieur | `EXCLUDED` | non démontré |
-| Collaborations comme branche fonctionnelle autonome | `EXCLUDED` | seules leurs différences documentées de volume sont utilisées |
+| Collaborations comme branche fonctionnelle autonome | `EXCLUDED` | seules les différences documentées sont utiles |
 
-Aucun élément décisionnel du research brief n'est en statut `MISSING`.
+Aucun élément décisionnel n'est en statut `MISSING`.
 
-## Factuality / evidence
+## Affiliate value / cluster gate
 
-PASS — le draft distingue correctement la référence Bi-Layer actuelle, les éditions D&G consultées et l'ancien modèle pré‑2020. Les chiffres ne sont pas fusionnés entre variantes.
+PASS — la page évite des erreurs d'achat concrètes : badge induction interprété trop largement, taille choisie sans regarder les ml, variante confondue et pièce commandée pour la mauvaise génération.
 
-## Affiliate value
+## Trust / SEO / technical
 
-PASS — la page apporte des conséquences d'achat concrètes : diamètre réellement détectable, volumes non équivalents entre gammes, variante exacte et diagnostic de génération avant achat de pièces.
+PASS éditorial — pas de faux test, pas de claim gustatif, pas de prix figé et pas de généralisation de variante. Title/H1/canonical/robots et maillage restent contrôlés par `validate_models.py`.
 
-## Model / cluster distinction
+## Freshness gate
 
-PASS — Moka Induction est construite autour de l'hybridation des matériaux et du risque de génération. Elle ne duplique ni la page Venus ni la page Moka Express.
-
-## Trust / editorial
-
-PASS — aucun faux hands-on, pas de claim gustatif, pas de prix figé et pas de généralisation abusive d'une variante à toute la famille.
-
-## SEO / technical
-
-PASS — title / H1 alignés, meta spécifique, canonical propre, `noindex,follow`, sources externes et maillage contextuel.
+Cette review est commitée après ses artefacts v2, son record, son fichier source, le registry et les inputs méthodologiques MODEL v2. Toute modification ultérieure doit rendre le PASS stale via `validate_model_workflow.py`.
 
 ## Verdict
 
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
-La page doit rester `noindex,follow` jusqu'à validation humaine explicite puis instruction explicite de la rendre indexable.
+La page reste `noindex,follow` jusqu'à validation humaine explicite puis instruction explicite d'indexer.
