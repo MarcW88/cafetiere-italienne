@@ -1,0 +1,119 @@
+name: Publish fully indexed site
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'publication_indexation.py'
+      - 'model_publication.py'
+      - 'brand_publication.py'
+      - 'accessory_publication.py'
+      - 'capacity_publication.py'
+      - 'cafe_moka_publication.py'
+      - 'comparison_publication.py'
+      - 'scripts/apply_site_indexation.py'
+      - 'package.json'
+      - '.github/workflows/publish-indexed-site.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-indexed-site
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and apply site-wide indexation
+        run: npm run build
+
+      - name: Validate internal links
+        run: npm run check
+
+      - name: Validate all publication families
+        run: |
+          python3 validate_models.py
+          python3 validate_model_workflow.py
+          python3 validate_brands.py
+          python3 validate_brand_quality.py
+          python3 validate_capacities.py
+          python3 validate_accessories.py
+          python3 validate_cafe_moka.py
+          python3 validate_comparisons.py
+          python3 validate_guide_quality.py
+
+      - name: Commit and publish all generated public pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Marc Williame"
+          git config user.email "146358493+MarcW88@users.noreply.github.com"
+
+          stage_public_site() {
+            git add index.html sitemap.xml robots.txt \
+              comparatifs/ marques/ modeles/ capacites/ guides/ accessoires/ cafe-moka/ \
+              a-propos/ notre-methode/ affiliation/ contact/
+          }
+
+          commit_generated_site() {
+            stage_public_site
+            if git diff --cached --quiet; then
+              return 1
+            fi
+            git commit -m "seo: publish all approved pages as indexable"
+            git reset --hard HEAD
+            return 0
+          }
+
+          if ! commit_generated_site; then
+            echo "No generated indexation changes to commit"
+            exit 0
+          fi
+
+          for attempt in 1 2 3; do
+            git fetch origin "${{ github.ref_name }}"
+            if git rebase "origin/${{ github.ref_name }}" && git push origin "HEAD:${{ github.ref_name }}"; then
+              exit 0
+            fi
+
+            echo "Concurrent writer detected; rebuilding from latest main (attempt ${attempt}/3)"
+            git rebase --abort 2>/dev/null || true
+            git reset --hard "origin/${{ github.ref_name }}"
+            npm run build
+            npm run check
+            python3 validate_models.py
+            python3 validate_brands.py
+            python3 validate_capacities.py
+            python3 validate_accessories.py
+            python3 validate_cafe_moka.py
+            python3 validate_comparisons.py
+            python3 validate_guide_quality.py
+            commit_generated_site || exit 0
+          done
+
+          echo "Unable to publish generated site after concurrent updates"
+          exit 1
