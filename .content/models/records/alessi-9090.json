@@ -10,9 +10,10 @@
   "verified_at": "2026-09-17",
   "robots": "noindex,follow",
   "indexable": false,
-  "variant_scope": "9090 standard 1/3/6/10 ; édition 9090/3 CP distinguée lorsque pertinente",
+  "variant_scope": "9090 standard 1/3/6/10 ; flexibilité documentée par réducteur ; édition 9090/3 CP distinguée lorsque pertinente",
   "source_files": [
-    "scripts/apply-model-core-reviewed.mjs"
+    "scripts/apply-model-core-reviewed.mjs",
+    "scripts/apply-model-alessi-9090-v2-reviewed.mjs"
   ],
   "artifacts": {
     "research": ".content/models/alessi-9090.md",
