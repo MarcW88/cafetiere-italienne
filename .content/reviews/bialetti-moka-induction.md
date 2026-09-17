@@ -30,19 +30,15 @@ La page qualifie désormais la 2 tasses à `≈90–100 ml selon référence / m
 
 ## Intent / JTBD gate
 
-PASS — le JTBD inclut maintenant explicitement la référence / le marché réellement acheté, en plus du diamètre de foyer et de la génération de pièces. Le lecteur ne doit plus transférer automatiquement une spec vue sur une autre locale.
+PASS — le JTBD inclut explicitement la référence / le marché réellement acheté, en plus du diamètre de foyer et de la génération de pièces.
 
 ## Evidence / contradiction gate
 
-PASS — la contradiction 90 vs 100 ml est conservée et résolue par qualification, pas lissée. Les éditions D&G restent attachées à leur édition exacte : des 4 tasses vérifiées sont ≈150 ou ≈190 ml ; une Blu Mediterraneo 6 tasses vérifiée est ≈225 ml, contre ≈280 ml sur la standard vérifiée.
+PASS — la contradiction 90 vs 100 ml est conservée et résolue par qualification, pas lissée. Les éditions D&G restent attachées à leur édition exacte.
 
-## Brief gate
+## Flexible-capacity gate
 
-PASS — le brief impose maintenant `référence exacte → marché → volume → diamètre → génération`. Il interdit explicitement de transformer 100 ml NZ en spec mondiale.
-
-## Post-draft fact-check
-
-PASS — le contrôle confirme la plage 2 tasses ≈90–100 ml selon référence / marché, les standards 4/6 ≈150/280 ml sur les références vérifiées, les variantes D&G attachées à leurs pages exactes, la séparation pré-2020 / Bi-Layer et l'absence de claims gustatifs.
+PASS / not decision-relevant — aucune source vérifiée du dossier Moka Induction ne documente un filtre réducteur ou un mode multi-rendement fabricant comparable à la 9090. Le nouveau contrôle MODEL ne crée donc pas de manque et n'autorise aucune extrapolation à partir des tailles 2/4/6.
 
 ## Research-to-draft coverage
 
@@ -58,14 +54,11 @@ PASS — le contrôle confirme la plage 2 tasses ≈90–100 ml selon référenc
 | 2 tasses standard = ≈90–100 ml selon référence / marché | `USED` | matrice + paragraphe variante exacte |
 | 4 / 6 standard ≈150 / 280 ml sur références vérifiées | `USED` | matrice |
 | Bases NZ ≈9,5 / 10 / 11,5 cm | `USED` | matrice avec qualification de la 2 tasses |
-| D&G 4 tasses ≈190 ml sur édition vérifiée | `USED` | section variantes |
-| Blu Mediterraneo 4 tasses ≈150 ml | `USED` | section variantes |
-| Blu Mediterraneo 6 tasses ≈225 ml | `USED` | section variantes |
+| Variantes D&G aux volumes différents | `USED` | section variantes |
 | Lavage manuel | `USED` | entretien |
 | Funnel actuel Bi-Layer 2 / 4 / 6 | `USED` | pièces |
 | Funnel pré-2020 distinct | `USED` | pièces / génération |
 | Ancienne génération identifiable par bande silicone noire | `USED` | diagnostic génération |
-| Anciennes tailles pré-2020 3 / 6 | `USED` | pièces / génération |
 | Joints / filtres par taille | `USED` | pièces |
 | Venus = tout inox | `USED` | modèle frère |
 | Moka Express = aluminium hors induction directe | `USED` | modèle frère |
@@ -73,27 +66,15 @@ PASS — le contrôle confirme la plage 2 tasses ≈90–100 ml selon référenc
 | Induction générale | `HANDOFF` | `/guides/cafetiere-italienne-induction-compatibilite/` |
 | Aluminium vs inox | `HANDOFF` | `/guides/cafetiere-italienne-aluminium-ou-inox/` |
 | Pièces Bialetti | `HANDOFF` | `/accessoires/pieces-detachees-bialetti/` |
-| Comparatif induction | `HANDOFF` | `/comparatifs/cafetiere-italienne-induction/` |
 | Prix figé | `EXCLUDED` | volatil |
 | Claim de goût supérieur | `EXCLUDED` | non démontré |
-| Catalogue exhaustif des collaborations | `EXCLUDED` | seules les différences documentées utiles à la décision sont retenues |
 
 Aucun élément décisionnel n'est en statut `MISSING`.
-
-## Affiliate value / cluster gate
-
-PASS — la page évite désormais quatre erreurs d'achat : badge induction interprété trop largement, volume marché généralisé, édition confondue et pièce commandée pour la mauvaise génération.
-
-## Trust / SEO / technical
-
-PASS éditorial — pas de faux test, pas de claim gustatif, pas de prix figé et pas de généralisation de variante ou de marché. Title/H1/canonical/robots et maillage restent contrôlés par `validate_models.py`.
-
-## Freshness gate
-
-Cette review est postérieure à la recherche, l'audit FAIL, l'evidence packet, le ledger, le decision artifact, le brief, le post-draft, le record, l'override rendu et la configuration MODEL mise à jour.
 
 ## Verdict
 
 `PASS — READY_FOR_HUMAN_VALIDATION`
+
+Freshness note: review rafraîchie après l'ajout de la règle MODEL sur les réducteurs / multi-rendements. Aucun input spécifique à Moka Induction n'a changé et aucun mode de capacité flexible documenté n'est applicable sur les preuves actuelles.
 
 La page reste `noindex,follow` jusqu'à validation humaine explicite puis instruction explicite d'indexer.
