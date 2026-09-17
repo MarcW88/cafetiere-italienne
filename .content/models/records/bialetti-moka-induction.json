@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "workflow_version": 2,
+  "slug": "bialetti-moka-induction",
+  "product_key": "bialetti-moka-induction",
+  "name": "Bialetti Moka Induction",
+  "brand": "Bialetti",
+  "page_type": "PRODUCT",
+  "url": "/modeles/bialetti-moka-induction/",
+  "verified_at": "2026-09-17",
+  "robots": "noindex,follow",
+  "indexable": false,
+  "variant_scope": "Bi-Layer actuelle + génération pré-2020 quand pertinente pour les pièces",
+  "artifacts": {
+    "audit": ".content/models/audits/bialetti-moka-induction-2026-09-17.md",
+    "evidence": ".content/models/evidence/bialetti-moka-induction-2026-09-17.md",
+    "ledger": ".content/models/evidence-ledgers/bialetti-moka-induction-2026-09-17.md",
+    "decision": ".content/models/decisions/bialetti-moka-induction-2026-09-17.md",
+    "post_draft": ".content/models/post-draft/bialetti-moka-induction-2026-09-17.md",
+    "review": ".content/reviews/bialetti-moka-induction.md"
+  }
+}
