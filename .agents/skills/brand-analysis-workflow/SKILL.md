@@ -236,7 +236,29 @@ python3 validate_brands.py
 
 Un PASS machine n'est qu'un plancher structurel.
 
-## Étape B — réexécuter les gates substantiels
+## Étape B — research-to-draft coverage
+
+Avant les autres gates substantiels, relire le research/evidence brief de la page et identifier les **entités, différences fonctionnelles, hard gates, limites ou variantes qui ont été marquées comme décisionnelles**.
+
+Pour chacune, attribuer exactement un statut :
+
+- `USED` — l'élément est correctement exploité dans le draft ;
+- `HANDOFF` — le draft le route volontairement vers une autre URL plus adaptée ;
+- `EXCLUDED` — l'élément est volontairement hors scope et la raison est cohérente avec l'intention ;
+- `MISSING` — l'élément a été identifié comme important pendant la recherche mais a disparu sans justification.
+
+Règles :
+
+- ne pas imposer l'exhaustivité d'un catalogue ; seules les entités ou différences qui peuvent changer la décision du lecteur doivent être tracées ;
+- `EXCLUDED` n'est pas un échec si l'exclusion est justifiée par le rôle de page ;
+- `HANDOFF` exige une destination logique réellement présente ou clairement identifiée ;
+- un `MISSING` sur un élément décisionnel est un blocker de publication ;
+- la présence de nombreuses sources dans le draft ne compense jamais un `MISSING` décisionnel ;
+- ce gate contrôle la consommation de la recherche, pas un quota d'entités.
+
+En cas de blocker : retourner `FAIL — KEEP_NOINDEX` et router vers `content-refresh`, `fact-check` ou `brand-content-workflow` selon la cause.
+
+## Étape C — réexécuter les gates substantiels
 
 Vérifier au minimum :
 
@@ -244,6 +266,7 @@ Vérifier au minimum :
 - valeur affiliée originale ;
 - claims importants sourcés ;
 - niveau de preuve honnête ;
+- research-to-draft coverage sans `MISSING` décisionnel ;
 - pas de faux test ;
 - pas de métadiscours SEO/éditeur dans la prose ;
 - pas de merchant rewrite ;
@@ -255,7 +278,7 @@ Vérifier au minimum :
 - liens et schema honnêtes ;
 - page utile même sans liens affiliés.
 
-## Étape C — résultat
+## Étape D — résultat
 
 ### PASS
 
@@ -263,7 +286,7 @@ Retourner exactement le statut :
 
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
-Lister les éventuels risques mineurs restants.
+Lister les éventuels risques mineurs restants et joindre le tableau de coverage `USED / HANDOFF / EXCLUDED / MISSING` pour les éléments décisionnels du research brief.
 
 ### FAIL
 
