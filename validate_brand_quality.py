@@ -18,6 +18,7 @@ SITE_ORIGIN = "https://cafetiere-italienne.be"
 BRAND_PAGES = {
     "/marques/bialetti/": {"brand": "Bialetti"},
     "/marques/alessi/": {"brand": "Alessi"},
+    "/marques/giannini/": {"brand": "Giannini"},
 }
 
 TAG_RE = re.compile(r"<[^>]+>", re.S)
@@ -66,7 +67,6 @@ def visible_text(html: str) -> str:
 
 
 def has_class(html: str, class_name: str) -> bool:
-    """Match a CSS class token even when an element has multiple classes."""
     return any(class_name in classes.split() for classes in CLASS_RE.findall(html))
 
 
