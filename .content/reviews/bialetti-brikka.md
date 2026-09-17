@@ -81,4 +81,4 @@ Title/H1/canonical/robots, external sources, internal links and rendered output 
 
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
-Freshness gate: this review is committed after the Brikka research, audit, evidence packet, ledger, decision artifact, content brief, source script, registry entry, structured record, post-draft check and updated MODEL source-of-truth configuration.
+Freshness gate: review refreshed after the PRODUCT registry and MODEL source-of-truth added Bialetti Mini Express. Brikka-specific evidence, decisions, page and prior coverage remain unchanged; Mini Express is a distinct service-format sibling.
