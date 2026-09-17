@@ -57,6 +57,20 @@
       ],
       "best_for": "Cas d’usage éditorial : choisir une Brikka pour sa valve et son café plus concentré en acceptant un protocole plus spécifique"
     },
+    "bialetti-mini-express": {
+      "name": "Bialetti Mini Express",
+      "brand": "Bialetti",
+      "page_type": "PRODUCT",
+      "internal_url": "/modeles/bialetti-mini-express/",
+      "image": {"url": "", "source_type": "UNSET", "rights_checked": false, "source_page": ""},
+      "amazon": {"asin": "", "affiliate_url": "", "marketplace": "amazon.fr"},
+      "specs": [
+        {"label": "Format vérifié", "value": "2 tasses, ≈90 ml total"},
+        {"label": "Classique", "value": "Aluminium, hors induction directe"},
+        {"label": "Induction vérifiée", "value": "Base bi-layer inox/aluminium"}
+      ],
+      "best_for": "Cas d’usage éditorial : servir directement deux petits cafés moka dans deux tasses"
+    },
     "alessi-9090": {
       "name": "Alessi 9090",
       "brand": "Alessi",
