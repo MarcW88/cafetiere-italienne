@@ -43,4 +43,4 @@ No decision-relevant coverage blocker remains.
 
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
-Freshness note: review refreshed after the PRODUCT registry and MODEL source-of-truth added Bialetti Brikka. Moka Express evidence and decisions remain unchanged; Brikka is a new sibling handoff, not a missing Moka Express requirement.
+Freshness note: review refreshed after the PRODUCT registry and MODEL source-of-truth added Bialetti Mini Express. Moka Express evidence and decisions remain unchanged; Mini Express is a sibling focused on direct dual-cup service and does not create a missing Moka Express requirement.
