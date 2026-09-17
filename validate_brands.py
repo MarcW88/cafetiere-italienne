@@ -45,6 +45,12 @@ else:
     expected='index,follow' if hub_route in INDEXABLE_BRAND_ROUTES else 'noindex,follow'
     if robots(html)!=expected: FAIL.append(f'/marques/: robots must be {expected}')
     if not re.search(r'<link rel="canonical" href="https://cafetiere-italienne\.be/marques/">',html,re.I): FAIL.append('/marques/: canonical')
+    card_opens=len(re.findall(r'<a\b[^>]*class="[^"]*\bbrand-choice\b[^"]*"',html,re.I))
+    card_blocks=len(re.findall(r'<a\b[^>]*class="[^"]*\bbrand-choice\b[^"]*"[^>]*>(?:(?!<a\b[^>]*class="[^"]*\bbrand-choice\b).)*?</a>',html,re.I|re.S))
+    if card_opens!=len(ROUTES): FAIL.append(f'/marques/: expected {len(ROUTES)} brand cards, found {card_opens}')
+    if card_blocks!=card_opens: FAIL.append('/marques/: malformed or nested brand-choice anchor detected')
+    for route in ROUTES:
+        if route not in html: FAIL.append(f'/marques/: missing card/link for {route}')
 
 unknown=INDEXABLE_BRAND_ROUTES-set(ROUTES)-{hub_route}
 for route in sorted(unknown): FAIL.append(f'indexation manifest contains unknown brand route: {route}')
@@ -52,5 +58,6 @@ for route in sorted(unknown): FAIL.append(f'indexation manifest contains unknown
 if FAIL:
     print('\n'.join('FAIL '+x for x in FAIL)); sys.exit(1)
 print(f'PASS: {len(ROUTES)} brand page(s) have no machine-detectable publication blockers')
+print('PASS: brand hub cards are structurally valid')
 print('PASS: brand robots state matches the explicit indexation manifest')
 print('NOTE: machine validation does not replace brand-analysis-workflow / PUBLISH_REVIEW or human editorial judgment')
