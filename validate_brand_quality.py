@@ -12,6 +12,8 @@ import re
 from html import unescape
 from pathlib import Path
 
+from brand_publication import INDEXABLE_BRAND_ROUTES
+
 ROOT = Path(__file__).resolve().parent
 SITE_ORIGIN = "https://cafetiere-italienne.be"
 
@@ -70,6 +72,10 @@ def has_class(html: str, class_name: str) -> bool:
     return any(class_name in classes.split() for classes in CLASS_RE.findall(html))
 
 
+def expected_robots(route: str) -> str:
+    return "index,follow" if route in INDEXABLE_BRAND_ROUTES else "noindex,follow"
+
+
 def validate(route: str, spec: dict[str, str]) -> list[str]:
     failures: list[str] = []
     page = page_for_route(route)
@@ -88,8 +94,9 @@ def validate(route: str, spec: dict[str, str]) -> list[str]:
         failures.append("missing or duplicate meta description")
 
     robots = ROBOTS_RE.findall(html)
-    if len(robots) != 1 or robots[0].strip().lower() != "noindex,follow":
-        failures.append("robots must remain noindex,follow before human approval")
+    expected = expected_robots(route)
+    if len(robots) != 1 or robots[0].strip().lower().replace(" ", "") != expected:
+        failures.append(f"robots must match publication manifest: expected {expected}")
 
     canonicals = CANONICAL_RE.findall(html)
     expected_canonical = f"{SITE_ORIGIN}{route}"
@@ -139,6 +146,7 @@ def main() -> None:
         raise SystemExit(1)
 
     print(f"PASS: {len(BRAND_PAGES)} Brand detail pages have no machine-detectable blockers")
+    print("PASS: Brand robots state matches the explicit indexation manifest")
     print("NOTE: substantive brand quality remains a brand-analysis-workflow / PUBLISH_REVIEW gate")
 
 
