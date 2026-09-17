@@ -13,6 +13,8 @@ on:
       - 'cafe_moka_publication.py'
       - 'comparison_publication.py'
       - 'scripts/apply_site_indexation.py'
+      - 'validate_publication_indexation.py'
+      - 'validate_brand_quality.py'
       - 'package.json'
       - '.github/workflows/publish-indexed-site.yml'
   workflow_dispatch:
@@ -65,6 +67,7 @@ jobs:
           python3 validate_cafe_moka.py
           python3 validate_comparisons.py
           python3 validate_guide_quality.py
+          python3 validate_publication_indexation.py
 
       - name: Commit and publish all generated public pages
         shell: bash
@@ -72,6 +75,20 @@ jobs:
           set -euo pipefail
           git config user.name "Marc Williame"
           git config user.email "146358493+MarcW88@users.noreply.github.com"
+
+          validate_generated_site() {
+            npm run check
+            python3 validate_models.py
+            python3 validate_model_workflow.py
+            python3 validate_brands.py
+            python3 validate_brand_quality.py
+            python3 validate_capacities.py
+            python3 validate_accessories.py
+            python3 validate_cafe_moka.py
+            python3 validate_comparisons.py
+            python3 validate_guide_quality.py
+            python3 validate_publication_indexation.py
+          }
 
           stage_public_site() {
             git add index.html sitemap.xml robots.txt \
@@ -104,14 +121,7 @@ jobs:
             git rebase --abort 2>/dev/null || true
             git reset --hard "origin/${{ github.ref_name }}"
             npm run build
-            npm run check
-            python3 validate_models.py
-            python3 validate_brands.py
-            python3 validate_capacities.py
-            python3 validate_accessories.py
-            python3 validate_cafe_moka.py
-            python3 validate_comparisons.py
-            python3 validate_guide_quality.py
+            validate_generated_site
             commit_generated_site || exit 0
           done
 
