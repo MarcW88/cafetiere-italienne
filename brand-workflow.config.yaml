@@ -77,6 +77,7 @@ editorial_chain:
   - bespoke_outline_from_intent_and_evidence
   - evidence_bound_writing
   - post_draft_fact_check
+  - research_to_draft_coverage
   - humanizer_and_general_writing
   - anti_ai_slop
   - internal_linking_audit
@@ -91,6 +92,7 @@ quality_gate:
   require_limitations_when_decision_relevant: true
   require_choose_avoid_when_decision_relevant: true
   require_noindex_in_draft: true
+  require_research_to_draft_coverage: true
   prohibit_fake_test_language: true
   prohibit_editor_facing_metadiscourse: true
   prohibit_merchant_rewrite_without_original_value: true
