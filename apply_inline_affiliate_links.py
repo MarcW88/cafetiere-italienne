@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Add conservative Amazon CTAs where a verified product is already present.
 
-This complements the existing product modules. It only touches brand/deal pages,
-adds one CTA on configured subject pages, and adds a compact CTA to table rows
-whose cells clearly identify a verified product.
+This complements the existing product modules. It only touches explicitly
+configured roots, adds one CTA on configured subject pages, and adds a compact
+CTA to table rows whose cells clearly identify a verified product.
 """
 
 from __future__ import annotations
@@ -30,7 +30,8 @@ ROW_RE = re.compile(r"<tr\b[^>]*>.*?</tr>", re.S | re.I)
 TD_RE = re.compile(r"<td\b[^>]*>(.*?)</td>", re.S | re.I)
 TAG_RE = re.compile(r"<[^>]+>", re.S)
 ARTICLE_ANSWER_RE = re.compile(
-    r'(<p\b[^>]*class="[^"]*article-answer[^"]*"[^>]*>.*?</p>)', re.S | re.I
+    r'((?:<p\\b[^>]*class="[^"]*article-answer[^"]*"[^>]*>.*?</p>)|(?:<section\\b[^>]*class="[^"]*guide-answer[^"]*"[^>]*>.*?</section>))',
+    re.S | re.I,
 )
 
 
