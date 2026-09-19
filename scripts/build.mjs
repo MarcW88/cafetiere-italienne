@@ -13,7 +13,7 @@ import { cafeMokaPages, cafeMokaHub } from './cafe-moka-content.mjs';
 const root=path.resolve(import.meta.dirname,'..');
 const pages={
   comparatifs:['meilleure-cafetiere-italienne','cafetiere-italienne-induction','cafetiere-italienne-inox','cafetiere-italienne-electrique','cafetiere-italienne-design','petite-cafetiere-italienne'],
-  marques:['bialetti','alessi'],
+  marques:['bialetti','alessi','giannini'],
   modeles:['bialetti-moka-express','bialetti-venus','bialetti-moka-induction','alessi-9090'],
   capacites:['cafetiere-italienne-2-tasses','cafetiere-italienne-4-tasses','cafetiere-italienne-6-tasses','cafetiere-italienne-10-tasses','cafetiere-italienne-12-tasses'],
   guides:['comment-choisir-cafetiere-italienne','comment-utiliser-cafetiere-italienne','premiere-utilisation-cafetiere-italienne','dosage-cafe-cafetiere-italienne','mouture-cafetiere-italienne','quel-cafe-pour-cafetiere-italienne','cafetiere-italienne-aluminium-ou-inox','cafetiere-italienne-induction-compatibilite','nettoyer-cafetiere-italienne','detartrer-cafetiere-italienne','cafetiere-italienne-cafe-amer-brule','cafetiere-italienne-fuite-vapeur','changer-joint-cafetiere-italienne','cafetiere-italienne-vs-espresso'],
