@@ -247,7 +247,107 @@ html.comparison-page .comparison-shortlist__row small{display:block;margin-top:4
 html.comparison-general-page .comparison-shortlist{border-top-color:var(--color-accent)}
 html.comparison-specialized-page .article-answer{border-left-color:var(--color-primary)}
 
+/* Buyer cue: contextual checks, not another promotional card. */
+html.comparison-page .comparison-buyer-cue{
+  margin-top:26px;
+  padding:16px 0 14px;
+  border-top:2px solid var(--olive);
+  border-bottom:1px solid var(--color-border);
+}
+html.comparison-page .comparison-buyer-cue ul{
+  list-style:none;
+  margin:11px 0 0;
+  padding:0;
+}
+html.comparison-page .comparison-buyer-cue li{
+  position:relative;
+  padding:8px 0 8px 18px;
+  border-top:1px solid color-mix(in srgb,var(--color-border) 70%,transparent);
+  color:var(--color-text-muted);
+  font-size:.78rem;
+  line-height:1.4;
+}
+html.comparison-page .comparison-buyer-cue li::before{
+  content:"—";
+  position:absolute;
+  left:0;
+  color:var(--color-accent);
+}
+
+/* Reconsidered models: compact evidence trail instead of a wall of paragraphs. */
+html.comparison-page .comparison-reconsidered__heading{
+  margin-bottom:8px;
+}
+html.comparison-page .comparison-reconsidered__item{
+  position:relative;
+  display:block;
+  margin:0!important;
+  padding:14px 0 14px 46px;
+  border-top:1px solid var(--color-border);
+  max-width:72ch;
+}
+html.comparison-page .comparison-reconsidered__item:last-of-type{
+  border-bottom:1px solid var(--color-border);
+}
+html.comparison-page .comparison-reconsidered__index{
+  position:absolute;
+  left:0;
+  top:14px;
+  font-family:var(--font-serif);
+  color:var(--color-accent);
+  font-size:.95rem;
+}
+html.comparison-page .comparison-reconsidered__name{
+  font-family:var(--font-serif);
+  font-size:1.03rem;
+  font-weight:400;
+  color:var(--ink);
+}
+html.comparison-page .comparison-reconsidered__item .comparison-reconsidered__name{
+  display:inline;
+}
+
+/* Design comparison: show aesthetic intent without pretending to score taste. */
+html.comparison-page .comparison-design-map{
+  margin:0 0 34px;
+  padding:18px 0 4px;
+  border-top:2px solid var(--olive);
+  border-bottom:1px solid var(--color-border);
+}
+html.comparison-page .comparison-design-map__grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  margin-top:12px;
+}
+html.comparison-page .comparison-design-map__grid>div{
+  min-width:0;
+  padding:12px 14px;
+  border-left:1px solid var(--color-border);
+}
+html.comparison-page .comparison-design-map__grid>div:first-child{
+  border-left:0;
+  padding-left:0;
+}
+html.comparison-page .comparison-design-map__grid strong{
+  display:block;
+  font-family:var(--font-serif);
+  font-size:1rem;
+  font-weight:400;
+}
+html.comparison-page .comparison-design-map__grid span{
+  display:block;
+  margin-top:3px;
+  color:var(--color-text-muted);
+  font-size:.72rem;
+  line-height:1.3;
+}
+
 @media(max-width:1024px){
+  html.comparison-page .comparison-design-map__grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  html.comparison-page .comparison-design-map__grid>div:nth-child(4){border-left:0}
+  html.comparison-page .comparison-design-map__grid>div:nth-child(n+4){border-top:1px solid var(--color-border)}
+  html.comparison-page .content-sidebar>.sidebar-card{display:none}
+
   html.comparison-page .comparison-layout{grid-template-columns:minmax(0,1fr);gap:24px}
   html.comparison-page .content-sidebar{position:static;order:-1}
   html.comparison-page .content-sidebar>.sidebar-box:not(.sidebar-toc),
@@ -304,4 +404,15 @@ html.comparison-specialized-page .article-answer{border-left-color:var(--color-p
   html.comparison-hub-page .hub-link--primary strong{font-size:1.8rem}
   html.comparison-page .comparison-shortlist__row{grid-template-columns:30px minmax(0,1fr);gap:9px}
   html.comparison-page .comparison-shortlist__row small{display:none}
+  html.comparison-page .comparison-design-map__grid{grid-template-columns:1fr}
+  html.comparison-page .comparison-design-map__grid>div,
+  html.comparison-page .comparison-design-map__grid>div:first-child,
+  html.comparison-page .comparison-design-map__grid>div:nth-child(4){
+    padding:10px 0;
+    border-left:0;
+    border-top:1px solid var(--color-border);
+  }
+  html.comparison-page .comparison-design-map__grid>div:first-child{border-top:0}
+  html.comparison-page .comparison-reconsidered__item{padding-left:36px}
+  html.comparison-page .comparison-buyer-cue{margin-top:18px}
 }
