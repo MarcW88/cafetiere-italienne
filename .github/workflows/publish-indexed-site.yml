@@ -16,6 +16,13 @@ on:
       - 'validate_publication_indexation.py'
       - 'validate_brand_quality.py'
       - 'package.json'
+      - 'scripts/build.mjs'
+      - 'scripts/shop-content.mjs'
+      - 'boutique/**'
+      - 'boutique.js'
+      - 'assets/shop.css'
+      - '.content/products/registry.json'
+      - '.content/products/affiliate.json'
       - '.github/workflows/publish-indexed-site.yml'
   workflow_dispatch:
 
@@ -93,7 +100,7 @@ jobs:
           stage_public_site() {
             git add index.html sitemap.xml robots.txt \
               comparatifs/ marques/ modeles/ capacites/ guides/ accessoires/ cafe-moka/ \
-              a-propos/ notre-methode/ affiliation/ contact/
+              a-propos/ notre-methode/ affiliation/ contact/ boutique/
           }
 
           commit_generated_site() {
