@@ -1,3 +1,15 @@
+/* Site adapter: keep the imported product workflow on the existing editorial tokens. */
+html.model-page {
+  --color-primary: var(--moka);
+  --color-white: var(--paper);
+  --color-text-muted: var(--muted);
+  --color-border: var(--line);
+  --color-bg-alt: var(--sand);
+  --radius-sm: 6px;
+  --radius-md: 6px;
+  --shadow-xs: none;
+}
+
 /* Phase-1 editorial product modules. Decision aid first, commerce second. */
 .product-card-section {
   margin: 64px 0;
