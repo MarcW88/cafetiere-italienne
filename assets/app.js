@@ -290,6 +290,82 @@ function setupGuideReadingTools(){
 
 setupGuideReadingTools();
 
+const comparisonBuyerCues={
+  '/comparatifs/meilleure-cafetiere-italienne':{
+    title:'À vérifier avant achat',
+    items:['Votre plaque de cuisson','Le volume réellement préparé','Le mode d’entretien accepté']
+  },
+  '/comparatifs/cafetiere-italienne-induction':{
+    title:'À vérifier avant achat',
+    items:['Diamètre minimal détecté par votre plaque','Compatibilité de la taille exacte','Volume réellement préparé']
+  },
+  '/comparatifs/cafetiere-italienne-inox':{
+    title:'À vérifier avant achat',
+    items:['Compatibilité de votre plaque','Construction réellement en inox','Consignes de lavage du fabricant']
+  },
+  '/comparatifs/cafetiere-italienne-electrique':{
+    title:'À vérifier avant achat',
+    items:['Capacité réellement utile','Arrêt automatique / maintien au chaud','Disponibilité actuelle de la référence']
+  },
+  '/comparatifs/cafetiere-italienne-design':{
+    title:'À vérifier avant achat',
+    items:['Compatibilité avec votre plaque','Fonction apportée par le design','Place visible ou rangement après usage']
+  },
+  '/comparatifs/petite-cafetiere-italienne':{
+    title:'À vérifier avant achat',
+    items:['Volume en ml, pas seulement en “tasses”','Détection induction si nécessaire','Taille minimale vraiment utile']
+  }
+};
+
+function enhanceReconsideredSection(article){
+  const heading=[...article.querySelectorAll('h2')].find(h=>/^reconsider/i.test(h.id||'')||/reconsid/i.test(h.textContent));
+  if(!heading)return;
+  heading.classList.add('comparison-reconsidered__heading');
+  let node=heading.nextElementSibling;
+  let index=1;
+  while(node&&node.tagName!=='H2'){
+    if(node.tagName==='P'){
+      node.classList.add('comparison-reconsidered__item');
+      const strong=node.querySelector(':scope > strong:first-child');
+      if(strong){
+        const label=document.createElement('span');
+        label.className='comparison-reconsidered__index';
+        label.textContent=String(index++).padStart(2,'0');
+        node.prepend(label);
+        strong.classList.add('comparison-reconsidered__name');
+      }
+    }
+    node=node.nextElementSibling;
+  }
+}
+
+function addComparisonBuyerCue(aside){
+  const cue=comparisonBuyerCues[currentPath];
+  if(!cue||!aside)return;
+  const block=document.createElement('section');
+  block.className='comparison-buyer-cue';
+  block.innerHTML=`<span class="eyebrow">${cue.title}</span><ul>${cue.items.map(item=>`<li>${item}</li>`).join('')}</ul>`;
+  aside.append(block);
+}
+
+function addDesignLanguageMap(article){
+  if(currentPath!=='/comparatifs/cafetiere-italienne-design')return;
+  const verdict=article.querySelector('.article-answer');
+  if(!verdict)return;
+  const map=document.createElement('section');
+  map.className='comparison-design-map';
+  map.setAttribute('aria-label','Cinq approches du design');
+  map.innerHTML=`<span class="eyebrow">Quel design cherchez-vous ?</span>
+    <div class="comparison-design-map__grid">
+      <div><strong>Fonctionnel</strong><span>Alessi 9090</span></div>
+      <div><strong>Sculptural</strong><span>Pulcina</span></div>
+      <div><strong>Architectural</strong><span>La Cupola</span></div>
+      <div><strong>Décoratif</strong><span>Bialetti × D&G</span></div>
+      <div><strong>Contemporain</strong><span>Alessi Vite</span></div>
+    </div>`;
+  verdict.insertAdjacentElement('afterend',map);
+}
+
 function setupComparisonTools(){
   if(!isComparison||currentPath==='/comparatifs')return;
   const layout=document.querySelector('.comparison-layout');
@@ -314,6 +390,10 @@ function setupComparisonTools(){
     },{rootMargin:'-18% 0px -68% 0px',threshold:0});
     headings.forEach(heading=>observer.observe(heading));
   }
+
+  enhanceReconsideredSection(article);
+  addComparisonBuyerCue(aside);
+  addDesignLanguageMap(article);
 
   const firstTable=article.querySelector('.table-wrapper .comp-table');
   const firstHeading=firstTable?.closest('.table-wrapper')?.previousElementSibling;
