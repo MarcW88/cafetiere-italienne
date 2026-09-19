@@ -27,6 +27,8 @@ const MODEL_ROUTES = [
   '/modeles/bialetti-moka-express/',
   '/modeles/bialetti-venus/',
   '/modeles/bialetti-moka-induction/',
+  '/modeles/bialetti-brikka/',
+  '/modeles/bialetti-mini-express/',
   '/modeles/alessi-9090/',
 ];
 
