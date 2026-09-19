@@ -37,6 +37,7 @@ if(isBrand){
 if(isModel){
   document.documentElement.classList.add('model-page');
   if(currentPath==='/modeles')document.documentElement.classList.add('model-hub-page');
+  else document.documentElement.classList.add('model-detail-page');
 }
 if(isGuide){
   document.documentElement.classList.add('guide-page');
@@ -492,6 +493,103 @@ function setupBrandTools(){
 }
 
 setupBrandTools();
+
+const modelIdentity={
+  '/modeles/bialetti-moka-express':[
+    ['Matériau','Aluminium'],
+    ['Induction','Non, hors adaptateur'],
+    ['Tailles','1 à 18 tasses'],
+    ['Entretien','Lavage manuel'],
+    ['Particularité','Moka classique']
+  ],
+  '/modeles/bialetti-venus':[
+    ['Matériau','Inox 18/10'],
+    ['Induction','4 et 6 tasses'],
+    ['Exception','2 tasses non induction'],
+    ['Entretien','Selon variante'],
+    ['Particularité','Voie inox Bialetti']
+  ],
+  '/modeles/bialetti-moka-induction':[
+    ['Construction','Bi-layer inox + aluminium'],
+    ['Induction','Oui'],
+    ['Tailles','2 / 4 / 6 tasses'],
+    ['Partie haute','Aluminium'],
+    ['Particularité','Esprit Moka Express']
+  ],
+  '/modeles/bialetti-brikka':[
+    ['Construction','Aluminium ou bi-layer'],
+    ['Induction','Selon version'],
+    ['Tailles','2 / 4 tasses'],
+    ['Dosage eau','120 / 170 ml'],
+    ['Particularité','Valve Brikka']
+  ],
+  '/modeles/bialetti-mini-express':[
+    ['Construction','Aluminium ou bi-layer'],
+    ['Induction','Selon version'],
+    ['Format','2 tasses · ≈90 ml'],
+    ['Service','Direct dans deux tasses'],
+    ['Entretien','Lavage manuel']
+  ],
+  '/modeles/alessi-9090':[
+    ['Matériau','Inox 18/10'],
+    ['Induction','Oui selon référence'],
+    ['Fermeture','Levier'],
+    ['Tailles','1 / 3 / 6 / 10'],
+    ['Particularité','Design fonctionnel']
+  ]
+};
+
+function setupModelTools(){
+  if(!isModel||currentPath==='/modeles')return;
+  const layout=document.querySelector('.model-layout');
+  const article=layout?.querySelector('.content-main');
+  const aside=layout?.querySelector('aside');
+  if(!layout||!article)return;
+
+  const headings=[...article.querySelectorAll(':scope > section > h2')];
+  const used=new Set();
+  headings.forEach((heading,index)=>{
+    if(!heading.id){
+      let base=slugifyHeading(heading.textContent)||`section-${index+1}`;
+      let id=base;
+      let suffix=2;
+      while(used.has(id)||document.getElementById(id))id=`${base}-${suffix++}`;
+      heading.id=id;
+    }
+    used.add(heading.id);
+  });
+
+  if(aside&&headings.length>=5){
+    aside.classList.add('model-sidebar');
+    const toc=document.createElement('nav');
+    toc.className='model-toc';
+    toc.setAttribute('aria-label','Dans cette fiche');
+    toc.innerHTML=`<span class="eyebrow">Dans cette fiche</span><ol>${headings.map((h,i)=>`<li><a href="#${h.id}"><span>${String(i+1).padStart(2,'0')}</span>${h.textContent}</a></li>`).join('')}</ol>`;
+    aside.prepend(toc);
+  }
+
+  const identity=modelIdentity[currentPath];
+  const answer=article.querySelector('.guide-answer');
+  if(identity&&answer){
+    const sheet=document.createElement('section');
+    sheet.className='model-spec-sheet';
+    sheet.innerHTML=`<span class="eyebrow">Fiche d’identité</span><dl>${identity.map(([label,value])=>`<div><dt>${label}</dt><dd>${value}</dd></div>`).join('')}</dl>`;
+    answer.insertAdjacentElement('afterend',sheet);
+  }
+
+  article.querySelectorAll('.comparison-picks').forEach(group=>group.classList.add('model-alternatives'));
+
+  article.querySelectorAll('.guide-table').forEach(table=>{
+    const headers=[...table.querySelectorAll('thead th')].map(th=>th.textContent.trim());
+    if(headers.length<2||headers.length>3)return;
+    table.classList.add('model-table--stackable');
+    table.querySelectorAll('tbody tr').forEach(row=>{
+      [...row.children].forEach((cell,index)=>{if(headers[index])cell.dataset.label=headers[index]});
+    });
+  });
+}
+
+setupModelTools();
 
 const answers={};let step=0;const steps=[...document.querySelectorAll('.finder-step')];const bars=[...document.querySelectorAll('.finder-progress i')];
 function render(){steps.forEach((el,i)=>el.classList.toggle('active',i===step));bars.forEach((el,i)=>el.classList.toggle('on',i<=step))}
