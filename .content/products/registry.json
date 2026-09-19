@@ -192,6 +192,166 @@
         }
       ],
       "best_for": "Cas d’usage éditorial : évaluer si une conception premium et mécanique à levier justifie le choix"
+    },
+    "ariete-1358a": {
+      "name": "Ariete 1358A",
+      "brand": "Ariete",
+      "page_type": "PRODUCT",
+      "internal_url": "/comparatifs/cafetiere-italienne-electrique/#ariete-1358",
+      "image": {
+        "url": "",
+        "source_type": "UNSET",
+        "rights_checked": false,
+        "source_page": ""
+      },
+      "amazon": {
+        "asin": "",
+        "affiliate_url": "",
+        "marketplace": "amazon.fr"
+      },
+      "specs": [
+        {
+          "label": "Capacité",
+          "value": "2 / 4 tasses avec réducteur"
+        },
+        {
+          "label": "Puissance",
+          "value": "400 W"
+        },
+        {
+          "label": "Fonctions",
+          "value": "Arrêt automatique · maintien au chaud 30 min"
+        }
+      ],
+      "best_for": "Un achat électrique actuel et simple à documenter pour 2 à 4 tasses"
+    },
+    "ariete-1368": {
+      "name": "Ariete 1368",
+      "brand": "Ariete",
+      "page_type": "PRODUCT",
+      "internal_url": "/comparatifs/cafetiere-italienne-electrique/#ariete-1368",
+      "image": {
+        "url": "",
+        "source_type": "UNSET",
+        "rights_checked": false,
+        "source_page": ""
+      },
+      "amazon": {
+        "asin": "",
+        "affiliate_url": "",
+        "marketplace": "amazon.fr"
+      },
+      "specs": [
+        {
+          "label": "Capacité",
+          "value": "6 tasses · adaptateur 4"
+        },
+        {
+          "label": "Puissance",
+          "value": "480 W"
+        },
+        {
+          "label": "Point de vigilance",
+          "value": "Disponibilité à vérifier"
+        }
+      ],
+      "best_for": "Un besoin de plus grande capacité si le stock est confirmé"
+    },
+    "delonghi-alicia": {
+      "name": "De'Longhi Alicia",
+      "brand": "De'Longhi",
+      "page_type": "PRODUCT",
+      "internal_url": "/comparatifs/cafetiere-italienne-electrique/#alicia",
+      "image": {
+        "url": "",
+        "source_type": "UNSET",
+        "rights_checked": false,
+        "source_page": ""
+      },
+      "amazon": {
+        "asin": "",
+        "affiliate_url": "",
+        "marketplace": "amazon.fr"
+      },
+      "specs": [
+        {
+          "label": "Références",
+          "value": "EMK6, EMK9 et variantes documentées"
+        },
+        {
+          "label": "Support",
+          "value": "Documentation fabricant encore disponible"
+        },
+        {
+          "label": "Point de vigilance",
+          "value": "Statut et stock à vérifier modèle par modèle"
+        }
+      ],
+      "best_for": "Un achat opportuniste lorsque la référence exacte et le stock sont clairement vérifiés"
+    },
+    "alessi-pulcina": {
+      "name": "Alessi Pulcina",
+      "brand": "Alessi",
+      "page_type": "PRODUCT",
+      "internal_url": "/comparatifs/cafetiere-italienne-design/#pulcina-cupola",
+      "image": {
+        "url": "",
+        "source_type": "UNSET",
+        "rights_checked": false,
+        "source_page": ""
+      },
+      "amazon": {
+        "asin": "",
+        "affiliate_url": "",
+        "marketplace": "amazon.fr"
+      },
+      "specs": [
+        {
+          "label": "Designer",
+          "value": "Michele De Lucchi"
+        },
+        {
+          "label": "Tailles classiques",
+          "value": "1 / 3 / 6 tasses"
+        },
+        {
+          "label": "Positionnement",
+          "value": "Design sculptural"
+        }
+      ],
+      "best_for": "Une moka dont la forme et la présence visuelle font partie de la décision"
+    },
+    "alessi-la-cupola": {
+      "name": "Alessi La Cupola",
+      "brand": "Alessi",
+      "page_type": "PRODUCT",
+      "internal_url": "/comparatifs/cafetiere-italienne-design/#pulcina-cupola",
+      "image": {
+        "url": "",
+        "source_type": "UNSET",
+        "rights_checked": false,
+        "source_page": ""
+      },
+      "amazon": {
+        "asin": "",
+        "affiliate_url": "",
+        "marketplace": "amazon.fr"
+      },
+      "specs": [
+        {
+          "label": "Designer",
+          "value": "Aldo Rossi"
+        },
+        {
+          "label": "Positionnement",
+          "value": "Design architectural"
+        },
+        {
+          "label": "Variantes",
+          "value": "Classiques et induction selon collection"
+        }
+      ],
+      "best_for": "Une cuisine sobre ou géométrique où l'objet reste visible"
     }
   }
 }
