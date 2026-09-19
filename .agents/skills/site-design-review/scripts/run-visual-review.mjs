@@ -9,6 +9,7 @@ const BRAND_ROUTES = [
   '/marques/',
   '/marques/bialetti/',
   '/marques/alessi/',
+  '/marques/giannini/',
 ];
 
 const COMPARISON_ROUTES = [
