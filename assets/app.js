@@ -168,8 +168,7 @@ function createNavigationMarkup(){
       <a href="/accessoires/pieces-detachees-bialetti/">Pièces détachées Bialetti</a>`
   });
 
-  const shop=`<a class="nav-link nav-link--shop" href="/boutique/"${isShop?' aria-current="page"':''}>Boutique</a>`;
-  return comparisons+brands+capacities+guides+care+shop;
+  return comparisons+brands+capacities+guides+care;
 }
 
 function setupNavigation(){
