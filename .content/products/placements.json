@@ -4,11 +4,97 @@
     "max_modules_per_page": 1,
     "max_products_per_module": 3,
     "purpose": "decision_support_only",
-    "excluded_sections": ["brands", "deals", "hubs", "informational_guides"]
+    "excluded_sections": [
+      "brands",
+      "deals",
+      "hubs",
+      "informational_guides"
+    ]
   },
   "sections": {
-    "comparisons": {"base_path": "comparatifs", "pages": {}},
-    "usages": {"base_path": "usages", "pages": {}},
-    "guides": {"base_path": "guides", "pages": {}}
+    "comparisons": {
+      "base_path": "comparatifs",
+      "pages": {
+        "meilleure-cafetiere-italienne": {
+          "layout": "recommendation_list",
+          "products": [
+            "bialetti-moka-express",
+            "bialetti-venus",
+            "alessi-9090"
+          ],
+          "insert_before_heading_id": "moka-express",
+          "section_id": "modeles-a-retenir",
+          "section_title": "Trois modèles qui structurent le choix",
+          "intro": "Ils couvrent les trois logiques principales du comparatif : moka classique, induction rationnelle et conception premium."
+        },
+        "cafetiere-italienne-induction": {
+          "layout": "recommendation_list",
+          "products": [
+            "bialetti-venus",
+            "bialetti-moka-induction",
+            "alessi-9090"
+          ],
+          "insert_before_heading_id": "venus",
+          "section_id": "selection-induction",
+          "section_title": "Trois approches de l’induction",
+          "intro": "Le bon choix dépend d’abord de votre diamètre de détection, du matériau souhaité et de l’intérêt réel d’un modèle premium."
+        },
+        "cafetiere-italienne-inox": {
+          "layout": "comparison_cards",
+          "products": [
+            "bialetti-venus",
+            "alessi-9090"
+          ],
+          "insert_before_heading_id": "venus-inox",
+          "section_id": "deux-inox-a-comparer",
+          "section_title": "Deux inox à lire différemment",
+          "intro": "Venus privilégie la simplicité d’usage ; 9090 ajoute une conception mécanique et un positionnement premium."
+        },
+        "cafetiere-italienne-electrique": {
+          "layout": "recommendation_list",
+          "products": [
+            "ariete-1358a",
+            "ariete-1368",
+            "delonghi-alicia"
+          ],
+          "insert_before_heading_id": "ariete-1358",
+          "section_id": "modeles-electriques-a-regarder",
+          "section_title": "Les trois familles à regarder aujourd’hui",
+          "intro": "La disponibilité et le statut de la référence comptent ici autant que la capacité ou les fonctions électriques."
+        },
+        "cafetiere-italienne-design": {
+          "layout": "recommendation_list",
+          "products": [
+            "alessi-9090",
+            "alessi-pulcina",
+            "alessi-la-cupola"
+          ],
+          "insert_before_heading_id": "9090-design",
+          "section_id": "trois-langages-design",
+          "section_title": "Trois langages de design très différents",
+          "intro": "Fonctionnel, sculptural ou architectural : ces produits ne répondent pas au même type d’achat."
+        },
+        "petite-cafetiere-italienne": {
+          "layout": "recommendation_list",
+          "products": [
+            "bialetti-moka-express",
+            "bialetti-moka-induction",
+            "bialetti-mini-express"
+          ],
+          "insert_before_heading_id": "moka-express-petite",
+          "section_id": "petits-formats-a-regarder",
+          "section_title": "Trois petits formats à ne pas confondre",
+          "intro": "Le volume utile, la détection induction et le mode de service font davantage la différence que le nombre de « tasses » affiché."
+        }
+      }
+    },
+    "usages": {
+      "base_path": "usages",
+      "pages": {}
+    },
+    "guides": {
+      "base_path": "guides",
+      "pages": {}
+    }
   }
 }
