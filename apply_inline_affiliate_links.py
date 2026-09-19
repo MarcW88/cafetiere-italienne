@@ -30,7 +30,7 @@ ROW_RE = re.compile(r"<tr\b[^>]*>.*?</tr>", re.S | re.I)
 TD_RE = re.compile(r"<td\b[^>]*>(.*?)</td>", re.S | re.I)
 TAG_RE = re.compile(r"<[^>]+>", re.S)
 ARTICLE_ANSWER_RE = re.compile(
-    r'((?:<p\\b[^>]*class="[^"]*article-answer[^"]*"[^>]*>.*?</p>)|(?:<section\\b[^>]*class="[^"]*guide-answer[^"]*"[^>]*>.*?</section>))',
+    r'((?:<p\b[^>]*class="[^"]*article-answer[^"]*"[^>]*>.*?</p>)|(?:<section\b[^>]*class="[^"]*guide-answer[^"]*"[^>]*>.*?</section>))',
     re.S | re.I,
 )
 
