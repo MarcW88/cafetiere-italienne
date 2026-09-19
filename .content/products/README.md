@@ -15,13 +15,16 @@ This registry centralizes product presentation so a product is configured once a
    - `MANUFACTURER_AUTHORIZED`: a manufacturer image whose reuse rights were checked (`rights_checked: true`);
    - `AMAZON_CREATORS_API`: reserved for the future API integration. The image stays remote and must not be downloaded into the repo.
 8. Do not scrape Amazon product pages or copy Amazon-hosted images into the repository.
-9. Run `python apply_product_cards.py all`, then `python validate_product_cards.py all`.
+9. For model subject pages, run `python apply_inline_affiliate_links.py modeles`, then `python validate_inline_affiliate_links.py`.
+10. For future multi-product decision modules, keep using `python apply_product_cards.py all` and `python validate_product_cards.py all`.
 
 ## Placement scope
 
-The approved scope is defined in `placements.json` and is guarded by `validate_product_cards.py`. Product modules currently appear only on selected decision-support pages across comparisons, usages and two decision-oriented guides. Brands, deals, hubs and informational guides remain excluded from automatic product-module insertion.
+The multi-product module scope is defined in `placements.json` and guarded by `validate_product_cards.py`. On this site it remains empty until a comparison/guide placement is explicitly approved.
 
-Changing that scope is an explicit editorial decision: the validator fails if cards appear outside the approved routes.
+Single-product model pages use the existing inline-affiliate pass instead. Their approved subject paths live in `inline-affiliate.json`. A model only receives an Amazon CTA when its exact Amazon.fr ASIN has been verified in `registry.json`; otherwise the editorial page remains unchanged.
+
+Changing either scope is an explicit editorial decision and must remain validator-controlled.
 
 ## Commerce rules
 
