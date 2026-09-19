@@ -1,5 +1,6 @@
 /* Site adapter: keep the imported product workflow on the existing editorial tokens. */
-html.model-page {
+html.model-page,
+html.comparison-page {
   --color-primary: var(--moka);
   --color-white: var(--paper);
   --color-text-muted: var(--muted);
@@ -8,6 +9,38 @@ html.model-page {
   --radius-sm: 6px;
   --radius-md: 6px;
   --shadow-xs: none;
+}
+
+html.comparison-page .product-card-section{
+  margin:44px 0 52px;
+  padding:18px 0 0;
+  border-top:2px solid var(--moka);
+}
+html.comparison-page .product-card-section>h2{
+  margin-top:0;
+}
+html.comparison-page .product-recommendation-list{
+  background:transparent;
+  border:0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  border-radius:0;
+  box-shadow:none;
+}
+html.comparison-page .product-recommendation-row{
+  padding:20px 0;
+}
+html.comparison-page .product-card{
+  background:transparent;
+  border-radius:0;
+  box-shadow:none;
+}
+html.comparison-page .product-card__body{
+  padding:22px 20px;
+}
+html.comparison-page .product-card__cta{
+  border-radius:4px;
+  background:var(--moka);
 }
 
 /* Phase-1 editorial product modules. Decision aid first, commerce second. */
