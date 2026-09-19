@@ -19,6 +19,7 @@ const isGuide=currentPath==='/guides'||currentPath.startsWith('/guides/');
 const isCapacity=currentPath==='/capacites'||currentPath.startsWith('/capacites/');
 const isAccessory=currentPath==='/accessoires'||currentPath.startsWith('/accessoires/');
 const isCafeMoka=currentPath==='/cafe-moka'||currentPath.startsWith('/cafe-moka/');
+const isShop=currentPath==='/boutique'||currentPath.startsWith('/boutique/');
 
 if(isComparison){
   document.documentElement.classList.add('comparison-page');
@@ -167,7 +168,8 @@ function createNavigationMarkup(){
       <a href="/accessoires/pieces-detachees-bialetti/">Pièces détachées Bialetti</a>`
   });
 
-  return comparisons+brands+capacities+guides+care;
+  const shop=`<a class="nav-link nav-link--shop" href="/boutique/"${isShop?' aria-current="page"':''}>Boutique</a>`;
+  return comparisons+brands+capacities+guides+care+shop;
 }
 
 function setupNavigation(){
@@ -245,6 +247,19 @@ function setupNavigation(){
 }
 
 setupNavigation();
+
+function setupShopNavigation(){
+  document.documentElement.classList.toggle('shop-page',isShop);
+  document.querySelectorAll('.site-footer .footer-grid>div').forEach(column=>{
+    const title=column.querySelector('h4')?.textContent.trim();
+    if(title!=='Choisir'||column.querySelector('a[href="/boutique/"]'))return;
+    const link=document.createElement('a');
+    link.href='/boutique/';
+    link.textContent='Boutique';
+    column.append(link);
+  });
+}
+setupShopNavigation();
 
 function slugifyHeading(value){
   return value.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');

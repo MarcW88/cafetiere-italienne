@@ -35,6 +35,7 @@ PUBLIC_ROOTS = (
     "notre-methode",
     "affiliation",
     "contact",
+    "boutique",
 )
 
 CORE_INDEXABLE_ROUTES = {
@@ -43,6 +44,7 @@ CORE_INDEXABLE_ROUTES = {
     "/notre-methode/",
     "/affiliation/",
     "/contact/",
+    "/boutique/",
 }
 
 INDEXABLE_SITE_ROUTES = set().union(
