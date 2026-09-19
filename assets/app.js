@@ -30,6 +30,9 @@ if(isComparison){
 if(isBrand){
   document.documentElement.classList.add('brand-page');
   if(currentPath==='/marques')document.documentElement.classList.add('brand-hub-page');
+  else if(currentPath==='/marques/bialetti')document.documentElement.classList.add('brand-bialetti-page');
+  else if(currentPath==='/marques/alessi')document.documentElement.classList.add('brand-alessi-page');
+  else if(currentPath==='/marques/giannini')document.documentElement.classList.add('brand-giannini-page');
 }
 if(isModel){
   document.documentElement.classList.add('model-page');
@@ -105,6 +108,7 @@ function createNavigationMarkup(){
     content:`<span class="nav-dropdown-label">Marques</span>
       <a href="/marques/bialetti/">Bialetti</a>
       <a href="/marques/alessi/">Alessi</a>
+      <a href="/marques/giannini/">Giannini</a>
       <div class="nav-dropdown-separator"></div>
       <span class="nav-dropdown-label">Modèles</span>
       <a href="/modeles/">Tous les modèles</a>
@@ -417,6 +421,77 @@ function setupComparisonTools(){
 }
 
 setupComparisonTools();
+
+const brandIdentity={
+  '/marques/bialetti':{
+    eyebrow:'Lire la gamme',
+    items:[['Moka classique','Moka Express / Exclusive'],['Induction','Venus / Moka Induction'],['Préparation spécifique','Brikka'],['Service direct','Mini Express']]
+  },
+  '/marques/alessi':{
+    eyebrow:'Quel univers Alessi ?',
+    items:[['Fonctionnel','9090'],['Contemporain','Vite'],['Sculptural','Pulcina'],['Architectural','La Cupola'],['Réinterprétation','Moka']]
+  },
+  '/marques/giannini':{
+    eyebrow:'Lire la mécanique',
+    items:[['Fermeture','Giannina'],['Taille adaptable','Filtre réducteur'],['Induction','Vérifier la taille exacte'],['Alternative classique','Tua']]
+  }
+};
+
+function setupBrandTools(){
+  if(!isBrand||currentPath==='/marques')return;
+  const layout=document.querySelector('.brand-layout');
+  const article=layout?.querySelector('.content-main');
+  const aside=layout?.querySelector('aside');
+  if(!layout||!article)return;
+
+  const headings=[...article.querySelectorAll(':scope > section > h2')];
+  const used=new Set();
+  headings.forEach((heading,index)=>{
+    if(!heading.id){
+      let base=slugifyHeading(heading.textContent)||`section-${index+1}`;
+      let id=base;
+      let suffix=2;
+      while(used.has(id)||document.getElementById(id))id=`${base}-${suffix++}`;
+      heading.id=id;
+    }
+    used.add(heading.id);
+  });
+
+  if(aside&&headings.length>=5){
+    aside.classList.add('brand-sidebar');
+    const toc=document.createElement('nav');
+    toc.className='brand-toc';
+    toc.setAttribute('aria-label','Dans ce dossier');
+    toc.innerHTML=`<span class="eyebrow">Dans ce dossier</span><ol>${headings.map((h,i)=>`<li><a href="#${h.id}"><span>${String(i+1).padStart(2,'0')}</span>${h.textContent}</a></li>`).join('')}</ol>`;
+    aside.prepend(toc);
+  }
+
+  const identity=brandIdentity[currentPath];
+  const answer=article.querySelector('.guide-answer');
+  if(identity&&answer){
+    const map=document.createElement('section');
+    map.className='brand-identity-map';
+    map.innerHTML=`<span class="eyebrow">${identity.eyebrow}</span><div>${identity.items.map(([label,value])=>`<p><strong>${label}</strong><span>${value}</span></p>`).join('')}</div>`;
+    answer.insertAdjacentElement('afterend',map);
+  }
+
+  article.querySelectorAll('.comparison-picks').forEach((group,index)=>{
+    const section=group.closest('section');
+    const title=section?.querySelector('h2')?.textContent||'';
+    group.classList.add(/quelle page|ensuite|après/i.test(title)?'brand-picks--next':'brand-picks--models');
+  });
+
+  article.querySelectorAll('.guide-table').forEach(table=>{
+    const headers=[...table.querySelectorAll('thead th')].map(th=>th.textContent.trim());
+    if(headers.length<2||headers.length>3)return;
+    table.classList.add('brand-table--stackable');
+    table.querySelectorAll('tbody tr').forEach(row=>{
+      [...row.children].forEach((cell,index)=>{if(headers[index])cell.dataset.label=headers[index]});
+    });
+  });
+}
+
+setupBrandTools();
 
 const answers={};let step=0;const steps=[...document.querySelectorAll('.finder-step')];const bars=[...document.querySelectorAll('.finder-progress i')];
 function render(){steps.forEach((el,i)=>el.classList.toggle('active',i===step));bars.forEach((el,i)=>el.classList.toggle('on',i<=step))}
