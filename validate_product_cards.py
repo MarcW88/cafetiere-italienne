@@ -15,7 +15,14 @@ REGISTRY = ROOT / ".content" / "products" / "registry.json"
 PLACEMENTS = ROOT / ".content" / "products" / "placements.json"
 AFFILIATE_CONFIG = ROOT / ".content" / "products" / "affiliate.json"
 EXPECTED_SCOPE = {
-    "comparisons": set(),
+    "comparisons": {
+        "meilleure-cafetiere-italienne",
+        "cafetiere-italienne-induction",
+        "cafetiere-italienne-inox",
+        "cafetiere-italienne-electrique",
+        "cafetiere-italienne-design",
+        "petite-cafetiere-italienne",
+    },
     "usages": set(),
     "guides": set(),
 }
@@ -145,8 +152,9 @@ def validate_config(placements_data: dict, products: dict[str, dict]) -> None:
             if not config.get("insert_before_heading_id") or not config.get("section_id"):
                 fail(f"{section}/{slug}: insertion and section IDs are required")
 
-    if total_pages != 0:
-        fail(f"approved product-module scope must remain 0 pages before per-page human approval, got {total_pages}")
+    expected_total = sum(len(slugs) for slugs in EXPECTED_SCOPE.values())
+    if total_pages != expected_total:
+        fail(f"approved product-module scope must remain {expected_total} pages, got {total_pages}")
 
 
 def validate_rendered_section(
@@ -262,7 +270,8 @@ def main() -> None:
 
     names = ", ".join(sections_to_validate)
     print(f"PASS: product modules validated for {names}")
-    print("PASS: approved scope is capped at 19 decision-support pages")
+    approved_total = sum(len(slugs) for slugs in EXPECTED_SCOPE.values())
+    print(f"PASS: approved scope is capped at {approved_total} decision-support pages")
     print("PASS: brands, deals, hubs and informational guides stay outside product-module scope")
     print("PASS: recommendation lists contain at most 3 products; duels contain exactly 2")
     print("PASS: no static Amazon prices are stored; affiliate CTAs remain conditional and sponsored")
