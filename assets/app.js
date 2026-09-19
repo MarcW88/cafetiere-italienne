@@ -37,6 +37,25 @@ if(isGuide){
   document.documentElement.classList.add('guide-page');
   if(currentPath==='/guides')document.documentElement.classList.add('guide-hub-page');
 }
+
+const guideTypeByPath={
+  '/guides/comment-choisir-cafetiere-italienne':'decision',
+  '/guides/cafetiere-italienne-aluminium-ou-inox':'decision',
+  '/guides/cafetiere-italienne-induction-compatibilite':'decision',
+  '/guides/cafetiere-italienne-vs-espresso':'decision',
+  '/guides/comment-utiliser-cafetiere-italienne':'procedure',
+  '/guides/premiere-utilisation-cafetiere-italienne':'procedure',
+  '/guides/nettoyer-cafetiere-italienne':'procedure',
+  '/guides/detartrer-cafetiere-italienne':'procedure',
+  '/guides/changer-joint-cafetiere-italienne':'procedure',
+  '/guides/dosage-cafe-cafetiere-italienne':'tuning',
+  '/guides/mouture-cafetiere-italienne':'tuning',
+  '/guides/quel-cafe-pour-cafetiere-italienne':'tuning',
+  '/guides/cafetiere-italienne-cafe-amer-brule':'diagnostic',
+  '/guides/cafetiere-italienne-fuite-vapeur':'diagnostic',
+};
+const guideType=guideTypeByPath[currentPath];
+if(guideType)document.documentElement.classList.add(`guide-type-${guideType}`);
 if(isCapacity){
   document.documentElement.classList.add('capacity-page');
   if(currentPath==='/capacites')document.documentElement.classList.add('capacity-hub-page');
@@ -219,6 +238,55 @@ function setupNavigation(){
 }
 
 setupNavigation();
+
+function slugifyHeading(value){
+  return value.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+}
+
+function setupGuideReadingTools(){
+  if(!guideType)return;
+  const layout=document.querySelector('.guide-layout');
+  const article=layout?.querySelector('.guide-article');
+  if(!layout||!article)return;
+
+  const headings=[...article.querySelectorAll(':scope > section:not(.guide-answer):not(.guide-sources) > h2')];
+  const used=new Set();
+  headings.forEach((heading,index)=>{
+    if(heading.id){used.add(heading.id);return;}
+    let base=slugifyHeading(heading.textContent)||`section-${index+1}`;
+    let id=base;
+    let suffix=2;
+    while(used.has(id)||document.getElementById(id))id=`${base}-${suffix++}`;
+    heading.id=id;
+    used.add(id);
+  });
+
+  if(headings.length>=4){
+    const makeToc=className=>{
+      const nav=document.createElement('nav');
+      nav.className=className;
+      nav.setAttribute('aria-label','Dans ce guide');
+      nav.innerHTML=`<span class="eyebrow">Dans ce guide</span><ol>${headings.map((heading,index)=>`<li><a href="#${heading.id}"><span>${String(index+1).padStart(2,'0')}</span>${heading.textContent}</a></li>`).join('')}</ol>`;
+      return nav;
+    };
+    const aside=layout.querySelector('aside');
+    if(aside)aside.prepend(makeToc('sidebar-toc'));
+    layout.insertBefore(makeToc('guide-mobile-toc'),article);
+  }
+
+  article.querySelectorAll('.guide-table').forEach(table=>{
+    const headers=[...table.querySelectorAll('thead th')].map(th=>th.textContent.trim());
+    if(headers.length<2||headers.length>3)return;
+    table.classList.add('guide-table--stackable');
+    table.querySelectorAll('tbody tr').forEach(row=>{
+      [...row.children].forEach((cell,index)=>{
+        if(headers[index])cell.dataset.label=headers[index];
+      });
+    });
+  });
+}
+
+setupGuideReadingTools();
 
 const answers={};let step=0;const steps=[...document.querySelectorAll('.finder-step')];const bars=[...document.querySelectorAll('.finder-progress i')];
 function render(){steps.forEach((el,i)=>el.classList.toggle('active',i===step));bars.forEach((el,i)=>el.classList.toggle('on',i<=step))}
