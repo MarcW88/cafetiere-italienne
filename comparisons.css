@@ -280,11 +280,9 @@ html.comparison-page .comparison-reconsidered__heading{
 }
 html.comparison-page .comparison-reconsidered__item{
   position:relative;
-  display:grid;
-  grid-template-columns:34px minmax(0,1fr);
-  column-gap:12px;
+  display:block;
   margin:0!important;
-  padding:14px 0 14px;
+  padding:14px 0 14px 46px;
   border-top:1px solid var(--color-border);
   max-width:72ch;
 }
@@ -292,7 +290,9 @@ html.comparison-page .comparison-reconsidered__item:last-of-type{
   border-bottom:1px solid var(--color-border);
 }
 html.comparison-page .comparison-reconsidered__index{
-  grid-row:1/span 2;
+  position:absolute;
+  left:0;
+  top:14px;
   font-family:var(--font-serif);
   color:var(--color-accent);
   font-size:.95rem;
@@ -346,6 +346,7 @@ html.comparison-page .comparison-design-map__grid span{
   html.comparison-page .comparison-design-map__grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   html.comparison-page .comparison-design-map__grid>div:nth-child(4){border-left:0}
   html.comparison-page .comparison-design-map__grid>div:nth-child(n+4){border-top:1px solid var(--color-border)}
+  html.comparison-page .content-sidebar>.sidebar-card{display:none}
 
   html.comparison-page .comparison-layout{grid-template-columns:minmax(0,1fr);gap:24px}
   html.comparison-page .content-sidebar{position:static;order:-1}
@@ -412,6 +413,6 @@ html.comparison-page .comparison-design-map__grid span{
     border-top:1px solid var(--color-border);
   }
   html.comparison-page .comparison-design-map__grid>div:first-child{border-top:0}
-  html.comparison-page .comparison-reconsidered__item{grid-template-columns:28px minmax(0,1fr);column-gap:8px}
+  html.comparison-page .comparison-reconsidered__item{padding-left:36px}
   html.comparison-page .comparison-buyer-cue{margin-top:18px}
 }
