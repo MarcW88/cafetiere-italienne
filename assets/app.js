@@ -23,6 +23,8 @@ const isCafeMoka=currentPath==='/cafe-moka'||currentPath.startsWith('/cafe-moka/
 if(isComparison){
   document.documentElement.classList.add('comparison-page');
   if(currentPath==='/comparatifs')document.documentElement.classList.add('comparison-hub-page');
+  else if(currentPath==='/comparatifs/meilleure-cafetiere-italienne')document.documentElement.classList.add('comparison-general-page');
+  else document.documentElement.classList.add('comparison-specialized-page');
   loadStylesheet('comparisons.css','comparisons');
 }
 if(isBrand){
@@ -287,6 +289,54 @@ function setupGuideReadingTools(){
 }
 
 setupGuideReadingTools();
+
+function setupComparisonTools(){
+  if(!isComparison||currentPath==='/comparatifs')return;
+  const layout=document.querySelector('.comparison-layout');
+  const article=layout?.querySelector('.content-main');
+  const aside=layout?.querySelector('aside');
+  if(!layout||!article)return;
+
+  if(aside)aside.classList.add('content-sidebar');
+
+  const headings=[...article.querySelectorAll('h2')].filter(heading=>heading.id);
+  if(headings.length>=5&&aside){
+    const toc=document.createElement('nav');
+    toc.className='sidebar-toc';
+    toc.setAttribute('aria-label','Dans ce comparatif');
+    toc.innerHTML=`<h4>Dans ce comparatif</h4>${headings.map((heading,index)=>`<a href="#${heading.id}"><span>${String(index+1).padStart(2,'0')}</span>${heading.textContent}</a>`).join('')}`;
+    aside.prepend(toc);
+
+    const observer=new IntersectionObserver(entries=>{
+      const visible=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top)[0];
+      if(!visible)return;
+      toc.querySelectorAll('a').forEach(link=>link.classList.toggle('is-active',link.getAttribute('href')===`#${visible.target.id}`));
+    },{rootMargin:'-18% 0px -68% 0px',threshold:0});
+    headings.forEach(heading=>observer.observe(heading));
+  }
+
+  const firstTable=article.querySelector('.table-wrapper .comp-table');
+  const firstHeading=firstTable?.closest('.table-wrapper')?.previousElementSibling;
+  if(firstTable&&firstHeading?.tagName==='H2'){
+    const rows=[...firstTable.querySelectorAll('tbody tr')].slice(0,4);
+    if(rows.length>=2){
+      const shortlist=document.createElement('section');
+      shortlist.className='comparison-shortlist';
+      shortlist.setAttribute('aria-label','Choix à retenir');
+      shortlist.innerHTML=`<span class="eyebrow">À retenir</span><div class="comparison-shortlist__rows">${rows.map((row,index)=>{
+        const cells=[...row.children];
+        const context=cells[0]?.textContent.trim()||'';
+        const choice=cells[1]?.textContent.trim()||context;
+        const detail=(cells[2]?.textContent.trim()||'').replace(/\s+/g,' ');
+        return `<div class="comparison-shortlist__row"><span class="comparison-shortlist__index">${String(index+1).padStart(2,'0')}</span><div><strong>${choice}</strong><span>${context}</span>${detail?`<small>${detail}</small>`:''}</div></div>`;
+      }).join('')}</div>`;
+      const verdict=article.querySelector('.article-answer');
+      verdict?.insertAdjacentElement('afterend',shortlist);
+    }
+  }
+}
+
+setupComparisonTools();
 
 const answers={};let step=0;const steps=[...document.querySelectorAll('.finder-step')];const bars=[...document.querySelectorAll('.finder-progress i')];
 function render(){steps.forEach((el,i)=>el.classList.toggle('active',i===step));bars.forEach((el,i)=>el.classList.toggle('on',i<=step))}
