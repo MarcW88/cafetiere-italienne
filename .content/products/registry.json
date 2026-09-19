@@ -2,30 +2,66 @@
   "schema_version": 2,
   "products": {
     "bialetti-venus": {
-      "name": "Bialetti Venus",
+      "name": "Bialetti Venus 6 tasses",
       "brand": "Bialetti",
       "page_type": "PRODUCT",
       "internal_url": "/modeles/bialetti-venus/",
-      "image": {"url": "", "source_type": "UNSET", "rights_checked": false, "source_page": ""},
-      "amazon": {"asin": "", "affiliate_url": "", "marketplace": "amazon.fr"},
+      "image": {
+        "url": "",
+        "source_type": "UNSET",
+        "rights_checked": false,
+        "source_page": ""
+      },
+      "amazon": {
+        "asin": "B07ZKZXM4B",
+        "affiliate_url": "",
+        "marketplace": "amazon.fr"
+      },
       "specs": [
-        {"label": "Construction", "value": "Inox 18/10"},
-        {"label": "Tailles documentées", "value": "2, 4, 6 tasses ; 10 tasses selon marché"},
-        {"label": "Induction", "value": "Selon taille et détection de la plaque"}
+        {
+          "label": "Construction",
+          "value": "Inox 18/10"
+        },
+        {
+          "label": "Tailles documentées",
+          "value": "2, 4, 6 tasses ; 10 tasses selon marché"
+        },
+        {
+          "label": "Induction",
+          "value": "Selon taille et détection de la plaque"
+        }
       ],
       "best_for": "Cas d’usage éditorial : choisir une moka inox avec taille et compatibilité induction vérifiées"
     },
     "bialetti-moka-express": {
-      "name": "Bialetti Moka Express",
+      "name": "Bialetti Moka Express 6 tasses",
       "brand": "Bialetti",
       "page_type": "PRODUCT",
       "internal_url": "/modeles/bialetti-moka-express/",
-      "image": {"url": "", "source_type": "UNSET", "rights_checked": false, "source_page": ""},
-      "amazon": {"asin": "", "affiliate_url": "", "marketplace": "amazon.fr"},
+      "image": {
+        "url": "",
+        "source_type": "UNSET",
+        "rights_checked": false,
+        "source_page": ""
+      },
+      "amazon": {
+        "asin": "B00004RFRU",
+        "affiliate_url": "",
+        "marketplace": "amazon.fr"
+      },
       "specs": [
-        {"label": "Construction", "value": "Aluminium"},
-        {"label": "Tailles documentées", "value": "1, 2, 3, 4, 6, 9, 12, 18 tasses"},
-        {"label": "Induction directe", "value": "Non"}
+        {
+          "label": "Construction",
+          "value": "Aluminium"
+        },
+        {
+          "label": "Tailles documentées",
+          "value": "1, 2, 3, 4, 6, 9, 12, 18 tasses"
+        },
+        {
+          "label": "Induction directe",
+          "value": "Non"
+        }
       ],
       "best_for": "Cas d’usage éditorial : choisir la moka classique selon le volume habituel sur une plaque compatible"
     },
@@ -34,12 +70,30 @@
       "brand": "Bialetti",
       "page_type": "PRODUCT",
       "internal_url": "/modeles/bialetti-moka-induction/",
-      "image": {"url": "", "source_type": "UNSET", "rights_checked": false, "source_page": ""},
-      "amazon": {"asin": "", "affiliate_url": "", "marketplace": "amazon.fr"},
+      "image": {
+        "url": "",
+        "source_type": "UNSET",
+        "rights_checked": false,
+        "source_page": ""
+      },
+      "amazon": {
+        "asin": "",
+        "affiliate_url": "",
+        "marketplace": "amazon.fr"
+      },
       "specs": [
-        {"label": "Construction", "value": "Base bi-layer acier/aluminium, partie supérieure aluminium"},
-        {"label": "Tailles actuelles documentées", "value": "2, 4, 6 tasses"},
-        {"label": "Point de vigilance", "value": "Variante, diamètre de détection et génération des pièces"}
+        {
+          "label": "Construction",
+          "value": "Base bi-layer acier/aluminium, partie supérieure aluminium"
+        },
+        {
+          "label": "Tailles actuelles documentées",
+          "value": "2, 4, 6 tasses"
+        },
+        {
+          "label": "Point de vigilance",
+          "value": "Variante, diamètre de détection et génération des pièces"
+        }
       ],
       "best_for": "Cas d’usage éditorial : passer à l’induction tout en restant proche de l’architecture Moka Express"
     },
@@ -48,12 +102,30 @@
       "brand": "Bialetti",
       "page_type": "PRODUCT",
       "internal_url": "/modeles/bialetti-brikka/",
-      "image": {"url": "", "source_type": "UNSET", "rights_checked": false, "source_page": ""},
-      "amazon": {"asin": "", "affiliate_url": "", "marketplace": "amazon.fr"},
+      "image": {
+        "url": "",
+        "source_type": "UNSET",
+        "rights_checked": false,
+        "source_page": ""
+      },
+      "amazon": {
+        "asin": "",
+        "affiliate_url": "",
+        "marketplace": "amazon.fr"
+      },
       "specs": [
-        {"label": "Classique", "value": "2 et 4 tasses, aluminium, hors induction directe"},
-        {"label": "Induction vérifiée", "value": "4 tasses, base bi-layer"},
-        {"label": "Point de vigilance", "value": "Quantité d’eau mesurée et génération des pièces"}
+        {
+          "label": "Classique",
+          "value": "2 et 4 tasses, aluminium, hors induction directe"
+        },
+        {
+          "label": "Induction vérifiée",
+          "value": "4 tasses, base bi-layer"
+        },
+        {
+          "label": "Point de vigilance",
+          "value": "Quantité d’eau mesurée et génération des pièces"
+        }
       ],
       "best_for": "Cas d’usage éditorial : choisir une Brikka pour sa valve et son café plus concentré en acceptant un protocole plus spécifique"
     },
@@ -62,12 +134,30 @@
       "brand": "Bialetti",
       "page_type": "PRODUCT",
       "internal_url": "/modeles/bialetti-mini-express/",
-      "image": {"url": "", "source_type": "UNSET", "rights_checked": false, "source_page": ""},
-      "amazon": {"asin": "", "affiliate_url": "", "marketplace": "amazon.fr"},
+      "image": {
+        "url": "",
+        "source_type": "UNSET",
+        "rights_checked": false,
+        "source_page": ""
+      },
+      "amazon": {
+        "asin": "",
+        "affiliate_url": "",
+        "marketplace": "amazon.fr"
+      },
       "specs": [
-        {"label": "Format vérifié", "value": "2 tasses, ≈90 ml total"},
-        {"label": "Classique", "value": "Aluminium, hors induction directe"},
-        {"label": "Induction vérifiée", "value": "Base bi-layer inox/aluminium"}
+        {
+          "label": "Format vérifié",
+          "value": "2 tasses, ≈90 ml total"
+        },
+        {
+          "label": "Classique",
+          "value": "Aluminium, hors induction directe"
+        },
+        {
+          "label": "Induction vérifiée",
+          "value": "Base bi-layer inox/aluminium"
+        }
       ],
       "best_for": "Cas d’usage éditorial : servir directement deux petits cafés moka dans deux tasses"
     },
@@ -76,12 +166,30 @@
       "brand": "Alessi",
       "page_type": "PRODUCT",
       "internal_url": "/modeles/alessi-9090/",
-      "image": {"url": "", "source_type": "UNSET", "rights_checked": false, "source_page": ""},
-      "amazon": {"asin": "", "affiliate_url": "", "marketplace": "amazon.fr"},
+      "image": {
+        "url": "",
+        "source_type": "UNSET",
+        "rights_checked": false,
+        "source_page": ""
+      },
+      "amazon": {
+        "asin": "",
+        "affiliate_url": "",
+        "marketplace": "amazon.fr"
+      },
       "specs": [
-        {"label": "Construction", "value": "Inox 18/10"},
-        {"label": "Tailles documentées", "value": "1, 3, 6, 10 tasses"},
-        {"label": "Particularité", "value": "Fermeture à levier et fond magnétique"}
+        {
+          "label": "Construction",
+          "value": "Inox 18/10"
+        },
+        {
+          "label": "Tailles documentées",
+          "value": "1, 3, 6, 10 tasses"
+        },
+        {
+          "label": "Particularité",
+          "value": "Fermeture à levier et fond magnétique"
+        }
       ],
       "best_for": "Cas d’usage éditorial : évaluer si une conception premium et mécanique à levier justifie le choix"
     }
