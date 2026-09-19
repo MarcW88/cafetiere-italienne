@@ -74,9 +74,9 @@ export function renderShopContent(root){
   return `<section class="shop-hero">
     <div class="container shop-hero__inner">
       <div>
-        <p class="shop-eyebrow">Boutique d’affiliation</p>
-        <h1>Les cafetières italiennes déjà analysées sur le site</h1>
-        <p class="lead">Retrouvez les modèles cités dans nos fiches et comparatifs. Filtrez-les selon votre plaque et votre besoin, consultez notre analyse, puis vérifiez le prix quand un lien marchand a été vérifié.</p>
+        <p class="shop-eyebrow">La boutique</p>
+        <h1>Nos cafetières italiennes recommandées</h1>
+        <p class="lead">Retrouvez les modèles présentés dans nos comparatifs et fiches détaillées. Filtrez-les selon votre plaque, votre usage et vos préférences pour identifier les modèles les plus adaptés.</p>
       </div>
       <aside class="shop-hero__notice" aria-label="Fonctionnement de la boutique">
         <strong>La sélection reste éditoriale</strong>
