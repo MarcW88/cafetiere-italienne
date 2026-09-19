@@ -511,6 +511,93 @@ html.guide-hub-page .directory a::before{
 }
 html.guide-hub-page .directory a span{color:var(--terra)}
 
+/* Guide hub: compact learning paths make the three editorial intents scannable. */
+.guide-hub-group+.guide-hub-group{border-top:1px solid color-mix(in srgb,var(--line) 72%,transparent)}
+.guide-path{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  width:max-content;
+  max-width:100%;
+  margin:-4px 0 28px;
+  padding:10px 0;
+  border-top:2px solid var(--moka);
+  border-bottom:1px solid var(--line);
+  color:var(--moka);
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.guide-path i{color:var(--terra);font-style:normal;font-weight:400}
+.guide-hub-group--prepare .guide-path{border-top-color:var(--olive)}
+.guide-hub-group--care .guide-path{border-top-color:var(--terra)}
+
+/* Guide reading tools: a real table of contents on long-form pages. */
+.guide-layout>aside{min-width:0}
+.sidebar-toc{
+  position:sticky;
+  top:112px;
+  margin-bottom:30px;
+  padding:18px 0 16px;
+  border-top:2px solid var(--terra);
+  border-bottom:1px solid var(--line);
+  background:var(--cream);
+}
+.sidebar-toc+ .sidebar-card.guide-sidebar{position:static}
+.sidebar-toc ol{list-style:none;margin:12px 0 0;padding:0}
+.sidebar-toc li+li{border-top:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+.sidebar-toc a{
+  display:grid;
+  grid-template-columns:28px minmax(0,1fr);
+  gap:8px;
+  padding:8px 0;
+  color:var(--muted);
+  font-size:.76rem;
+  line-height:1.35;
+}
+.sidebar-toc a:hover{color:var(--moka)}
+.sidebar-toc a span{font-family:"DM Serif Display",serif;color:var(--terra);font-size:.9rem}
+.guide-mobile-toc{display:none}
+
+/* The same editorial system, but a different visual grammar for each guide intent. */
+html.guide-type-decision .guide-layout .guide-answer{border-top-color:var(--terra)!important}
+html.guide-type-procedure .guide-layout .guide-answer{border-top-color:var(--olive)!important}
+html.guide-type-tuning .guide-layout .guide-answer{border-top-color:var(--moka)!important}
+html.guide-type-diagnostic .guide-layout .guide-answer{border-top-color:var(--terra)!important}
+
+html.guide-type-procedure .guide-layout .decision-list li{
+  padding-left:48px;
+  border-bottom:0;
+  position:relative;
+}
+html.guide-type-procedure .guide-layout .decision-list li:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  left:12px;
+  top:36px;
+  bottom:-4px;
+  width:1px;
+  background:var(--line);
+}
+html.guide-type-procedure .guide-layout .decision-list li::before{
+  width:25px;
+  height:25px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--olive);
+  color:var(--olive);
+  font-family:"DM Sans",sans-serif;
+  font-size:.72rem;
+  font-weight:700;
+}
+html.guide-type-diagnostic .guide-layout .guide-callout{
+  border-left-color:var(--terra);
+}
+html.guide-type-diagnostic .guide-layout .decision-list li::before{color:var(--moka)}
+html.guide-type-tuning .guide-layout .guide-split{border-top:2px solid var(--moka)}
+html.guide-type-tuning .guide-layout .guide-callout{border-left-color:var(--terra)}
+
 .site-footer{margin-top:30px}
 
 @media(max-width:900px){
@@ -578,7 +665,29 @@ html.guide-hub-page .directory a span{color:var(--terra)}
   .guide-article{font-size:1rem}
   .guide-article>section{padding:34px 0}
   .guide-layout .guide-answer{padding:20px 0 25px!important}
+  html.guide-page .page-hero h1{font-size:clamp(2.35rem,11vw,2.65rem);line-height:1.02}
   html.guide-hub-page .directory a{grid-template-columns:30px minmax(0,1fr) auto;gap:10px}
+  .guide-path{gap:7px;margin-top:0;font-size:.68rem;letter-spacing:.02em;white-space:nowrap;overflow-x:auto}
+  .sidebar-toc{display:none}
+  .guide-mobile-toc{
+    display:block;
+    grid-column:1/-1;
+    margin:0 0 4px;
+    padding:16px 0 18px;
+    border-top:2px solid var(--terra);
+    border-bottom:1px solid var(--line);
+  }
+  .guide-mobile-toc ol{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;list-style:none;margin:10px 0 0;padding:0}
+  .guide-mobile-toc li{border-top:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+  .guide-mobile-toc a{display:grid;grid-template-columns:26px minmax(0,1fr);gap:6px;padding:8px 0;color:var(--muted);font-size:.74rem;line-height:1.3}
+  .guide-mobile-toc a span{font-family:"DM Serif Display",serif;color:var(--terra)}
+  .guide-table--stackable{min-width:0}
+  .guide-table--stackable thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .guide-table--stackable,.guide-table--stackable tbody,.guide-table--stackable tr,.guide-table--stackable td{display:block;width:100%}
+  .guide-table--stackable tr{padding:12px 0;border-bottom:1px solid var(--line)}
+  .guide-table--stackable tr:last-child{border-bottom:0}
+  .guide-table--stackable td{display:grid;grid-template-columns:minmax(92px,.38fr) minmax(0,1fr);gap:12px;padding:6px 14px;border:0}
+  .guide-table--stackable td::before{content:attr(data-label);color:var(--muted);font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
 }
 
 @media(prefers-reduced-motion:reduce){
