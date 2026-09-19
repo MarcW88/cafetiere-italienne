@@ -1,1 +1,64 @@
-{"schema_version": 1, "pages": {}}
+{
+  "schema_version": 1,
+  "roots": [
+    "modeles"
+  ],
+  "products": {
+    "bialetti-moka-express": {
+      "row_aliases": [
+        "Bialetti Moka Express",
+        "Moka Express",
+        "Bialetti Moka Express 6 tasses"
+      ],
+      "subject_paths": [
+        "modeles/bialetti-moka-express/index.html"
+      ]
+    },
+    "bialetti-venus": {
+      "row_aliases": [
+        "Bialetti Venus",
+        "Venus",
+        "Bialetti Venus 6 tasses"
+      ],
+      "subject_paths": [
+        "modeles/bialetti-venus/index.html"
+      ]
+    },
+    "bialetti-moka-induction": {
+      "row_aliases": [
+        "Bialetti Moka Induction",
+        "Moka Induction"
+      ],
+      "subject_paths": [
+        "modeles/bialetti-moka-induction/index.html"
+      ]
+    },
+    "bialetti-brikka": {
+      "row_aliases": [
+        "Bialetti Brikka",
+        "Brikka"
+      ],
+      "subject_paths": [
+        "modeles/bialetti-brikka/index.html"
+      ]
+    },
+    "bialetti-mini-express": {
+      "row_aliases": [
+        "Bialetti Mini Express",
+        "Mini Express"
+      ],
+      "subject_paths": [
+        "modeles/bialetti-mini-express/index.html"
+      ]
+    },
+    "alessi-9090": {
+      "row_aliases": [
+        "Alessi 9090",
+        "9090"
+      ],
+      "subject_paths": [
+        "modeles/alessi-9090/index.html"
+      ]
+    }
+  }
+}
