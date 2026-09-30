@@ -166,3 +166,7 @@ Pour toute création ou réécriture de `/methode-de-test/`, `/comment-nous-comp
 7. `/mentions-legales/` reste `LEGAL_PENDING` tant que les informations de l’éditeur, de l’hébergeur, des traitements de données et autres données légales n’ont pas été confirmées.
 8. Exécuter `fact-check`, `affiliate-value` lorsque pertinent, `natural-writing`, `humanizer`, `general-writing`, `anti-ai-slop`, `internal-linking-audit`, `editorial-qa`, puis `validate_trust_workflow.py`.
 9. Conserver `noindex,follow` jusqu’à validation humaine explicite ; une validation éditoriale n’entraîne jamais automatiquement l’indexation.
+
+## Maintenance éditoriale planifiée
+
+Suivre docs/content-maintenance.md et maintenance.config.json. Préparer jusqu’à 10 pages avec scripts/maintenance_orchestrator.py prepare. La préparation n’est pas un audit. Réutiliser les workflows existants : guide, comparison, brand, model (PAGE_AUDIT), et capacity-decision-workflow pour /capacites/. Lire les skills et leurs phases avant exécution. AUDIT avant correction, KEEP sans changement, content-workflow seulement si nécessaire et PUBLISH_REVIEW après QA. Les capacités réutilisent leur orchestrateur existant, pas un nouveau comparatif produit. Persister les vrais rapports et artefacts, respecter la fraîcheur Git des reviews modèles et les sources npm de génération. Conserver URLs/canonical/robots ; PR à valider, aucun merge automatique.

@@ -1,0 +1,54 @@
+{
+  "max_pages": 10,
+  "routes": {
+    "guides": {
+      "workflow": "guide",
+      "cadence_days": 90,
+      "validator": "validate_guide_quality.py",
+      "audit_mode": "AUDIT"
+    },
+    "comparatifs": {
+      "workflow": "comparison",
+      "cadence_days": 30,
+      "validator": "validate_comparisons.py",
+      "audit_mode": "AUDIT"
+    },
+    "marques": {
+      "workflow": "brand",
+      "cadence_days": 45,
+      "validator": "validate_brands.py",
+      "audit_mode": "AUDIT"
+    },
+    "modeles": {
+      "workflow": "model",
+      "cadence_days": 45,
+      "validator": "validate_model_workflow.py",
+      "audit_mode": "PAGE_AUDIT"
+    },
+    "capacites": {
+      "workflow": "capacity",
+      "cadence_days": 90,
+      "validator": "validate_capacities.py",
+      "audit_mode": "diagnostic",
+      "analysis_workflow": ".agents/skills/capacity-decision-workflow/SKILL.md",
+      "content_workflow": ".agents/skills/capacity-decision-workflow/SKILL.md"
+    }
+  },
+  "overrides": {
+    "/guides/": {
+      "enabled": false
+    },
+    "/comparatifs/": {
+      "enabled": false
+    },
+    "/marques/": {
+      "enabled": false
+    },
+    "/modeles/": {
+      "enabled": false
+    },
+    "/capacites/": {
+      "enabled": false
+    }
+  }
+}
