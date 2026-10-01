@@ -82,3 +82,7 @@ Title/H1/canonical/robots, external sources, internal links and rendered output 
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
 Freshness gate: review refreshed after the PRODUCT registry and MODEL source-of-truth added Bialetti Mini Express. Brikka-specific evidence, decisions, page and prior coverage remain unchanged; Mini Express is a distinct service-format sibling.
+
+## PUBLISH_REVIEW refresh — 2026-10-01
+
+`PASS — READY_FOR_HUMAN_VALIDATION`. PAGE_AUDIT and the full v2 artifact chain were checked against the current registry and rendered page. Classic Brikka and Brikka Induction remain separated, capacities and compatibilities stay attached to exact references, and no physical test, availability or fixed-price claim is asserted. Canonical, `noindex,follow`, URL and assets remain unchanged. No decision-relevant `MISSING` item was found.

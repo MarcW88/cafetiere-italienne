@@ -44,3 +44,7 @@ No decision-relevant coverage blocker remains.
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
 Freshness note: review refreshed after the PRODUCT registry and MODEL source-of-truth added Bialetti Mini Express. Moka Express evidence and decisions remain unchanged; Mini Express is a sibling focused on direct dual-cup service and does not create a missing Moka Express requirement.
+
+## PUBLISH_REVIEW refresh — 2026-10-01
+
+`PASS — READY_FOR_HUMAN_VALIDATION`. PAGE_AUDIT, registry identity and the v2 evidence/decision/brief chain were rechecked after aligning the structured record to the canonical registry name `Bialetti Moka Express 6 tasses`. The official induction-plate limitation remains qualified and no unsupported conversion, test or compatibility inference was added. Canonical, `noindex,follow`, URL and assets remain unchanged. No decision-relevant `MISSING` item was found.

@@ -46,3 +46,7 @@ No decision-relevant coverage blocker remains.
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
 Freshness note: review refreshed after the PRODUCT registry and MODEL source-of-truth added Bialetti Mini Express. Moka Induction-specific evidence and decisions remain unchanged; Mini Express Induction is a sibling with a direct-to-cups JTBD and does not invalidate this page.
+
+## PUBLISH_REVIEW refresh — 2026-10-01
+
+`PASS — READY_FOR_HUMAN_VALIDATION`. PAGE_AUDIT and all current v2 inputs were rechecked. The 2-cup 90–100 ml variation remains explicitly reference/market-qualified, pre-2020 and current parts stay separated, and induction detection is not guaranteed beyond the sourced constraints. Canonical, `noindex,follow`, URL and assets remain unchanged. No decision-relevant `MISSING` item was found.

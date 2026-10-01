@@ -44,3 +44,7 @@ No decision-relevant coverage blocker remains.
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
 Freshness note: review refreshed after the PRODUCT registry and MODEL source-of-truth added Bialetti Mini Express. No Venus-specific source, claim or decision changed; Mini Express is a sibling with a different direct-service JTBD.
+
+## PUBLISH_REVIEW refresh — 2026-10-01
+
+`PASS — READY_FOR_HUMAN_VALIDATION`. PAGE_AUDIT, registry identity and the full v2 chain were rechecked after aligning the structured record to the canonical registry name `Bialetti Venus 6 tasses`. Size-specific induction compatibility remains qualified, nominal volumes are not converted into servings, and anecdotal hob detection is not promoted to an official claim. Canonical, `noindex,follow`, URL and assets remain unchanged. No decision-relevant `MISSING` item was found.
