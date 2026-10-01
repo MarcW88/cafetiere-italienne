@@ -1,0 +1,64 @@
+{
+  "pages": [
+    {
+      "url": "/capacites/cafetiere-italienne-10-tasses/",
+      "reviewed_at": "2026-10-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-capacity-10-tasses-2026-10-01.md"
+    },
+    {
+      "url": "/comparatifs/cafetiere-italienne-design/",
+      "reviewed_at": "2026-10-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-comparison-design-2026-10-01.md"
+    },
+    {
+      "url": "/guides/cafetiere-italienne-aluminium-ou-inox/",
+      "reviewed_at": "2026-10-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-guide-aluminium-inox-2026-10-01.md"
+    },
+    {
+      "url": "/marques/alessi/",
+      "reviewed_at": "2026-10-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-brand-alessi-2026-10-01.md"
+    },
+    {
+      "url": "/modeles/alessi-9090/",
+      "reviewed_at": "2026-10-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-model-alessi-9090-2026-10-01.md"
+    },
+    {
+      "url": "/capacites/cafetiere-italienne-12-tasses/",
+      "reviewed_at": "2026-10-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-capacity-12-tasses-2026-10-01.md"
+    },
+    {
+      "url": "/comparatifs/cafetiere-italienne-electrique/",
+      "reviewed_at": "2026-10-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-comparison-electrique-2026-10-01.md"
+    },
+    {
+      "url": "/guides/cafetiere-italienne-cafe-amer-brule/",
+      "reviewed_at": "2026-10-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-guide-cafe-amer-brule-2026-10-01.md"
+    },
+    {
+      "url": "/marques/bialetti/",
+      "reviewed_at": "2026-10-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-brand-bialetti-2026-10-01.md"
+    },
+    {
+      "url": "/modeles/bialetti-brikka/",
+      "reviewed_at": "2026-10-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-model-bialetti-brikka-2026-10-01.md"
+    }
+  ]
+}

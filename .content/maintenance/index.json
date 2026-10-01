@@ -1,1 +1,95 @@
-{"schema_version": 1, "pages": {}}
+{
+  "schema_version": 1,
+  "pages": {
+    "/capacites/cafetiere-italienne-10-tasses/": {
+      "last_reviewed": "2026-10-01",
+      "next_review": "2026-12-30",
+      "fingerprint": "f6bdc8170d556a157260bcefb27aded758126a2331ac9a91dd2202efe640c23d",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-capacity-10-tasses-2026-10-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/capacity-decision-workflow/SKILL.md"
+    },
+    "/comparatifs/cafetiere-italienne-design/": {
+      "last_reviewed": "2026-10-01",
+      "next_review": "2026-10-31",
+      "fingerprint": "4128d8f304f06b3b04f016af31190bdf5b9ea5eec28264320eb2303de4190f20",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-comparison-design-2026-10-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/comparison-content-workflow/SKILL.md"
+    },
+    "/guides/cafetiere-italienne-aluminium-ou-inox/": {
+      "last_reviewed": "2026-10-01",
+      "next_review": "2026-12-30",
+      "fingerprint": "2f6849b35ab722d75d6453f9df9af272173086f5325763618a2812344b0ea9cc",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-guide-aluminium-inox-2026-10-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/guide-content-workflow/SKILL.md"
+    },
+    "/marques/alessi/": {
+      "last_reviewed": "2026-10-01",
+      "next_review": "2026-11-15",
+      "fingerprint": "dcb04313804ac646fb4ad1bcc4cd7239989d422884b515286ab38e9a98ebf0a8",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-brand-alessi-2026-10-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/brand-content-workflow/SKILL.md"
+    },
+    "/modeles/alessi-9090/": {
+      "last_reviewed": "2026-10-01",
+      "next_review": "2026-11-15",
+      "fingerprint": "4969afe361a3be02d47a670c3df070f44d77aa9a6796cd7622b85e8be4ef441a",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-model-alessi-9090-2026-10-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/model-content-workflow/SKILL.md"
+    },
+    "/capacites/cafetiere-italienne-12-tasses/": {
+      "last_reviewed": "2026-10-01",
+      "next_review": "2026-12-30",
+      "fingerprint": "f74450ce6de8ad8bcdaed132f68f940d49f84fbed122150fe49d7ac705e4781e",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-capacity-12-tasses-2026-10-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/capacity-decision-workflow/SKILL.md"
+    },
+    "/comparatifs/cafetiere-italienne-electrique/": {
+      "last_reviewed": "2026-10-01",
+      "next_review": "2026-10-31",
+      "fingerprint": "a05cb72c37835b518495f2940b2aca51ff5360f37332bd509829389ff1120077",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-comparison-electrique-2026-10-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/comparison-content-workflow/SKILL.md"
+    },
+    "/guides/cafetiere-italienne-cafe-amer-brule/": {
+      "last_reviewed": "2026-10-01",
+      "next_review": "2026-12-30",
+      "fingerprint": "834c1db37e6a22a862118199f141e6899725775c9860276ce12163303b93dd7d",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-guide-cafe-amer-brule-2026-10-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/guide-content-workflow/SKILL.md"
+    },
+    "/marques/bialetti/": {
+      "last_reviewed": "2026-10-01",
+      "next_review": "2026-11-15",
+      "fingerprint": "f15167b96c6b6d7f9c910793fcb9db4f23bdf23258bdaed99f64bb93482ae73e",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-brand-bialetti-2026-10-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/brand-content-workflow/SKILL.md"
+    },
+    "/modeles/bialetti-brikka/": {
+      "last_reviewed": "2026-10-01",
+      "next_review": "2026-11-15",
+      "fingerprint": "3b2a41796936683417c6e10d5f5425966592cd620ace7bf00f01aff9ba422a55",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/maintenance-model-bialetti-brikka-2026-10-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/model-content-workflow/SKILL.md"
+    }
+  }
+}
