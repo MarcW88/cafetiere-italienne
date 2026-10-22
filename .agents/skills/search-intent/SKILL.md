@@ -1,10 +1,10 @@
 ---
 name: search-intent
-description: Bewaak zoekintentie, paginafunctie en on-page SEO bij herstel van Nederlandse content op cafetiere-italienne.be.
+description: Bewaak zoekintentie, paginafunctie en on-page SEO bij herstel van Nederlandse content op italiaanse-percolator.nl.
 license: MIT
 ---
 
-# Search intent — cafetiere-italienne.be
+# Search intent — italiaanse-percolator.nl
 
 ## Doel
 

@@ -1,10 +1,10 @@
 ---
 name: content-refresh
-description: Bepaal hoe een geselecteerde UPDATE-pagina van cafetiere-italienne.be inhoudelijk moet worden hersteld zonder onnodige volledige rewrite.
+description: Bepaal hoe een geselecteerde UPDATE-pagina van italiaanse-percolator.nl inhoudelijk moet worden hersteld zonder onnodige volledige rewrite.
 license: MIT
 ---
 
-# Content refresh — cafetiere-italienne.be
+# Content refresh — italiaanse-percolator.nl
 
 Gebruik alleen nadat `content-audit` de beslissing UPDATE heeft gegeven.
 

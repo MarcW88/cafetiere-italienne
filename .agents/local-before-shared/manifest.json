@@ -1,0 +1,98 @@
+{
+  "repository": "cafetiere-italienne",
+  "base_commit": "1f811bc83fd34d48230f5cb670f599707fbe4276",
+  "files": {
+    ".agents/skills/affiliate-value/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/affiliate-value/SKILL.md",
+      "sha256": "1194ec3d5cb33b6c3931fa7cb2dffd63d79c3e892f212044d5b60a70293bff28"
+    },
+    ".agents/skills/brand-analysis-workflow/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/brand-analysis-workflow/SKILL.md",
+      "sha256": "b51d474ea50a28d7bac55b8e0ae7cb9fcc938b4d2312768bd3cbd1e2ed4de90e"
+    },
+    ".agents/skills/brand-content-workflow/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/brand-content-workflow/SKILL.md",
+      "sha256": "50fd73ffd4a8b8754ae4dec695fb816a9eccecb081fad00befc46ccfdea45b44"
+    },
+    ".agents/skills/content-audit/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/content-audit/SKILL.md",
+      "sha256": "22367c7a89d15cc591490ba1c0b7bf4ea2857874b959c97e7d61dbe93b2d3db8"
+    },
+    ".agents/skills/content-refresh/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/content-refresh/SKILL.md",
+      "sha256": "e8d71993f86969d9ea667d51222f7bc78daef638bc891cd6617fa2fbfbf4ff1a"
+    },
+    ".agents/skills/deal-analysis-workflow/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/deal-analysis-workflow/SKILL.md",
+      "sha256": "23b536737df77970199d467b3d7ccc3d11329e9f5e06651552eddd236397e094"
+    },
+    ".agents/skills/deal-content-workflow/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/deal-content-workflow/SKILL.md",
+      "sha256": "b8c9b3562537a381219a583ce1777ffd9ab22d140bca3e21beeb32c939cd1666"
+    },
+    ".agents/skills/deal-content-workflow/THIRD_PARTY_NOTICES.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/deal-content-workflow/THIRD_PARTY_NOTICES.md",
+      "sha256": "272c31dd86a8e1589ac1a8886f78a8b1f5916bd57e2826b913f8a3924bc175d6"
+    },
+    ".agents/skills/deal-content-workflow/references/promo-evidence.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/deal-content-workflow/references/promo-evidence.md",
+      "sha256": "d1e6cfa24cc7efbc81b3b7d9f1ae700bfac876bb05928296bc74df9f24319e5e"
+    },
+    ".agents/skills/editorial-image-planner/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/editorial-image-planner/SKILL.md",
+      "sha256": "250abb451367c2342341b55a5155a2425bbfe3c4812b16925c34f6ca555eb7ea"
+    },
+    ".agents/skills/editorial-qa/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/editorial-qa/SKILL.md",
+      "sha256": "5caf3e9ccdfee850ba478d0f65101e45caaf17ba89852c8b3b336cfc9a2a3220"
+    },
+    ".agents/skills/fact-check/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/fact-check/SKILL.md",
+      "sha256": "1fd7769845749eb01123e98d93e4181cc472f8394db5728bdcba850022896457"
+    },
+    ".agents/skills/guide-analysis-workflow/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/guide-analysis-workflow/SKILL.md",
+      "sha256": "8574bca98a4451c22817bb454d07908feed23c3d53620271d16d1ea7f8cd9973"
+    },
+    ".agents/skills/guide-content-workflow/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/guide-content-workflow/SKILL.md",
+      "sha256": "7fef95a8fc281f6bbe90686972066a1e6d0d4cbd7755de091e3c0fa499c31258"
+    },
+    ".agents/skills/natural-writing/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/natural-writing/SKILL.md",
+      "sha256": "e7e306728b03d07e139262de7fbf0b823d352f46d04a079bae65b3017db50cbc"
+    },
+    ".agents/skills/search-intent/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/search-intent/SKILL.md",
+      "sha256": "9b3aa995f8a5cbad5f54af2d59e46aedd7c9179a3250003034d9c9f4db6373b7"
+    },
+    ".agents/skills/site-design-review/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/site-design-review/SKILL.md",
+      "sha256": "5763b3600a824f6659ff1e8d98d1442d0aa60524e7b706d9083a5af439df5982"
+    },
+    ".agents/skills/site-design-review/references/playwright-visual-check.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/site-design-review/references/playwright-visual-check.md",
+      "sha256": "0b115e8239cc90ac913c9ccdd9b78d3156738f6004c64612364262e1b21870bd"
+    },
+    ".agents/skills/site-design-review/scripts/run-visual-review.mjs": {
+      "backup": ".agents/local-before-shared/.agents/skills/site-design-review/scripts/run-visual-review.mjs",
+      "sha256": "241f201320c77161681845dff56ba64433c64fb5a0e0a9342416ea1aea46cc02"
+    },
+    ".agents/skills/usage-analysis-workflow/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/usage-analysis-workflow/SKILL.md",
+      "sha256": "ecf374d824813d7501e295afe551d24be914b300fa853a071a8f9515f45899c9"
+    },
+    ".agents/skills/usage-content-workflow/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/usage-content-workflow/SKILL.md",
+      "sha256": "9250edf756f7bc0be47c6f3ffa68f59efd0facb905830060ddf35ab4d1cd0da3"
+    },
+    ".agents/skills/model-analysis-workflow/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/model-analysis-workflow/SKILL.md",
+      "sha256": "3827a17fbf48aef85d1e217b2fc114010a24e7c85e6e6e103a0a2f2d20110b0d"
+    },
+    ".agents/skills/model-content-workflow/SKILL.md": {
+      "backup": ".agents/local-before-shared/.agents/skills/model-content-workflow/SKILL.md",
+      "sha256": "0cfa8a15100b5afe70f396833dc35493f8dd047e102ed510b5666e41003a1d37"
+    }
+  }
+}

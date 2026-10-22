@@ -7,98 +7,103 @@ import path from 'node:path';
 
 const BRAND_ROUTES = [
   '/marques/',
-  '/marques/bialetti/',
-  '/marques/alessi/',
-  '/marques/giannini/',
+  '/marques/remarkable/',
+  '/marques/remarkable/remarkable-paper-pro/',
+  '/marques/remarkable/remarkable-paper-pro-avis/',
+  '/marques/remarkable/remarkable-2/',
+  '/marques/remarkable/remarkable-2-avis/',
+  '/marques/remarkable/abonnement-connect/',
+  '/marques/remarkable/accessoires/',
+  '/marques/remarkable/alternatives/',
+  '/marques/boox/',
+  '/marques/boox/boox-note-air/',
+  '/marques/boox/boox-tab-ultra/',
+  '/marques/boox/avis/',
+  '/marques/boox/accessoires/',
+  '/marques/boox/alternatives/',
+  '/marques/kindle-scribe/',
+  '/marques/kobo-elipsa/',
+  '/marques/supernote/'
 ];
 
 const COMPARISON_ROUTES = [
   '/comparatifs/',
-  '/comparatifs/meilleure-cafetiere-italienne/',
-  '/comparatifs/cafetiere-italienne-induction/',
-  '/comparatifs/cafetiere-italienne-inox/',
-  '/comparatifs/cafetiere-italienne-electrique/',
-  '/comparatifs/cafetiere-italienne-design/',
-  '/comparatifs/petite-cafetiere-italienne/',
+  '/comparatifs/meilleur-bloc-notes-numerique/',
+  '/comparatifs/tablette-e-ink/',
+  '/comparatifs/bloc-notes-numerique-professionnel/',
+  '/comparatifs/bloc-notes-numerique-etudiant/',
+  '/comparatifs/bloc-notes-numerique-couleur/',
+  '/comparatifs/bloc-notes-numerique-a4/',
+  '/comparatifs/bloc-notes-numerique-sans-abonnement/',
+  '/comparatifs/bloc-notes-numerique-pas-cher/',
+  '/comparatifs/kindle-scribe-vs-remarkable/',
+  '/comparatifs/kindle-scribe-vs-kobo-elipsa/',
+  '/comparatifs/remarkable-vs-boox/',
+  '/comparatifs/remarkable-vs-supernote/',
+  '/comparatifs/boox-vs-supernote/',
+  '/comparatifs/kobo-elipsa-vs-remarkable/'
 ];
 
-const MODEL_ROUTES = [
-  '/modeles/',
-  '/modeles/bialetti-moka-express/',
-  '/modeles/bialetti-venus/',
-  '/modeles/bialetti-moka-induction/',
-  '/modeles/bialetti-brikka/',
-  '/modeles/bialetti-mini-express/',
-  '/modeles/alessi-9090/',
-];
-
-const CAPACITY_ROUTES = [
-  '/capacites/',
-  '/capacites/cafetiere-italienne-2-tasses/',
-  '/capacites/cafetiere-italienne-4-tasses/',
-  '/capacites/cafetiere-italienne-6-tasses/',
-  '/capacites/cafetiere-italienne-10-tasses/',
-  '/capacites/cafetiere-italienne-12-tasses/',
+const USAGE_ROUTES = [
+  '/usages/',
+  '/usages/prise-de-notes-professionnelle/',
+  '/usages/prise-de-notes-etudiant/',
+  '/usages/prise-de-notes-reunion/',
+  '/usages/lecture-et-prise-de-notes/',
+  '/usages/dessin/',
+  '/usages/remplacer-cahiers-papier/'
 ];
 
 const GUIDE_ROUTES = [
   '/guides/',
-  '/guides/comment-choisir-cafetiere-italienne/',
-  '/guides/comment-utiliser-cafetiere-italienne/',
-  '/guides/premiere-utilisation-cafetiere-italienne/',
-  '/guides/dosage-cafe-cafetiere-italienne/',
-  '/guides/mouture-cafetiere-italienne/',
-  '/guides/quel-cafe-pour-cafetiere-italienne/',
-  '/guides/cafetiere-italienne-aluminium-ou-inox/',
-  '/guides/cafetiere-italienne-induction-compatibilite/',
-  '/guides/nettoyer-cafetiere-italienne/',
-  '/guides/detartrer-cafetiere-italienne/',
-  '/guides/cafetiere-italienne-cafe-amer-brule/',
-  '/guides/cafetiere-italienne-fuite-vapeur/',
-  '/guides/changer-joint-cafetiere-italienne/',
-  '/guides/cafetiere-italienne-vs-espresso/',
+  '/guides/choisir-bloc-notes-numerique/',
+  '/guides/liseuse-ou-bloc-notes-numerique/',
+  '/guides/tablette-classique-ou-tablette-e-ink/',
+  '/guides/taille-ecran-bloc-notes-numerique/',
+  '/guides/bloc-notes-numerique-couleur-ou-noir-et-blanc/',
+  '/guides/bloc-notes-numerique-avec-ou-sans-abonnement/',
+  '/guides/prix-bloc-notes-numerique/',
+  '/guides/tablette-e-ink/',
+  '/guides/encre-electronique-fonctionnement/',
+  '/guides/latence-ecriture/',
+  '/guides/ocr-manuscrit/',
+  '/guides/autonomie-tablette-e-ink/',
+  '/guides/formats-fichiers-compatibles/',
+  '/guides/exporter-notes/',
+  '/guides/synchroniser-notes-cloud/',
+  '/guides/bloc-notes-numerique-google-drive/',
+  '/guides/bloc-notes-numerique-onedrive/',
+  '/guides/bloc-notes-numerique-dropbox/',
+  '/guides/ecosysteme-ouvert-ou-ferme/',
+  '/guides/annoter-pdf-tablette-e-ink/',
+  '/guides/convertir-notes-manuscrites-en-texte/',
+  '/guides/organiser-notes-numeriques/',
+  '/guides/transfert-notes-vers-ordinateur/',
+  '/guides/imprimer-notes-numeriques/'
 ];
 
-const ACCESSORY_ROUTES = [
-  '/accessoires/',
-  '/accessoires/adaptateur-induction-cafetiere-italienne/',
-  '/accessoires/joint-cafetiere-italienne/',
-  '/accessoires/filtre-cafetiere-italienne/',
-  '/accessoires/pieces-detachees-bialetti/',
+const DEAL_ROUTES = [
+  '/bons-plans/',
+  '/bons-plans/bloc-notes-numerique/',
+  '/bons-plans/remarkable/',
+  '/bons-plans/kindle-scribe/',
+  '/bons-plans/kobo-elipsa/',
+  '/bons-plans/boox/',
+  '/bons-plans/bloc-notes-numerique-occasion/',
+  '/bons-plans/black-friday/'
 ];
-
-const CAFE_MOKA_ROUTES = [
-  '/cafe-moka/',
-  '/cafe-moka/quest-ce-que-le-cafe-moka/',
-  '/cafe-moka/comment-preparer-un-cafe-moka/',
-];
-
-const TRUST_ROUTES = [
-  '/a-propos/',
-  '/notre-methode/',
-  '/affiliation/',
-  '/contact/',
-];
-
-const BASE_SCOPES = {
-  brands: BRAND_ROUTES,
-  comparisons: COMPARISON_ROUTES,
-  models: MODEL_ROUTES,
-  capacities: CAPACITY_ROUTES,
-  guides: GUIDE_ROUTES,
-  accessories: ACCESSORY_ROUTES,
-  'cafe-moka': CAFE_MOKA_ROUTES,
-  trust: TRUST_ROUTES,
-};
 
 const SCOPES = {
-  ...BASE_SCOPES,
-  all: [...new Set(Object.values(BASE_SCOPES).flat())],
+  brands: BRAND_ROUTES,
+  comparisons: COMPARISON_ROUTES,
+  usages: USAGE_ROUTES,
+  guides: GUIDE_ROUTES,
+  deals: DEAL_ROUTES
 };
 
 const VIEWPORTS = [
   { name: 'desktop', width: 1440, height: 1000 },
-  { name: 'mobile', width: 390, height: 844 },
+  { name: 'mobile', width: 390, height: 844 }
 ];
 
 function parseArgs(argv) {
@@ -107,7 +112,7 @@ function parseArgs(argv) {
     output: '.artifacts/design-review',
     port: 4173,
     routes: [],
-    scope: '',
+    scope: ''
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -126,7 +131,7 @@ function parseArgs(argv) {
     throw new Error(`Scope inconnu : ${options.scope}. Scopes disponibles : ${Object.keys(SCOPES).join(', ')}`);
   }
   if (!options.routes.length && options.scope) options.routes = SCOPES[options.scope];
-  if (!options.routes.length) options.routes = ['/'];
+  if (!options.routes.length) options.routes = ['/marques/'];
   return options;
 }
 
@@ -145,48 +150,9 @@ async function waitForServer(url) {
   throw new Error(`Le serveur local ne répond pas : ${url}`);
 }
 
-async function prepareFullPageCapture(page, viewportHeight) {
-  await page.evaluate(async viewportHeightValue => {
-    const sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
-    const step = Math.max(320, Math.round(viewportHeightValue * 0.72));
-    const pageHeight = Math.max(
-      document.body?.scrollHeight || 0,
-      document.documentElement?.scrollHeight || 0,
-    );
-
-    for (let position = 0; position < pageHeight; position += step) {
-      window.scrollTo(0, position);
-      await sleep(25);
-    }
-    window.scrollTo(0, pageHeight);
-    await sleep(80);
-
-    const images = [...document.images];
-    await Promise.all(images.map(async image => {
-      if (!image.complete) {
-        await Promise.race([
-          new Promise(resolve => {
-            image.addEventListener('load', resolve, { once: true });
-            image.addEventListener('error', resolve, { once: true });
-          }),
-          sleep(1500),
-        ]);
-      }
-      if (typeof image.decode === 'function') {
-        try {
-          await image.decode();
-        } catch {}
-      }
-    }));
-
-    window.scrollTo(0, 0);
-    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-  }, viewportHeight);
-}
-
 const options = parseArgs(process.argv.slice(2));
 if (options.help) {
-  console.log(`Usage: run-visual-review.mjs [--scope ${Object.keys(SCOPES).join('|')}] [--route /chemin/] [--base-url URL] [--output dossier] [--port 4173]`);
+  console.log('Usage: run-visual-review.mjs [--scope brands|comparisons|usages|guides|deals] [--route /chemin/] [--base-url URL] [--output dossier] [--port 4173]');
   process.exit(0);
 }
 
@@ -199,7 +165,7 @@ let baseUrl = options.baseUrl.replace(/\/$/, '');
 if (!baseUrl) {
   baseUrl = `http://127.0.0.1:${options.port}`;
   server = spawn('python3', ['-m', 'http.server', String(options.port), '--bind', '127.0.0.1', '--directory', '.'], {
-    stdio: ['ignore', 'pipe', 'pipe'],
+    stdio: ['ignore', 'pipe', 'pipe']
   });
   await waitForServer(`${baseUrl}/`);
 }
@@ -210,8 +176,7 @@ const report = {
   scope: options.scope || null,
   routes: options.routes,
   viewports: VIEWPORTS,
-  pages: [],
-  technicalFailures: [],
+  pages: []
 };
 
 let browser;
@@ -221,7 +186,7 @@ try {
   for (const viewport of VIEWPORTS) {
     const context = await browser.newContext({
       viewport: { width: viewport.width, height: viewport.height },
-      reducedMotion: 'reduce',
+      reducedMotion: 'reduce'
     });
 
     for (const route of options.routes) {
@@ -235,79 +200,46 @@ try {
 
       const response = await page.goto(`${baseUrl}${route}`, { waitUntil: 'networkidle' });
       await page.evaluate(() => document.fonts?.ready);
-      await prepareFullPageCapture(page, viewport.height);
 
       const measurements = await page.evaluate(() => {
-        const main = document.querySelector('.content-main, .guide-article, article, main');
-        const sidebar = document.querySelector('.content-sidebar, .guide-sidebar, aside');
-        const headings = [...document.querySelectorAll('main h1, main h2, main h3')];
+        const sidebar = document.querySelector('.content-sidebar');
+        const headings = [...document.querySelectorAll('.content-main h2, .content-main h3')];
         const toc = document.querySelector('.sidebar-toc');
         const tocLinks = [...document.querySelectorAll('.sidebar-toc a')];
         const fixedHeader = document.querySelector('.site-header');
-        const tables = [...document.querySelectorAll('main table')];
-        const articleAnswer = document.querySelector('.article-answer, .guide-answer');
-        const firstEditorialLink = main?.querySelector('a:not(.btn):not(.product-card__cta)') || null;
-        const buttonsMissingAccessibleName = [...document.querySelectorAll('button')]
-          .filter(button => {
-            const text = button.textContent?.trim();
-            const ariaLabel = button.getAttribute('aria-label')?.trim();
-            const labelledBy = button.getAttribute('aria-labelledby')?.trim();
-            const title = button.getAttribute('title')?.trim();
-            return !text && !ariaLabel && !labelledBy && !title;
-          })
-          .map(button => button.className || button.outerHTML.slice(0, 120));
-        const imagesMissingAlt = [...document.querySelectorAll('img:not([alt])')]
-          .map(img => img.getAttribute('src'));
-        const tablesWithoutResponsiveWrapper = tables
-          .filter(table => !table.closest('.table-wrapper, .table-wrap'))
-          .map(table => table.className || '(table sans classe)');
-        const generatedImages = [...document.querySelectorAll('[data-generated-image] img')]
-          .map(image => ({
-            id: image.closest('[data-generated-image]')?.getAttribute('data-generated-image') || null,
-            src: image.getAttribute('src'),
-            complete: image.complete,
-            naturalWidth: image.naturalWidth,
-            naturalHeight: image.naturalHeight,
-          }));
-
+        const tables = [...document.querySelectorAll('.table-wrapper')];
+        const articleAnswer = document.querySelector('.article-answer');
+        const firstEditorialLink = document.querySelector('.content-main a:not(.btn)');
         return {
           title: document.title,
           statusReady: document.readyState,
           horizontalOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
           scrollWidth: document.documentElement.scrollWidth,
           clientWidth: document.documentElement.clientWidth,
-          h1Count: document.querySelectorAll('main h1').length,
           headingCount: headings.length,
           tocLinkCount: tocLinks.length,
           tocParentClass: toc?.parentElement?.className || null,
-          missingHeadingIds: [...document.querySelectorAll('.content-main h2, .content-main h3')]
-            .filter(heading => !heading.id)
-            .map(heading => heading.textContent.trim()),
+          missingHeadingIds: headings.filter(heading => !heading.id).map(heading => heading.textContent.trim()),
           tableCount: tables.length,
-          tablesWithoutResponsiveWrapper,
+          rawTableCount: document.querySelectorAll('.content-main table:not(.comp-table)').length,
           overflowingTables: tables
-            .map(table => table.closest('.table-wrapper, .table-wrap') || table)
-            .filter(element => element.scrollWidth > element.clientWidth)
-            .map(element => ({ scrollWidth: element.scrollWidth, clientWidth: element.clientWidth })),
-          generatedImages,
+            .filter(wrapper => wrapper.scrollWidth > wrapper.clientWidth)
+            .map(wrapper => ({ scrollWidth: wrapper.scrollWidth, clientWidth: wrapper.clientWidth })),
           articleAnswer: articleAnswer ? {
             height: Math.round(articleAnswer.getBoundingClientRect().height),
             background: getComputedStyle(articleAnswer).backgroundColor,
-            borderLeftWidth: getComputedStyle(articleAnswer).borderLeftWidth,
+            borderLeftWidth: getComputedStyle(articleAnswer).borderLeftWidth
           } : null,
           firstEditorialLink: firstEditorialLink ? {
             color: getComputedStyle(firstEditorialLink).color,
-            decoration: getComputedStyle(firstEditorialLink).textDecorationLine,
+            decoration: getComputedStyle(firstEditorialLink).textDecorationLine
           } : null,
           sidebar: sidebar ? {
             height: Math.round(sidebar.getBoundingClientRect().height),
             top: Math.round(sidebar.getBoundingClientRect().top),
-            position: getComputedStyle(sidebar).position,
+            position: getComputedStyle(sidebar).position
           } : null,
-          headerHeight: fixedHeader ? Math.round(fixedHeader.getBoundingClientRect().height) : 0,
-          buttonsMissingAccessibleName,
-          imagesMissingAlt,
-          focusableCount: document.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])').length,
+          headerHeight: fixedHeader ? Math.round(fixedHeader.getBoundingClientRect().height) : 0
         };
       });
 
@@ -316,72 +248,27 @@ try {
       const screenshot = path.join(viewportFolder, `${slug(route)}.png`);
       await page.screenshot({ path: screenshot, fullPage: true, animations: 'disabled' });
 
-      await page.keyboard.press('Tab');
-      const focusCheck = await page.evaluate(() => {
-        const active = document.activeElement;
-        if (!active || active === document.body) return null;
-        const style = getComputedStyle(active);
-        return {
-          tag: active.tagName,
-          className: active.className || null,
-          text: active.textContent?.trim().slice(0, 80) || active.getAttribute('aria-label') || null,
-          outlineStyle: style.outlineStyle,
-          outlineWidth: style.outlineWidth,
-          boxShadow: style.boxShadow,
-        };
-      });
-
-      let mobileMenu = null;
       if (viewport.name === 'mobile' && route === options.routes[0]) {
-        const menuButton = page.locator('.menu-btn');
-        if (await menuButton.count() && await menuButton.isVisible()) {
-          const ariaExpandedBefore = await menuButton.getAttribute('aria-expanded');
-          await menuButton.click();
-          const nav = page.locator('.nav');
-          mobileMenu = {
-            ariaExpandedBefore,
-            ariaExpandedAfter: await menuButton.getAttribute('aria-expanded'),
-            navVisibleAfterClick: await nav.count() ? await nav.isVisible() : false,
-            navClassAfterClick: await nav.count() ? await nav.getAttribute('class') : null,
-          };
+        const burger = page.locator('.burger');
+        if (await burger.count()) {
+          await burger.click();
           await page.screenshot({
             path: path.join(viewportFolder, `${slug(route)}--menu-open.png`),
             fullPage: false,
-            animations: 'disabled',
+            animations: 'disabled'
           });
         }
       }
 
-      const httpStatus = response?.status() ?? null;
-      const pageReport = {
+      report.pages.push({
         route,
         viewport: viewport.name,
-        httpStatus,
+        httpStatus: response?.status() ?? null,
         screenshot: path.relative(process.cwd(), screenshot),
         consoleErrors,
         pageErrors,
-        focusCheck,
-        mobileMenu,
-        ...measurements,
-      };
-      report.pages.push(pageReport);
-
-      if (httpStatus !== null && httpStatus >= 400) {
-        report.technicalFailures.push(`${viewport.name} ${route}: HTTP ${httpStatus}`);
-      }
-      if (pageErrors.length) {
-        report.technicalFailures.push(`${viewport.name} ${route}: ${pageErrors.length} erreur(s) JavaScript de page`);
-      }
-      if (measurements.horizontalOverflow) {
-        report.technicalFailures.push(`${viewport.name} ${route}: débordement horizontal global (${measurements.scrollWidth}px > ${measurements.clientWidth}px)`);
-      }
-      const unloadedGeneratedImages = measurements.generatedImages.filter(image => !image.complete || image.naturalWidth === 0);
-      if (unloadedGeneratedImages.length) {
-        report.technicalFailures.push(
-          `${viewport.name} ${route}: ${unloadedGeneratedImages.length} image(s) éditoriale(s) générée(s) non décodée(s): ${unloadedGeneratedImages.map(image => image.id || image.src).join(', ')}`,
-        );
-      }
-
+        ...measurements
+      });
       await page.close();
     }
     await context.close();
@@ -394,9 +281,3 @@ try {
 await writeFile(path.join(outputRoot, 'report.json'), `${JSON.stringify(report, null, 2)}\n`);
 console.log(`Captures créées : ${report.pages.length}`);
 console.log(`Rapport : ${path.join(outputRoot, 'report.json')}`);
-
-if (report.technicalFailures.length) {
-  console.error('Échecs techniques détectés :');
-  for (const failure of report.technicalFailures) console.error(`- ${failure}`);
-  process.exitCode = 1;
-}

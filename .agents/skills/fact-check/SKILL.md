@@ -1,61 +1,71 @@
 ---
 name: fact-check
-description: Vérifier séparément les claims produit, matériau, capacité, compatibilité, préparation, entretien et sécurité sur cafetiere-italienne.be après recherche et après rédaction.
+description: Verifieer product- en koffieclaims op italiaanse-percolator.nl in een aparte pass na de inhoudelijke rewrite.
 license: MIT
 ---
 
-# Fact check — cafetiere-italienne.be
+# Fact check — italiaanse-percolator.nl
 
-Cette passe est distincte de la rédaction. Un claim n'est pas fiable parce qu'il paraît plausible.
+Deze pass staat los van schrijven. Een claim is niet betrouwbaar omdat hij plausibel klinkt.
 
-## Claims à contrôler en priorité
+## Claims die altijd gecontroleerd moeten worden
 
-- matériau, revêtement et construction ;
-- capacité réelle et désignation en « tasses » ;
-- induction et autres sources de chaleur ;
-- dimensions/diamètre lorsqu'ils conditionnent l'usage ;
-- lave-vaisselle et méthode d'entretien ;
-- soupape, joint, filtre et pièces compatibles ;
-- première utilisation, nettoyage et détartrage ;
-- instructions de chauffe et de remplissage ;
-- variantes d'un même modèle ;
-- historique ou promesse de marque ;
-- comparatifs comme « plus rapide », « plus durable », « meilleur » ;
-- prix/disponibilité lorsqu'ils sont présentés comme actuels.
+- materiaal (aluminium, RVS, coatings);
+- inhoud/capaciteit en cup-aanduidingen;
+- inductiecompatibiliteit;
+- vaatwasserbestendigheid;
+- warmtebronnen;
+- afmetingen en gewicht;
+- elektrische vermogens;
+- veiligheidsfuncties;
+- meegeleverde onderdelen;
+- modelvarianten;
+- garantie wanneer genoemd;
+- historische merkclaims;
+- vergelijkende claims zoals sneller, duurzamer, lichter of beter;
+- prijzen en beschikbaarheid wanneer als actueel gepresenteerd.
 
-## Hiérarchie des preuves
+## Bronnenhiërarchie
 
-1. fabricant et manuel officiel ;
-2. support/documentation/distributeur officiel ;
-3. source technique ou institutionnelle pertinente ;
-4. retailer fiable pour disponibilité/spec complémentaire ;
-5. plusieurs sources utilisateurs pour un pattern d'expérience, explicitement attribué.
+1. fabrikant / officiële handleiding;
+2. officiële distributeur;
+3. betrouwbare retailer voor actuele verkoopinformatie;
+4. onafhankelijke tests of vakbronnen;
+5. meerdere gebruikersbronnen voor ervaringspatronen.
 
-Ne pas utiliser une autre page affiliée comme preuve primaire si une source officielle existe.
+Gebruik geen andere affiliatepagina als primaire bron voor een productspecificatie als een officiële bron beschikbaar is.
 
-## Portée
+## Proces
 
-Toujours enregistrer la portée d'une preuve : modèle, taille, matériau, marché, version ou condition. Une consigne Moka Express n'est pas automatiquement une consigne universelle pour toutes les cafetières moka.
+1. Extraheer alle verifieerbare claims.
+2. Label: hard fact / soft fact / vergelijking / ervaring / mening.
+3. Zoek een externe bron voor elke belangrijke claim.
+4. Geef status:
+   - CONFIRMED
+   - PARTIAL
+   - UNVERIFIED
+   - CONTRADICTED
+   - OUTDATED
+5. Corrigeer alleen op basis van bewijs.
+6. Laat onzekerheid zichtbaar; vul gaten niet op met modelkennis.
 
-## Processus
+## Belangrijke grens
 
-1. Extraire les claims vérifiables.
-2. Labelliser : hard fact / instruction fabricant / comparaison / expérience / interprétation éditoriale.
-3. Associer une source et sa portée.
-4. Statut : `CONFIRMED`, `PARTIAL`, `UNVERIFIED`, `CONTRADICTED`, `OUTDATED`.
-5. Corriger uniquement à partir des preuves.
-6. Laisser visible l'incertitude ; ne pas combler avec la mémoire du modèle.
-7. Après humanizer/general-writing, repasser les phrases dont le sens factuel a pu changer.
+Gebruikerservaring mag niet transformeren in eigen ervaring.
 
-## Frontières
-
-- Une image BFL n'est jamais une preuve de produit, pièce ou compatibilité.
-- Ne jamais écrire « nous avons testé », « dans notre test », « nous avons constaté » sans données first-hand réellement fournies.
-- Une recommandation éditoriale doit être distinguée d'une instruction fabricant.
+"Gebruikers melden dat..." kan gerechtvaardigd zijn na voldoende brononderzoek.
+"Wij merkten dat..." is verboden zonder aantoonbare eigen test.
 
 ## Output
 
-| Claim | Type | Portée | Statut | Source | Action |
-|---|---|---|---|---|---|
+Maak een compact verificatielog:
 
-Terminer par : `Overall confidence`, `Corrections required`, `Unknowns`, `Claims to remove if unverifiable`.
+| Claim | Status | Source | Action |
+|---|---|---|---|
+
+Eindig met:
+- **Overall confidence**
+- **Corrections required**
+- **Claims to remove if unverifiable**
+
+Pas daarna mag `natural-writing` draaien.
