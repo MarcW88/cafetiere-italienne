@@ -45,3 +45,7 @@ No decision-relevant coverage blocker remains.
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
 Freshness note: review refreshed after the PRODUCT registry and MODEL source-of-truth added Bialetti Mini Express. No Alessi 9090-specific source, decision or rendered content changed.
+
+## PUBLISH_REVIEW refresh — 2026-10-01
+
+`PASS — READY_FOR_HUMAN_VALIDATION`. PAGE_AUDIT and rendered-page review were rerun against the current registry, structured record, authored source and v2 evidence chain. The current Alessi product page still supports the decision-critical construction, induction base, lever closure and 1/3/6/10-cup variant framing; no unsupported capacity conversion or physical-test claim was introduced. Canonical, `noindex,follow`, URL and assets remain unchanged. No decision-relevant `MISSING` item was found.

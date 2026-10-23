@@ -79,3 +79,7 @@ Title/H1/canonical/robots, external sources, internal links and rendered output 
 `PASS — READY_FOR_HUMAN_VALIDATION`
 
 Freshness gate: this review is committed after the Mini Express research, audit, evidence packet, ledger, decision artifact, content brief, source script, registry entry, structured record, post-draft check and updated MODEL source-of-truth configuration.
+
+## PUBLISH_REVIEW refresh — 2026-10-01
+
+`PASS — READY_FOR_HUMAN_VALIDATION`. PAGE_AUDIT and the current v2 artifacts were reread after the shared registry/source changes. Classic and Induction references remain distinct; the approximately 90 ml total claim is reference-bound, cup inclusion is not generalized, and uneven-flow reports remain qualified user observations. Canonical, `noindex,follow`, URL and assets remain unchanged. No decision-relevant `MISSING` item was found.
