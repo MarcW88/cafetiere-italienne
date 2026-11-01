@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "pages": [
+    {
+      "url": "/capacites/cafetiere-italienne-2-tasses/",
+      "reviewed_at": "2026-11-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/capacite-2-tasses-2026-11-01.md"
+    },
+    {
+      "url": "/comparatifs/cafetiere-italienne-induction/",
+      "reviewed_at": "2026-11-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/comparatif-induction-2026-11-01.md"
+    },
+    {
+      "url": "/guides/cafetiere-italienne-fuite-vapeur/",
+      "reviewed_at": "2026-11-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/guide-fuite-vapeur-2026-11-01.md"
+    },
+    {
+      "url": "/marques/giannini/",
+      "reviewed_at": "2026-11-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/marque-giannini-2026-11-01.md"
+    },
+    {
+      "url": "/modeles/bialetti-mini-express/",
+      "reviewed_at": "2026-11-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/modele-bialetti-mini-express-2026-11-01.md"
+    },
+    {
+      "url": "/capacites/cafetiere-italienne-4-tasses/",
+      "reviewed_at": "2026-11-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/capacite-4-tasses-2026-11-01.md"
+    },
+    {
+      "url": "/comparatifs/cafetiere-italienne-inox/",
+      "reviewed_at": "2026-11-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/comparatif-inox-2026-11-01.md"
+    },
+    {
+      "url": "/guides/cafetiere-italienne-induction-compatibilite/",
+      "reviewed_at": "2026-11-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/guide-induction-compatibilite-2026-11-01.md"
+    },
+    {
+      "url": "/modeles/bialetti-moka-express/",
+      "reviewed_at": "2026-11-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/modele-bialetti-moka-express-2026-11-01.md"
+    },
+    {
+      "url": "/capacites/cafetiere-italienne-6-tasses/",
+      "reviewed_at": "2026-11-01",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/capacite-6-tasses-2026-11-01.md"
+    }
+  ]
+}

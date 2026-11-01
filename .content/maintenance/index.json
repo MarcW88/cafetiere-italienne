@@ -1,1 +1,95 @@
-{"schema_version": 1, "pages": {}}
+{
+  "schema_version": 1,
+  "pages": {
+    "/capacites/cafetiere-italienne-2-tasses/": {
+      "last_reviewed": "2026-11-01",
+      "next_review": "2027-01-30",
+      "fingerprint": "c4ffcaa6b20e26a44d75b555f5d3a6edb075a7f75d5aac7e581a02404444b079",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/capacite-2-tasses-2026-11-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/capacity-decision-workflow/SKILL.md"
+    },
+    "/comparatifs/cafetiere-italienne-induction/": {
+      "last_reviewed": "2026-11-01",
+      "next_review": "2026-12-01",
+      "fingerprint": "90f758ee4fc74df6ee0baf67c4dfc2a8ef6992a4261081f873f80bec09b4d7c3",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/comparatif-induction-2026-11-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/comparison-content-workflow/SKILL.md"
+    },
+    "/guides/cafetiere-italienne-fuite-vapeur/": {
+      "last_reviewed": "2026-11-01",
+      "next_review": "2027-01-30",
+      "fingerprint": "d1ccf026dc4bfda5300ea575cd250b8204bee8410e6946fc676dac9207bb1c6d",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/guide-fuite-vapeur-2026-11-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/guide-content-workflow/SKILL.md"
+    },
+    "/marques/giannini/": {
+      "last_reviewed": "2026-11-01",
+      "next_review": "2026-12-16",
+      "fingerprint": "0e6c08ffa57b6c092ca3946512cd5a55db854f682a9766018e313d20dd3ae466",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/marque-giannini-2026-11-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/brand-content-workflow/SKILL.md"
+    },
+    "/modeles/bialetti-mini-express/": {
+      "last_reviewed": "2026-11-01",
+      "next_review": "2026-12-16",
+      "fingerprint": "e596eef012e6010800acb21f7a9800dd5bd05a621b7cdc590de932585f379518",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/modele-bialetti-mini-express-2026-11-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/model-content-workflow/SKILL.md"
+    },
+    "/capacites/cafetiere-italienne-4-tasses/": {
+      "last_reviewed": "2026-11-01",
+      "next_review": "2027-01-30",
+      "fingerprint": "fa46af59c63a151d5805a500422cc60c4eeb166e003b536ffc20ccda8ac4fceb",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/capacite-4-tasses-2026-11-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/capacity-decision-workflow/SKILL.md"
+    },
+    "/comparatifs/cafetiere-italienne-inox/": {
+      "last_reviewed": "2026-11-01",
+      "next_review": "2026-12-01",
+      "fingerprint": "8bf312ed290447291047ef2ac4a773c256e0c385277e9ebcae3b7303da3d174d",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/comparatif-inox-2026-11-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/comparison-content-workflow/SKILL.md"
+    },
+    "/guides/cafetiere-italienne-induction-compatibilite/": {
+      "last_reviewed": "2026-11-01",
+      "next_review": "2027-01-30",
+      "fingerprint": "3c79a339853cf66845d0a80d1c2a403b46d750e60811f391c5626806f7f0d8e0",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/guide-induction-compatibilite-2026-11-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/guide-content-workflow/SKILL.md"
+    },
+    "/modeles/bialetti-moka-express/": {
+      "last_reviewed": "2026-11-01",
+      "next_review": "2026-12-16",
+      "fingerprint": "2b8c882d6dda382562058bb3eab279001253e027dcda46caebbd7b57d4a3dd8a",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/modele-bialetti-moka-express-2026-11-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/model-content-workflow/SKILL.md"
+    },
+    "/capacites/cafetiere-italienne-6-tasses/": {
+      "last_reviewed": "2026-11-01",
+      "next_review": "2027-01-30",
+      "fingerprint": "81511d9bad9eaf77d982bdabc6b20986723faebc4c94a2dcee764f027ed62e64",
+      "decision": "KEEP",
+      "audit_report": ".content/reviews/capacite-6-tasses-2026-11-01.md",
+      "next_action": "NONE",
+      "content_workflow": ".agents/skills/capacity-decision-workflow/SKILL.md"
+    }
+  }
+}
